@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="路由器必须有的3个功能 dns  dhcp  nat   我打算这么做 使用dnsmasq实现dhcp和dns  使用iptables实现nat转发  使用clash+iptables实现透明代理   dnsmasq配置首先关闭系统的dns-resolve服务 12systemctl stop systemd-resolvedsystemctl disable systemd-resolved">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu server作路由器">
+<meta property="og:url" content="https://hinak0.github.io/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/index.html">
+<meta property="og:site_name" content="ONE NOTE">
+<meta property="og:description" content="路由器必须有的3个功能 dns  dhcp  nat   我打算这么做 使用dnsmasq实现dhcp和dns  使用iptables实现nat转发  使用clash+iptables实现透明代理   dnsmasq配置首先关闭系统的dns-resolve服务 12systemctl stop systemd-resolvedsystemctl disable systemd-resolved">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-08T15:43:44.991Z">
+<meta property="article:author" content="hinak0">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://hinak0.github.io/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Ubuntu server作路由器 | ONE NOTE</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ONE NOTE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu server作路由器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-05T00:00:00+08:00">2022-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-08 23:43:44" itemprop="dateModified" datetime="2023-03-08T23:43:44+08:00">2023-03-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="路由器必须有的3个功能"><a href="#路由器必须有的3个功能" class="headerlink" title="路由器必须有的3个功能"></a>路由器必须有的3个功能</h2><ul>
+<li><p>dns</p>
+</li>
+<li><p>dhcp</p>
+</li>
+<li><p>nat</p>
+</li>
+</ul>
+<h2 id="我打算这么做"><a href="#我打算这么做" class="headerlink" title="我打算这么做"></a>我打算这么做</h2><ul>
+<li><p>使用<code>dnsmasq</code>实现dhcp和dns</p>
+</li>
+<li><p>使用<code>iptables</code>实现nat转发</p>
+</li>
+<li><p>使用<code>clash+iptables</code>实现透明代理</p>
+</li>
+</ul>
+<h2 id="dnsmasq配置"><a href="#dnsmasq配置" class="headerlink" title="dnsmasq配置"></a>dnsmasq配置</h2><p>首先关闭系统的dns-resolve服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop systemd-resolved</span><br><span class="line">systemctl disable systemd-resolved</span><br></pre></td></tr></table></figure>
+
+<p>然后配置dnsmasq服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 配置dhcp</span><br><span class="line">dhcp-option=option:router,192.168.1.1</span><br><span class="line">dhcp-option=option:dns-server,192.168.1.1</span><br><span class="line">dhcp-range=192.168.1.129,192.168.1.254,255.255.255.0,1h</span><br><span class="line"></span><br><span class="line"># 配置dns</span><br><span class="line">port=53</span><br><span class="line">strict-order</span><br><span class="line"></span><br><span class="line"># 静态ip以及host</span><br><span class="line">dhcp-host=00:11:22:33:44:55,192.168.1.2,hinak0,infinite</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h2><p>如果只是想做nat,只需要一条规则即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 网卡填自己的wan口</span><br><span class="line">iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+<p>这时候下游主机就可以正常上网了<br>下面配置透明代理</p>
+<h2 id="clash配置"><a href="#clash配置" class="headerlink" title="clash配置"></a>clash配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">port: 7890</span><br><span class="line">socks-port: 7891</span><br><span class="line">redir-port: 7892</span><br><span class="line">allow-lan: true</span><br><span class="line">ipv6: false</span><br><span class="line">mode: Rule</span><br><span class="line">log-level: warning</span><br><span class="line">external-controller: 192.168.1.1:80</span><br><span class="line">secret: &quot;&quot;</span><br><span class="line"># ui自己编译一下就可以了</span><br><span class="line">external-ui: /home/chlen/.config/clash/dist/</span><br><span class="line">hosts:</span><br><span class="line">  &#x27;server&#x27;: 192.168.1.1</span><br><span class="line">  &#x27;hinak0&#x27;: 192.168.1.2</span><br><span class="line">  &#x27;miui&#x27;: 192.168.1.3</span><br><span class="line">dns:</span><br><span class="line">  enable: true</span><br><span class="line">  ipv6: false</span><br><span class="line">  listen: 0.0.0.0:5354</span><br><span class="line">  enhanced-mode: redir-host</span><br><span class="line">  # fake-ip-range: 198.18.0.1/16</span><br><span class="line">  default-nameserver:</span><br><span class="line">    - 114.114.114.114</span><br><span class="line">    - 8.8.8.8</span><br><span class="line">  nameserver:</span><br><span class="line">    - 114.114.114.114 # default value</span><br><span class="line">    - 8.8.8.8 # default value</span><br><span class="line">    - tls://dns.rubyfish.cn:853 # DNS over TLS</span><br><span class="line">    - https://1.1.1.1/dns-query # DNS over HTTPS</span><br></pre></td></tr></table></figure>
+
+<p>这时候主机手动填写系统代理，就可以走代理，但这不是我想要的无感代理,下面配置透明代理</p>
+<h2 id="iptables选择性转发流量到clash"><a href="#iptables选择性转发流量到clash" class="headerlink" title="iptables选择性转发流量到clash"></a>iptables选择性转发流量到clash</h2><p>iptables配置要点：</p>
+<ul>
+<li><p>所有需要的lan流量都发送到proxy</p>
+</li>
+<li><p>所有目标是lan段的流量都放行</p>
+</li>
+<li><p>lan口需要的dns请求都拦截到proxy_dns,防止dns污染</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">lan_ipaddr=&quot;192.168.1.1&quot; # 局域网路由器IP地址</span><br><span class="line">dns_port=&quot;5354&quot;          # DNS转发服务端口</span><br><span class="line">redir_port=&quot;7892&quot;        # 透明代理转发端口</span><br><span class="line"></span><br><span class="line">clearAllRules() &#123;</span><br><span class="line">		# 这里是清除所有规则回到默认状态</span><br><span class="line">        iptables-save | awk &#x27;/^[*]/ &#123; print $1 &#125;</span><br><span class="line">                                                        /^:[A-Z]+ [^-]/ &#123; print $1 &quot; ACCEPT&quot; ; &#125;</span><br><span class="line">    /COMMIT/ &#123; print $0; &#125;&#x27; | iptables-restore</span><br><span class="line">	 	# 这里是配置nat使下游上网</span><br><span class="line">        iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br><span class="line">&#125;</span><br><span class="line">setProxy() &#123;</span><br><span class="line">        # 转发DNS请求到端口 dns_port 解析</span><br><span class="line">        iptables -t nat -N CLASH_DNS</span><br><span class="line">        iptables -t nat -F CLASH_DNS</span><br><span class="line"></span><br><span class="line">        iptables -t nat -A CLASH_DNS -p udp -s $&#123;lan_ipaddr&#125;/24 --dport 53 -j REDIRECT --to-ports $&#123;dns_port&#125;</span><br><span class="line"></span><br><span class="line">        iptables -t nat -A PREROUTING -p udp -s $&#123;lan_ipaddr&#125;/25 --dport 53 -j CLASH_DNS</span><br><span class="line"></span><br><span class="line">        # tcp代理</span><br><span class="line">        iptables -t nat -N CLASH</span><br><span class="line">        iptables -t nat -F CLASH</span><br><span class="line"></span><br><span class="line">        # 目标是lan网段直连</span><br><span class="line">        iptables -t nat -A CLASH -p tcp -d $&#123;lan_ipaddr&#125;/24 -j RETURN</span><br><span class="line"></span><br><span class="line">        # 源于lan的包重定向到CLASH</span><br><span class="line">        iptables -t nat -A CLASH -p tcp -s $&#123;lan_ipaddr&#125;/24 -j REDIRECT --to-ports $&#123;redir_port&#125;</span><br><span class="line"></span><br><span class="line">        # 让CLASH链生效</span><br><span class="line">        iptables -t nat -A PREROUTING -p tcp -s $&#123;lan_ipaddr&#125;/25 -j CLASH</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">clear)</span><br><span class="line">        clearAllRules</span><br><span class="line">        echo &quot;delete rules successfully&quot;</span><br><span class="line">        ;;</span><br><span class="line">set)</span><br><span class="line">        clearAllRules</span><br><span class="line">        setProxy</span><br><span class="line">        echo &quot;set rules successfully&quot;</span><br><span class="line">        ;;</span><br><span class="line">*)</span><br><span class="line">        echo &quot;usage: $0 clear|set&quot;</span><br><span class="line">        exit 0</span><br><span class="line">        ;;</span><br><span class="line">esac</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><h3 id="注册clash为服务"><a href="#注册clash为服务" class="headerlink" title="注册clash为服务"></a>注册clash为服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
+
+<p>写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=clash daemon</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/bin/clash -d /home/chlen/.config/clash/</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>开机自启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start clash.service</span><br><span class="line">systemctl enable clash.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="iptables规则保存"><a href="#iptables规则保存" class="headerlink" title="iptables规则保存"></a>iptables规则保存</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /etc/iptables</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" rel="prev" title="python垃圾回收机制">
+      <i class="fa fa-chevron-left"></i> python垃圾回收机制
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/iptables-%E4%BB%A3%E7%90%86%E6%9C%AC%E6%9C%BA/" rel="next" title="IPtables 代理本机">
+      IPtables 代理本机 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%99%A8%E5%BF%85%E9%A1%BB%E6%9C%89%E7%9A%843%E4%B8%AA%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">路由器必须有的3个功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E6%89%93%E7%AE%97%E8%BF%99%E4%B9%88%E5%81%9A"><span class="nav-number">2.</span> <span class="nav-text">我打算这么做</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dnsmasq%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">dnsmasq配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables%E8%A7%84%E5%88%99"><span class="nav-number">4.</span> <span class="nav-text">iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clash%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">clash配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables%E9%80%89%E6%8B%A9%E6%80%A7%E8%BD%AC%E5%8F%91%E6%B5%81%E9%87%8F%E5%88%B0clash"><span class="nav-number">6.</span> <span class="nav-text">iptables选择性转发流量到clash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">7.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8Cclash%E4%B8%BA%E6%9C%8D%E5%8A%A1"><span class="nav-number">7.1.</span> <span class="nav-text">注册clash为服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables%E8%A7%84%E5%88%99%E4%BF%9D%E5%AD%98"><span class="nav-number">7.2.</span> <span class="nav-text">iptables规则保存</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinak0"
+      src="https://avatars.githubusercontent.com/u/96735231?v=4">
+  <p class="site-author-name" itemprop="name">hinak0</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinak0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinak0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hiak0@qq.com" title="E-Mail → mailto:hiak0@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinak0</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
