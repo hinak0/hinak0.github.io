@@ -1,6 +1,8 @@
 ---
 title: "git进行网站备份"
 date: "2022-03-12"
+categories:
+  - "web"
 ---
 
 ## 构想
