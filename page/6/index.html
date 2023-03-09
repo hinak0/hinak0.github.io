@@ -161,6 +161,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%B1%8F%E8%94%BDcsdn%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%B1%8F%E8%94%BDcsdn%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">屏蔽csdn脚本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-15T00:00:00+08:00">2022-07-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// ==UserScript==</span><br><span class="line">// @name         必应搜索引擎优化</span><br><span class="line">// @namespace    https://tampermonkey.net/</span><br><span class="line">// @version      1.0</span><br><span class="line">// @description  屏蔽csdn</span><br><span class="line">// @author       hinak0</span><br><span class="line">// @match        https://cn.bing.com/*</span><br><span class="line">// @icon         https://www.google.com/s2/favicons?sz=64&amp;domain=bing.com</span><br><span class="line">// @grant        none</span><br><span class="line">// ==/UserScript==</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">	&#x27;use strict&#x27;;</span><br><span class="line">	const resultList = document.querySelectorAll(&quot;main ol#b_results li.b_algo&quot;)</span><br><span class="line">	resultList.forEach(item =&gt; &#123;</span><br><span class="line">		let url = item.querySelector(&quot;cite&quot;).innerHTML</span><br><span class="line"></span><br><span class="line">		if (url.indexOf(&quot;csdn&quot;) !== -1) &#123;</span><br><span class="line">			item.innerHTML = &quot;&lt;strong&gt;已屏蔽csdn&lt;/strong&gt;&quot;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E8%AE%B0%E5%89%8D%E7%AB%AF%E4%B8%A4%E7%A7%8D%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -192,7 +266,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,7 +355,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -316,94 +390,6 @@
 <h2 id="如何屏蔽这种行为？"><a href="#如何屏蔽这种行为？" class="headerlink" title="如何屏蔽这种行为？"></a>如何屏蔽这种行为？</h2><p>幸好,chrome已经有针对这种行为的应对策略了，经过测试，再进入一个标签页后，如果不进行任何操作，不会触发popstate事件，此举正是为了防范流氓网站。</p>
 <p>但是其他浏览器比如via浏览器，并没有这个功能。</p>
 <p>其他浏览器，如果你想做一个屏蔽流氓网站的插件，可以这么做：在刚刚进入页面时，通过Object.defineProperty()等方法来覆盖history对象的popstate方法，同时设置一个变量保存原本的方法，在用户做出交互行为后恢复popstate方法就好了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6%E6%8E%A2%E7%B4%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6%E6%8E%A2%E7%B4%A2/" class="post-title-link" itemprop="url">校园网认证机制探索</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-06-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-23T00:00:00+08:00">2022-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h2><ul>
-<li>校园网是通过mac区分设备，进行认证的</li>
-<li>某个mac通过认证后，可以通过这个mac上网并且无需验证</li>
-<li>两台设备共享一个mac上网规避设备限制不现实</li>
-</ul>
-<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>要实现两台设备一个mac，可谓是大费周折。首先找来一块支持更换mac的网卡，修改mac发现修改有限制，只能修改为局域mac(类似于私有ip)，而我的手机mac恰好是全局mac,而且安卓修改mac更困难。</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21805731">在 Windows 下修改 MAC 地址时，为什么第 2 个十六进制字符只能是 2、6、A、E 之一？</a></p>
-<p>后来想到手机也有随机mac的功能，于是想到可以使用随机mac认证一个mac，于是实现了两台设备相同mac。</p>
-<h3 id="局域网中，两台设备相同mac会发生什么"><a href="#局域网中，两台设备相同mac会发生什么" class="headerlink" title="局域网中，两台设备相同mac会发生什么"></a>局域网中，两台设备相同mac会发生什么</h3><p>在以前的集线器时代，无非是网卡收到不是发送给自己的数据包，然后提交给操作系统——但是没有应用程序处理这些数据而已。</p>
-<p>但在交换机的端口隔离下，局域网中相同mac的设备可能发生以下情况——自己的请求收不到应答（应答在隔壁呢）于是触发数据重传，导致网络拥堵不堪。</p>
-<p>实际上确实如此，两台设备争抢资源非常严重，网速降至龟速，无法实现平分网速。</p>
-<h3 id="如果此时其中一台设备选择下线呢？"><a href="#如果此时其中一台设备选择下线呢？" class="headerlink" title="如果此时其中一台设备选择下线呢？"></a>如果此时其中一台设备选择下线呢？</h3><p>另一台设备可以正常上网。并且网关不会重新检测设备类型，可以实现绕过设备类型限制</p>
-<p><img src="/images/1655992062756-1024x616.jpg"></p>
-<p>如图，实际上现在是一台pc在正常上网。</p>
-<p>下一步，打算利用mac认证整一个路由器分享校园网。</p>
 
       
     </div>
@@ -490,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

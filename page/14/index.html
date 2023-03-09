@@ -161,6 +161,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/js%E9%98%B2%E6%8A%96%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js%E9%98%B2%E6%8A%96%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">js防抖与深拷贝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-23T00:00:00+08:00">2022-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="js防抖"><a href="#js防抖" class="headerlink" title="js防抖"></a>js防抖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, wait) &#123;</span><br><span class="line">   let timer = null;</span><br><span class="line">   return function (...args) &#123;</span><br><span class="line">      if (timer) clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(() =&gt; &#123;</span><br><span class="line">         fn()</span><br><span class="line">      &#125;, wait)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">function fn() &#123;</span><br><span class="line">   console.log(&quot;hello&quot;);</span><br><span class="line">&#125;</span><br><span class="line">let myFn = debounce(fn, 1000)</span><br></pre></td></tr></table></figure>
+
+<p>值得注意的是，应该在使用时调用myFn（）这个函数（这里应该是形成了闭包），类似下面的代码无法实现功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;debounce(fn, 1000)&quot;&gt;click me&lt;/button&gt;</span><br><span class="line">function debounce(fn, wait) &#123;</span><br><span class="line">   let timer = null;</span><br><span class="line">   if (timer) clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(() =&gt; &#123;</span><br><span class="line">         fn()</span><br><span class="line">   &#125;, wait)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>原因是这种方式实际上是包装了一个新的函数，占据一个新的变量空间，无法访问上一次的timer</p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = [&#123;</span><br><span class="line">   name: &quot;chen&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;, &#123;</span><br><span class="line">   name: &quot;su&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;, &#123;</span><br><span class="line">   name: &quot;hi&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;]</span><br><span class="line">function func() &#123;</span><br><span class="line">   // let obj2 = obj1 // 浅拷贝</span><br><span class="line">   // let obj2 = [...obj1] // 由于obj1内部仍然为对象，依然是浅拷贝</span><br><span class="line">   let obj2 = JSON.parse(JSON.stringify(obj1))  // 深拷贝</span><br><span class="line">   obj2[0].name = &quot;x&quot;</span><br><span class="line">   console.log(&quot;1&quot;,obj1);</span><br><span class="line">   console.log(&quot;2&quot;,obj2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也有通过递归到基本数据类型实现深拷贝的，不再赘述。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%BA%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -192,7 +274,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +367,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
+                <time title="Modified: 2023-03-09 18:16:58" itemprop="dateModified" datetime="2023-03-09T18:16:58+08:00">2023-03-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -379,163 +461,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E5%85%B6%E4%B8%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E5%85%B6%E4%B8%89/" class="post-title-link" itemprop="url">数据结构学习笔记·其三</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-17T00:00:00+08:00">2022-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-09 17:18:39" itemprop="dateModified" datetime="2023-03-09T17:18:39+08:00">2023-03-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>线性表是具有相同特征的数据元素的一个有限序列。</p>
-<p>特征：</p>
-<ul>
-<li>只有一个开头，一个结尾</li>
-<li>元素具有相同特征</li>
-</ul>
-<h2 id="顺序存储结构"><a href="#顺序存储结构" class="headerlink" title="顺序存储结构"></a>顺序存储结构</h2><p>相当于数组的模式</p>
-<p>顺序存储结构存在的问题：</p>
-<ul>
-<li>存储空间分配不灵活</li>
-<li>运算的空间复杂度高</li>
-</ul>
-<h2 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h2><p>在每个元素内存储与它相邻的两个元素的位置</p>
-<h2 id="线性表的操作（ADP）"><a href="#线性表的操作（ADP）" class="headerlink" title="线性表的操作（ADP）"></a>线性表的操作（ADP）</h2><ul>
-<li>初始化线性表</li>
-<li>销毁线性表</li>
-<li>清空线性表</li>
-<li>判断线性表是否为空</li>
-<li>获取表长度</li>
-<li>获取表的某个元素</li>
-<li>定位元素的位置</li>
-<li>获取当前元素的前驱&#x2F;后驱</li>
-<li>插入元素</li>
-<li>删除元素</li>
-<li>遍历元素</li>
-</ul>
-<h1 id="线性表的顺序存储结构表示"><a href="#线性表的顺序存储结构表示" class="headerlink" title="线性表的顺序存储结构表示"></a>线性表的顺序存储结构表示</h1><h2 id="顺序存储："><a href="#顺序存储：" class="headerlink" title="顺序存储："></a>顺序存储：</h2><p>把逻辑上相邻的结构存储到物理上相邻的存储单元</p>
-<h2 id="顺序存储的特点："><a href="#顺序存储的特点：" class="headerlink" title="顺序存储的特点："></a>顺序存储的特点：</h2><ul>
-<li>占用连续的空间，中间不得出现空位置</li>
-<li>根据某个元素的位置可以推出其他元素的位置</li>
-</ul>
-<h2 id="顺序存储结构的定义："><a href="#顺序存储结构的定义：" class="headerlink" title="顺序存储结构的定义："></a>顺序存储结构的定义：</h2><ul>
-<li>最大长度</li>
-<li>数组长度</li>
-<li>元素</li>
-</ul>
-<h2 id="顺序存储结构操作方法："><a href="#顺序存储结构操作方法：" class="headerlink" title="顺序存储结构操作方法："></a>顺序存储结构操作方法：</h2><ul>
-<li>初始化线性表<ol>
-<li>分配存储空间，分配失败返回错误</li>
-<li>设置length为0</li>
-</ol>
-</li>
-<li>销毁线性表<ol>
-<li>释放存储空间，若数组不存在则返回-1</li>
-</ol>
-</li>
-<li>清空线性表<ol>
-<li>设置length为0</li>
-</ol>
-</li>
-<li>判断线性表是否为空<ol>
-<li>length&#x3D;&#x3D;0?return true:return false;</li>
-</ol>
-</li>
-<li>获取表长度<ol>
-<li>返回length成员</li>
-</ol>
-</li>
-<li>获取表的第i个元素<ol>
-<li>判断i是否合理</li>
-<li>返回L.elem[i-1];</li>
-</ol>
-</li>
-<li>定位元素x的位置<ol>
-<li>for(m,index in L){if(m&#x3D;x){return index}};return -1;</li>
-<li><em>平均查找长度就是期望E(x);</em></li>
-</ol>
-</li>
-<li>插入元素<ol>
-<li>判断插入位置是否合法</li>
-<li>判断空间是否已满</li>
-<li>将第n到第i个位置的元素从后到前依次位移来腾出空间（这一步占据了最多的时间）</li>
-<li>将新元素放在第i个位置</li>
-<li>表长加一</li>
-</ol>
-</li>
-<li>删除元素<ol>
-<li>判断删除位置是否合法</li>
-<li>将第n到第i个位置的元素从前到后依次位移（这一步占据了最多的时间）<em>有需要可以用一个变量接受被删除的元素，在之后作为返回值</em></li>
-<li>表长减一</li>
-</ol>
-</li>
-<li>遍历元素</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -607,7 +532,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
