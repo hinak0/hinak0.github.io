@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ONE NOTE">
-<meta property="og:url" content="https://hinak0.github.io/index.html">
+  <meta name="description" content="https代理工作流程 client发送一个http connect 到 proxy , 告诉自己要访问的域名与端口 proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功Connection Established，也就是隧道（tunnel）创建完成。 随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。  有几个重点 proxy 进行dns解析 连接是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http代理与https代理">
+<meta property="og:url" content="https://hinak0.github.io/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="ONE NOTE">
+<meta property="og:description" content="https代理工作流程 client发送一个http connect 到 proxy , 告诉自己要访问的域名与端口 proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功Connection Established，也就是隧道（tunnel）创建完成。 随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。  有几个重点 proxy 进行dns解析 连接是">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-09T14:26:38.000Z">
+<meta property="article:modified_time" content="2023-03-10T11:40:09.852Z">
 <meta property="article:author" content="hinak0">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hinak0.github.io/">
+<link rel="canonical" href="https://hinak0.github.io/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>ONE NOTE</title>
+  <title>http代理与https代理 | ONE NOTE</title>
   
 
 
@@ -155,9 +159,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -173,10 +178,9 @@
       <meta itemprop="name" content="ONE NOTE">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">http代理与https代理</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          http代理与https代理
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -215,7 +219,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="https代理工作流程"><a href="#https代理工作流程" class="headerlink" title="https代理工作流程"></a>https代理工作流程</h2><ul>
+        <h2 id="https代理工作流程"><a href="#https代理工作流程" class="headerlink" title="https代理工作流程"></a>https代理工作流程</h2><ul>
 <li>client发送一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT">http connect</a> 到 proxy , 告诉自己要访问的域名与端口</li>
 <li>proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功<code>Connection Established</code>，也就是隧道（tunnel）创建完成。</li>
 <li>随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。</li>
@@ -231,170 +235,31 @@
 
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://github.com/facert/socket-example">socket-example</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第二弹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-09 18:14:04" itemprop="dateCreated datePublished" datetime="2023-03-09T18:14:04+08:00">2023-03-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-10 19:40:09" itemprop="dateModified" datetime="2023-03-10T19:40:09+08:00">2023-03-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E3%81%AB%E3%81%BB%E3%82%93/" itemprop="url" rel="index"><span itemprop="name">にほん</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="此、彼、夫"><a href="#此、彼、夫" class="headerlink" title="此、彼、夫"></a>此、彼、夫</h2><p>これ	此，距离我比较近<br>それ	彼，距离你比较近<br>あれ	夫，都比较远<br>for example:<br>これわ地図ですか。<br>（is this map?）</p>
-<h2 id="什么人、什么东西"><a href="#什么人、什么东西" class="headerlink" title="什么人、什么东西"></a>什么人、什么东西</h2><p>誰（だれ）　who　礼貌的说法是どなた<br>それわ	what is it</p>
-<h2 id="この-その-あの-后面必须接名词"><a href="#この-その-あの-后面必须接名词" class="headerlink" title="この　その　あの　后面必须接名词"></a>この　その　あの　后面必须接名词</h2><p>この スマートフォン(smart phone)は　李さんのです。<br>（This smart phone belongs to Mr.Li）</p>
-<h2 id="どれ-どの"><a href="#どれ-どの" class="headerlink" title="どれ　どの"></a>どれ　どの</h2><p>前者后面不接名词，后者必须接名词。</p>
-<h2 id="这里、那里、那-里"><a href="#这里、那里、那-里" class="headerlink" title="这里、那里、那~里"></a>这里、那里、那~里</h2><p>ここ	这里<br>そこ	那里<br>あそこ	那~里</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/" rel="prev" title="日本语-第二弹">
+      <i class="fa fa-chevron-left"></i> 日本语-第二弹
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/firstPost/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/firstPost/" class="post-title-link" itemprop="url">Hello New Blog System</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-07 19:17:20" itemprop="dateCreated datePublished" datetime="2023-03-07T19:17:20+08:00">2023-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-10 19:40:09" itemprop="dateModified" datetime="2023-03-10T19:40:09+08:00">2023-03-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="image-function-test"><a href="#image-function-test" class="headerlink" title="image function test"></a>image function test</h2><p><img src="/images/20230307-193718.png" alt="honkai impact 3 rd"><br><img src="/images/20230307-194339.png" alt="under the the treeeee"></p>
-<h2 id="markdown-documents"><a href="#markdown-documents" class="headerlink" title="markdown documents"></a>markdown documents</h2><p><a target="_blank" rel="noopener" href="https://www.markdownguide.org/basic-syntax/">doc</a></p>
-<p><em>This row just used for test if i can post articals by using windows.</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
 
 
 
@@ -446,6 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#https%E4%BB%A3%E7%90%86%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">https代理工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E5%87%A0%E4%B8%AA%E9%87%8D%E7%82%B9"><span class="nav-number">1.0.1.</span> <span class="nav-text">有几个重点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http%E4%BB%A3%E7%90%86%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">http代理工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
