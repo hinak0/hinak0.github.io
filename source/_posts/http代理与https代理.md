@@ -18,7 +18,8 @@ tags:
 
 ## 代码示例
 
-使用python实现一个http and https 代理，省去了http对其他请求方法的支持。
+- 使用python实现一个http and https 代理。
+- 使用多线程来避免阻塞
 
 参考见文末
 ```python
@@ -30,6 +31,7 @@ from urllib.parse import urlparse
 
 
 class RequestHandler(BaseHTTPRequestHandler):
+
 	def _recv_data_from_remote(self, sock):
 		data = b''
 		while True:
@@ -59,28 +61,34 @@ class RequestHandler(BaseHTTPRequestHandler):
 				# 用 IO 多路复用 select 监听套接字是否有数据流
 				r, w, e = select.select(fdset, [], [])
 				if sock in r:
-					data = sock.recv(4096)
-					if len(data) <= 0:
-						break
-					result = self.send_data(remote, data)
-					if result < len(data):
-						raise Exception('failed to send all data')
+					try:
+						data = sock.recv(4096)
+						if len(data) <= 0:
+							break
+						result = self.send_data(remote, data)
+						if result < len(data):
+							raise Exception('failed to send all data')
+					except:
+						pass
 
 				if remote in r:
-					data = remote.recv(4096)
-					if len(data) <= 0:
-						break
-					result = self.send_data(sock, data)
-					if result < len(data):
-						raise Exception('failed to send all data')
+					try:
+						data = remote.recv(4096)
+						if len(data) <= 0:
+							break
+						result = self.send_data(sock, data)
+						if result < len(data):
+							raise Exception('failed to send all data')
+					except:
+						pass
 		except Exception as e:
-			raise(e)
+			raise (e)
 		finally:
 			sock.close()
 			remote.close()
 
 	def do_CONNECT(self):
-		self.log_message(self.path)
+		self.log_message(f"CONNECT {self.path}")
 
 		uri = self.path.split(":")
 		host, port = uri[0], int(uri[1])
@@ -89,25 +97,31 @@ class RequestHandler(BaseHTTPRequestHandler):
 		remote_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		remote_sock.connect((host_ip, port))
 		# 告诉客户端 CONNECT 成功
-		self.wfile.write("{protocol_version} 200 Connection Established\r\n\r\n".format(protocol_version=self.protocol_version).encode())
+		self.wfile.write(
+		    "{protocol_version} 200 Connection Established\r\n\r\n".format(protocol_version=self.protocol_version
+		                                                                   ).encode()
+		)
 
 		# 转发请求
 		self.handle_tcp(self.connection, remote_sock)
 
-	# http get proxy
-	def do_GET(self):
-		self.log_message(self.path)
+	# http proxy
+
+	def do_http(self, method: str):
+		self.log_message(f"{method} {self.path}")
 		uri = urlparse(self.path)
-		scheme, host, path = uri.scheme, uri.hostname, uri.path
+		host, path = uri.hostname, uri.path
 		host_ip = socket.gethostbyname(host)
-		port = 443 if scheme == "https" else 80
+		port = uri.port or 80
 
 		# 为了简单起见，Connection 都为 close, 也就不需要 Proxy-Connection 判断了
 		del self.headers['Proxy-Connection']
 		self.headers['Connection'] = 'close'
 
 		# 构造新的 http 请求
-		send_data = "GET {path} {protocol_version}\r\n".format(path=path, protocol_version=self.protocol_version)
+		send_data = "{method} {path} {protocol_version}\r\n".format(
+		    method=method, path=path, protocol_version=self.protocol_version
+		)
 		headers = ''
 		for key, value in self.headers.items():
 			headers += "{key}: {value}\r\n".format(key=key, value=value)
@@ -118,12 +132,25 @@ class RequestHandler(BaseHTTPRequestHandler):
 		sock.connect((host_ip, port))
 		# 发送请求到目标地址
 		sock.sendall(send_data.encode())
-		data = self._recv_data_from_remote(sock)
+		try:
+			data = self._recv_data_from_remote(sock)
+			self.wfile.write(data)
+		except:
+			self.wfile.write(b"EOF")
 
-		self.wfile.write(data)
+	def do_GET(self):
+		self.do_http("GET")
+
+	def do_HEAD(self):
+		self.do_http("HEAD")
+
+	def do_POST(self):
+		self.do_http("POST")
+
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 	pass
+
 
 if __name__ == '__main__':
 	server = ThreadedHTTPServer(('', 8080), RequestHandler)
