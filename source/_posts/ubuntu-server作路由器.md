@@ -105,58 +105,156 @@ iptables配置要点：
 
 - lan口需要的dns请求都拦截到proxy\_dns,防止dns污染
 
-```
+```bash
 #!/bin/bash
 
-lan_ipaddr="192.168.1.1" # 局域网路由器IP地址
-dns_port="5354"          # DNS转发服务端口
-redir_port="7892"        # 透明代理转发端口
+dns_port=0
+redir_port=0
+tproxy_port=0
+udp_enable=1
+config_dir="/var/local/clash"
+subconverter_dir="/usr/local/lib/subconverter"
+sub_link="http://127.0.0.1:25500/getprofile?name=profiles"
+LEASE_FILE="/var/lib/misc/dnsmasq.leases"
 
+# error break
+set -e
+# line-number for debug
+set -x
+init() {
+        # route rules
+        ip rule add fwmark 1 table 100
+        ip route add local 0.0.0.0/0 dev lo table 100
+
+        # not global addresses
+        ipset create local hash:net
+        ipset add local 0.0.0.0/8
+        ipset add local 127.0.0.0/8
+        ipset add local 10.0.0.0/8
+        ipset add local 169.254.0.0/16
+        ipset add local 192.168.0.0/16
+        ipset add local 224.0.0.0/4
+        ipset add local 240.0.0.0/4
+        ipset add local 172.16.0.0/12
+        ipset add local 100.64.0.0/10
+}
 clearAllRules() {
-		# 这里是清除所有规则回到默认状态
-        iptables-save | awk '/^[*]/ { print $1 }
-                                                        /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; }
-    /COMMIT/ { print $0; }' | iptables-restore
-	 	# 这里是配置nat使下游上网
+        # recovery rules
+        iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
         iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
+        iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP
 }
 setProxy() {
-        # 转发DNS请求到端口 dns_port 解析
+        clearAllRules
+
+        # udp tproxy
+        iptables -t mangle -N CLASH_UDP
+        iptables -t mangle -F CLASH_UDP
+        iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j ACCEPT
+        iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port ${tproxy_port} --tproxy-mark 1
+
+        # DNS redirect
         iptables -t nat -N CLASH_DNS
         iptables -t nat -F CLASH_DNS
+        iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports ${dns_port}
 
-        iptables -t nat -A CLASH_DNS -p udp -s ${lan_ipaddr}/24 --dport 53 -j REDIRECT --to-ports ${dns_port}
+        # tcp redirect
+        iptables -t nat -N CLASH_TCP
+        iptables -t nat -F CLASH_TCP
+        iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports ${redir_port}
 
-        iptables -t nat -A PREROUTING -p udp -s ${lan_ipaddr}/25 --dport 53 -j CLASH_DNS
+        # apply rules
+        if [ $udp_enable -eq 1 ]; then
+                iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+                iptables -t mangle -A PREROUTING -m set --match-set local dst -j ACCEPT
+                iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP
+        fi
 
-        # tcp代理
-        iptables -t nat -N CLASH
-        iptables -t nat -F CLASH
+        # apply rules
+        iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+        iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS
+        iptables -t nat -A PREROUTING -m set --match-set local dst -j ACCEPT
+        iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP
+}
+setSelf() {
+        iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
+        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
+        iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
+        iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports ${redir_port}
+}
+update() {
+        # extra
+        cd $subconverter_dir
+        ./subconverter &
+        sleep 3
+        cat $config_dir/config.yaml > $config_dir/past.yaml
+        echo "# `date`" > $config_dir/config.yaml
+        curl $sub_link -s --noproxy '*' >> $config_dir/config.yaml
+        pkill subconverter
 
-        # 目标是lan网段直连
-        iptables -t nat -A CLASH -p tcp -d ${lan_ipaddr}/24 -j RETURN
+        # test
+        clash -d $config_dir -t
+        if [ $? -ne 0 ]; then
+                echo "update failed."
+        else
+                echo "update seccussfully!"
+                # setProxy
+                systemctl restart clash
+                diffConfig
+        fi
+}
+lease(){
+        set +x
+        while read line; do
+                timestamp=$(echo "$line" | awk '{print $1}')
+                mac=$(echo "$line" | awk '{print $2}')
+                ip=$(echo "$line" | awk '{print $3}')
+                host=$(echo "$line" | awk '{print $4}')
 
-        # 源于lan的包重定向到CLASH
-        iptables -t nat -A CLASH -p tcp -s ${lan_ipaddr}/24 -j REDIRECT --to-ports ${redir_port}
+                # Convert the timestamp to a human-readable date
+                date=$(date -d @$timestamp +"%m-%d %H:%M:%S")
 
-        # 让CLASH链生效
-        iptables -t nat -A PREROUTING -p tcp -s ${lan_ipaddr}/25 -j CLASH
+                # Output the result
+                echo "$mac      $date   $ip     $host"
+        done < "$LEASE_FILE"
 }
 
+ban(){
+        iptables -t mangle -I PREROUTING -s $1 -j DROP
+}
+diffConfig(){
+        colordiff -c $config_dir/past.yaml $config_dir/config.yaml
+}
 case "$1" in
-clear)
-        clearAllRules
-        echo "delete rules successfully"
-        ;;
-set)
-        clearAllRules
-        setProxy
-        echo "set rules successfully"
-        ;;
-*)
-        echo "usage: $0 clear|set"
-        exit 0
-        ;;
+        del)
+                clearAllRules
+                ;;
+        set)
+                setProxy
+                ;;
+        update)
+                update
+                ;;
+        init)
+                init
+                ;;
+        self)
+                setSelf
+                ;;
+        lease)
+                lease
+                ;;
+        diff)
+                diffConfig
+                ;;
+        ban)
+                ban $2
+                ;;
+
+        *)
+                echo "HELLO IT'S ME"
+                exit 0
+                ;;
 esac
 exit
 ```
@@ -165,13 +263,13 @@ exit
 
 ### 注册clash为服务
 
-```
+```cmd
 vim /etc/systemd/system/clash.service
 ```
 
 写入
 
-```
+```service
 [Unit]
 Description=clash daemon
 
