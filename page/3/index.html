@@ -164,6 +164,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">UDP代理指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-17T00:00:00+08:00">2022-12-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="为什么udp不能用Redirect"><a href="#为什么udp不能用Redirect" class="headerlink" title="为什么udp不能用Redirect"></a>为什么udp不能用Redirect</h2><h3 id="redirect的原理"><a href="#redirect的原理" class="headerlink" title="redirect的原理"></a>redirect的原理</h3><p>在nat表修改数据包的目标地址,同时netfilter有 SO_ORIGINAL_DST 选项可以支持拿到原目的地址，netfilter 会将包的原目的地址放在 socket 的 SO_ORIGINAL_DST 属性里.代理客户端依次向原目标发起请求.</p>
+<h3 id="为什么udp不能拿到修改前的地址"><a href="#为什么udp不能拿到修改前的地址" class="headerlink" title="为什么udp不能拿到修改前的地址"></a>为什么udp不能拿到修改前的地址</h3><p>udp是一种无连接协议,所以没有socket来拿到修改前的地址,改了就改了.</p>
+<h2 id="udp怎样实现代理"><a href="#udp怎样实现代理" class="headerlink" title="udp怎样实现代理"></a>udp怎样实现代理</h2><p><img src="/images/image.png"></p>
+<p>tproxy是在不修改数据包的前提上,将数据包转发到本地socket,但是这样不够,因为没有改数据包的目标地址,数据包就直接走forword了,所以需要增加一个路由表把所有数据转入本地:</p>
+<p><code>ip route add local 0.0.0.0/0 dev lo table 100</code></p>
+<p>然后增加一个rule,将特定的数据包转入这个路由表:</p>
+<p><code>ip rule add fwmark 1 table 100</code></p>
+<p>最后,该需要走代理的数据包加上这个标记,就可以:</p>
+<p><code>iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port $&#123;tproxy_port&#125; --tproxy-mark 1</code></p>
+<p>如果想代理本机udp,就给本地output增加mark 1:</p>
+<p><code>iptables -t mangle -I OUTPUT -p udp --dport 53 -j MARK --set-mark 1</code></p>
+<p>这样niptables会把本机数据重新路由到prerouting,可以代理本机.</p>
+<h2 id="配置规则"><a href="#配置规则" class="headerlink" title="配置规则"></a>配置规则</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># error break</span><br><span class="line">set -e</span><br><span class="line"># line-number for debug</span><br><span class="line">set -x</span><br><span class="line"></span><br><span class="line">lan_ipaddr=&quot;192.168.1.5&quot;	# 局域网路由器IP地址</span><br><span class="line">dns_port=&quot;5354&quot;				# DNS转发服务端口</span><br><span class="line">redir_port=&quot;7892&quot;				# 透明代理转发端口</span><br><span class="line">tproxy_port=&quot;7893&quot;			# tproxy</span><br><span class="line"></span><br><span class="line"># ip rule add fwmark 1 table 100</span><br><span class="line"># ip route add local 0.0.0.0/0 dev lo table 100</span><br><span class="line">clearAllRules() &#123;</span><br><span class="line">		# 这里是清除所有规则回到默认状态</span><br><span class="line">		iptables-save | awk &#x27;/^[*]/ &#123; print $1 &#125; /^:[A-Z]+ [^-]/ &#123; print $1 &quot; ACCEPT&quot; ; &#125; /COMMIT/ &#123; print $0; &#125;&#x27; | iptables-restore</span><br><span class="line">&#125;</span><br><span class="line">setProxy() &#123;</span><br><span class="line">		# 转发DNS请求到端口 dns_port 解析</span><br><span class="line">		iptables -t nat -N CLASH_DNS</span><br><span class="line">		iptables -t nat -F CLASH_DNS</span><br><span class="line">		iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports $&#123;dns_port&#125;</span><br><span class="line">		iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS</span><br><span class="line"></span><br><span class="line">		# tcp代理 redirect 实现</span><br><span class="line">		iptables -t nat -N CLASH_TCP</span><br><span class="line">		iptables -t nat -F CLASH_TCP</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 0.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 10.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 127.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 169.254.0.0/16 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 172.16.0.0/12 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 192.168.0.0/16 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 224.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 240.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports $&#123;redir_port&#125;</span><br><span class="line">		iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP</span><br><span class="line"></span><br><span class="line">		# udp代理 tproxy实现</span><br><span class="line">		iptables -t mangle -N CLASH_UDP</span><br><span class="line">		iptables -t mangle -F CLASH_UDP</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 0.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 10.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 127.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 169.254.0.0/16 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 172.16.0.0/12 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 192.168.0.0/16 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 224.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 240.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port $&#123;tproxy_port&#125; --tproxy-mark 1</span><br><span class="line">		iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP # 应用规则</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">clear)</span><br><span class="line">		clearAllRules</span><br><span class="line">		echo &quot;delete rules successfully&quot;</span><br><span class="line">		;;</span><br><span class="line">set)</span><br><span class="line">		clearAllRules</span><br><span class="line">		setProxy</span><br><span class="line">		echo &quot;set rules successfully&quot;</span><br><span class="line">		;;</span><br><span class="line">*)</span><br><span class="line">		echo &quot;usage: $0 clear|set&quot;</span><br><span class="line">		exit 0</span><br><span class="line">		;;</span><br><span class="line">esac</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://xtls.github.io/document/level-2/transparent_proxy/transparent_proxy.html#iptables-nftables">透明代理入门 | Project X</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5393fb5e2c87">透明代理 UDP 为什么要用 TProxy？</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.newhanly.com/2020/04/28/clash/">Clash旁路网关设置</a></p>
+<p><a target="_blank" rel="noopener" href="https://guide.v2fly.org/app/tproxy.html">透明代理(TPROXY)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/iptables-%E4%BB%A3%E7%90%86%E6%9C%AC%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +286,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +367,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -363,108 +454,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">python垃圾回收机制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-12-04 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-04T00:00:00+08:00">2022-12-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="为什么要垃圾回收"><a href="#为什么要垃圾回收" class="headerlink" title="为什么要垃圾回收"></a>为什么要垃圾回收</h3><p>程序运行中,有些不再使用的对象持续占有内存,称之为内存泄漏<code>memory leak</code>.内存泄漏导致计算机崩溃.<br>例如,服务程序(长期运行)中发生内存泄漏会导致内存被占满,会导致计算机崩溃.<br>好在python作为一种易用的语言,我们不用亲自进行内存管理(反面的是c语言,程序员必须非常注意内存管理).</p>
-<h3 id="python的垃圾回收机制"><a href="#python的垃圾回收机制" class="headerlink" title="python的垃圾回收机制"></a>python的垃圾回收机制</h3><h5 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h5><p>对每一个对象进行计数,<code>ob_refcnt</code>记录了一个对象被引用的次数.当引用计数归零时,回收对象.(被动触发)<br><code>sys.getrefcount()</code>可以获取一个对象的<code>ob_refcnt</code><br>引用增加的情况：</p>
-<ul>
-<li><p>对象被创建，例如 a&#x3D;23</p>
-</li>
-<li><p>对象被引用，例如 b&#x3D;a</p>
-</li>
-<li><p>对象被作为参数，传入到一个函数中，例如get_refcnt(a)</p>
-</li>
-<li><p>对象作为一个元素，存储在容器中，例如list1&#x3D;[a,a]\</p>
-</li>
-</ul>
-<p>引用减少的情况：</p>
-<ul>
-<li><p>对象的别名被显式销毁，例如del a</p>
-</li>
-<li><p>对象的别名被赋予新的对象，例如a&#x3D;24</p>
-</li>
-<li><p>一个对象离开它的作用域，例如 f 函数执行完毕时，func函数中的局部变量（全局变量不会）</p>
-</li>
-<li><p>对象所在的容器被销毁，或从容器中删除对象</p>
-</li>
-</ul>
-<p>优缺点</p>
-<ul>
-<li><p>优点：被动进行，消耗资源少</p>
-</li>
-<li><p>缺点：无法解决循环引用问题</p>
-</li>
-</ul>
-<h5 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h5><p>一个程序的所有引用关系构成一个有向图,标记清除法就是从顶层对象<code>Roots</code>递归所有引用关系,不可达的对象将会被删除.(主动进行)<br><img src="/images/12021837.png"></p>
-<p><img src="/images/12021837.png"></p>
-<h5 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h5><p>每当对象在某次的的垃圾回收中存活下来时，则将该对象移动至下一代.代数越多,说明这个对象越可能重要,于是减少垃圾回收频率.</p>
-<h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p><a target="_blank" rel="noopener" href="https://binglau7.github.io/2017/01/23/Python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Python内存管理机制——内存模型</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -532,14 +525,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

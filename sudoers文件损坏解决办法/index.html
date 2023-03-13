@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="栈栈的抽象数据类型顺序栈的抽象类型1234567#define MAXSIZE 100typedef struct&amp;#123;   SElemType *base; #底边指针   SElemType *top; #顶指针，指向栈中最后一个元素的下一位   int stakesize; #栈的可用最大容量&amp;#125;SqSack;  顺序栈的一些算法 判断是否为空 S.top &#x3D;&amp;#x3">
+  <meta name="description" content="今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。 本来打算直接su root的，可惜实在记不得密码了 后来打算用pkexec,但是遇到了polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.err">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法·其七">
-<meta property="og:url" content="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/index.html">
+<meta property="og:title" content="sudoers文件损坏解决办法">
+<meta property="og:url" content="https://hinak0.github.io/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
 <meta property="og:site_name" content="ONE NOTE">
-<meta property="og:description" content="栈栈的抽象数据类型顺序栈的抽象类型1234567#define MAXSIZE 100typedef struct&amp;#123;   SElemType *base; #底边指针   SElemType *top; #顶指针，指向栈中最后一个元素的下一位   int stakesize; #栈的可用最大容量&amp;#125;SqSack;  顺序栈的一些算法 判断是否为空 S.top &#x3D;&amp;#x3">
+<meta property="og:description" content="今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。 本来打算直接su root的，可惜实在记不得密码了 后来打算用pkexec,但是遇到了polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.err">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-03-26T16:00:00.000Z">
+<meta property="article:published_time" content="2023-03-13T14:31:10.000Z">
 <meta property="article:modified_time" content="2023-03-13T14:40:34.753Z">
 <meta property="article:author" content="hinak0">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/">
+<link rel="canonical" href="https://hinak0.github.io/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>数据结构与算法·其七 | ONE NOTE</title>
+  <title>sudoers文件损坏解决办法 | ONE NOTE</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据结构与算法·其七<a href="https://github.com/hinak0/hinak0.github.io/blob/master/source/_posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          sudoers文件损坏解决办法<a href="https://github.com/hinak0/hinak0.github.io/blob/master/source/_posts/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
         </h1>
 
         <div class="post-meta">
@@ -191,23 +191,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-27T00:00:00+08:00">2022-03-27</time>
+              <time title="Created: 2023-03-13 22:31:10 / Modified: 22:40:34" itemprop="dateCreated datePublished" datetime="2023-03-13T22:31:10+08:00">2023-03-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
+                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
                 </span>
             </span>
 
@@ -222,59 +216,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h2><h3 id="顺序栈的抽象类型"><a href="#顺序栈的抽象类型" class="headerlink" title="顺序栈的抽象类型"></a>顺序栈的抽象类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#define MAXSIZE 100</span><br><span class="line">typedef struct&#123;</span><br><span class="line">   SElemType *base; #底边指针</span><br><span class="line">   SElemType *top; #顶指针，指向栈中最后一个元素的下一位</span><br><span class="line">   int stakesize; #栈的可用最大容量</span><br><span class="line">&#125;SqSack;</span><br></pre></td></tr></table></figure>
-
-<h3 id="顺序栈的一些算法"><a href="#顺序栈的一些算法" class="headerlink" title="顺序栈的一些算法"></a>顺序栈的一些算法</h3><ul>
-<li>判断是否为空<ul>
-<li>S.top &#x3D;&#x3D; S.base ? true : false;</li>
-</ul>
-</li>
-<li>栈长度<ul>
-<li>return S.top-S.base;</li>
-</ul>
-</li>
-<li>清空栈<ul>
-<li>if(S.base){S.top&#x3D;S.base}</li>
-</ul>
-</li>
-<li>删除栈<ul>
-<li>if(S.base){delete S.base; S.stacksize&#x3D;0;S.base&#x3D;S.top&#x3D;Null}</li>
-</ul>
-</li>
-<li>压栈<ul>
-<li>判断是否满了-&gt;栈顶上移，写入e（*S.top&#x3D;e;S.top++;）</li>
-</ul>
-</li>
-<li>出栈<ul>
-<li>判断是否为空-&gt;获取栈顶元素-&gt;栈顶下移</li>
-</ul>
-</li>
-</ul>
-<h3 id="链栈的抽象数据类型"><a href="#链栈的抽象数据类型" class="headerlink" title="链栈的抽象数据类型"></a>链栈的抽象数据类型</h3><p><strong>只能在链表头部进行操作的特殊链表</strong></p>
-<p>特点：</p>
-<ul>
-<li>不需要头节点</li>
-<li>头指针就是栈顶</li>
-<li>空栈就是头指针指向空</li>
-<li>插入和删除仅发生在栈顶</li>
-</ul>
-<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
-<li>入栈<ul>
-<li>新建一个节点，指针域指向上次的栈顶，修改栈指针</li>
-</ul>
-</li>
-<li>出栈<ul>
-<li>头指针指向下一位，返回上次的*S.top</li>
-</ul>
-</li>
-</ul>
-<h1 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>如果一个对象部分地指向自身，或用自己给自己定义，那么他就是递归的</p>
-<p>如果一个过程直接的或者间接的调用自身，那这个过程是递归的过程</p>
-<h3 id="递归工作栈"><a href="#递归工作栈" class="headerlink" title="递归工作栈"></a>递归工作栈</h3><p>在函数嵌套调用或者递归时，所有进行中的函数都被保存在栈内存中</p>
-<h3 id="递归的优缺点"><a href="#递归的优缺点" class="headerlink" title="递归的优缺点"></a>递归的优缺点</h3><ul>
-<li>优点是程序简洁易读</li>
-<li>缺点是每次调用要生成记录，保存状态信息，稍后要取出状态信息，时间开销大。</li>
-</ul>
+        <p>今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。</p>
+<p>本来打算直接su root的，可惜实在记不得密码了</p>
+<p>后来打算用pkexec,但是遇到了<code>polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.error.failed: no session for cookie</code>的错误</p>
+<p>好在下面这篇博文帮大忙了！</p>
+<p>链接<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wayneliu007/p/10321542.html">Ubuntu改坏sudoers后无法使用sudo的解决办法
+</a></p>
+<p>另外以后不能随便用vim改重要的配置文件！</p>
 
     </div>
 
@@ -290,13 +238,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E5%85%AD/" rel="prev" title="数据结构与算法·其六">
-      <i class="fa fa-chevron-left"></i> 数据结构与算法·其六
+    <a href="/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/" rel="prev" title="http代理与https代理">
+      <i class="fa fa-chevron-left"></i> http代理与https代理
     </a></div>
-      <div class="post-nav-item">
-    <a href="/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/" rel="next" title="01背包问题求解">
-      01背包问题求解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -355,7 +300,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%88"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">栈的抽象数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">顺序栈的抽象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">顺序栈的一些算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%A0%88%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">链栈的抽象数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">算法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%88%E4%B8%8E%E9%80%92%E5%BD%92"><span class="nav-number">2.</span> <span class="nav-text">栈与递归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">2.1.</span> <span class="nav-text">递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%B7%A5%E4%BD%9C%E6%A0%88"><span class="nav-number">2.1.1.</span> <span class="nav-text">递归工作栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">2.1.2.</span> <span class="nav-text">递归的优缺点</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -164,6 +164,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">图的遍历与最小生成树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-27T00:00:00+08:00">2022-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="辅助数组"><a href="#辅助数组" class="headerlink" title="辅助数组"></a>辅助数组</h3><p>记录哪些点访问过</p>
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><ol>
+<li>从某一起始顶点开始后，<strong>优先访问没有访问过的点</strong></li>
+<li>到某一点的所有邻点都被访问后，回退，看看上一个点有没有没有访问的邻点</li>
+<li>进行与前述相似的访问逻辑</li>
+</ol>
+<h3 id="时间效率"><a href="#时间效率" class="headerlink" title="时间效率"></a>时间效率</h3><p>邻接矩阵时间复杂度为O(n**2)，适合访问稠密图</p>
+<p>邻接表时间复杂度O(n+e)，适合访问稀疏图。</p>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><p>从起始点开始，访问他的一级邻居，然后访问他的二级邻居，以此类推。</p>
+<h3 id="时间效率-1"><a href="#时间效率-1" class="headerlink" title="时间效率"></a>时间效率</h3><p>与深度优先相同。</p>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p>生成树：不存在回路的连通图</p>
+<p>无向图的生成树：遍历时<strong>通过的边</strong>组成的集合</p>
+<p>最小生成树：在一个网络中，在所有生成树中，使得各边权值之和最小的生成树，也叫<strong>最小代价生成树</strong>。</p>
+<h3 id="MST性质"><a href="#MST性质" class="headerlink" title="MST性质"></a>MST性质</h3><p><img src="/images/image-10-1024x609.png"></p>
+<h4 id="普利姆算法"><a href="#普利姆算法" class="headerlink" title="普利姆算法"></a>普利姆算法</h4><p>构建最小生成树的方法，使用贪心算法，每次总是选择两个集合之间权值最小的边，一步步构筑最小生成树。</p>
+<p>时间复杂度：O(n**2)</p>
+<h4 id="克鲁斯卡尔算法"><a href="#克鲁斯卡尔算法" class="headerlink" title="克鲁斯卡尔算法"></a>克鲁斯卡尔算法</h4><p>更直接的贪心算法</p>
+<p>直接叫所有顶点组成一个集合，在所有的边中从小到大添加到集合中，若形成环则跳过这个边，直到所有的顶点都联通。</p>
+<p>时间复杂度O(e)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +287,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +377,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -351,96 +443,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">哈夫曼树及其应用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-05-16 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-16T00:00:00+08:00">2022-05-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h3><p>从书中一个节点到另一个节点之间的分支构成两个节点的路径</p>
-<h3 id="结点的路径长度"><a href="#结点的路径长度" class="headerlink" title="结点的路径长度"></a>结点的路径长度</h3><p>两节点间路径的分支</p>
-<h3 id="树的路径长度"><a href="#树的路径长度" class="headerlink" title="树的路径长度"></a>树的路径长度</h3><p>从树根到每一个结点的路径之和</p>
-<p><strong>节点数目相等时，完全二叉树最路径长度最短</strong></p>
-<h3 id="节点的带权路径长度"><a href="#节点的带权路径长度" class="headerlink" title="节点的带权路径长度"></a>节点的带权路径长度</h3><p>路径长度x权重</p>
-<h3 id="树的带权路径长度"><a href="#树的带权路径长度" class="headerlink" title="树的带权路径长度"></a>树的带权路径长度</h3><p>所有结点的带权路径长度之和</p>
-<h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><p>带权路径长度最小的二叉树</p>
-<h2 id="哈夫曼树的构造方法"><a href="#哈夫曼树的构造方法" class="headerlink" title="哈夫曼树的构造方法"></a>哈夫曼树的构造方法</h2><p><img src="/images/image-2-1024x629.png"></p>
-<p>说人话就是从小到大，合并（搭建）哈夫曼树</p>
-<p>需要注意的是，每次合并，都是选择权值最小的两个树（无论是否为单节点）</p>
-<h3 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h3><p><img src="/images/image-3.png"></p>
-<p>构造不等长的前缀编码</p>
-<p><img src="/images/image-4-1024x568.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -508,14 +514,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

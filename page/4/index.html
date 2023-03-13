@@ -164,6 +164,104 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">python垃圾回收机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-04 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-04T00:00:00+08:00">2022-12-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="为什么要垃圾回收"><a href="#为什么要垃圾回收" class="headerlink" title="为什么要垃圾回收"></a>为什么要垃圾回收</h3><p>程序运行中,有些不再使用的对象持续占有内存,称之为内存泄漏<code>memory leak</code>.内存泄漏导致计算机崩溃.<br>例如,服务程序(长期运行)中发生内存泄漏会导致内存被占满,会导致计算机崩溃.<br>好在python作为一种易用的语言,我们不用亲自进行内存管理(反面的是c语言,程序员必须非常注意内存管理).</p>
+<h3 id="python的垃圾回收机制"><a href="#python的垃圾回收机制" class="headerlink" title="python的垃圾回收机制"></a>python的垃圾回收机制</h3><h5 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h5><p>对每一个对象进行计数,<code>ob_refcnt</code>记录了一个对象被引用的次数.当引用计数归零时,回收对象.(被动触发)<br><code>sys.getrefcount()</code>可以获取一个对象的<code>ob_refcnt</code><br>引用增加的情况：</p>
+<ul>
+<li><p>对象被创建，例如 a&#x3D;23</p>
+</li>
+<li><p>对象被引用，例如 b&#x3D;a</p>
+</li>
+<li><p>对象被作为参数，传入到一个函数中，例如get_refcnt(a)</p>
+</li>
+<li><p>对象作为一个元素，存储在容器中，例如list1&#x3D;[a,a]\</p>
+</li>
+</ul>
+<p>引用减少的情况：</p>
+<ul>
+<li><p>对象的别名被显式销毁，例如del a</p>
+</li>
+<li><p>对象的别名被赋予新的对象，例如a&#x3D;24</p>
+</li>
+<li><p>一个对象离开它的作用域，例如 f 函数执行完毕时，func函数中的局部变量（全局变量不会）</p>
+</li>
+<li><p>对象所在的容器被销毁，或从容器中删除对象</p>
+</li>
+</ul>
+<p>优缺点</p>
+<ul>
+<li><p>优点：被动进行，消耗资源少</p>
+</li>
+<li><p>缺点：无法解决循环引用问题</p>
+</li>
+</ul>
+<h5 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h5><p>一个程序的所有引用关系构成一个有向图,标记清除法就是从顶层对象<code>Roots</code>递归所有引用关系,不可达的对象将会被删除.(主动进行)<br><img src="/images/12021837.png"></p>
+<p><img src="/images/12021837.png"></p>
+<h5 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h5><p>每当对象在某次的的垃圾回收中存活下来时，则将该对象移动至下一代.代数越多,说明这个对象越可能重要,于是减少垃圾回收频率.</p>
+<h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p><a target="_blank" rel="noopener" href="https://binglau7.github.io/2017/01/23/Python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Python内存管理机制——内存模型</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%89%8D%E6%AE%B5%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95-prettier%E4%B8%8Eeslint/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +293,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
 
           
@@ -264,7 +362,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,97 +442,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">旁路由配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-07T00:00:00+08:00">2022-10-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="什么是旁路由"><a href="#什么是旁路由" class="headerlink" title="什么是旁路由"></a>什么是旁路由</h2><p>将传统的 终端-路由模式 改为 终端-网关-路由模式 ，数据经过网关的代理，再发送给路由器。</p>
-<h2 id="我为什么使用旁路由"><a href="#我为什么使用旁路由" class="headerlink" title="我为什么使用旁路由"></a>我为什么使用旁路由</h2><p>我的软路由无法连接到宿舍的校园网，并非无法获取ip，而是爱快系统的某些配置导致即使网卡的mac已经经过了校园网的认证(通过其他设备更改mac认证实现)，仍然无法链接上网络。而虚拟机的openwrt系统就能正常上网，推测是爱快的线路检测机制（设置静态路由表也不好使）。</p>
-<p>也许可以让爱快使用openwrt的网络？但是这实在算不上优雅。</p>
-<p>现在宿舍网络采用的是小米路由器连接校园网作为主路由，软路由当作旁路网关的一个结构。</p>
-<h2 id="我的旁路由如何配置"><a href="#我的旁路由如何配置" class="headerlink" title="我的旁路由如何配置"></a>我的旁路由如何配置</h2><p>首先在openwrt上只配置一个lan口，网关配置为主路由，然后ssr允许lan口连接配置。</p>
-<p>然后在爱快上配置dhcp服务，爱快的dhcp管理真的很好用，可以为每个设备配置单独的网关和dns。记得给openwrt分配一个固定的ip，然后给需要留学的设备设置网关为openwrt.</p>
-<p>最后最好关掉小米路由器的dhcp服务。</p>
-<h2 id="为什么要配置防火墙"><a href="#为什么要配置防火墙" class="headerlink" title="为什么要配置防火墙"></a>为什么要配置防火墙</h2><p>在配置完成后，我发现一个问题，电脑网络一切正常，安卓机却只能留学不能访问国内网站（很慢），遂百度之，发现可能是路由器或者安卓的防劫持机制。鉴于电脑正常，我估计是安卓的机制。简单来说就是安卓发送数据的网关是openwrt，却收到了主路由返回的包，认为被劫持了，就不要这个数据包。</p>
-<p>这个帖子讲的比较清楚：<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-2983767-1-1.html">关于N1做旁路由添加 iptables 自定义防火墙规则的见解</a>。</p>
-<p>也就是让旁路网关把数据包源ip改成自己的，再发送出去，这样回复包也会先给网关，再由网关返回终端设备，就不会触发防劫持，也能使去广告等插件正常工作。</p>
-<p>不过这样带来一次ip转换，性能会有微小损失，但是这不是我30m校园网该考虑的事。</p>
-<p><img src="/images/image.png"></p>
-<p>增加了一个跳数</p>
-<p>下一步打算给软路由刷个linux当服务器使，爱快没有root权限实在很限制手脚。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -502,14 +513,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>

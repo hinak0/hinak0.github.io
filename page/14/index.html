@@ -164,6 +164,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/" class="post-title-link" itemprop="url">数据结构与算法·其七</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-27T00:00:00+08:00">2022-03-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h2><h3 id="顺序栈的抽象类型"><a href="#顺序栈的抽象类型" class="headerlink" title="顺序栈的抽象类型"></a>顺序栈的抽象类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#define MAXSIZE 100</span><br><span class="line">typedef struct&#123;</span><br><span class="line">   SElemType *base; #底边指针</span><br><span class="line">   SElemType *top; #顶指针，指向栈中最后一个元素的下一位</span><br><span class="line">   int stakesize; #栈的可用最大容量</span><br><span class="line">&#125;SqSack;</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序栈的一些算法"><a href="#顺序栈的一些算法" class="headerlink" title="顺序栈的一些算法"></a>顺序栈的一些算法</h3><ul>
+<li>判断是否为空<ul>
+<li>S.top &#x3D;&#x3D; S.base ? true : false;</li>
+</ul>
+</li>
+<li>栈长度<ul>
+<li>return S.top-S.base;</li>
+</ul>
+</li>
+<li>清空栈<ul>
+<li>if(S.base){S.top&#x3D;S.base}</li>
+</ul>
+</li>
+<li>删除栈<ul>
+<li>if(S.base){delete S.base; S.stacksize&#x3D;0;S.base&#x3D;S.top&#x3D;Null}</li>
+</ul>
+</li>
+<li>压栈<ul>
+<li>判断是否满了-&gt;栈顶上移，写入e（*S.top&#x3D;e;S.top++;）</li>
+</ul>
+</li>
+<li>出栈<ul>
+<li>判断是否为空-&gt;获取栈顶元素-&gt;栈顶下移</li>
+</ul>
+</li>
+</ul>
+<h3 id="链栈的抽象数据类型"><a href="#链栈的抽象数据类型" class="headerlink" title="链栈的抽象数据类型"></a>链栈的抽象数据类型</h3><p><strong>只能在链表头部进行操作的特殊链表</strong></p>
+<p>特点：</p>
+<ul>
+<li>不需要头节点</li>
+<li>头指针就是栈顶</li>
+<li>空栈就是头指针指向空</li>
+<li>插入和删除仅发生在栈顶</li>
+</ul>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
+<li>入栈<ul>
+<li>新建一个节点，指针域指向上次的栈顶，修改栈指针</li>
+</ul>
+</li>
+<li>出栈<ul>
+<li>头指针指向下一位，返回上次的*S.top</li>
+</ul>
+</li>
+</ul>
+<h1 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>如果一个对象部分地指向自身，或用自己给自己定义，那么他就是递归的</p>
+<p>如果一个过程直接的或者间接的调用自身，那这个过程是递归的过程</p>
+<h3 id="递归工作栈"><a href="#递归工作栈" class="headerlink" title="递归工作栈"></a>递归工作栈</h3><p>在函数嵌套调用或者递归时，所有进行中的函数都被保存在栈内存中</p>
+<h3 id="递归的优缺点"><a href="#递归的优缺点" class="headerlink" title="递归的优缺点"></a>递归的优缺点</h3><ul>
+<li>优点是程序简洁易读</li>
+<li>缺点是每次调用要生成记录，保存状态信息，稍后要取出状态信息，时间开销大。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E5%85%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +321,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,7 +402,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
+                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,103 +449,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%BA%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%BA%94/" class="post-title-link" itemprop="url">数据结构与算法·其五</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-20T00:00:00+08:00">2022-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-12 08:31:22" itemprop="dateModified" datetime="2023-03-12T08:31:22+08:00">2023-03-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><p>好处是从表中任意一点出发均可找到表中其他节点</p>
-<p>遍历操作的终止条件是p!&#x3D;L</p>
-<h3 id="循环链表的合并"><a href="#循环链表的合并" class="headerlink" title="循环链表的合并"></a>循环链表的合并</h3><p>将a表的尾节点指针域指向b表的第一个节点；b的尾结点指向a表的头节点；释放b表的头节点；</p>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><h3 id="具体算法"><a href="#具体算法" class="headerlink" title="具体算法"></a>具体算法</h3><ul>
-<li>插入元素（在i位置之前插入元素e）<ol>
-<li>if(!(p&#x3D;Getelemp_Dul(L,i))) return ERROR;<em>找到要被插入的节点</em></li>
-<li>S&#x3D;new DulNode;S-&gt;data&#x3D;e;</li>
-<li>S-&gt;prior&#x3D;p-&gt;prior;p-&gt;prior-&gt;next&#x3D;S;</li>
-<li>S-&gt;next&#x3D;p;p-&gt;prior&#x3D;s;</li>
-</ol>
-</li>
-<li>删除元素<ol>
-<li>略</li>
-</ol>
-</li>
-</ul>
-<p>双链表更方便了，但是存储空间更大，插入元素要修改更多的指针。</p>
-<h2 id="各种链表的时间效率比较"><a href="#各种链表的时间效率比较" class="headerlink" title="各种链表的时间效率比较"></a>各种链表的时间效率比较</h2><p><img src="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2022-03-20-091836-1024x513.png"></p>
-<p>链表的使用场景是需要频繁增加删除元素；</p>
-<p>顺序表的使用场景是不经常增删，却经常改查；</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -487,14 +520,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
