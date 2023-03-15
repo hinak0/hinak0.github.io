@@ -164,6 +164,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/" class="post-title-link" itemprop="url">Ubuntu server作路由器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-05T00:00:00+08:00">2022-12-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="路由器必须有的3个功能"><a href="#路由器必须有的3个功能" class="headerlink" title="路由器必须有的3个功能"></a>路由器必须有的3个功能</h2><ul>
+<li><p>dns</p>
+</li>
+<li><p>dhcp</p>
+</li>
+<li><p>nat</p>
+</li>
+</ul>
+<h2 id="我打算这么做"><a href="#我打算这么做" class="headerlink" title="我打算这么做"></a>我打算这么做</h2><ul>
+<li><p>使用<code>dnsmasq</code>实现dhcp和dns</p>
+</li>
+<li><p>使用<code>iptables</code>实现nat转发</p>
+</li>
+<li><p>使用<code>clash+iptables</code>实现透明代理</p>
+</li>
+</ul>
+<h2 id="dnsmasq配置"><a href="#dnsmasq配置" class="headerlink" title="dnsmasq配置"></a>dnsmasq配置</h2><p>首先关闭系统的dns-resolve服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop systemd-resolved</span><br><span class="line">systemctl disable systemd-resolved</span><br></pre></td></tr></table></figure>
+
+<p>然后配置dnsmasq服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 配置dhcp</span><br><span class="line">dhcp-option=option:router,192.168.1.1</span><br><span class="line">dhcp-option=option:dns-server,192.168.1.1</span><br><span class="line">dhcp-range=192.168.1.129,192.168.1.254,255.255.255.0,1h</span><br><span class="line"></span><br><span class="line"># 配置dns</span><br><span class="line">port=53</span><br><span class="line">strict-order</span><br><span class="line"></span><br><span class="line"># 静态ip以及host</span><br><span class="line">dhcp-host=00:11:22:33:44:55,192.168.1.2,hinak0,infinite</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h2><p>如果只是想做nat,只需要一条规则即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 网卡填自己的wan口</span><br><span class="line">iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+<p>这时候下游主机就可以正常上网了<br>下面配置透明代理</p>
+<h2 id="clash配置"><a href="#clash配置" class="headerlink" title="clash配置"></a>clash配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">port: 7890</span><br><span class="line">socks-port: 7891</span><br><span class="line">redir-port: 7892</span><br><span class="line">allow-lan: true</span><br><span class="line">ipv6: false</span><br><span class="line">mode: Rule</span><br><span class="line">log-level: warning</span><br><span class="line">external-controller: 192.168.1.1:80</span><br><span class="line">secret: &quot;&quot;</span><br><span class="line"># ui自己编译一下就可以了</span><br><span class="line">external-ui: /home/chlen/.config/clash/dist/</span><br><span class="line">hosts:</span><br><span class="line">  &#x27;server&#x27;: 192.168.1.1</span><br><span class="line">  &#x27;hinak0&#x27;: 192.168.1.2</span><br><span class="line">  &#x27;miui&#x27;: 192.168.1.3</span><br><span class="line">dns:</span><br><span class="line">  enable: true</span><br><span class="line">  ipv6: false</span><br><span class="line">  listen: 0.0.0.0:5354</span><br><span class="line">  enhanced-mode: redir-host</span><br><span class="line">  # fake-ip-range: 198.18.0.1/16</span><br><span class="line">  default-nameserver:</span><br><span class="line">    - 114.114.114.114</span><br><span class="line">    - 8.8.8.8</span><br><span class="line">  nameserver:</span><br><span class="line">    - 114.114.114.114 # default value</span><br><span class="line">    - 8.8.8.8 # default value</span><br><span class="line">    - tls://dns.rubyfish.cn:853 # DNS over TLS</span><br><span class="line">    - https://1.1.1.1/dns-query # DNS over HTTPS</span><br></pre></td></tr></table></figure>
+
+<p>这时候主机手动填写系统代理，就可以走代理，但这不是我想要的无感代理,下面配置透明代理</p>
+<h2 id="iptables选择性转发流量到clash"><a href="#iptables选择性转发流量到clash" class="headerlink" title="iptables选择性转发流量到clash"></a>iptables选择性转发流量到clash</h2><p>iptables配置要点：</p>
+<ul>
+<li><p>所有需要的lan流量都发送到proxy</p>
+</li>
+<li><p>所有目标是lan段的流量都放行</p>
+</li>
+<li><p>lan口需要的dns请求都拦截到proxy_dns,防止dns污染</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">dns_port=0</span><br><span class="line">redir_port=0</span><br><span class="line">tproxy_port=0</span><br><span class="line">udp_enable=1</span><br><span class="line">config_dir=<span class="string">&quot;/var/local/clash&quot;</span></span><br><span class="line">subconverter_dir=<span class="string">&quot;/usr/local/lib/subconverter&quot;</span></span><br><span class="line">sub_link=<span class="string">&quot;http://127.0.0.1:25500/getprofile?name=profiles&quot;</span></span><br><span class="line">LEASE_FILE=<span class="string">&quot;/var/lib/misc/dnsmasq.leases&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># error break</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># line-number for debug</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"><span class="function"><span class="title">init</span></span>() &#123;</span><br><span class="line">        <span class="comment"># route rules</span></span><br><span class="line">        ip rule add fwmark 1 table 100</span><br><span class="line">        ip route add <span class="built_in">local</span> 0.0.0.0/0 dev lo table 100</span><br><span class="line"></span><br><span class="line">        <span class="comment"># not global addresses</span></span><br><span class="line">        ipset create <span class="built_in">local</span> <span class="built_in">hash</span>:net</span><br><span class="line">        ipset add <span class="built_in">local</span> 0.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 127.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 10.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 169.254.0.0/16</span><br><span class="line">        ipset add <span class="built_in">local</span> 192.168.0.0/16</span><br><span class="line">        ipset add <span class="built_in">local</span> 224.0.0.0/4</span><br><span class="line">        ipset add <span class="built_in">local</span> 240.0.0.0/4</span><br><span class="line">        ipset add <span class="built_in">local</span> 172.16.0.0/12</span><br><span class="line">        ipset add <span class="built_in">local</span> 100.64.0.0/10</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">clearAllRules</span></span>() &#123;</span><br><span class="line">        <span class="comment"># recovery rules</span></span><br><span class="line">        iptables-save | awk <span class="string">&#x27;/^[*]/ &#123; print $1 &#125; /^:[A-Z]+ [^-]/ &#123; print $1 &quot; ACCEPT&quot; ; &#125; /COMMIT/ &#123; print $0; &#125;&#x27;</span> | iptables-restore</span><br><span class="line">        iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br><span class="line">        iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">setProxy</span></span>() &#123;</span><br><span class="line">        clearAllRules</span><br><span class="line"></span><br><span class="line">        <span class="comment"># udp tproxy</span></span><br><span class="line">        iptables -t mangle -N CLASH_UDP</span><br><span class="line">        iptables -t mangle -F CLASH_UDP</span><br><span class="line">        iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j ACCEPT</span><br><span class="line">        iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port <span class="variable">$&#123;tproxy_port&#125;</span> --tproxy-mark 1</span><br><span class="line"></span><br><span class="line">        <span class="comment"># DNS redirect</span></span><br><span class="line">        iptables -t nat -N CLASH_DNS</span><br><span class="line">        iptables -t nat -F CLASH_DNS</span><br><span class="line">        iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports <span class="variable">$&#123;dns_port&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># tcp redirect</span></span><br><span class="line">        iptables -t nat -N CLASH_TCP</span><br><span class="line">        iptables -t nat -F CLASH_TCP</span><br><span class="line">        iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports <span class="variable">$&#123;redir_port&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># apply rules</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$udp_enable</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT</span><br><span class="line">                iptables -t mangle -A PREROUTING -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">                iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># apply rules</span></span><br><span class="line">        iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT</span><br><span class="line">        iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS</span><br><span class="line">        iptables -t nat -A PREROUTING -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">        iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">setSelf</span></span>() &#123;</span><br><span class="line">        iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT</span><br><span class="line">        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports <span class="variable">$&#123;dns_port&#125;</span></span><br><span class="line">        iptables -t nat -A OUTPUT -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">        iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports <span class="variable">$&#123;redir_port&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">update</span></span>() &#123;</span><br><span class="line">        <span class="comment"># extra</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$subconverter_dir</span></span><br><span class="line">        ./subconverter &amp;</span><br><span class="line">        <span class="built_in">sleep</span> 3</span><br><span class="line">        <span class="built_in">cat</span> <span class="variable">$config_dir</span>/config.yaml &gt; <span class="variable">$config_dir</span>/past.yaml</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;# `date`&quot;</span> &gt; <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">        curl <span class="variable">$sub_link</span> -s --noproxy <span class="string">&#x27;*&#x27;</span> &gt;&gt; <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">        pkill subconverter</span><br><span class="line"></span><br><span class="line">        <span class="comment"># test</span></span><br><span class="line">        clash -d <span class="variable">$config_dir</span> -t</span><br><span class="line">        <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;update failed.&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;update seccussfully!&quot;</span></span><br><span class="line">                <span class="comment"># setProxy</span></span><br><span class="line">                systemctl restart clash</span><br><span class="line">                diffConfig</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">lease</span></span>()&#123;</span><br><span class="line">        <span class="built_in">set</span> +x</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">read</span> line; <span class="keyword">do</span></span><br><span class="line">                timestamp=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">                mac=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">                ip=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span>)</span><br><span class="line">                host=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $4&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># Convert the timestamp to a human-readable date</span></span><br><span class="line">                <span class="built_in">date</span>=$(<span class="built_in">date</span> -d @<span class="variable">$timestamp</span> +<span class="string">&quot;%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># Output the result</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$mac</span>      <span class="variable">$date</span>   <span class="variable">$ip</span>     <span class="variable">$host</span>&quot;</span></span><br><span class="line">        <span class="keyword">done</span> &lt; <span class="string">&quot;<span class="variable">$LEASE_FILE</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">ban</span></span>()&#123;</span><br><span class="line">        iptables -t mangle -I PREROUTING -s <span class="variable">$1</span> -j DROP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">diffConfig</span></span>()&#123;</span><br><span class="line">        colordiff -c <span class="variable">$config_dir</span>/past.yaml <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        del)</span><br><span class="line">                clearAllRules</span><br><span class="line">                ;;</span><br><span class="line">        <span class="built_in">set</span>)</span><br><span class="line">                setProxy</span><br><span class="line">                ;;</span><br><span class="line">        update)</span><br><span class="line">                update</span><br><span class="line">                ;;</span><br><span class="line">        init)</span><br><span class="line">                init</span><br><span class="line">                ;;</span><br><span class="line">        self)</span><br><span class="line">                setSelf</span><br><span class="line">                ;;</span><br><span class="line">        lease)</span><br><span class="line">                lease</span><br><span class="line">                ;;</span><br><span class="line">        diff)</span><br><span class="line">                diffConfig</span><br><span class="line">                ;;</span><br><span class="line">        ban)</span><br><span class="line">                ban <span class="variable">$2</span></span><br><span class="line">                ;;</span><br><span class="line"></span><br><span class="line">        *)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;HELLO IT&#x27;S ME&quot;</span></span><br><span class="line">                <span class="built_in">exit</span> 0</span><br><span class="line">                ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><h3 id="注册clash为服务"><a href="#注册clash为服务" class="headerlink" title="注册clash为服务"></a>注册clash为服务</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
+
+<p>写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=clash daemon</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/bin/clash -d /home/chlen/.config/clash/</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>开机自启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start clash.service</span><br><span class="line">systemctl enable clash.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="iptables规则保存"><a href="#iptables规则保存" class="headerlink" title="iptables规则保存"></a>iptables规则保存</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /etc/iptables</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +317,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
               </span>
 
           
@@ -293,7 +415,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
               </span>
 
           
@@ -313,121 +435,6 @@
 <h2 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h2><h3 id="配置样例-1"><a href="#配置样例-1" class="headerlink" title="配置样例"></a>配置样例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&quot;eslintConfig&quot;: &#123;</span><br><span class="line">	&quot;ignorePatterns&quot;: [</span><br><span class="line">		&quot;example.js&quot;</span><br><span class="line">	],</span><br><span class="line">	&quot;root&quot;: true,</span><br><span class="line">	&quot;env&quot;: &#123;</span><br><span class="line">		&quot;node&quot;: true</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;extends&quot;: [</span><br><span class="line">		&quot;plugin:vue/essential&quot;,</span><br><span class="line">		&quot;eslint:recommended&quot;</span><br><span class="line">	],</span><br><span class="line">	&quot;parserOptions&quot;: &#123;</span><br><span class="line">		&quot;parser&quot;: &quot;@babel/eslint-parser&quot;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;rules&quot;: &#123;</span><br><span class="line">		&quot;no-use-before-define&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;no-unused-vars&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;no-redeclare&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;indent&quot;: [</span><br><span class="line">			&quot;error&quot;,</span><br><span class="line">			&quot;tab&quot;</span><br><span class="line">		],</span><br><span class="line">		&quot;no-undef&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;no-empty&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;vue/multi-word-component-names&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;vue/require-v-for-key&quot;: &quot;off&quot;,</span><br><span class="line">		&quot;vue/html-indent&quot;: [</span><br><span class="line">			&quot;error&quot;,</span><br><span class="line">			&quot;tab&quot;,</span><br><span class="line">			&#123;</span><br><span class="line">				&quot;attribute&quot;: 1,</span><br><span class="line">				&quot;baseIndent&quot;: 1,</span><br><span class="line">				&quot;closeBracket&quot;: 0,</span><br><span class="line">				&quot;alignAttributesVertically&quot;: true,</span><br><span class="line">				&quot;ignores&quot;: []</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="命令行：eslint-fix-ext-vue-js"><a href="#命令行：eslint-fix-ext-vue-js" class="headerlink" title="命令行：eslint --fix --ext .vue,.js ./"></a>命令行：<code>eslint --fix --ext .vue,.js ./</code></h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">j1900软路由部署笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-20T00:00:00+08:00">2022-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p><code>sudo vim /etc/profile</code>\</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 中文</span><br><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line"># editor</span><br><span class="line">export EDITOR=vim</span><br></pre></td></tr></table></figure>
-
-<p><code>cd /etc/systemd/system/network-online.target.wants/ &amp;&amp; vi systemd-networkd-wait-online.service</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=8sec</span><br></pre></td></tr></table></figure>
-
-<h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h3><p><code>sudo tzselect</code><br><code>sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></p>
-<h3 id="配置apt镜像源"><a href="#配置apt镜像源" class="headerlink" title="配置apt镜像源"></a>配置apt镜像源</h3><p><code>sudo vim /etc/apt/sources.list</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># https://mirrors.tuna.tsinghua.edu.cn/</span><br><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<h3 id="ubuntu配置静态ip"><a href="#ubuntu配置静态ip" class="headerlink" title="ubuntu配置静态ip"></a>ubuntu配置静态ip</h3><ul>
-<li><code>vim /etc/netplan/00-netcfg.yaml</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ethernets:</span><br><span class="line">  enp3s0:</span><br><span class="line">    dhcp4: no</span><br><span class="line">    addresses: [192.168.1.1/24]</span><br><span class="line">  enp4s0:</span><br><span class="line">    dhcp4: true</span><br><span class="line">version: 2</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>sudo netplan apply</code></li>
-</ul>
-<h2 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h2><ul>
-<li><code>sudo apt-get update</code></li>
-<li><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></li>
-<li><code>sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</code></li>
-<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io</code></li>
-</ul>
-<h2 id="docker部署openwrt"><a href="#docker部署openwrt" class="headerlink" title="docker部署openwrt"></a>docker部署openwrt</h2><h3 id="macvlan模式"><a href="#macvlan模式" class="headerlink" title="macvlan模式"></a>macvlan模式</h3><p>1.打开网卡混杂模式<br><code>sudo ip link set enp3s0 promisc on</code><br><code>sudo ip link set enp4s0 promisc on</code></p>
-<p>2.创建网络<br><code>docker network create -d macvlan -o parent=enp3s0 vlan</code><br><code>docker network create -d macvlan -o parent=enp4s0 vwan</code></p>
-<p>3.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code></p>
-<p>4.创建并启动容器<br><code>docker run --name openwrt -d --network none --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 /sbin/init</code></p>
-<p>5.连接网络<br><code>docker network connect vlan openwrt</code><br><code>docker network connect vwan openwrt</code></p>
-<p>6.进入容器并修改相关参数(修改固定ip)<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code></p>
-<p>7.重启<br><code>/etc/init.d/network restart</code></p>
-<h3 id="host模式-网络性能更好"><a href="#host模式-网络性能更好" class="headerlink" title="host模式(网络性能更好)"></a>host模式(网络性能更好)</h3><p>1.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code><br><a target="_blank" rel="noopener" href="https://github.com/SuLingGG/OpenWrt-Docker">OpenWrt-Docker 项目地址</a></p>
-<p>2.创建并启动容器\</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --name openwrt \</span><br><span class="line">-v /mnt/share:/mnt/share \</span><br><span class="line">-d --network host --privileged \</span><br><span class="line">registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 \</span><br><span class="line">/sbin/init</span><br></pre></td></tr></table></figure>
-
-<p>3.进入容器并修改相关参数<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code>\</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ifname &#x27;enp3s0&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.1.1&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;wan&#x27;</span><br><span class="line">        option proto &#x27;dhcp&#x27;</span><br><span class="line">        option ifname &#x27;enp4s0&#x27;</span><br><span class="line">        option hostname &#x27;openwrt</span><br></pre></td></tr></table></figure>
-
-<p>4.重启<br><code>/etc/init.d/network restart</code></p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>1.修改配置前先备份原本的配置文件</p>
-<p>2.docker的openwrt尽量注意避免与主系统冲突，比如不要让主系统和openwrt同时自动挂载设备，可能产生冲突。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">菜鸟教程</a><br><a target="_blank" rel="noopener" href="https://mlapp.cn/376.html">美丽应用</a></p>
-
       
     </div>
 
@@ -513,7 +520,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

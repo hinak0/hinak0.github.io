@@ -164,6 +164,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">j1900软路由部署笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-20T00:00:00+08:00">2022-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/network/" itemprop="url" rel="index"><span itemprop="name">network</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p><code>sudo vim /etc/profile</code>\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 中文</span><br><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line"># editor</span><br><span class="line">export EDITOR=vim</span><br></pre></td></tr></table></figure>
+
+<p><code>cd /etc/systemd/system/network-online.target.wants/ &amp;&amp; vi systemd-networkd-wait-online.service</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">TimeoutStartSec=8sec</span><br></pre></td></tr></table></figure>
+
+<h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h3><p><code>sudo tzselect</code><br><code>sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></p>
+<h3 id="配置apt镜像源"><a href="#配置apt镜像源" class="headerlink" title="配置apt镜像源"></a>配置apt镜像源</h3><p><code>sudo vim /etc/apt/sources.list</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># https://mirrors.tuna.tsinghua.edu.cn/</span><br><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<h3 id="ubuntu配置静态ip"><a href="#ubuntu配置静态ip" class="headerlink" title="ubuntu配置静态ip"></a>ubuntu配置静态ip</h3><ul>
+<li><code>vim /etc/netplan/00-netcfg.yaml</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ethernets:</span><br><span class="line">  enp3s0:</span><br><span class="line">    dhcp4: no</span><br><span class="line">    addresses: [192.168.1.1/24]</span><br><span class="line">  enp4s0:</span><br><span class="line">    dhcp4: true</span><br><span class="line">version: 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>sudo netplan apply</code></li>
+</ul>
+<h2 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h2><ul>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></li>
+<li><code>sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</code></li>
+<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io</code></li>
+</ul>
+<h2 id="docker部署openwrt"><a href="#docker部署openwrt" class="headerlink" title="docker部署openwrt"></a>docker部署openwrt</h2><h3 id="macvlan模式"><a href="#macvlan模式" class="headerlink" title="macvlan模式"></a>macvlan模式</h3><p>1.打开网卡混杂模式<br><code>sudo ip link set enp3s0 promisc on</code><br><code>sudo ip link set enp4s0 promisc on</code></p>
+<p>2.创建网络<br><code>docker network create -d macvlan -o parent=enp3s0 vlan</code><br><code>docker network create -d macvlan -o parent=enp4s0 vwan</code></p>
+<p>3.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code></p>
+<p>4.创建并启动容器<br><code>docker run --name openwrt -d --network none --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 /sbin/init</code></p>
+<p>5.连接网络<br><code>docker network connect vlan openwrt</code><br><code>docker network connect vwan openwrt</code></p>
+<p>6.进入容器并修改相关参数(修改固定ip)<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code></p>
+<p>7.重启<br><code>/etc/init.d/network restart</code></p>
+<h3 id="host模式-网络性能更好"><a href="#host模式-网络性能更好" class="headerlink" title="host模式(网络性能更好)"></a>host模式(网络性能更好)</h3><p>1.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code><br><a target="_blank" rel="noopener" href="https://github.com/SuLingGG/OpenWrt-Docker">OpenWrt-Docker 项目地址</a></p>
+<p>2.创建并启动容器\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --name openwrt \</span><br><span class="line">-v /mnt/share:/mnt/share \</span><br><span class="line">-d --network host --privileged \</span><br><span class="line">registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 \</span><br><span class="line">/sbin/init</span><br></pre></td></tr></table></figure>
+
+<p>3.进入容器并修改相关参数<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code>\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ifname &#x27;enp3s0&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.1.1&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;wan&#x27;</span><br><span class="line">        option proto &#x27;dhcp&#x27;</span><br><span class="line">        option ifname &#x27;enp4s0&#x27;</span><br><span class="line">        option hostname &#x27;openwrt</span><br></pre></td></tr></table></figure>
+
+<p>4.重启<br><code>/etc/init.d/network restart</code></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>1.修改配置前先备份原本的配置文件</p>
+<p>2.docker的openwrt尽量注意避免与主系统冲突，比如不要让主系统和openwrt同时自动挂载设备，可能产生冲突。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">菜鸟教程</a><br><a target="_blank" rel="noopener" href="https://mlapp.cn/376.html">美丽应用</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -195,7 +310,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +397,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
+                <time title="Modified: 2023-03-15 20:37:18" itemprop="dateModified" datetime="2023-03-15T20:37:18+08:00">2023-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,86 +425,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\NetworkList\Profiles</span><br><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\NetworkList\Signatures\Unmanaged</span><br></pre></td></tr></table></figure>
 
 <p>并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，强迫症表示强烈谴责。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">一个错误</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-20T00:00:00+08:00">2022-09-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-13 22:40:34" itemprop="dateModified" datetime="2023-03-13T22:40:34+08:00">2023-03-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operation/" itemprop="url" rel="index"><span itemprop="name">operation</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-sub-islands/">统计子岛屿</a> 问题，如图</p>
-<p><img src="/images/image-1.png"></p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对表格2，采用递归的方法遍历岛屿，在递归时检查一下表格一对应位置是不是陆地。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[][]&#125; grid1</span><br><span class="line"> * @param &#123;number[][]&#125; grid2</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var countSubIslands = function (grid1, grid2) &#123;</span><br><span class="line">	m = grid1.length</span><br><span class="line">	n = grid1[0].length</span><br><span class="line">	count = 0</span><br><span class="line"></span><br><span class="line">	const dfs = (row, col) =&gt; &#123;</span><br><span class="line">		if (</span><br><span class="line">			row &lt; 0 ||</span><br><span class="line">			row &gt;= m ||</span><br><span class="line">			col &lt; 0 ||</span><br><span class="line">			col &gt;= n ||</span><br><span class="line">			grid2[row][col] != 1</span><br><span class="line">		)</span><br><span class="line">			return true</span><br><span class="line">		grid2[row][col] = 2</span><br><span class="line">		let temp = grid1[row][col] === 1</span><br><span class="line">		temp = dfs(row + 1, col) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row - 1, col) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row, col + 1) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row, col - 1) &amp;&amp; temp</span><br><span class="line">		return temp</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (let row = 0; row &lt; m; row++) &#123;</span><br><span class="line">		for (let col = 0; col &lt; n; col++) &#123;</span><br><span class="line">			if (grid2[row][col] === 1 &amp;&amp; dfs(row, col)) &#123;</span><br><span class="line">				count++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return count</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题来了，在递归时需要一个变量保存该点所在岛屿是否是子岛。在上面的代码中，temp这一变量就是这个作用。但是在错误版本中，我把<code>let temp = grid1[row][col] === 1</code>错误的丢掉了<code>let</code>关键字——这使得所有栈中共享一个temp，赋值会改变其他层中<code>temp</code>被覆盖，导致错误。</p>
-<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>js的函数中，变量可以不声明而直接赋值，这一点导致我写着写着就以为自己在写<code>python</code>，排查时完全没想到是语法错误。警钟长鸣！</p>
 
       
     </div>
@@ -476,7 +511,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
