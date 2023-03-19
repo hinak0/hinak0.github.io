@@ -30,7 +30,7 @@
 <meta property="og:description" content="数据库配置首先建表： 12345678910111213CREATE TABLE &#96;user&#96; ( &#96;id&#96; int(11) NOT NULL AUTO_INCREMENT COMMENT &amp;#x27;ID&amp;#x27;, &#96;email&#96; varchar(255) NOT NULL COMMENT &amp;#x27;邮箱&amp;#x27;, &#96;password&#96; varchar(255) NOT NULL CO">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-19T12:51:28.537Z">
+<meta property="article:modified_time" content="2023-03-19T15:09:38.515Z">
 <meta property="article:author" content="hinak0">
 <meta name="twitter:card" content="summary">
 
@@ -208,8 +208,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-19 20:51:28" itemprop="dateModified" datetime="2023-03-19T20:51:28+08:00">2023-03-19</time>
+                <time title="Modified: 2023-03-19 23:09:38" itemprop="dateModified" datetime="2023-03-19T23:09:38+08:00">2023-03-19</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
 
           
 
@@ -226,7 +235,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `user` (</span><br><span class="line"> `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &#x27;ID&#x27;,</span><br><span class="line"> `email` varchar(255) NOT NULL COMMENT &#x27;邮箱&#x27;,</span><br><span class="line"> `password` varchar(255) NOT NULL COMMENT &#x27;密码&#x27;,</span><br><span class="line"> `username` varchar(255) NOT NULL COMMENT &#x27;姓名&#x27;,</span><br><span class="line"> PRIMARY KEY (`id`),</span><br><span class="line"> UNIQUE KEY `email` (`email`) USING BTREE</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO `user` VALUES (&#x27;1&#x27;, &#x27;1@qq.com&#x27;, &#x27;123456&#x27;, &#x27;张三&#x27;);</span><br><span class="line">INSERT INTO `user` VALUES (&#x27;2&#x27;, &#x27;2@qq.com&#x27;, &#x27;234567&#x27;, &#x27;李四&#x27;);</span><br><span class="line">INSERT INTO `user` VALUES (&#x27;3&#x27;, &#x27;3@qq.com&#x27;, &#x27;345678&#x27;, &#x27;王五&#x27;);</span><br></pre></td></tr></table></figure>
 
 <p>主程序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 主程序类</span><br><span class="line"> * </span><br><span class="line">//  * @SpringBootApplication：这是一个SpringBoot应用</span><br><span class="line"> */</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class MainApplication &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      SpringApplication.run(MainApplication.class, args);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 主程序类</span><br><span class="line"> *</span><br><span class="line">//  * @SpringBootApplication：这是一个SpringBoot应用</span><br><span class="line"> */</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class MainApplication &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      SpringApplication.run(MainApplication.class, args);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>新建一个路由</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// @ResponseBody</span><br><span class="line">// @Controller</span><br><span class="line"></span><br><span class="line">// 这个注解集成了以上两个</span><br><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line">   @ResponseBody</span><br><span class="line">   @RequestMapping(&quot;/hello&quot;)</span><br><span class="line">   public String Handle01() &#123;</span><br><span class="line">      return &quot;hello,spring boot&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -341,7 +350,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
