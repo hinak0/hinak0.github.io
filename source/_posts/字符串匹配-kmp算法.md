@@ -2,7 +2,7 @@
 title: "字符串匹配——KMP算法"
 date: "2022-04-15"
 categories:
-  - "operation"
+  - "算法"
 ---
 
 ## 题目

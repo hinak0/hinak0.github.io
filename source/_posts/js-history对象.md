@@ -2,7 +2,7 @@
 title: "JS HISTORY对象"
 date: "2022-07-10"
 categories:
-  - "web"
+  - "web技术"
 ---
 
 ## history是什么

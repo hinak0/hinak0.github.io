@@ -1,6 +1,8 @@
 ---
 title: "SpringBoot初试"
 date: "2022-04-05"
+categories:
+  - "后端"
 ---
 
 ## 数据库配置
@@ -28,7 +30,7 @@ INSERT INTO `user` VALUES ('3', '3@qq.com', '345678', '王五');
 ```
 /**
  * 主程序类
- * 
+ *
 //  * @SpringBootApplication：这是一个SpringBoot应用
  */
 @SpringBootApplication

@@ -1,6 +1,8 @@
 ---
 title: "代码格式化配置记录——prettier与eslint"
 date: "2022-10-26"
+categories:
+  - "web技术"
 ---
 
 #### 两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。

@@ -2,7 +2,7 @@
 title: "js防抖与深拷贝"
 date: "2022-03-23"
 categories:
-  - "web"
+  - "web技术"
 ---
 
 ## js防抖

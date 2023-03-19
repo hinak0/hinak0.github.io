@@ -2,7 +2,7 @@
 title: "屏蔽csdn脚本"
 date: "2022-07-15"
 categories:
-  - "web"
+  - "web技术"
 ---
 
 ```

@@ -2,7 +2,7 @@
 title: "Ubuntu server作路由器"
 date: "2022-12-05"
 categories:
-  - "network"
+  - "网络工程"
 ---
 
 ## 路由器必须有的3个功能

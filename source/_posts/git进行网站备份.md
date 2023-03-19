@@ -2,7 +2,7 @@
 title: "git进行网站备份"
 date: "2022-03-12"
 categories:
-  - "web"
+  - "web技术"
 ---
 
 ## 构想

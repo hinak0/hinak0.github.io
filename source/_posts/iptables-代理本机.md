@@ -2,7 +2,7 @@
 title: "IPtables 代理本机"
 date: "2022-12-13"
 categories:
-  - "network"
+  - "网络工程"
 ---
 
 iptables规则:

@@ -2,7 +2,7 @@
 title: "windows网络连接后面的数字怎么去掉"
 date: "2022-09-30"
 categories:
-  - "network"
+  - "网络工程"
 ---
 
 [win8/win10无线网络名称后面的数字怎么删掉或修改?](https://www.zhihu.com/question/21109663)
