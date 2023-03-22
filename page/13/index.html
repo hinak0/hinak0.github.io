@@ -173,6 +173,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D-kmp%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D-kmp%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">字符串匹配——KMP算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-15T00:00:00+08:00">2022-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-22 18:36:28" itemprop="dateModified" datetime="2023-03-22T18:36:28+08:00">2023-03-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>有两个字符串，要求确定较短字符串在较长字符串中的位置。</p>
+<h2 id="暴力匹配"><a href="#暴力匹配" class="headerlink" title="暴力匹配"></a>暴力匹配</h2><p><img src="/images/image-edited.png"></p>
+<p>使用两层循环，一旦不匹配就将子串后移一位，时间复杂度为O(mn)</p>
+<h2 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h2><h3 id="NEXT-数组"><a href="#NEXT-数组" class="headerlink" title="NEXT[]数组"></a>NEXT[]数组</h3><p><img src="/images/image-1.png"></p>
+<p><img src="/images/image-2.png"></p>
+<h3 id="构建next数组"><a href="#构建next数组" class="headerlink" title="构建next数组"></a>构建next数组</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private void getNext(String p, int next[]) &#123;</span><br><span class="line">    int len = p.length();</span><br><span class="line">    int right = 0;</span><br><span class="line">    int left = -1;</span><br><span class="line">    next[0] = -1;</span><br><span class="line">    while (right &lt; len - 1) &#123;</span><br><span class="line">        if (left == -1 || p.charAt(right) == p.charAt(left)) &#123;</span><br><span class="line">            right++;</span><br><span class="line">            left++;</span><br><span class="line">            next[right] = left;</span><br><span class="line">        &#125; else</span><br><span class="line">            left = next[left];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="匹配过程"><a href="#匹配过程" class="headerlink" title="匹配过程"></a>匹配过程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public int strStr(String target, String pattern) &#123;</span><br><span class="line">    if (pattern.length() == 0)</span><br><span class="line">        return 0;</span><br><span class="line">    int t = 0;</span><br><span class="line">    int p = 0;</span><br><span class="line">    int[] next = new int[pattern.length()];</span><br><span class="line">    getNext(pattern, next);</span><br><span class="line">    while (t &lt; target.length() &amp;&amp; p &lt; pattern.length()) &#123;</span><br><span class="line">        if (p == -1 || target.charAt(t) == pattern.charAt(p)) &#123;</span><br><span class="line">            t++;</span><br><span class="line">            p++;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            p = next[p];</span><br><span class="line">        &#125;</span><br><span class="line">        if (p == pattern.length())</span><br><span class="line">            return t - p;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +285,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-21 20:50:33" itemprop="dateModified" datetime="2023-03-21T20:50:33+08:00">2023-03-21</time>
+                <time title="Modified: 2023-03-22 18:36:28" itemprop="dateModified" datetime="2023-03-22T18:36:28+08:00">2023-03-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,7 +375,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-21 20:50:33" itemprop="dateModified" datetime="2023-03-21T20:50:33+08:00">2023-03-21</time>
+                <time title="Modified: 2023-03-22 18:36:28" itemprop="dateModified" datetime="2023-03-22T18:36:28+08:00">2023-03-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -333,91 +414,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 也可以自己修改版本 --&gt;</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">  &lt;mysql.version&gt;5.1.43&lt;/mysql.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
 
 <p>集成了tomcat环境，可以打包成一个完整的项目直接运行，不需要额外配置服务器。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E5%85%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E5%85%AB/" class="post-title-link" itemprop="url">数据结构与算法·其八</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+08:00">2022-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-21 20:50:33" itemprop="dateModified" datetime="2023-03-21T20:50:33+08:00">2023-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>一端插入，一端删除</p>
-<p>线性表中表尾插入，表头删除</p>
-<h3 id="队列的顺序表结构"><a href="#队列的顺序表结构" class="headerlink" title="队列的顺序表结构"></a>队列的顺序表结构</h3><p>存储一个头指针front，一个尾指针rear，表长度Length。</p>
-<p>缺点是在入队出队的过程中，头尾指针均会向表尾移动导致最终发生溢出（rear&#x3D;&#x3D;MaxQSize）</p>
-<h4 id="真假溢出"><a href="#真假溢出" class="headerlink" title="真假溢出"></a>真假溢出</h4><p>真溢出是指顺序表完全占满，</p>
-<p>假溢出指顺序表仍有空位(fromt!&#x3D;0)，但是rear&#x3D;&#x3D;MaxQSize</p>
-<h4 id="解决假溢出"><a href="#解决假溢出" class="headerlink" title="解决假溢出"></a>解决假溢出</h4><ul>
-<li>将所有元素向表头移动（浪费时间）</li>
-<li>将存储空间头尾逻辑上连接在一起，变成循环表（具体实现使用模运算）</li>
-</ul>
-<p>ps:模运算有某种“循环”的意义。</p>
-<h3 id="队列的链表结构"><a href="#队列的链表结构" class="headerlink" title="队列的链表结构"></a>队列的链表结构</h3><p>与顺序表结构相比，没有假溢出的问题，其他操作类似，不再赘述。</p>
 
       
     </div>
@@ -504,7 +500,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

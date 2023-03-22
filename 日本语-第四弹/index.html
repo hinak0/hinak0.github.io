@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="串0个或多个任意字符组成的有限序列称为串 子串串中任意个连续的字符称为该串的子串（包括空串） 子串位置子串第一个字符在父串中的位置 空格串由空格字符组成的串 串的链式存储结构由于串的单个字符占用空间小，所以一个节点只存储一个字符的话，存储密度太低，故而一个节点存储多个字符 串的匹配-KMP算法BF算法，是指经典的循环遍历方法，复杂度为O(n*m) KMP算法是一种牺牲空间来加快速度的算法 http">
+  <meta name="description" content="文法（ぶんぽう） 名詞（めいし）　へ（助词发音e） 動詞（どうし）  吉田さんは　中国へ　行きます 森さんは　日本へ　帰り（かえり）ます 李さんは　どこへ　行きましたか 昨日、どこへ　行きましたか   名詞「場所」　から　動詞  李さんは　先月「せんげつ」　北京から　来ました「きました」   名詞「人」 と　動詞  小野さんは　友達と　帰りました 李さんは　どれと　日本へ　来ましたか">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法·串，数组">
-<meta property="og:url" content="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="日本语-第四弹">
+<meta property="og:url" content="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/index.html">
 <meta property="og:site_name" content="ONE NOTE">
-<meta property="og:description" content="串0个或多个任意字符组成的有限序列称为串 子串串中任意个连续的字符称为该串的子串（包括空串） 子串位置子串第一个字符在父串中的位置 空格串由空格字符组成的串 串的链式存储结构由于串的单个字符占用空间小，所以一个节点只存储一个字符的话，存储密度太低，故而一个节点存储多个字符 串的匹配-KMP算法BF算法，是指经典的循环遍历方法，复杂度为O(n*m) KMP算法是一种牺牲空间来加快速度的算法 http">
+<meta property="og:description" content="文法（ぶんぽう） 名詞（めいし）　へ（助词发音e） 動詞（どうし）  吉田さんは　中国へ　行きます 森さんは　日本へ　帰り（かえり）ます 李さんは　どこへ　行きましたか 昨日、どこへ　行きましたか   名詞「場所」　から　動詞  李さんは　先月「せんげつ」　北京から　来ました「きました」   名詞「人」 と　動詞  小野さんは　友達と　帰りました 李さんは　どれと　日本へ　来ましたか">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-11T16:00:00.000Z">
+<meta property="article:published_time" content="2023-03-22T09:33:39.000Z">
 <meta property="article:modified_time" content="2023-03-22T10:36:28.833Z">
 <meta property="article:author" content="hinak0">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/">
+<link rel="canonical" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>数据结构与算法·串，数组 | ONE NOTE</title>
+  <title>日本语-第四弹 | ONE NOTE</title>
   
 
 
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据结构与算法·串，数组<a href="https://github.com/hinak0/hinak0.github.io/blob/master/source/_posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          日本语-第四弹<a href="https://github.com/hinak0/hinak0.github.io/blob/master/source/_posts/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
         </h1>
 
         <div class="post-meta">
@@ -200,23 +200,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-12T00:00:00+08:00">2022-04-12</time>
+              <time title="Created: 2023-03-22 17:33:39 / Modified: 18:36:28" itemprop="dateCreated datePublished" datetime="2023-03-22T17:33:39+08:00">2023-03-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-22 18:36:28" itemprop="dateModified" datetime="2023-03-22T18:36:28+08:00">2023-03-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
                 </span>
             </span>
 
@@ -231,23 +225,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><p>0个或多个任意字符组成的有限序列称为串</p>
-<h3 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h3><p>串中任意个连续的字符称为该串的<strong>子串</strong>（包括空串）</p>
-<h4 id="子串位置"><a href="#子串位置" class="headerlink" title="子串位置"></a>子串位置</h4><p>子串第一个字符在父串中的位置</p>
-<h4 id="空格串"><a href="#空格串" class="headerlink" title="空格串"></a>空格串</h4><p>由空格字符组成的串</p>
-<h3 id="串的链式存储结构"><a href="#串的链式存储结构" class="headerlink" title="串的链式存储结构"></a>串的链式存储结构</h3><p>由于串的单个字符占用空间小，所以一个节点只存储一个字符的话，存储密度太低，故而一个节点存储多个字符</p>
-<h3 id="串的匹配-KMP算法"><a href="#串的匹配-KMP算法" class="headerlink" title="串的匹配-KMP算法"></a>串的匹配-KMP算法</h3><p>BF算法，是指经典的循环遍历方法，复杂度为O(n*m)</p>
-<p>KMP算法是一种牺牲空间来加快速度的算法</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/83334559">https://zhuanlan.zhihu.com/p/83334559</a>这篇文章讲的很清楚，有时间整理一下</p>
-<p>简单来说，kmp算法先构建出一份图谱来确定不同状态前进或者回退，以及回退多少步。</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>数组中套娃数组，形成二维数组。</p>
-<h4 id="二维数组的逻辑结构"><a href="#二维数组的逻辑结构" class="headerlink" title="二维数组的逻辑结构"></a>二维数组的逻辑结构</h4><ul>
-<li>线性结构：每个元素是定长的数组</li>
-<li>非线性结构：每个元素既在行表中，又在列表中。</li>
+        <h1 id="文法（ぶんぽう）"><a href="#文法（ぶんぽう）" class="headerlink" title="文法（ぶんぽう）"></a>文法（ぶんぽう）</h1><ul>
+<li><p>名詞（めいし）　<strong>へ</strong>（助词发音e） 動詞（どうし）</p>
+<ul>
+<li>吉田さんは　中国へ　行きます</li>
+<li>森さんは　日本へ　帰り（かえり）ます</li>
+<li>李さんは　どこへ　行きましたか</li>
+<li>昨日、どこへ　行きましたか</li>
 </ul>
-<h4 id="二维数组的存储结构"><a href="#二维数组的存储结构" class="headerlink" title="二维数组的存储结构"></a>二维数组的存储结构</h4><h5 id="以行序为主序"><a href="#以行序为主序" class="headerlink" title="以行序为主序"></a>以行序为主序</h5><p>a[i][j]的位置在LOC(i,j)&#x3D;LOC(0,0)+(n*i+j)*L</p>
-<h3 id="矩阵的存储"><a href="#矩阵的存储" class="headerlink" title="矩阵的存储"></a>矩阵的存储</h3><p><strong>常规存储：</strong>存储为二维数组，不适合稀疏矩阵，相同值过多的矩阵</p>
-<p><strong>压缩存储：</strong>对数据有规律的矩阵，可以针对特性，进行压缩存储</p>
+</li>
+<li><p>名詞「場所」　<strong>から</strong>　動詞</p>
+<ul>
+<li>李さんは　先月「せんげつ」　北京から　来ました「きました」</li>
+</ul>
+</li>
+<li><p>名詞「人」 <strong>と</strong>　動詞</p>
+<ul>
+<li>小野さんは　友達と　帰りました</li>
+<li>李さんは　どれと　日本へ　来ましたか</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -263,13 +261,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/springboot%E5%88%9D%E8%AF%95/" rel="prev" title="SpringBoot初试">
-      <i class="fa fa-chevron-left"></i> SpringBoot初试
+    <a href="/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="sudoers文件损坏解决办法">
+      <i class="fa fa-chevron-left"></i> sudoers文件损坏解决办法
     </a></div>
-      <div class="post-nav-item">
-    <a href="/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D-kmp%E7%AE%97%E6%B3%95/" rel="next" title="字符串匹配——KMP算法">
-      字符串匹配——KMP算法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -328,7 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text">串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E4%B8%B2"><span class="nav-number">1.1.</span> <span class="nav-text">子串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E4%B8%B2%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.1.1.</span> <span class="nav-text">子串位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E6%A0%BC%E4%B8%B2"><span class="nav-number">1.1.2.</span> <span class="nav-text">空格串</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text">串的链式存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D-KMP%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">串的匹配-KMP算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">2.1.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">二维数组的逻辑结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.2.</span> <span class="nav-text">二维数组的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%A5%E8%A1%8C%E5%BA%8F%E4%B8%BA%E4%B8%BB%E5%BA%8F"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">以行序为主序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-number">2.2.</span> <span class="nav-text">矩阵的存储</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%B3%95%EF%BC%88%E3%81%B6%E3%82%93%E3%81%BD%E3%81%86%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">文法（ぶんぽう）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
