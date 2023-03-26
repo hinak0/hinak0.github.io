@@ -173,6 +173,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/springboot%E5%88%9D%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/springboot%E5%88%9D%E8%AF%95/" class="post-title-link" itemprop="url">SpringBoot初试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-05T00:00:00+08:00">2022-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><p>首先建表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `user` (</span><br><span class="line"> `id` int(11) NOT NULL AUTO_INCREMENT COMMENT &#x27;ID&#x27;,</span><br><span class="line"> `email` varchar(255) NOT NULL COMMENT &#x27;邮箱&#x27;,</span><br><span class="line"> `password` varchar(255) NOT NULL COMMENT &#x27;密码&#x27;,</span><br><span class="line"> `username` varchar(255) NOT NULL COMMENT &#x27;姓名&#x27;,</span><br><span class="line"> PRIMARY KEY (`id`),</span><br><span class="line"> UNIQUE KEY `email` (`email`) USING BTREE</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO `user` VALUES (&#x27;1&#x27;, &#x27;1@qq.com&#x27;, &#x27;123456&#x27;, &#x27;张三&#x27;);</span><br><span class="line">INSERT INTO `user` VALUES (&#x27;2&#x27;, &#x27;2@qq.com&#x27;, &#x27;234567&#x27;, &#x27;李四&#x27;);</span><br><span class="line">INSERT INTO `user` VALUES (&#x27;3&#x27;, &#x27;3@qq.com&#x27;, &#x27;345678&#x27;, &#x27;王五&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>主程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 主程序类</span><br><span class="line"> *</span><br><span class="line">//  * @SpringBootApplication：这是一个SpringBoot应用</span><br><span class="line"> */</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class MainApplication &#123;</span><br><span class="line">   public static void main(String[] args) &#123;</span><br><span class="line">      SpringApplication.run(MainApplication.class, args);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建一个路由</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// @ResponseBody</span><br><span class="line">// @Controller</span><br><span class="line"></span><br><span class="line">// 这个注解集成了以上两个</span><br><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line">   @ResponseBody</span><br><span class="line">   @RequestMapping(&quot;/hello&quot;)</span><br><span class="line">   public String Handle01() &#123;</span><br><span class="line">      return &quot;hello,spring boot&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后运行主程序，应用就运行起来了，在浏览器输入localhost:8080&#x2F;hello，就能看到消息了。</p>
+<h2 id="体会"><a href="#体会" class="headerlink" title="体会"></a>体会</h2><p>springboot相比ssm，少了很多配置，使用默认配置来简化开发。</p>
+<p>使用父项目来引入依赖(几乎是开发中所有会用到的依赖)，项目不需要自己引入依赖了。</p>
+<p>对父项目的依赖版本不满意，可以自己在pom.xml修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 也可以自己修改版本 --&gt;</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">  &lt;mysql.version&gt;5.1.43&lt;/mysql.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>集成了tomcat环境，可以打包成一个完整的项目直接运行，不需要额外配置服务器。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E5%85%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +293,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,7 +378,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -338,136 +427,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/" class="post-title-link" itemprop="url">数据结构与算法·其七</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-27T00:00:00+08:00">2022-03-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="栈的抽象数据类型"><a href="#栈的抽象数据类型" class="headerlink" title="栈的抽象数据类型"></a>栈的抽象数据类型</h2><h3 id="顺序栈的抽象类型"><a href="#顺序栈的抽象类型" class="headerlink" title="顺序栈的抽象类型"></a>顺序栈的抽象类型</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#define MAXSIZE 100</span><br><span class="line">typedef struct&#123;</span><br><span class="line">   SElemType *base; #底边指针</span><br><span class="line">   SElemType *top; #顶指针，指向栈中最后一个元素的下一位</span><br><span class="line">   int stakesize; #栈的可用最大容量</span><br><span class="line">&#125;SqSack;</span><br></pre></td></tr></table></figure>
-
-<h3 id="顺序栈的一些算法"><a href="#顺序栈的一些算法" class="headerlink" title="顺序栈的一些算法"></a>顺序栈的一些算法</h3><ul>
-<li>判断是否为空<ul>
-<li>S.top &#x3D;&#x3D; S.base ? true : false;</li>
-</ul>
-</li>
-<li>栈长度<ul>
-<li>return S.top-S.base;</li>
-</ul>
-</li>
-<li>清空栈<ul>
-<li>if(S.base){S.top&#x3D;S.base}</li>
-</ul>
-</li>
-<li>删除栈<ul>
-<li>if(S.base){delete S.base; S.stacksize&#x3D;0;S.base&#x3D;S.top&#x3D;Null}</li>
-</ul>
-</li>
-<li>压栈<ul>
-<li>判断是否满了-&gt;栈顶上移，写入e（*S.top&#x3D;e;S.top++;）</li>
-</ul>
-</li>
-<li>出栈<ul>
-<li>判断是否为空-&gt;获取栈顶元素-&gt;栈顶下移</li>
-</ul>
-</li>
-</ul>
-<h3 id="链栈的抽象数据类型"><a href="#链栈的抽象数据类型" class="headerlink" title="链栈的抽象数据类型"></a>链栈的抽象数据类型</h3><p><strong>只能在链表头部进行操作的特殊链表</strong></p>
-<p>特点：</p>
-<ul>
-<li>不需要头节点</li>
-<li>头指针就是栈顶</li>
-<li>空栈就是头指针指向空</li>
-<li>插入和删除仅发生在栈顶</li>
-</ul>
-<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
-<li>入栈<ul>
-<li>新建一个节点，指针域指向上次的栈顶，修改栈指针</li>
-</ul>
-</li>
-<li>出栈<ul>
-<li>头指针指向下一位，返回上次的*S.top</li>
-</ul>
-</li>
-</ul>
-<h1 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h1><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><p>如果一个对象部分地指向自身，或用自己给自己定义，那么他就是递归的</p>
-<p>如果一个过程直接的或者间接的调用自身，那这个过程是递归的过程</p>
-<h3 id="递归工作栈"><a href="#递归工作栈" class="headerlink" title="递归工作栈"></a>递归工作栈</h3><p>在函数嵌套调用或者递归时，所有进行中的函数都被保存在栈内存中</p>
-<h3 id="递归的优缺点"><a href="#递归的优缺点" class="headerlink" title="递归的优缺点"></a>递归的优缺点</h3><ul>
-<li>优点是程序简洁易读</li>
-<li>缺点是每次调用要生成记录，保存状态信息，稍后要取出状态信息，时间开销大。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -535,7 +498,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

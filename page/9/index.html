@@ -173,6 +173,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">js的闭包实现模块化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-22T00:00:00+08:00">2022-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>js可以通过在函数内部定义函数，实现开辟新的作用域，外部无法访问，也就是实现了私有变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line">var Clock = (function () &#123;</span><br><span class="line">	let clock = &#123;</span><br><span class="line">		now: new Date(),</span><br><span class="line">		hr: 0,</span><br><span class="line">		minu: 0,</span><br><span class="line">		sec: 0</span><br><span class="line">	&#125;</span><br><span class="line">	// 初始化钟表对象</span><br><span class="line">	function init(el) &#123;</span><br><span class="line">		clock.canvas = document.querySelector(el)</span><br><span class="line">		clock.ctx = clock.canvas.getContext(&#x27;2d&#x27;)</span><br><span class="line">		clock.canvas.width = clock.canvas.height = 400</span><br><span class="line">		clock.ctx.translate(clock.canvas.width / 2, clock.canvas.width / 2)</span><br><span class="line">	&#125;</span><br><span class="line">	// 画指针的方法</span><br><span class="line">	function _pointer(length, width, base, num) &#123;</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.moveTo(0, 0)</span><br><span class="line">		clock.ctx.lineTo(length * Math.sin(2 * Math.PI * num / base), -length * Math.cos(2 * Math.PI * num / base))</span><br><span class="line">		clock.ctx.lineWidth = width</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line">	&#125;</span><br><span class="line">	function Hour(hr) &#123;</span><br><span class="line">		_pointer(80, 5.5, 12, hr)</span><br><span class="line">	&#125;</span><br><span class="line">	function Minu(minu) &#123;</span><br><span class="line">		_pointer(110, 2.5, 60, minu)</span><br><span class="line">	&#125;</span><br><span class="line">	function Sec(sec) &#123;</span><br><span class="line">		_pointer(150, 1.5, 60, sec)</span><br><span class="line">	&#125;</span><br><span class="line">	// 更新时间</span><br><span class="line">	function update() &#123;</span><br><span class="line">		clock.now = new Date()</span><br><span class="line">		clock.hr = clock.now.getHours()</span><br><span class="line">		clock.minu = clock.now.getMinutes()</span><br><span class="line">		clock.sec = clock.now.getSeconds()</span><br><span class="line"></span><br><span class="line">		// 中点</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.arc(0, 0, 5, 0, 2 * Math.PI)</span><br><span class="line">		clock.ctx.fill()</span><br><span class="line"></span><br><span class="line">		// 表盘</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.arc(0, 0, 180, 0, 2 * Math.PI)</span><br><span class="line">		clock.ctx.lineWidth = &quot;7&quot;</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line"></span><br><span class="line">		// 画刻度</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		for (let i = 0; i &lt; 12; i++) &#123;</span><br><span class="line">			let angle = Math.PI * i / 6</span><br><span class="line">			clock.ctx.moveTo(180 * Math.sin(angle), 180 * Math.cos(angle))</span><br><span class="line">			clock.ctx.lineTo(160 * Math.sin(angle), 160 * Math.cos(angle))</span><br><span class="line">		&#125;</span><br><span class="line">		clock.ctx.lineWidth = &quot;1.5&quot;</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line"></span><br><span class="line">		// 执行函数</span><br><span class="line">		Hour(clock.hr)</span><br><span class="line">		Minu(clock.minu)</span><br><span class="line">		Sec(clock.sec)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 循环动画</span><br><span class="line">	function loop() &#123;</span><br><span class="line">		clock.ctx.clearRect(-1 / 2 * clock.canvas.width, -1 / 2 * clock.canvas.height, clock.canvas.width, clock.canvas.height)</span><br><span class="line">		update()</span><br><span class="line">		window.requestAnimationFrame(loop.bind(this));</span><br><span class="line">	&#125;</span><br><span class="line">	return &#123; init, loop &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>以上实现了一个canvas绘制钟表的模块，效果可见于<a target="_blank" rel="noopener" href="https://deploy.hinak0.xyz/">deploy.hinak0.xyz</a>。</p>
+<p>此模块内所有函数变量，外部均无法访问。</p>
+<p>有以下几点注意：</p>
+<ul>
+<li>非严格模式下，在包内部使用<code>name = &quot;zhangsan&quot;</code>会使变量挂载到全局，严格模式则会报错（未定义的变量不允许使用）</li>
+<li>这种写法代码量比较大，因为使用每个属性时都要带上<code>clock.key</code>这种前缀，代码冗余很大，但是胜在全部变量在一个对象`clock`内部。</li>
+<li>可以使用严格模式+变量均在头部声明来简化代码。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +288,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +364,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -319,98 +403,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%A3%E5%88%97%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%95%A3%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">散列表</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-10T00:00:00+08:00">2022-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="散列表的优缺点"><a href="#散列表的优缺点" class="headerlink" title="散列表的优缺点"></a>散列表的优缺点</h2><ul>
-<li>优点是查找效率高</li>
-<li>缺点是空间浪费大</li>
-</ul>
-<h2 id="散列表如何解决冲突问题"><a href="#散列表如何解决冲突问题" class="headerlink" title="散列表如何解决冲突问题"></a>散列表如何解决冲突问题</h2><ul>
-<li>开放地址法：有冲突就找空位<ul>
-<li>线性探测法：有冲突就顺序查找下一个空位存入。</li>
-<li>二次探测法：有冲突就按照增量序列移动位置继续探测。</li>
-<li>伪随机探测法：有冲突就随机位移几位看看是否有空位</li>
-</ul>
-</li>
-<li>链地址法：相同哈希值的记录连成一个链表</li>
-</ul>
-<h2 id="散列表的查找"><a href="#散列表的查找" class="headerlink" title="散列表的查找"></a>散列表的查找</h2><p>依据哈希值取数，如果查到的不是目标数据，就依据事先定好的冲突方法，继续查找。</p>
-<p>如果目标地址为空，则停止查找，说明没有相关记录。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -478,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -173,6 +173,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">旁路由配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-07T00:00:00+08:00">2022-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是旁路由"><a href="#什么是旁路由" class="headerlink" title="什么是旁路由"></a>什么是旁路由</h2><p>将传统的 终端-路由模式 改为 终端-网关-路由模式 ，数据经过网关的代理，再发送给路由器。</p>
+<h2 id="我为什么使用旁路由"><a href="#我为什么使用旁路由" class="headerlink" title="我为什么使用旁路由"></a>我为什么使用旁路由</h2><p>我的软路由无法连接到宿舍的校园网，并非无法获取ip，而是爱快系统的某些配置导致即使网卡的mac已经经过了校园网的认证(通过其他设备更改mac认证实现)，仍然无法链接上网络。而虚拟机的openwrt系统就能正常上网，推测是爱快的线路检测机制（设置静态路由表也不好使）。</p>
+<p>也许可以让爱快使用openwrt的网络？但是这实在算不上优雅。</p>
+<p>现在宿舍网络采用的是小米路由器连接校园网作为主路由，软路由当作旁路网关的一个结构。</p>
+<h2 id="我的旁路由如何配置"><a href="#我的旁路由如何配置" class="headerlink" title="我的旁路由如何配置"></a>我的旁路由如何配置</h2><p>首先在openwrt上只配置一个lan口，网关配置为主路由，然后ssr允许lan口连接配置。</p>
+<p>然后在爱快上配置dhcp服务，爱快的dhcp管理真的很好用，可以为每个设备配置单独的网关和dns。记得给openwrt分配一个固定的ip，然后给需要留学的设备设置网关为openwrt.</p>
+<p>最后最好关掉小米路由器的dhcp服务。</p>
+<h2 id="为什么要配置防火墙"><a href="#为什么要配置防火墙" class="headerlink" title="为什么要配置防火墙"></a>为什么要配置防火墙</h2><p>在配置完成后，我发现一个问题，电脑网络一切正常，安卓机却只能留学不能访问国内网站（很慢），遂百度之，发现可能是路由器或者安卓的防劫持机制。鉴于电脑正常，我估计是安卓的机制。简单来说就是安卓发送数据的网关是openwrt，却收到了主路由返回的包，认为被劫持了，就不要这个数据包。</p>
+<p>这个帖子讲的比较清楚：<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-2983767-1-1.html">关于N1做旁路由添加 iptables 自定义防火墙规则的见解</a>。</p>
+<p>也就是让旁路网关把数据包源ip改成自己的，再发送出去，这样回复包也会先给网关，再由网关返回终端设备，就不会触发防劫持，也能使去广告等插件正常工作。</p>
+<p>不过这样带来一次ip转换，性能会有微小损失，但是这不是我30m校园网该考虑的事。</p>
+<p><img src="/images/image.png"></p>
+<p>增加了一个跳数</p>
+<p>下一步打算给软路由刷个linux当服务器使，爱快没有root权限实在很限制手脚。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -204,7 +291,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +369,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
+                <time title="Modified: 2023-03-26 22:11:43" itemprop="dateModified" datetime="2023-03-26T22:11:43+08:00">2023-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -327,95 +414,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E7%9F%A5%E4%B9%8E%E7%9A%84%E7%9B%B2%E6%B0%B4%E5%8D%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%9F%A5%E4%B9%8E%E7%9A%84%E7%9B%B2%E6%B0%B4%E5%8D%B0/" class="post-title-link" itemprop="url">知乎的盲水印</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-11T00:00:00+08:00">2022-09-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-26 16:21:11" itemprop="dateModified" datetime="2023-03-26T16:21:11+08:00">2023-03-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>3天前，知乎短暂上架了一个实验性功能——在网页版和app添加肉眼不可见的盲水印。</p>
-<p><img src="/images/FbzA4NyaIAEXRZQ-1024x576.png"></p>
-<p>但是当我查看网页版时，这个功能已经下架了，使用<a target="_blank" rel="noopener" href="https://stegonline.iculture.cc/">图片盲水印在线工具</a>也没办法看到水印了。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>据可以查到的资料，使用了一个透明度为千分之五的svg显示了用户的id，属于是比较粗暴的做法。</p>
-<p>如果使用频域水印，不仅肉眼无法识别，上面的工具也会无可奈何了。</p>
-<p>更多图片隐写术：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Su411X7vY">https://www.bilibili.com/video/BV1Su411X7vY</a> ,防不胜防啊。</p>
-<p>以后打算用这个来拍屏幕替代截图：</p>
-<p><img src="/images/64ee8c4036c29fe3.png"></p>
-<h3 id="对抗"><a href="#对抗" class="headerlink" title="对抗"></a>对抗</h3><p>网页版是最简单的，直接移除元素即可。</p>
-<p>客户端涉及反编译，就比较麻烦。</p>
-<h3 id="一点感想"><a href="#一点感想" class="headerlink" title="一点感想"></a>一点感想</h3><p>技术无罪，图片隐写术用来保护版权，就是干好事，用来驭民，就是坏技术。</p>
-<p>以及，这也是我喜欢使用网页应用而不是app的原因，网页相当于用户是完全透明的，但我至今不知道<code>qqProtect.exe</code>到底保护了什么。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -483,7 +485,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
