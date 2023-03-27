@@ -173,6 +173,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/git%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/git%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%AB%99%E5%A4%87%E4%BB%BD/" class="post-title-link" itemprop="url">git进行网站备份</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-12T00:00:00+08:00">2022-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="构想"><a href="#构想" class="headerlink" title="构想"></a>构想</h2><p>wordpress的数据分成两个部分：网站目录和sql数据库，将这两个部分定时打包并push到gitee</p>
+<h4 id="打包网站目录"><a href="#打包网站目录" class="headerlink" title="打包网站目录"></a>打包网站目录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf /home/chlen/my-services/backup/my-blog.tar /var/lib/docker/volumes/eaaf8ee23fdec167e4599903a297ce3fe9c102c0624f063490b1f72d769a5069</span><br></pre></td></tr></table></figure>
+
+<h4 id="打包数据库"><a href="#打包数据库" class="headerlink" title="打包数据库"></a>打包数据库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/mysqldump -u用户名 -p 数据库名 &gt; /home/chlen/my-services/backup/blog-sql.sql</span><br></pre></td></tr></table></figure>
+
+<h4 id="编写自动脚本打包并上传"><a href="#编写自动脚本打包并上传" class="headerlink" title="编写自动脚本打包并上传"></a>编写自动脚本打包并上传</h4><p>注意备份数据库时需要手动输入密码，为了能执行自动化而不必输入密码，使用pump代替dump,配置方法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql_config_editor  set --login-path=key --host=localhost --user=root --password</span><br><span class="line"># 这里要手动输入密码来生成密钥</span><br></pre></td></tr></table></figure>
+
+<p>完整的sh脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">cd $(cd `dirname $0`;pwd)</span><br><span class="line"></span><br><span class="line"># 备份数据库</span><br><span class="line">mysqlpump --login-path=key 数据库名字 &gt; /home/chlen/my-services/backup/blog-sql.sql</span><br><span class="line"></span><br><span class="line"># 备份网页目录</span><br><span class="line">tar -cvf /home/chlen/my-services/backup/my-blog.tar /var/lib/docker/volumes/eaaf8ee23fdec167e4599903a297ce3fe9c102c0624f063490b1f72d769a5069</span><br><span class="line"></span><br><span class="line"># 同步到git</span><br><span class="line"></span><br><span class="line">git commit -am autosync</span><br><span class="line"></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<h4 id="部署自动任务"><a href="#部署自动任务" class="headerlink" title="部署自动任务"></a>部署自动任务</h4><p>使用root用户来防止没有权限；</p>
+<p>考虑到可能的更新频率，设置3天同步一次；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e；</span><br><span class="line">0 4 * * 1,4 sh /home/chlen/my-services/dev/sync.sh</span><br><span class="line"># 实际是周三，周六各一次</span><br></pre></td></tr></table></figure>
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>原本打算同步整个docker容器镜像，打包后发现有600m，遂放弃；</p>
+<p>（注：docker wordpress博客资源默认存储在数据卷中，所以打包容器是木大的）</p>
+<p>又及，mysql的配置文件太多：</p>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2022-03-12-151537.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/helloworld/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -311,7 +396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -173,6 +173,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E4%B8%B2%EF%BC%8C%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">数据结构与算法·串，数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-12T00:00:00+08:00">2022-04-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="串"><a href="#串" class="headerlink" title="串"></a>串</h2><p>0个或多个任意字符组成的有限序列称为串</p>
+<h3 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h3><p>串中任意个连续的字符称为该串的<strong>子串</strong>（包括空串）</p>
+<h4 id="子串位置"><a href="#子串位置" class="headerlink" title="子串位置"></a>子串位置</h4><p>子串第一个字符在父串中的位置</p>
+<h4 id="空格串"><a href="#空格串" class="headerlink" title="空格串"></a>空格串</h4><p>由空格字符组成的串</p>
+<h3 id="串的链式存储结构"><a href="#串的链式存储结构" class="headerlink" title="串的链式存储结构"></a>串的链式存储结构</h3><p>由于串的单个字符占用空间小，所以一个节点只存储一个字符的话，存储密度太低，故而一个节点存储多个字符</p>
+<h3 id="串的匹配-KMP算法"><a href="#串的匹配-KMP算法" class="headerlink" title="串的匹配-KMP算法"></a>串的匹配-KMP算法</h3><p>BF算法，是指经典的循环遍历方法，复杂度为O(n*m)</p>
+<p>KMP算法是一种牺牲空间来加快速度的算法</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/83334559">https://zhuanlan.zhihu.com/p/83334559</a>这篇文章讲的很清楚，有时间整理一下</p>
+<p>简单来说，kmp算法先构建出一份图谱来确定不同状态前进或者回退，以及回退多少步。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>数组中套娃数组，形成二维数组。</p>
+<h4 id="二维数组的逻辑结构"><a href="#二维数组的逻辑结构" class="headerlink" title="二维数组的逻辑结构"></a>二维数组的逻辑结构</h4><ul>
+<li>线性结构：每个元素是定长的数组</li>
+<li>非线性结构：每个元素既在行表中，又在列表中。</li>
+</ul>
+<h4 id="二维数组的存储结构"><a href="#二维数组的存储结构" class="headerlink" title="二维数组的存储结构"></a>二维数组的存储结构</h4><h5 id="以行序为主序"><a href="#以行序为主序" class="headerlink" title="以行序为主序"></a>以行序为主序</h5><p>a[i][j]的位置在LOC(i,j)&#x3D;LOC(0,0)+(n*i+j)*L</p>
+<h3 id="矩阵的存储"><a href="#矩阵的存储" class="headerlink" title="矩阵的存储"></a>矩阵的存储</h3><p><strong>常规存储：</strong>存储为二维数组，不适合稀疏矩阵，相同值过多的矩阵</p>
+<p><strong>压缩存储：</strong>对数据有规律的矩阵，可以针对特性，进行压缩存储</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/springboot%E5%88%9D%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -329,83 +412,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/" class="post-title-link" itemprop="url">01背包问题求解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+08:00">2022-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wl-blog/p/14913905.html">https://www.cnblogs.com/wl-blog/p/14913905.html</a>，这篇讲的很清楚。</p>
-<h4 id="先上代码："><a href="#先上代码：" class="headerlink" title="先上代码："></a>先上代码：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># N = 4</span><br><span class="line"># V = 5</span><br><span class="line"># obj = [[1, 2], [2, 4], [3, 4], [4, 5]]</span><br><span class="line"></span><br><span class="line">value = [[0 for j in range(V + 1)] for i in range(N + 1)]</span><br><span class="line"></span><br><span class="line">for item in range(1, N + 1):</span><br><span class="line">    for volume in range(1, V + 1):</span><br><span class="line">        value[item][volume] = value[item - 1][volume]</span><br><span class="line">        if volume &gt;= obj[item - 1][0] and value[item][volume]&lt; value[item - 1][volume - obj[item - 1][0]] + obj[item - 1][1]:</span><br><span class="line">            value[item][volume] = value[item - 1][volume -obj[item - 1][0]] + obj[item - 1][1]</span><br></pre></td></tr></table></figure>
-
-<h4 id="大致思路："><a href="#大致思路：" class="headerlink" title="大致思路："></a>大致思路：</h4><p>一个背包在只能选择n-1个物品时达到了最优解，如果此时可以选择第n个物品了(假设剩余容积可以放下该物品)，那么最优解就可以分成两个可能：<strong>选择第i个物品和不选择第i个物品</strong></p>
-<p>于是就可以通过定下初始条件进行递推</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 状态转移方程</span><br><span class="line">f[i][v]=max&#123; f[i-1][v], f[i-1][v-w[i]]+v[i] &#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果不选择第i个物品，那么最大价值和f[i-1][v]相同</p>
-<p>如果选择第i个物品，最大价值&#x3D;容量为v-w[i]时的最大价值（最优解）+i物品的价值</p>
-<p><img src="/images/5c87c673e6c36.jpeg"></p>
-<p>好图，偷了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -477,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

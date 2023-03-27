@@ -173,6 +173,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">一个错误</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-20T00:00:00+08:00">2022-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-sub-islands/">统计子岛屿</a> 问题，如图</p>
+<p><img src="/images/image-1.png"></p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对表格2，采用递归的方法遍历岛屿，在递归时检查一下表格一对应位置是不是陆地。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[][]&#125; grid1</span><br><span class="line"> * @param &#123;number[][]&#125; grid2</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var countSubIslands = function (grid1, grid2) &#123;</span><br><span class="line">	m = grid1.length</span><br><span class="line">	n = grid1[0].length</span><br><span class="line">	count = 0</span><br><span class="line"></span><br><span class="line">	const dfs = (row, col) =&gt; &#123;</span><br><span class="line">		if (</span><br><span class="line">			row &lt; 0 ||</span><br><span class="line">			row &gt;= m ||</span><br><span class="line">			col &lt; 0 ||</span><br><span class="line">			col &gt;= n ||</span><br><span class="line">			grid2[row][col] != 1</span><br><span class="line">		)</span><br><span class="line">			return true</span><br><span class="line">		grid2[row][col] = 2</span><br><span class="line">		let temp = grid1[row][col] === 1</span><br><span class="line">		temp = dfs(row + 1, col) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row - 1, col) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row, col + 1) &amp;&amp; temp</span><br><span class="line">		temp = dfs(row, col - 1) &amp;&amp; temp</span><br><span class="line">		return temp</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	for (let row = 0; row &lt; m; row++) &#123;</span><br><span class="line">		for (let col = 0; col &lt; n; col++) &#123;</span><br><span class="line">			if (grid2[row][col] === 1 &amp;&amp; dfs(row, col)) &#123;</span><br><span class="line">				count++</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return count</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题来了，在递归时需要一个变量保存该点所在岛屿是否是子岛。在上面的代码中，temp这一变量就是这个作用。但是在错误版本中，我把<code>let temp = grid1[row][col] === 1</code>错误的丢掉了<code>let</code>关键字——这使得所有栈中共享一个temp，赋值会改变其他层中<code>temp</code>被覆盖，导致错误。</p>
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>js的函数中，变量可以不声明而直接赋值，这一点导致我写着写着就以为自己在写<code>python</code>，排查时完全没想到是语法错误。警钟长鸣！</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E7%9F%A5%E4%B9%8E%E7%9A%84%E7%9B%B2%E6%B0%B4%E5%8D%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,73 +405,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%B1%8F%E8%94%BDcsdn%E8%84%9A%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B1%8F%E8%94%BDcsdn%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">屏蔽csdn脚本</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-15T00:00:00+08:00">2022-07-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// ==UserScript==</span><br><span class="line">// @name         必应搜索引擎优化</span><br><span class="line">// @namespace    https://tampermonkey.net/</span><br><span class="line">// @version      1.0</span><br><span class="line">// @description  屏蔽csdn</span><br><span class="line">// @author       hinak0</span><br><span class="line">// @match        https://cn.bing.com/*</span><br><span class="line">// @icon         https://www.google.com/s2/favicons?sz=64&amp;domain=bing.com</span><br><span class="line">// @grant        none</span><br><span class="line">// ==/UserScript==</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">	&#x27;use strict&#x27;;</span><br><span class="line">	const resultList = document.querySelectorAll(&quot;main ol#b_results li.b_algo&quot;)</span><br><span class="line">	resultList.forEach(item =&gt; &#123;</span><br><span class="line">		let url = item.querySelector(&quot;cite&quot;).innerHTML</span><br><span class="line"></span><br><span class="line">		if (url.indexOf(&quot;csdn&quot;) !== -1) &#123;</span><br><span class="line">			item.innerHTML = &quot;&lt;strong&gt;已屏蔽csdn&lt;/strong&gt;&quot;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -470,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

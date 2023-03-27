@@ -173,6 +173,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/" class="post-title-link" itemprop="url">01背包问题求解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+08:00">2022-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>参考自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wl-blog/p/14913905.html">https://www.cnblogs.com/wl-blog/p/14913905.html</a>，这篇讲的很清楚。</p>
+<h4 id="先上代码："><a href="#先上代码：" class="headerlink" title="先上代码："></a>先上代码：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># N = 4</span><br><span class="line"># V = 5</span><br><span class="line"># obj = [[1, 2], [2, 4], [3, 4], [4, 5]]</span><br><span class="line"></span><br><span class="line">value = [[0 for j in range(V + 1)] for i in range(N + 1)]</span><br><span class="line"></span><br><span class="line">for item in range(1, N + 1):</span><br><span class="line">    for volume in range(1, V + 1):</span><br><span class="line">        value[item][volume] = value[item - 1][volume]</span><br><span class="line">        if volume &gt;= obj[item - 1][0] and value[item][volume]&lt; value[item - 1][volume - obj[item - 1][0]] + obj[item - 1][1]:</span><br><span class="line">            value[item][volume] = value[item - 1][volume -obj[item - 1][0]] + obj[item - 1][1]</span><br></pre></td></tr></table></figure>
+
+<h4 id="大致思路："><a href="#大致思路：" class="headerlink" title="大致思路："></a>大致思路：</h4><p>一个背包在只能选择n-1个物品时达到了最优解，如果此时可以选择第n个物品了(假设剩余容积可以放下该物品)，那么最优解就可以分成两个可能：<strong>选择第i个物品和不选择第i个物品</strong></p>
+<p>于是就可以通过定下初始条件进行递推</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 状态转移方程</span><br><span class="line">f[i][v]=max&#123; f[i-1][v], f[i-1][v-w[i]]+v[i] &#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果不选择第i个物品，那么最大价值和f[i-1][v]相同</p>
+<p>如果选择第i个物品，最大价值&#x3D;容量为v-w[i]时的最大价值（最优解）+i物品的价值</p>
+<p><img src="/images/5c87c673e6c36.jpeg"></p>
+<p>好图，偷了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%C2%B7%E5%85%B6%E4%B8%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,81 +439,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/js%E9%98%B2%E6%8A%96%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js%E9%98%B2%E6%8A%96%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">js防抖与深拷贝</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-23T00:00:00+08:00">2022-03-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="js防抖"><a href="#js防抖" class="headerlink" title="js防抖"></a>js防抖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, wait) &#123;</span><br><span class="line">   let timer = null;</span><br><span class="line">   return function (...args) &#123;</span><br><span class="line">      if (timer) clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(() =&gt; &#123;</span><br><span class="line">         fn()</span><br><span class="line">      &#125;, wait)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">function fn() &#123;</span><br><span class="line">   console.log(&quot;hello&quot;);</span><br><span class="line">&#125;</span><br><span class="line">let myFn = debounce(fn, 1000)</span><br></pre></td></tr></table></figure>
-
-<p>值得注意的是，应该在使用时调用myFn（）这个函数（这里应该是形成了闭包），类似下面的代码无法实现功能</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;debounce(fn, 1000)&quot;&gt;click me&lt;/button&gt;</span><br><span class="line">function debounce(fn, wait) &#123;</span><br><span class="line">   let timer = null;</span><br><span class="line">   if (timer) clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(() =&gt; &#123;</span><br><span class="line">         fn()</span><br><span class="line">   &#125;, wait)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>原因是这种方式实际上是包装了一个新的函数，占据一个新的变量空间，无法访问上一次的timer</p>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let obj1 = [&#123;</span><br><span class="line">   name: &quot;chen&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;, &#123;</span><br><span class="line">   name: &quot;su&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;, &#123;</span><br><span class="line">   name: &quot;hi&quot;,</span><br><span class="line">   age: 20</span><br><span class="line">&#125;]</span><br><span class="line">function func() &#123;</span><br><span class="line">   // let obj2 = obj1 // 浅拷贝</span><br><span class="line">   // let obj2 = [...obj1] // 由于obj1内部仍然为对象，依然是浅拷贝</span><br><span class="line">   let obj2 = JSON.parse(JSON.stringify(obj1))  // 深拷贝</span><br><span class="line">   obj2[0].name = &quot;x&quot;</span><br><span class="line">   console.log(&quot;1&quot;,obj1);</span><br><span class="line">   console.log(&quot;2&quot;,obj2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>也有通过递归到基本数据类型实现深拷贝的，不再赘述。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -508,7 +510,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
