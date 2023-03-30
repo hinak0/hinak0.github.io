@@ -173,6 +173,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/js-history%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js-history%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">JS HISTORY对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-07-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-10T00:00:00+08:00">2022-07-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="history是什么"><a href="#history是什么" class="headerlink" title="history是什么"></a>history是什么</h2><p>是从新建一个标签页开始，所有打开过的url的一个栈，浏览器根据这个维护 前进，后退 功能。</p>
+<p>详细mdn文档<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/History">https://developer.mozilla.org/zh-CN/docs/Web/API/History</a></p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p><a target="_blank" rel="noopener" href="https://app.noy.asia/#/preview/4116">https://app.noy.asia/#/preview/4116</a></p>
+<p>这个网站实现了一个流氓功能：后退的话，会向history中push一个state，导致无法退出这个页面——除非关掉这个标签页。</p>
+<h2 id="实现禁止后退功能"><a href="#实现禁止后退功能" class="headerlink" title="实现禁止后退功能"></a>实现禁止后退功能</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">history.pushState(null, null, document.URL);</span><br><span class="line">// 每当触发后退事件时，就再加一个当前页面的记录</span><br><span class="line">window.addEventListener(&quot;popstate&quot;, e =&gt; &#123;</span><br><span class="line">	alert(&quot;popstate&quot;)</span><br><span class="line">	history.pushState(null, null, document.URL);</span><br><span class="line">	console.log(&quot;you can&#x27;t go back&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>或者做绝一点，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (let index = 0; index &lt; 5; index++) &#123;</span><br><span class="line">	history.pushState(null, null, document.URL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="如何屏蔽这种行为？"><a href="#如何屏蔽这种行为？" class="headerlink" title="如何屏蔽这种行为？"></a>如何屏蔽这种行为？</h2><p>幸好,chrome已经有针对这种行为的应对策略了，经过测试，再进入一个标签页后，如果不进行任何操作，不会触发popstate事件，此举正是为了防范流氓网站。</p>
+<p>但是其他浏览器比如via浏览器，并没有这个功能。</p>
+<p>其他浏览器，如果你想做一个屏蔽流氓网站的插件，可以这么做：在刚刚进入页面时，通过Object.defineProperty()等方法来覆盖history对象的popstate方法，同时设置一个变量保存原本的方法，在用户做出交互行为后恢复popstate方法就好了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6%E6%8E%A2%E7%B4%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -327,75 +405,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/96735231?v=4">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">随机密码生成器-代码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-14T00:00:00+08:00">2022-06-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;pwGenBox&quot;&gt;</span><br><span class="line">	&lt;button onclick=&quot;generate()&quot;&gt;生成密码&lt;/button&gt;</span><br><span class="line">	&lt;input id=&quot;hasSpec&quot; type=&quot;checkbox&quot;&gt;</span><br><span class="line">	&lt;p&gt;特殊字符&lt;/p&gt;</span><br><span class="line">	&lt;h3 class=&quot;password&quot;&gt;&lt;/h3&gt;</span><br><span class="line">	&lt;input class=&quot;input&quot; style=&quot;opacity:0;position:absolute;top:-999px;&quot;&gt;</span><br><span class="line">	&lt;button onclick=&quot;copy()&quot;&gt;点击复制&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	var input</span><br><span class="line">	function copy() &#123;</span><br><span class="line">		input.select();</span><br><span class="line">		document.execCommand(&#x27;Copy&#x27;);</span><br><span class="line">	&#125;</span><br><span class="line">	function generate() &#123;</span><br><span class="line">		let hasSpec = document.querySelector(&quot;#hasSpec&quot;).checked</span><br><span class="line">		let len = 14</span><br><span class="line">		str = randomStr(len, hasSpec)</span><br><span class="line">		let pwd = document.querySelector(&quot;h3.password&quot;)</span><br><span class="line">		input = document.querySelector(&quot;input.input&quot;)</span><br><span class="line">		input.value = str</span><br><span class="line">		pwd.innerText = str</span><br><span class="line">	&#125;</span><br><span class="line">	function randomStr(len, hasSpec = false) &#123;</span><br><span class="line">		let str = &quot;&quot;</span><br><span class="line">		while (str.length &lt; len) &#123;</span><br><span class="line">			switch (Math.floor(Math.random() * 4)) &#123;</span><br><span class="line">				case 0:</span><br><span class="line">					str += num()</span><br><span class="line">					break;</span><br><span class="line">				case 1:</span><br><span class="line">					str += upper()</span><br><span class="line">					break</span><br><span class="line">				case 2:</span><br><span class="line">					str += lower()</span><br><span class="line">					break</span><br><span class="line">				case 3:</span><br><span class="line">					if (hasSpec) &#123;</span><br><span class="line">						str += spec()</span><br><span class="line">					&#125;</span><br><span class="line">					break</span><br><span class="line">				default:</span><br><span class="line">					str += &quot;?&quot;</span><br><span class="line">					break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return str</span><br><span class="line">	&#125;</span><br><span class="line">	function _randomASCII(start, span) &#123;</span><br><span class="line">		return String.fromCharCode(Math.floor(Math.random() * span + start))</span><br><span class="line">	&#125;</span><br><span class="line">	function upper() &#123;</span><br><span class="line">		return _randomASCII(65, 26)</span><br><span class="line">	&#125;</span><br><span class="line">	function lower() &#123;</span><br><span class="line">		return _randomASCII(97, 26)</span><br><span class="line">	&#125;</span><br><span class="line">	function num() &#123;</span><br><span class="line">		return _randomASCII(48, 10)</span><br><span class="line">	&#125;</span><br><span class="line">	function spec() &#123;</span><br><span class="line">		return _randomASCII(33, 14)</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">	.pwGenBox p &#123;</span><br><span class="line"></span><br><span class="line">		display: inline-block;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
-<p>input框如果设置为display:none会导致无法选中，可以选择移动到屏幕外&#x2F;设置透明&#x2F;被遮盖的方法掩藏，或者写一些css让input框代替展示文本。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -467,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
