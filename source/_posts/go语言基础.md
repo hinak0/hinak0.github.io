@@ -133,6 +133,7 @@ func main() {
 	go fibonacci(2*cap(c), c)
 	time.Sleep(5 * time.Second)
 	for i := range c {
+		// 这里会阻塞fibonacci线程
 		time.Sleep(1 * time.Second)
 		fmt.Printf("recive %d\n", i)
 	}
@@ -161,3 +162,19 @@ recive 7
 recive 8
 recive 9
 ```
+
+## 包管理
+
+go的包管理有些麻烦，我在这里也摸了大坑．
+
+go1.1１以后增加了module模式，由环境变量`GO111MODULE`控制
+
+### 非mod模式
+- 此时的go没有项目的概念，非常杂乱．
+- `GOROOT`和`GOPATH`是两个重要的环境变量．导入包时，在上面两个路径下的src目录寻找模块．
+- 如果想自定义模块，必须放在`$GOPATH/src`下才能导入
+
+### mod模式
+- 项目下的`go.mod`类似`package.json`,`requirements.txt`,`pom.xml`
+- 同项目下的`module`可以直接引用，不需要src目录．
+- 依赖管理用`go mod`系列指令[文档](http://c.biancheng.net/view/5712.html)
