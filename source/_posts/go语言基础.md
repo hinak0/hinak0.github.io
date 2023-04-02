@@ -33,6 +33,22 @@ numbers = append(numbers, 0)
 copy(numbers1,numbers)
 ```
 
+## 指针
+```go
+i := 8
+f := 3.00
+var ip *int
+var fp *float64
+// 取地址
+ip = &i
+fp = &f
+fmt.Printf("%d\n", *ip)
+fmt.Printf("%f\n", *fp)
+fmt.Printf("%x\n", ip)
+fmt.Printf("%x\n", fp)
+```
+
+
 ## map集合
 ```go
 m := map[string]int{
