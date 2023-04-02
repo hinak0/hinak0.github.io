@@ -33,77 +33,84 @@ systemctl disable systemd-resolved
 然后配置dnsmasq服务
 
 ```
-# 配置dhcp
+port=53
+interface=enp3s0
 dhcp-option=option:router,192.168.1.1
 dhcp-option=option:dns-server,192.168.1.1
-dhcp-range=192.168.1.129,192.168.1.254,255.255.255.0,1h
-
-# 配置dns
-port=53
+dhcp-range=192.168.1.2,192.168.1.254,255.255.255.0,24h
 strict-order
 
-# 静态ip以及host
-dhcp-host=00:11:22:33:44:55,192.168.1.2,hinak0,infinite
+cache-size=2048
+server=223.5.5.5
+no-resolv
+
+domain=lan
+local=/lan/
+
+# log-queries
+# log-facility=/var/log/dnsmasq.log
+
+dhcp-host=<mac>,<ip>,<domain name>
 ...
 ```
 
 ## iptables规则
 
-如果只是想做nat,只需要一条规则即可
-
 ```
-# 网卡填自己的wan口
+# 实现nat
 iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
 ```
 
 这时候下游主机就可以正常上网了
-下面配置透明代理
 
 ## clash配置
 
 ```
-port: 7890
-socks-port: 7891
-redir-port: 7892
+port: ****
+redir-port: ****
+tproxy-port: ****
 allow-lan: true
+mode: rule
+log-level: error
 ipv6: false
-mode: Rule
-log-level: warning
-external-controller: 192.168.1.1:80
-secret: ""
-# ui自己编译一下就可以了
-external-ui: /home/chlen/.config/clash/dist/
-hosts:
-  'server': 192.168.1.1
-  'hinak0': 192.168.1.2
-  'miui': 192.168.1.3
+external-controller: 127.0.0.1
+external-ui: /var/www/html/
+secret: secret
+profile:
+  store-selected: false
+  store-fake-ip: false
 dns:
   enable: true
+  listen: :**
   ipv6: false
-  listen: 0.0.0.0:5354
-  enhanced-mode: redir-host
-  # fake-ip-range: 198.18.0.1/16
   default-nameserver:
-    - 114.114.114.114
-    - 8.8.8.8
+    - 127.0.0.1
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: false
+  fake-ip-filter:
+    - "*.lan"
   nameserver:
-    - 114.114.114.114 # default value
-    - 8.8.8.8 # default value
-    - tls://dns.rubyfish.cn:853 # DNS over TLS
-    - https://1.1.1.1/dns-query # DNS over HTTPS
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://doh.dns.sb/dns-query
+    - https://dns.cloudflare.com/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+  nameserver-policy:
+    +.lan: 127.0.0.1
 ```
-
-这时候主机手动填写系统代理，就可以走代理，但这不是我想要的无感代理,下面配置透明代理
 
 ## iptables选择性转发流量到clash
 
 iptables配置要点：
 
-- 所有需要的lan流量都发送到proxy
+- 向wan的流量redir
 
-- 所有目标是lan段的流量都放行
+- 向lan的流量accept
 
-- lan口需要的dns请求都拦截到proxy\_dns,防止dns污染
+- 向server的dns redir 到　tproxy port
 
 ```bash
 #!/bin/bash
@@ -141,7 +148,9 @@ init() {
 clearAllRules() {
         # recovery rules
         iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
+        # nat
         iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
+        # drop initiative package from wan
         iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP
 }
 setProxy() {
@@ -177,6 +186,7 @@ setProxy() {
         iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP
 }
 setSelf() {
+        #　Not recommended
         iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
         iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
         iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
@@ -205,6 +215,7 @@ update() {
 }
 lease(){
         set +x
+        # show dnsmasq lease
         while read line; do
                 timestamp=$(echo "$line" | awk '{print $1}')
                 mac=$(echo "$line" | awk '{print $2}')
@@ -220,9 +231,11 @@ lease(){
 }
 
 ban(){
+        # temporarily disable one ip
         iptables -t mangle -I PREROUTING -s $1 -j DROP
 }
 diffConfig(){
+        # show diff
         colordiff -c $config_dir/past.yaml $config_dir/config.yaml
 }
 case "$1" in
@@ -274,10 +287,14 @@ vim /etc/systemd/system/clash.service
 Description=clash daemon
 
 [Service]
+User=clash
 Type=simple
-User=root
-ExecStart=/usr/bin/clash -d /home/chlen/.config/clash/
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_NET_ADMIN
+AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_NET_ADMIN
+WorkingDirectory=/var/local/clash/
+ExecStart=/usr/local/bin/clash -d /var/local/clash/
 Restart=on-failure
+RestartSec=20s
 
 [Install]
 WantedBy=multi-user.target
