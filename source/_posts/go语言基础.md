@@ -73,6 +73,30 @@ func main() {
 }
 ```
 
+## 函数
+```go
+func sum(s string, nList ...int) int {
+	// 类似es6的拓展运算符，以切片形式接受变长参数
+	fmt.Println("received vars:", s, nList)
+	var res int = 0
+	for _, v := range nList {
+		res += v
+	}
+	return res
+}
+
+func main() {
+	arr := []int{1, 2, 3, 4}
+	// 类似es6的拓展运算符
+	res := sum("hello", arr...)
+	fmt.Println("result of sun(): ", res)
+	fmt.Println()
+
+	res = sum("hello", arr[0], arr[1])
+	fmt.Println("result of sun(): ", res)
+}
+```
+
 ## 类型转换
 ```go
 a := int 16
