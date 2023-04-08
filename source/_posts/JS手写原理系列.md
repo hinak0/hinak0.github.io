@@ -8,7 +8,7 @@ tags:
 
 Some boilerplate of javascript.
 
-### debounce()
+## debounce()
 ```js
 function debounce(fn, wait) {
 	let timer = null
@@ -29,7 +29,7 @@ myFn()
 myFn()
 ```
 
-### sleep()
+## sleep()
 sleep() can only use in an async function , and　the sleep() mast marked with `await`
 ```js
 async function sleep(delay) {
@@ -78,6 +78,28 @@ class PubSub {
 	}
 	pub(topic, ...params) {
 		this.topics[topic] && this.topics[topic].forEach(fn => fn.apply(this, params))
+	}
+}
+```
+
+## SetInterval
+```js
+function mySetInterval(fn, time = 1000) {
+	let timer = null,
+		isClear = false
+	function interval() {
+		if (isClear) {
+			isClear = false
+			clearTimeout(timer)
+			return
+		}
+		fn()
+		timer = setTimeout(interval, time)
+	}
+	timer = setTimeout(interval, time)
+	// to convenient, use a fallback instead of intervalId
+	return () => {
+		isClear = true
 	}
 }
 ```
