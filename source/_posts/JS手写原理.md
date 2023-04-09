@@ -1,5 +1,5 @@
 ---
-title: JS手写原理系列
+title: JS手写原理
 categories:
   - "web技术"
 date: 2023-04-08 21:04:55
@@ -80,6 +80,28 @@ class PubSub {
 		this.topics[topic] && this.topics[topic].forEach(fn => fn.apply(this, params))
 	}
 }
+```
+
+## Implement a keyword function `new`
+[面向对象编程-javascript](https://www.liaoxuefeng.com/wiki/1022910821149312/1023022126220448)
+```js
+function myNew(fn, ...args) {
+	let obj = Object.create(fn.prototype)
+	let res = fn.call(obj, ...args)
+	if (res && (typeof res === 'object' || typeof res === 'function')) {
+		return res
+	}
+	return obj
+}
+
+function Man(age, name) {
+	console.log(this)
+	this.age = age
+	this.name = name
+}
+
+const obj = myNew(Man, 18, 'イフ')
+console.log(obj.__proto__)
 ```
 
 ## SetInterval
