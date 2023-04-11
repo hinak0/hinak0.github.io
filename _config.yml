@@ -4,9 +4,9 @@
 
 # Site
 title: ONE NOTE
-subtitle: ''
-description: ''
-keywords:
+subtitle: 'Just a private note.'
+description: 'Record my notes and so on.'
+keywords: ['technology', '日本語', 'programing']
 author: hinak0
 language: en
 timezone: 'Asia/Shanghai'
