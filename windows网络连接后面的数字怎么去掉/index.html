@@ -1,323 +1,178 @@
-<!DOCTYPE html>
-<html lang=en>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改? windows所有连接过的网络都保存在这两个位置: 12计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows">
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>windows网络连接后面的数字怎么去掉 | ONE NOTE</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改? windows所有连接过的网络都保存在这两个位置: 12计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows网络连接后面的数字怎么去掉">
 <meta property="og:url" content="https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/index.html">
 <meta property="og:site_name" content="ONE NOTE">
 <meta property="og:description" content="win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改? windows所有连接过的网络都保存在这两个位置: 12计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png">
 <meta property="article:published_time" content="2022-09-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-04-11T15:33:45.530Z">
+<meta property="article:modified_time" content="2023-04-15T00:47:53.370Z">
 <meta property="article:author" content="hinak0">
 <meta property="article:tag" content="technology">
 <meta property="article:tag" content="日本語">
 <meta property="article:tag" content="programing">
 <meta name="twitter:card" content="summary">
-    
-    
-      
-        
-          
-            <link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82?s=48">
-          
-        
-      
-      
-        
-          
-            <link rel="icon" type="image/png" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82?s=192" sizes="192x192">
-          
-        
-      
-      
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82?s=180">
-          
-        
-      
-    
-    <!-- title -->
-    <title>windows网络连接后面的数字怎么去掉</title>
-    <!-- styles -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png"><link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="canonical" href="https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'windows网络连接后面的数字怎么去掉',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-15 08:47:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-    <!-- persian styles -->
-    
-    <!-- rss -->
-    
-    
-      <link rel="alternate" href="/true" title="ONE NOTE" type="application/atom+xml" />
-    
-	<!-- mathjax -->
-	
-<meta name="generator" content="Hexo 6.3.0"></head>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">AboutMe</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Articles</a></li><!--
-     --><!--
-       --><li><a href="/categories/">Categories</a></li><!--
-     --><!--
-       --><li><a target="_blank" rel="noopener" href="https://github.com/hinak0/hinak0.github.io">Projects</a></li><!--
-     -->
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" aria-label="Previous post" href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" aria-label="Next post" href="/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&text=windows网络连接后面的数字怎么去掉"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&is_video=false&description=windows网络连接后面的数字怎么去掉"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=windows网络连接后面的数字怎么去掉&body=Check out this article: https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&name=windows网络连接后面的数字怎么去掉&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&t=windows网络连接后面的数字怎么去掉"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
-</ul>
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    </div>
-    <div id="toc">
-      
-    </div>
-  </span>
-</div>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        windows网络连接后面的数字怎么去掉
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">hinak0</span>
-      </span>
-      
-    <div class="postdate">
-      
-        <time datetime="2022-09-29T16:00:00.000Z" itemprop="datePublished">2022-09-30</time>
-        
-      
-    </div>
-
-
-      
-    <div class="article-category">
-        <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a>
-    </div>
-
-
-      
-
-    </div>
-  </header>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-
-  <div class="content" itemprop="articleBody">
-    <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21109663">win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改?</a></p>
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">windows网络连接后面的数字怎么去掉</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2022-09-29T16:00:00.000Z" title="Created 2022-09-30 00:00:00">2022-09-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21109663">win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改?</a></p>
 <p>windows所有连接过的网络都保存在这两个位置:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles</span><br><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged</span><br></pre></td></tr></table></figure>
 
 <p>并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，强迫症表示强烈谴责。</p>
-
-  </div>
-</article>
-
-
-
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">AboutMe</a></li>
-         
-          <li><a href="/archives/">Articles</a></li>
-         
-          <li><a href="/categories/">Categories</a></li>
-         
-          <li><a target="_blank" rel="noopener" href="https://github.com/hinak0/hinak0.github.io">Projects</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&text=windows网络连接后面的数字怎么去掉"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&is_video=false&description=windows网络连接后面的数字怎么去掉"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=windows网络连接后面的数字怎么去掉&body=Check out this article: https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&title=windows网络连接后面的数字怎么去掉"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&name=windows网络连接后面的数字怎么去掉&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/&t=windows网络连接后面的数字怎么去掉"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy;
-    
-    
-    2022-2023
-    hinak0
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-        <!--
-       --><li><a href="/">Home</a></li><!--
-     --><!--
-       --><li><a href="/about/">AboutMe</a></li><!--
-     --><!--
-       --><li><a href="/archives/">Articles</a></li><!--
-     --><!--
-       --><li><a href="/categories/">Categories</a></li><!--
-     --><!--
-       --><li><a target="_blank" rel="noopener" href="https://github.com/hinak0/hinak0.github.io">Projects</a></li><!--
-     -->
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-    <!-- styles -->
-
-
-
-  <link rel="preload" as="style" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
-
-
-    <!-- jquery -->
- 
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js" crossorigin="anonymous"></script> 
-
-
-
-
-<!-- clipboard -->
-
-  
-    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.7/clipboard.js" crossorigin="anonymous"></script> 
-  
-  <script type="text/javascript">
-  $(function() {
-    // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    // mount it!
-    $(".highlight table").before(btn);
-    var clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
-      }
-    });
-    clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Copied!");
-      e.clearSelection();
-    })
-  })
-  </script>
-
-
-<script src="/js/main.js"></script>
-
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-  <script type="text/javascript">
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-        </script>
-
-<!-- Cloudflare Analytics -->
-
-<!-- Umami Analytics -->
-
-<!-- Disqus Comments -->
-
-<!-- utterances Comments -->
-
-</body>
-</html>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" data-sites="wechat,weibo,qq,facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" title="旁路由配置"><img class="cover" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="onerror=null;src='/null'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">旁路由配置</div></div></a></div><div class="next-post pull-right"><a href="/%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF/" title="一个错误"><img class="cover" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="onerror=null;src='/null'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">一个错误</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Record my notes and so on.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/" title="日本語-第六弹"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="日本語-第六弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/" title="日本語-第六弹">日本語-第六弹</a><time datetime="2023-04-08T14:25:11.000Z" title="Created 2023-04-08 22:25:11">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="JS手写原理"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="JS手写原理"/></a><div class="content"><a class="title" href="/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="JS手写原理">JS手写原理</a><time datetime="2023-04-08T13:04:55.000Z" title="Created 2023-04-08 21:04:55">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="go语言基础"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="go语言基础"/></a><div class="content"><a class="title" href="/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="go语言基础">go语言基础</a><time datetime="2023-03-30T09:02:29.000Z" title="Created 2023-03-30 17:02:29">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/" title="日本语-第五弹"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第五弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/" title="日本语-第五弹">日本语-第五弹</a><time datetime="2023-03-27T13:24:46.000Z" title="Created 2023-03-27 21:24:46">2023-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/" title="笔试算法题"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="笔试算法题"/></a><div class="content"><a class="title" href="/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/" title="笔试算法题">笔试算法题</a><time datetime="2023-03-26T14:01:52.000Z" title="Created 2023-03-26 22:01:52">2023-03-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div></div></body></html>
