@@ -1,8 +1,8 @@
 ---
-title: "python垃圾回收机制"
-date: "2022-12-04"
+title: python垃圾回收机制
+date: 2022-12-04
 categories:
-  - "后端"
+  - 后端
 ---
 
 ## 垃圾回收

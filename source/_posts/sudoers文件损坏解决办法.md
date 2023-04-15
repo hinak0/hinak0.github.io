@@ -2,7 +2,7 @@
 title: sudoers文件损坏解决办法
 date: 2023-03-13 22:31:10
 categories:
-  - "运维"
+  - 运维
 tags:
 ---
 

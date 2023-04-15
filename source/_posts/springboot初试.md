@@ -1,8 +1,8 @@
 ---
-title: "SpringBoot初试"
-date: "2022-04-05"
+title: SpringBoot初试
+date: 2022-04-05
 categories:
-  - "后端"
+  - 后端
 ---
 
 ## 数据库配置

@@ -1,8 +1,8 @@
 ---
-title: "屏蔽csdn脚本"
-date: "2022-07-15"
+title: 屏蔽csdn脚本
+date: 2022-07-15
 categories:
-  - "web技术"
+  - web技术
 ---
 
 ```

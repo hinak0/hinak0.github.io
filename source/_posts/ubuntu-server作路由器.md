@@ -1,8 +1,8 @@
 ---
-title: "Ubuntu server作路由器"
-date: "2022-12-05"
+title: Ubuntu server作路由器
+date: 2022-12-05
 categories:
-  - "网络工程"
+  - 网络工程
 ---
 
 ## 路由器必须有的3个功能
@@ -89,7 +89,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   use-hosts: false
   fake-ip-filter:
-    - "*.lan"
+    - *.lan
   nameserver:
     - https://dns.alidns.com/dns-query
   fallback:

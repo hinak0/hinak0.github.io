@@ -1,8 +1,8 @@
 ---
-title: "windows ipv6外部访问"
-date: "2022-09-07"
+title: windows ipv6外部访问
+date: 2022-09-07
 categories:
-  - "网络工程"
+  - 网络工程
 ---
 
 ## ipv6特点

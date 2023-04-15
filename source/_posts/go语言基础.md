@@ -2,7 +2,7 @@
 title: go语言基础
 date: 2023-03-30 17:02:29
 categories:
-  - "后端"
+  - 后端
 tags:
 ---
 

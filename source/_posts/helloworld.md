@@ -1,8 +1,8 @@
 ---
-title: "Hello,World!"
-date: "2022-03-11"
+title: Hello,World!
+date: 2022-03-11
 categories:
-  - "运维"
+  - 运维
 ---
 
 hinak0的博客搭建完成！

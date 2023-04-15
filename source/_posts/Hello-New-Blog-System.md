@@ -2,7 +2,7 @@
 title: Hello New Blog System
 date: 2023-03-07 19:17:20
 categories:
-  - "运维"
+  - 运维
 tags:
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: JS手写原理
 categories:
-  - "web技术"
+  - web技术
 date: 2023-04-08 21:04:55
 tags:
 ---
