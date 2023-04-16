@@ -19,7 +19,7 @@ categories:
 
 ## 实现禁止后退功能
 
-```
+```js
 history.pushState(null, null, document.URL);
 // 每当触发后退事件时，就再加一个当前页面的记录
 window.addEventListener("popstate", e => {
@@ -31,7 +31,7 @@ window.addEventListener("popstate", e => {
 
 或者做绝一点，像这样：
 
-```
+```js
 for (let index = 0; index < 5; index++) {
 	history.pushState(null, null, document.URL);
 }

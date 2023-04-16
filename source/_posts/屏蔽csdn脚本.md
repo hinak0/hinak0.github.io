@@ -5,7 +5,7 @@ categories:
   - web技术
 ---
 
-```
+```js
 // ==UserScript==
 // @name         必应搜索引擎优化
 // @namespace    https://tampermonkey.net/

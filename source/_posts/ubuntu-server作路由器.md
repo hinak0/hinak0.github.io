@@ -25,14 +25,14 @@ categories:
 
 首先关闭系统的dns-resolve服务
 
-```
+```bash
 systemctl stop systemd-resolved
 systemctl disable systemd-resolved
 ```
 
 然后配置dnsmasq服务
 
-```
+```conf
 port=53
 interface=enp3s0
 dhcp-option=option:router,192.168.1.1
@@ -56,7 +56,7 @@ dhcp-host=<mac>,<ip>,<domain name>
 
 ## iptables规则
 
-```
+```bash
 # 实现nat
 iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
 ```
@@ -65,7 +65,7 @@ iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
 
 ## clash配置
 
-```
+```yaml
 port: ****
 redir-port: ****
 tproxy-port: ****
@@ -302,13 +302,13 @@ WantedBy=multi-user.target
 
 开机自启动
 
-```
+```bash
 systemctl start clash.service
 systemctl enable clash.service
 ```
 
 ### iptables规则保存
 
-```
+```bash
 iptables-save > /etc/iptables
 ```

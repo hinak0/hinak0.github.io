@@ -37,7 +37,7 @@ windows不修改ipv6优先的话，有可能访问外部时，一直使用ipv4�
 
 ## python ipv6 socket server demo
 
-```
+```python
 import socket
 
 mySocket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)

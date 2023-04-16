@@ -39,7 +39,7 @@ tproxy是在不修改数据包的前提上,将数据包转发到本地socket,但
 
 ## 配置规则
 
-```
+```bash
 #!/bin/bash
 
 # error break

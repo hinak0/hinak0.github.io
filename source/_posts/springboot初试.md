@@ -9,7 +9,7 @@ categories:
 
 首先建表：
 
-```
+```sql
 CREATE TABLE `user` (
  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
  `email` varchar(255) NOT NULL COMMENT '邮箱',
@@ -27,7 +27,7 @@ INSERT INTO `user` VALUES ('3', '3@qq.com', '345678', '王五');
 
 主程序：
 
-```
+```java
 /**
  * 主程序类
  *
@@ -43,7 +43,7 @@ public class MainApplication {
 
 新建一个路由
 
-```
+```java
 // @ResponseBody
 // @Controller
 
@@ -68,7 +68,7 @@ springboot相比ssm，少了很多配置，使用默认配置来简化开发。
 
 对父项目的依赖版本不满意，可以自己在pom.xml修改
 
-```
+```xml
   <!-- 也可以自己修改版本 -->
   <properties>
     <mysql.version>5.1.43</mysql.version>

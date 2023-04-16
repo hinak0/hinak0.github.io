@@ -179,8 +179,10 @@ func main() {
 	}
 }
 ```
+
 输出应该是这样：
-```
+
+```text
 trans 0
 trans 1
 trans 2

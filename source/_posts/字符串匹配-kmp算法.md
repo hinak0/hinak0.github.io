@@ -25,7 +25,7 @@ categories:
 
 ### 构建next数组
 
-```
+```java
 private void getNext(String p, int next[]) {
     int len = p.length();
     int right = 0;
@@ -44,7 +44,7 @@ private void getNext(String p, int next[]) {
 
 ### 匹配过程
 
-```
+```java
 public int strStr(String target, String pattern) {
     if (pattern.length() == 0)
         return 0;

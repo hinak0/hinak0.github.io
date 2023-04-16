@@ -56,7 +56,7 @@ module.exports = {
 
 ### 配置样例
 
-```
+```json
 "eslintConfig": {
 	"ignorePatterns": [
 		"example.js"
