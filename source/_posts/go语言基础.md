@@ -145,6 +145,20 @@ func main() {
 }
 ```
 
+## 关键字defer
+`defer`关键字标注的语句会在return之前调用．
+
+如果有多个defer表达式，调用顺序类似于栈，越后面的defer表达式越先被调用。
+```go
+// defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。
+func f() (result int) {
+    defer func() {
+        result++
+    }()
+    return 0
+}
+```
+
 ## go并发
 这个我觉得是比较有意思的，通过并发和channel使得多线程很方便
 
