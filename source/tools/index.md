@@ -12,9 +12,15 @@ date: 2023-06-06 15:04:29
 
 [unicode](https://c.runoob.com/front-end/3602/)
 
+### regular expressions
+
+[onlineTest](https://regex101.com/)
+
 ### fake id
+
 [ID generate](http://www.chineseidcard.com/)
 
 [random password](https://1password.com/password-generator/)
 
 [fake name](https://www.fakenamegenerator.com/)
+
