@@ -20,7 +20,9 @@ date: 2023-06-06 15:04:29
 
 [ID generate](http://www.chineseidcard.com/)	在线生成中国身份证号码
 
+[random username](https://www.lastpass.com/features/username-generator)	随机用户名生成
+
 [random password](https://1password.com/password-generator/)	随机密码生成
 
-[fake name](https://www.fakenamegenerator.com/)	随即身份信息
+[fake name](https://www.fakenamegenerator.com/)	随机身份信息
 
