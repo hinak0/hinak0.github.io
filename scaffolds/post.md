@@ -2,7 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-  - default
+  - Others
 tags:
 cover:
 ---
