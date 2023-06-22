@@ -31,7 +31,7 @@ IEEE定义的一种从48位mac地址转化为64位ipv6主机id的规范
 
 ## 修改跃点数实现ipv6优先使用
 
-![](images/image.png)
+![](images/ed9f36.png)
 
 windows不修改ipv6优先的话，有可能访问外部时，一直使用ipv4地址。
 

@@ -69,4 +69,4 @@ crontab -e；
 
 又及，mysql的配置文件太多：
 
-![](images/屏幕截图-2022-03-12-151537.png)
+![](images/95d26c.png)

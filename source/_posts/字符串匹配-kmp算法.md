@@ -11,7 +11,7 @@ categories:
 
 ## 暴力匹配
 
-![](images/image-edited.png)
+![](images/1739c0.png)
 
 使用两层循环，一旦不匹配就将子串后移一位，时间复杂度为O(mn)
 
@@ -19,9 +19,9 @@ categories:
 
 ### NEXT\[\]数组
 
-![](images/image-1.png)
+![](images/0ddb19.png)
 
-![](images/image-2.png)
+![](images/c5a9e2.png)
 
 ### 构建next数组
 
