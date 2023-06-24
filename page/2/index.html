@@ -1,334 +1,1030 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ONE NOTE - Just a private note.</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Record my notes and so on.">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="mask-icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" color="#222">
+  <link rel="manifest" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <meta name="msapplication-config" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Record my notes and so on.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ONE NOTE">
 <meta property="og:url" content="https://hinak0.github.io/page/2/index.html">
 <meta property="og:site_name" content="ONE NOTE">
 <meta property="og:description" content="Record my notes and so on.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
 <meta property="article:author" content="hinak0">
 <meta property="article:tag" content="technology">
 <meta property="article:tag" content="日本語">
 <meta property="article:tag" content="programing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="canonical" href="https://hinak0.github.io/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: 'days',
-  dateSuffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'ONE NOTE',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-06-24 10:08:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
+
+<link rel="canonical" href="https://hinak0.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ONE NOTE</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+</head>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ONE NOTE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Just a private note.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fas fa-toolbox fa-fw"></i>Tools</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/%E4%B8%8D%E9%82%BB%E6%8E%A5%E6%A4%8D%E8%8A%B1/" title="不邻接植花"><img class="post-bg" src="/images/0ea788.png" onerror="this.onerror=null;this.src='/null'" alt="不邻接植花"></a></div><div class="recent-post-info"><a class="article-title" href="/%E4%B8%8D%E9%82%BB%E6%8E%A5%E6%A4%8D%E8%8A%B1/" title="不邻接植花">不邻接植花</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T08:03:21.000Z" title="Created 2023-04-15 16:03:21">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">1042. 不邻接植花链接
-思路
-路径关系是一种无向图
-一个节点最多三条路径，却有四种花．也就是说一定有解
-将图的关系存储起来，每一个节点随机选择种类就可以，不必考虑回溯
-
-代码12345678910111213141516from typing import Listclass Solution:	def gardenNoAdj(self, n: int, paths: List[List[int]]):  # type: ignore		res = [0] * n		# 建立矩阵		G = [[] for _ in range(n)]		for e in paths:			G[e[0] - 1].append(e[1] - 1)			G[e[1] - 1].append(e[0] - 1)		# pop随机弹出结果		for i in range(n):			res[i] = (&#123;1, 2, 3, 4&#125; - &#123;res[j] for j in G[i]&#125;).pop()		return res
-
-注意
-花园从１开始排序，注意数组索引的变化
-pyt ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/" title="日本語-第六弹"><img class="post-bg" src="https://s2.loli.net/2023/04/15/YuDqOZPdHplaWbx.png" onerror="this.onerror=null;this.src='/null'" alt="日本語-第六弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/" title="日本語-第六弹">日本語-第六弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-08T14:25:11.000Z" title="Created 2023-04-08 22:25:11">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">文法
-名詞　で　動詞　「手段&#x2F;原料」
-
-李さんは　日本語で　手紙「てがみ」を　書きます「書く&#x2F;かく」
-手紙を　速達「そくだつ」で　送りました。「送る&#x2F;おくる」
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
-名詞　は　名詞　に　名詞　を　あげます。「who gives who something.」
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-私は　小野さんに　お土産を　あげます。
-あげます　不能用在他人给我或者给我的家人上，这时候用　くれます「くれる」
-張さんは　母に　本を　くれます。
-
-
-名詞は　名詞に　名詞を　もらいます。「who get something from someone.」
-
-私は　小野さんに　辞書を　もらいました。
-私は　長島さんから　写真を　もらいました。「助词から表示物品的起点」
-
-
-名詞に　会います「あうー＞あいます」「meet with someone」
-
-私は　大学で　佐藤さんに　会いました。
-
-
-
-表达词
-から　在宾语是团体时，必须用から。
-さっき　たった今　表示离现在很近的过去
-ｘｘの件「けん」　与ｘｘ有关
-お願いします
-分かりました
-前に　也可以表示过去
-
-例A：昨日、　母に　誕生日のプレゼントを　送り ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="JS手写原理"><img class="post-bg" src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="JS手写原理"></a></div><div class="recent-post-info"><a class="article-title" href="/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" title="JS手写原理">JS手写原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-08T13:04:55.000Z" title="Created 2023-04-08 21:04:55">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/web%E6%8A%80%E6%9C%AF/">web技术</a></span></div><div class="content">Some boilerplate of javascript.
-debounce()1234567891011121314151617function debounce(fn, wait) &#123;	let timer = null	return function (...args) &#123;		if (timer) clearTimeout(timer)		timer = setTimeout(() =&gt; &#123;			fn()		&#125;, wait)	&#125;&#125;function test() &#123;	console.log(&#x27;hello&#x27;)&#125;let myFn = debounce(test, 1000)myFn()myFn()myFn()myFn()
-
-sleep()sleep() can only use in an async function , and　the sleep() mast marked with await
-12345678910111213141516async function sl ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="go语言基础"><img class="post-bg" src="https://s2.loli.net/2023/04/15/YuDqOZPdHplaWbx.png" onerror="this.onerror=null;this.src='/null'" alt="go语言基础"></a></div><div class="recent-post-info"><a class="article-title" href="/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="go语言基础">go语言基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-30T09:02:29.000Z" title="Created 2023-03-30 17:02:29">2023-03-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></span></div><div class="content">个人认为和js,py不同的地方
-菜鸟教程
-数组1234var balance = [5]float32&#123;1000.0, 2.0, 3.4, 7.0, 50.0&#125;balance := [5]float32&#123;1000.0, 2.0, 3.4, 7.0, 50.0&#125;// 编译器确定长度balance := [...]float32&#123;1000.0, 2.0, 3.4, 7.0, 50.0&#125;
-
-切片（可变数组）1234567891011// inits :=[] int &#123;1,2,3 &#125;s :=make([]int,len,cap)// 截取，和py一致numbers[1:4]// append() and copy()var numbers []intnumbers = append(numbers, 0)copy(numbers1,numbers)
-
-指针1234567891011i := 8f := 3.00var ip *intvar fp *float64// 取地址ip = &amp;ifp = &amp ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/" title="日本语-第五弹"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第五弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/" title="日本语-第五弹">日本语-第五弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-27T13:24:46.000Z" title="Created 2023-03-27 21:24:46">2023-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">日本语-第五弹文法
-名詞を「发音同お」　動詞
-李さんは　毎日「まいにち」　コーヒー　を　飲みます「のみます」
-私は　毎日　新聞「しんぶん」　を　読みます「よみます」
-
-
-名詞「场所」で　動詞
-存在场所用に　动词进行场所用で
-李さんは　図書館「としょかん」で　勉強します「べんきょうします」
-
-
-名詞か　名詞 「若干名词作选择」
-私は　毎朝「まいあさ」　パンか　お粥「おかゆ」を　食べます「たべます」
-休みは　月曜日「げつようび」か　日曜日です
-
-
-名詞を　ください　「please give me …」
-コーラと　ケーキを　ください。　「cola and cake pleae.」
-申込書「もうしこみしょ」を　ください。
-この本を　ください。
-
-
-
-某人一天的生活起きます「おきます」
-窓「まど」を　開きます「開く&#x2F;ひらく」
-顔「かお」を　洗います　「洗う&#x2F;あらう」
-歯「は」を磨きます「磨く&#x2F;みがく」
-髪「かみ」を　とかします　「comb hair」
-服を　着ます　「着る&#x2F;きる」
-お茶「おちゃ」を　入れます「いれます」「make tea」
-お茶を　飲みます ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/" title="笔试算法题"><img class="post-bg" src="https://s2.loli.net/2023/04/15/YuDqOZPdHplaWbx.png" onerror="this.onerror=null;this.src='/null'" alt="笔试算法题"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/" title="笔试算法题">笔试算法题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-26T14:01:52.000Z" title="Created 2023-03-26 22:01:52">2023-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">笔试题一共五题，第一道简单&#x2F;普通难度，第二道普通难度，三四五大概是普通&#x2F;困难吧．
-分组交换链表一个链表两个一组，前后两组交换，递归
-12345678910111213141516171819202122232425class ListNode &#123;	int val;	ListNode next = null;&#125;public class Solution &#123;	public ListNode reorderList(ListNode head) &#123;		// 跳出		if (head == null) &#123;			return head;		&#125; else if (head.next == null) &#123;			return head;		&#125; else if (head.next.next == null) &#123;			return head;		&#125; else if (head.next.next.next == null) &#123;			return head;		&#125;		 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/" title="日本语-第四弹"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第四弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/" title="日本语-第四弹">日本语-第四弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-22T09:33:39.000Z" title="Created 2023-03-22 17:33:39">2023-03-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">文法（ぶんぽう）
-名詞（めいし）　へ（助词发音e） 動詞（どうし）
-
-吉田さんは　中国へ　行きます
-森さんは　日本へ　帰り（かえり）ます
-李さんは　どこへ　行きましたか
-昨日、どこへ　行きましたか
-
-
-名詞「場所」　から　動詞
-
-李さんは　先月「せんげつ」　北京から　来ました「きました」
-
-
-名詞「人」 と　動詞
-
-小野さんは　友達と　帰りました
-李さんは　どれと　日本へ　来ましたか
-
-
-名詞「交通工具」　で　動詞
-
-上海まで　飛行機「ひこうき」で　いきます
-私は　パスで　家へ　帰ります
-
-
-名詞から　名詞まで　動詞
-
-李さんは　駅「えき」から　アパートまで　歩いて「あるいて」　帰りました
-
-
-
-表达词1.たしか　不确定的感觉，似乎
-2.です　省略
-3.いえ&#x2F;うち 房子／家庭
-4.まっすぐ　直接
-5.それ　それは　お疲れ様でした\
-6.お疲れ様でした「おつかれさまでした」　辛苦了，再见的时候可以用
-7.最終電車「さいしゅうでんしゃ」&#x2F;終電「しゅうでん」　末班车
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Record my notes and so on.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="工具-删除hexo中未引用的图片"/></a><div class="content"><a class="title" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片">工具-删除hexo中未引用的图片</a><time datetime="2023-06-20T01:41:57.000Z" title="Created 2023-06-20 09:41:57">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对"><img src="/images/241240.png" onerror="this.onerror=null;this.src='/null'" alt="相等行列对"/></a><div class="content"><a class="title" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对">相等行列对</a><time datetime="2023-06-06T07:17:25.000Z" title="Created 2023-06-06 15:17:25">2023-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第十弾"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾">日本語-第十弾</a><time datetime="2023-06-02T06:24:47.000Z" title="Created 2023-06-02 14:24:47">2023-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第九弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹">日本語-第九弹</a><time datetime="2023-05-22T02:13:51.000Z" title="Created 2023-05-22 10:13:51">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第八弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹">日本語-第八弹</a><time datetime="2023-04-27T07:57:26.000Z" title="Created 2023-04-27 15:57:26">2023-04-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
+          <div class="content index posts-expand">
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Others/"><span class="card-category-list-name">Others</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">web技术</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"><span class="card-category-list-name">日本語</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">26</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/"><span class="card-category-list-name">网络工程</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">运维</span><span class="card-category-list-count">3</span></a></li>
-            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">December 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">September 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: (subtitleType) => {
-    if (false) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E4%B8%8D%E9%82%BB%E6%8E%A5%E6%A4%8D%E8%8A%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E4%B8%8D%E9%82%BB%E6%8E%A5%E6%A4%8D%E8%8A%B1/" class="post-title-link" itemprop="url">不邻接植花</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-04-15 16:03:21" itemprop="dateCreated datePublished" datetime="2023-04-15T16:03:21+08:00">2023-04-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1042-不邻接植花"><a href="#1042-不邻接植花" class="headerlink" title="1042. 不邻接植花"></a>1042. 不邻接植花</h1><p><img src="/images/0ea788.png" alt="不邻接植花"><br><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/flower-planting-with-no-adjacent/">链接</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>路径关系是一种无向图</li>
+<li>一个节点最多三条路径，却有四种花．也就是说一定有解</li>
+<li>将图的关系存储起来，每一个节点随机选择种类就可以，不必考虑回溯</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">gardenNoAdj</span>(<span class="params">self, n: <span class="built_in">int</span>, paths: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]</span>):  <span class="comment"># type: ignore</span></span><br><span class="line">		res = [<span class="number">0</span>] * n</span><br><span class="line">		<span class="comment"># 建立矩阵</span></span><br><span class="line">		G = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">		<span class="keyword">for</span> e <span class="keyword">in</span> paths:</span><br><span class="line">			G[e[<span class="number">0</span>] - <span class="number">1</span>].append(e[<span class="number">1</span>] - <span class="number">1</span>)</span><br><span class="line">			G[e[<span class="number">1</span>] - <span class="number">1</span>].append(e[<span class="number">0</span>] - <span class="number">1</span>)</span><br><span class="line">		<span class="comment"># pop随机弹出结果</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">			res[i] = (&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125; - &#123;res[j] <span class="keyword">for</span> j <span class="keyword">in</span> G[i]&#125;).pop()</span><br><span class="line">		<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>花园从１开始排序，注意数组索引的变化</li>
+<li>python中集合可以<code>pop()</code></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AD%E5%BC%B9/" class="post-title-link" itemprop="url">日本語-第六弹</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-04-08 22:25:11" itemprop="dateCreated datePublished" datetime="2023-04-08T22:25:11+08:00">2023-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h2><ul>
+<li><p>名詞　で　動詞　「手段&#x2F;原料」</p>
+<ul>
+<li>李さんは　日本語で　手紙「てがみ」を　書きます「書く&#x2F;かく」</li>
+<li>手紙を　速達「そくだつ」で　送りました。「送る&#x2F;おくる」</li>
+</ul>
+</li>
+<li><p>名詞　は　名詞　に　名詞　を　あげます。「who gives who something.」</p>
+<ul>
+<li>私は　小野さんに　お土産を　あげます。</li>
+<li>あげます　不能用在他人给我或者给我的家人上，这时候用　<strong>くれます「くれる」</strong></li>
+<li>張さんは　母に　本を　くれます。</li>
+</ul>
+</li>
+<li><p>名詞は　名詞に　名詞を　もらいます。「who get something from someone.」</p>
+<ul>
+<li>私は　小野さんに　辞書を　もらいました。</li>
+<li>私は　長島さん<strong>から</strong>　写真を　もらいました。「助词から表示物品的起点」</li>
+</ul>
+</li>
+<li><p>名詞に　会います「あうー＞あいます」「meet with someone」</p>
+<ul>
+<li>私は　大学で　佐藤さんに　会いました。</li>
+</ul>
+</li>
+</ul>
+<h2 id="表达词"><a href="#表达词" class="headerlink" title="表达词"></a>表达词</h2><ul>
+<li>から　在宾语是团体时，必须用から。</li>
+<li>さっき　たった今　表示离现在很近的过去</li>
+<li>ｘｘの件「けん」　与ｘｘ有关</li>
+<li>お願いします</li>
+<li>分かりました</li>
+<li>前に　也可以表示过去</li>
+</ul>
+<h2 id="例"><a href="#例" class="headerlink" title="例"></a>例</h2><p>A：昨日、　母に　誕生日のプレゼントを　送りました。<br>B：何で　送りましたか？</p>
+<p>A：その　映画「えいが」の　チケットは　誰に　あげますか？<br>B:李さんに　あげます。</p>
+<p>A：誰に　その　パンフレットを　もらいましたか？<br>B：長島さんに　もらいました。</p>
+<p>A：すみません、李さんは　いますか？<br>B：も帰りましたよ。</p>
+<h2 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h2><p>あげます means give and もらいます means be given.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/JS%E6%89%8B%E5%86%99%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">JS手写原理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-04-08 21:04:55" itemprop="dateCreated datePublished" datetime="2023-04-08T21:04:55+08:00">2023-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Some boilerplate of javascript.</p>
+<h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce()"></a>debounce()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, wait</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (timer) <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">			<span class="title function_">fn</span>()</span><br><span class="line">		&#125;, wait)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> myFn = <span class="title function_">debounce</span>(test, <span class="number">1000</span>)</span><br><span class="line"><span class="title function_">myFn</span>()</span><br><span class="line"><span class="title function_">myFn</span>()</span><br><span class="line"><span class="title function_">myFn</span>()</span><br><span class="line"><span class="title function_">myFn</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h2><p>sleep() can only use in an async function , and　the sleep() mast marked with <code>await</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">sleep</span>(<span class="params">delay</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">			<span class="title function_">resolve</span>()</span><br><span class="line">		&#125;, delay)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// how to use it</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line">	<span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">3000</span>)</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;execute&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">test</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="A-simple-Pubsub"><a href="#A-simple-Pubsub" class="headerlink" title="A simple Pubsub"></a>A simple Pubsub</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PubSub</span> &#123;</span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">topics</span> = &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">sub</span>(<span class="params">topic, callBack</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">topics</span>[topic]) &#123;</span><br><span class="line">			<span class="variable language_">this</span>.<span class="property">topics</span>[topic] = [callBack]</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="variable language_">this</span>.<span class="property">topics</span>[topic].<span class="title function_">push</span>(callBack)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">unsub</span>(<span class="params">topic, callBack</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">topics</span>[topic]) <span class="keyword">return</span></span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">topics</span>[topic] = <span class="variable language_">this</span>.<span class="property">topics</span>[topic].<span class="title function_">filter</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> item !== callBack</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">subOnce</span>(<span class="params">topic, callBack</span>) &#123;</span><br><span class="line">		<span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="title function_">callBack</span>()</span><br><span class="line">			<span class="variable language_">this</span>.<span class="title function_">off</span>(topic, fn)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="title function_">sub</span>(topic, fn)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="title function_">pub</span>(<span class="params">topic, ...params</span>) &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">topics</span>[topic] &amp;&amp; <span class="variable language_">this</span>.<span class="property">topics</span>[topic].<span class="title function_">forEach</span>(<span class="function"><span class="params">fn</span> =&gt;</span> fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, params))</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Implement-a-keyword-function-new"><a href="#Implement-a-keyword-function-new" class="headerlink" title="Implement a keyword function new"></a>Implement a keyword function <code>new</code></h2><p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023022126220448">面向对象编程-javascript</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myNew</span>(<span class="params">fn, ...args</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(fn.<span class="property"><span class="keyword">prototype</span></span>)</span><br><span class="line">	<span class="keyword">let</span> res = fn.<span class="title function_">call</span>(obj, ...args)</span><br><span class="line">	<span class="keyword">if</span> (res &amp;&amp; (<span class="keyword">typeof</span> res === <span class="string">&#x27;object&#x27;</span> || <span class="keyword">typeof</span> res === <span class="string">&#x27;function&#x27;</span>)) &#123;</span><br><span class="line">		<span class="keyword">return</span> res</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Man</span>(<span class="params">age, name</span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">	<span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title function_">myNew</span>(<span class="title class_">Man</span>, <span class="number">18</span>, <span class="string">&#x27;イフ&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">__proto__</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="SetInterval"><a href="#SetInterval" class="headerlink" title="SetInterval"></a>SetInterval</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">mySetInterval</span>(<span class="params">fn, time = <span class="number">1000</span></span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> timer = <span class="literal">null</span>,</span><br><span class="line">		isClear = <span class="literal">false</span></span><br><span class="line">	<span class="keyword">function</span> <span class="title function_">interval</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> (isClear) &#123;</span><br><span class="line">			isClear = <span class="literal">false</span></span><br><span class="line">			<span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="title function_">fn</span>()</span><br><span class="line">		timer = <span class="built_in">setTimeout</span>(interval, time)</span><br><span class="line">	&#125;</span><br><span class="line">	timer = <span class="built_in">setTimeout</span>(interval, time)</span><br><span class="line">	<span class="comment">// to convenient, use a fallback instead of intervalId</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">		isClear = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/462393494">zhihu</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">go语言基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-30 17:02:29" itemprop="dateCreated datePublished" datetime="2023-03-30T17:02:29+08:00">2023-03-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>个人认为和js,py不同的地方</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/go/go-tutorial.html">菜鸟教程</a></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> balance = [<span class="number">5</span>]<span class="type">float32</span>&#123;<span class="number">1000.0</span>, <span class="number">2.0</span>, <span class="number">3.4</span>, <span class="number">7.0</span>, <span class="number">50.0</span>&#125;</span><br><span class="line">balance := [<span class="number">5</span>]<span class="type">float32</span>&#123;<span class="number">1000.0</span>, <span class="number">2.0</span>, <span class="number">3.4</span>, <span class="number">7.0</span>, <span class="number">50.0</span>&#125;</span><br><span class="line"><span class="comment">// 编译器确定长度</span></span><br><span class="line">balance := [...]<span class="type">float32</span>&#123;<span class="number">1000.0</span>, <span class="number">2.0</span>, <span class="number">3.4</span>, <span class="number">7.0</span>, <span class="number">50.0</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="切片（可变数组）"><a href="#切片（可变数组）" class="headerlink" title="切片（可变数组）"></a>切片（可变数组）</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// init</span></span><br><span class="line">s :=[] <span class="type">int</span> &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> &#125;</span><br><span class="line">s :=<span class="built_in">make</span>([]<span class="type">int</span>,<span class="built_in">len</span>,<span class="built_in">cap</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 截取，和py一致</span></span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// append() and copy()</span></span><br><span class="line"><span class="keyword">var</span> numbers []<span class="type">int</span></span><br><span class="line">numbers = <span class="built_in">append</span>(numbers, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">copy</span>(numbers1,numbers)</span><br></pre></td></tr></table></figure>
+
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i := <span class="number">8</span></span><br><span class="line">f := <span class="number">3.00</span></span><br><span class="line"><span class="keyword">var</span> ip *<span class="type">int</span></span><br><span class="line"><span class="keyword">var</span> fp *<span class="type">float64</span></span><br><span class="line"><span class="comment">// 取地址</span></span><br><span class="line">ip = &amp;i</span><br><span class="line">fp = &amp;f</span><br><span class="line">fmt.Printf(<span class="string">&quot;%d\n&quot;</span>, *ip)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%f\n&quot;</span>, *fp)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%x\n&quot;</span>, ip)</span><br><span class="line">fmt.Printf(<span class="string">&quot;%x\n&quot;</span>, fp)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="map集合"><a href="#map集合" class="headerlink" title="map集合"></a>map集合</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>&#123;</span><br><span class="line">	<span class="string">&quot;ゼロ&quot;</span>: <span class="number">0</span>,</span><br><span class="line">&#125;</span><br><span class="line">m[<span class="string">&quot;いち&quot;</span>]=<span class="number">1</span></span><br><span class="line">m[<span class="string">&quot;に&quot;</span>]=<span class="number">2</span></span><br><span class="line">m[<span class="string">&quot;さん&quot;</span>]=３</span><br><span class="line"></span><br><span class="line"><span class="built_in">delete</span>(m,<span class="string">&quot;ゼロ&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="range遍历"><a href="#range遍历" class="headerlink" title="range遍历"></a>range遍历</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pow = []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">32</span>, <span class="number">64</span>, <span class="number">128</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> pow &#123;</span><br><span class="line">		<span class="comment">// do somethings</span></span><br><span class="line">		<span class="comment">// i,v是索引和值</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(s <span class="type">string</span>, nList ...<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="comment">// 类似es6的拓展运算符，以切片形式接受变长参数</span></span><br><span class="line">	fmt.Println(<span class="string">&quot;received vars:&quot;</span>, s, nList)</span><br><span class="line">	<span class="keyword">var</span> res <span class="type">int</span> = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> nList &#123;</span><br><span class="line">		res += v</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">	<span class="comment">// 类似es6的拓展运算符</span></span><br><span class="line">	res := sum(<span class="string">&quot;hello&quot;</span>, arr...)</span><br><span class="line">	fmt.Println(<span class="string">&quot;result of sun(): &quot;</span>, res)</span><br><span class="line">	fmt.Println()</span><br><span class="line"></span><br><span class="line">	res = sum(<span class="string">&quot;hello&quot;</span>, arr[<span class="number">0</span>], arr[<span class="number">1</span>])</span><br><span class="line">	fmt.Println(<span class="string">&quot;result of sun(): &quot;</span>, res)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a := <span class="type">int</span> <span class="number">16</span></span><br><span class="line">b := <span class="type">float64</span> = <span class="type">float64</span>(a)</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串类型转换"><a href="#字符串类型转换" class="headerlink" title="字符串类型转换"></a>字符串类型转换</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// str -&gt; int</span></span><br><span class="line"><span class="keyword">var</span> str <span class="type">string</span> = <span class="string">&quot;10&quot;</span></span><br><span class="line"><span class="keyword">var</span> num <span class="type">int</span></span><br><span class="line">num, _ = strconv.Atoi(str)</span><br><span class="line"></span><br><span class="line"><span class="comment">// int -&gt; str</span></span><br><span class="line">num := <span class="number">123</span></span><br><span class="line">str := strconv.Itoa(num)</span><br></pre></td></tr></table></figure>
+
+<h2 id="接口类型变量"><a href="#接口类型变量" class="headerlink" title="接口类型变量"></a>接口类型变量</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// init</span></span><br><span class="line"><span class="keyword">type</span> Phone <span class="keyword">interface</span> &#123;</span><br><span class="line">	call(param <span class="type">int</span>) <span class="type">string</span></span><br><span class="line">	takephoto()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Huawei <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(huawei Huawei)</span></span> call(param <span class="type">int</span>) <span class="type">string</span>&#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;i am Huawei, i can call you!&quot;</span>, param)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;damon&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(huawei Huawei)</span></span> takephoto() &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;i can take a photo for you&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	phone := Phone</span><br><span class="line">	phone = <span class="built_in">new</span>(Huawei)</span><br><span class="line">	phone.takephoto()</span><br><span class="line">	r := phone.call(<span class="number">50</span>)</span><br><span class="line">	fmt.Println(r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="关键字defer"><a href="#关键字defer" class="headerlink" title="关键字defer"></a>关键字defer</h2><p><code>defer</code>关键字标注的语句会在return之前调用．</p>
+<p>如果有多个defer表达式，调用顺序类似于栈，越后面的defer表达式越先被调用。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// defer表达式可能会在设置函数返回值之后，在返回到调用函数之前，修改返回值，使最终的函数返回值与你想象的不一致。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span> (result <span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        result++</span><br><span class="line">    &#125;()</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="go并发"><a href="#go并发" class="headerlink" title="go并发"></a>go并发</h2><p>这个我觉得是比较有意思的，通过并发和channel使得多线程很方便</p>
+<h4 id="通道chan"><a href="#通道chan" class="headerlink" title="通道chan"></a>通道chan</h4><p>通道（channel）是用来传递数据的一个数据结构。</p>
+<p>通道可用于两个 goroutine 之间通过传递一个指定类型的值来同步运行和通讯。操作符 &lt;- 用于指定通道的方向，发送或接收。如果未指定方向，则为双向通道。</p>
+<p>默认情况下，通道是不带缓冲区的。发送端发送数据，同时必须有接收端相应的接收数据.</p>
+<p>带缓冲区的通道允许发送端的数据发送和接收端的数据获取处于异步状态，就是说发送端发送的数据可以放在缓冲区里面，可以等待接收端去获取数据，而不是立刻需要接收端去获取数据。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fibonacci</span><span class="params">(n <span class="type">int</span>, c <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	x, y := <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ &#123;</span><br><span class="line">		c &lt;- x</span><br><span class="line">		fmt.Printf(<span class="string">&quot;trans %d\n&quot;</span>, x)</span><br><span class="line">		time.Sleep(<span class="number">100</span> * time.Millisecond)</span><br><span class="line">		x, y = y, y+<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">close</span>(c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>, <span class="number">5</span>)</span><br><span class="line">	<span class="keyword">go</span> fibonacci(<span class="number">2</span>*<span class="built_in">cap</span>(c), c)</span><br><span class="line">	time.Sleep(<span class="number">5</span> * time.Second)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="keyword">range</span> c &#123;</span><br><span class="line">		<span class="comment">// 这里会阻塞fibonacci线程</span></span><br><span class="line">		time.Sleep(<span class="number">1</span> * time.Second)</span><br><span class="line">		fmt.Printf(<span class="string">&quot;recive %d\n&quot;</span>, i)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出应该是这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">trans 0</span><br><span class="line">trans 1</span><br><span class="line">trans 2</span><br><span class="line">trans 3</span><br><span class="line">trans 4</span><br><span class="line">trans 5</span><br><span class="line">recive 0</span><br><span class="line">trans 6</span><br><span class="line">recive 1</span><br><span class="line">trans 7</span><br><span class="line">recive 2</span><br><span class="line">trans 8</span><br><span class="line">recive 3</span><br><span class="line">trans 9</span><br><span class="line">recive 4</span><br><span class="line">recive 5</span><br><span class="line">recive 6</span><br><span class="line">recive 7</span><br><span class="line">recive 8</span><br><span class="line">recive 9</span><br></pre></td></tr></table></figure>
+
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>go的包管理有些麻烦，我在这里也摸了大坑．</p>
+<p>go1.1１以后增加了module模式，由环境变量<code>GO111MODULE</code>控制</p>
+<h3 id="非mod模式"><a href="#非mod模式" class="headerlink" title="非mod模式"></a>非mod模式</h3><ul>
+<li>此时的go没有项目的概念，非常杂乱．</li>
+<li><code>GOROOT</code>和<code>GOPATH</code>是两个重要的环境变量．导入包时，在上面两个路径下的src目录寻找模块．</li>
+<li>如果想自定义模块，必须放在<code>$GOPATH/src</code>下才能导入</li>
+</ul>
+<h3 id="mod模式"><a href="#mod模式" class="headerlink" title="mod模式"></a>mod模式</h3><ul>
+<li>项目下的<code>go.mod</code>类似<code>package.json</code>,<code>requirements.txt</code>,<code>pom.xml</code></li>
+<li>同项目下的<code>module</code>可以直接引用，不需要src目录．</li>
+<li>依赖管理用<code>go mod</code>系列指令<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/5712.html">文档</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%94%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第五弹</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-27 21:24:46" itemprop="dateCreated datePublished" datetime="2023-03-27T21:24:46+08:00">2023-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="日本语-第五弹"><a href="#日本语-第五弹" class="headerlink" title="日本语-第五弹"></a>日本语-第五弹</h1><h2 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h2><ul>
+<li>名詞<strong>を</strong>「发音同お」　動詞<ul>
+<li>李さんは　毎日「まいにち」　コーヒー　を　飲みます「のみます」</li>
+<li>私は　毎日　新聞「しんぶん」　を　読みます「よみます」</li>
+</ul>
+</li>
+<li>名詞「场所」<strong>で</strong>　動詞<ul>
+<li>存在场所用に　动词进行场所用で</li>
+<li>李さんは　図書館「としょかん」で　勉強します「べんきょうします」</li>
+</ul>
+</li>
+<li>名詞<strong>か</strong>　名詞 「若干名词作选择」<ul>
+<li>私は　毎朝「まいあさ」　パンか　お粥「おかゆ」を　食べます「たべます」</li>
+<li>休みは　月曜日「げつようび」か　日曜日です</li>
+</ul>
+</li>
+<li>名詞を　ください　「please give me …」<ul>
+<li>コーラと　ケーキを　ください。　「cola and cake pleae.」</li>
+<li>申込書「もうしこみしょ」を　ください。</li>
+<li>この本を　ください。</li>
+</ul>
+</li>
+</ul>
+<h2 id="某人一天的生活"><a href="#某人一天的生活" class="headerlink" title="某人一天的生活"></a>某人一天的生活</h2><p>起きます「おきます」</p>
+<p>窓「まど」を　開きます「開く&#x2F;ひらく」</p>
+<p>顔「かお」を　洗います　「洗う&#x2F;あらう」</p>
+<p>歯「は」を磨きます「磨く&#x2F;みがく」</p>
+<p>髪「かみ」を　とかします　「comb hair」</p>
+<p>服を　着ます　「着る&#x2F;きる」</p>
+<p>お茶「おちゃ」を　入れます「いれます」「make tea」</p>
+<p>お茶を　飲みます</p>
+<p>ご飯を　食べます</p>
+<p>新聞を　読みます「よみます」</p>
+<p>靴「くつ」を　はきます</p>
+<p>ドア「door」を　閉めます「しめます」</p>
+<p><strong>「すずめの戸締まり」「すずめのとじまり」</strong></p>
+<p>鍵「かぎ」を　かけます「lock it」</p>
+<p>ごみを　出し「だし」ます「put out the trash」</p>
+<p>会社へ　行きま</p>
+<p>切符を　買います「きっぷをかいます」</p>
+<p>雑誌を　読みます</p>
+<p>音楽「おんがく」を　聞きます「ききます」</p>
+<p>…</p>
+<h2 id="表达词"><a href="#表达词" class="headerlink" title="表达词"></a>表达词</h2><ul>
+<li>そうですか</li>
+<li>そうですね</li>
+<li>じゃあ</li>
+<li>しつれいします</li>
+<li>いってらっしゃい</li>
+<li>いってまいりまうす「我走了（正式）」</li>
+<li>いってきます「我走了」</li>
+<li>ただいま&#x2F;おかえりなさい</li>
+<li>いらっしゃいませ</li>
+<li>かしこまりました「我明白了，敬语」</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%AC%94%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/" class="post-title-link" itemprop="url">笔试算法题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-26 22:01:52" itemprop="dateCreated datePublished" datetime="2023-03-26T22:01:52+08:00">2023-03-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="笔试题"><a href="#笔试题" class="headerlink" title="笔试题"></a>笔试题</h1><p>一共五题，第一道简单&#x2F;普通难度，第二道普通难度，三四五大概是普通&#x2F;困难吧．</p>
+<h2 id="分组交换链表"><a href="#分组交换链表" class="headerlink" title="分组交换链表"></a>分组交换链表</h2><p>一个链表两个一组，前后两组交换，递归</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	<span class="type">ListNode</span> <span class="variable">next</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> ListNode <span class="title function_">reorderList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">		<span class="comment">// 跳出</span></span><br><span class="line">		<span class="keyword">if</span> (head == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (head.next == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (head.next.next == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (head.next.next.next == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> head;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 递归到最后</span></span><br><span class="line">		<span class="type">ListNode</span> <span class="variable">nextHead</span> <span class="operator">=</span> reorderList(head.next.next.next.next);</span><br><span class="line">		<span class="type">ListNode</span> <span class="variable">thirdNode</span> <span class="operator">=</span> head.next.next;</span><br><span class="line">		thirdNode.next.next = head;</span><br><span class="line">		head.next.next = nextHead;</span><br><span class="line">		<span class="keyword">return</span> thirdNode;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="可能的字符串"><a href="#可能的字符串" class="headerlink" title="可能的字符串"></a>可能的字符串</h2><p>在每个字符串中选择一个字符，组成所有自负不重复的子字符串</p>
+<p>例如　ab,ca,ccb –&gt; acb , bac</p>
+<p>很明显用回溯算法，但是没写出来，只好用暴力解法，结果超时.</p>
+<p><del>下面是一个四不像．</del></p>
+<p>edit : 第二天再写，只花了五分钟就改好了（果然还是考试时太着急了点），下面是成品（没有跑太多测试）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> sumFloor;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> List&lt;String&gt; <span class="title function_">handleInput</span><span class="params">()</span> &#123;</span><br><span class="line">		List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">		<span class="comment">// 输入handle</span></span><br><span class="line">		<span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">		<span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line">		in.nextLine();</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			list.add(in.nextLine());</span><br><span class="line">		&#125;</span><br><span class="line">		in.close();</span><br><span class="line">		<span class="keyword">return</span> list;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findSubString</span><span class="params">(List&lt;String&gt; ss)</span> &#123;</span><br><span class="line">		Set&lt;Character&gt; stack = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">		sumFloor = ss.size();</span><br><span class="line">		backstack(<span class="number">0</span>, stack, ss);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 回溯算法</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">backstack</span><span class="params">(<span class="type">int</span> floor, Set&lt;Character&gt; stack, List&lt;String&gt; ss)</span> &#123;</span><br><span class="line">		<span class="comment">// 跳出条件</span></span><br><span class="line">		<span class="keyword">if</span> (floor == sumFloor) &#123;</span><br><span class="line">			result++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 遍历可以放入stack的元素</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">char</span> c : ss.get(floor).toCharArray()) &#123;</span><br><span class="line">			<span class="keyword">if</span> (stack.contains(c)) &#123;</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				stack.add(c);</span><br><span class="line">				backstack(floor + <span class="number">1</span>, stack, ss);</span><br><span class="line">				stack.remove(c);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">Solution</span> <span class="variable">foo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Solution</span>();</span><br><span class="line">		List&lt;String&gt; ss = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">		ss.add(<span class="string">&quot;ab&quot;</span>);</span><br><span class="line">		ss.add(<span class="string">&quot;ca&quot;</span>);</span><br><span class="line">		ss.add(<span class="string">&quot;ccb&quot;</span>);</span><br><span class="line">		System.out.println(foo.findSubString(ss));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>算法题挺久没刷了，手生了．</p>
+<p>leetcode的题目都是写接口，对手动处理输入不熟悉．</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E5%9B%9B%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第四弹</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-22 17:33:39" itemprop="dateCreated datePublished" datetime="2023-03-22T17:33:39+08:00">2023-03-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="文法（ぶんぽう）"><a href="#文法（ぶんぽう）" class="headerlink" title="文法（ぶんぽう）"></a>文法（ぶんぽう）</h1><ul>
+<li><p>名詞（めいし）　<strong>へ</strong>（助词发音e） 動詞（どうし）</p>
+<ul>
+<li>吉田さんは　中国へ　行きます</li>
+<li>森さんは　日本へ　帰り（かえり）ます</li>
+<li>李さんは　どこへ　行きましたか</li>
+<li>昨日、どこへ　行きましたか</li>
+</ul>
+</li>
+<li><p>名詞「場所」　<strong>から</strong>　動詞</p>
+<ul>
+<li>李さんは　先月「せんげつ」　北京から　来ました「きました」</li>
+</ul>
+</li>
+<li><p>名詞「人」 <strong>と</strong>　動詞</p>
+<ul>
+<li>小野さんは　友達と　帰りました</li>
+<li>李さんは　どれと　日本へ　来ましたか</li>
+</ul>
+</li>
+<li><p>名詞「交通工具」　<strong>で</strong>　動詞</p>
+<ul>
+<li>上海まで　飛行機「ひこうき」で　いきます</li>
+<li>私は　パスで　家へ　帰ります</li>
+</ul>
+</li>
+<li><p>名詞から　名詞まで　動詞</p>
+<ul>
+<li>李さんは　駅「えき」から　アパートまで　歩いて「あるいて」　帰りました</li>
+</ul>
+</li>
+</ul>
+<h1 id="表达词"><a href="#表达词" class="headerlink" title="表达词"></a>表达词</h1><p>1.たしか　不确定的感觉，似乎</p>
+<p>2.です　省略</p>
+<p>3.いえ&#x2F;うち 房子／家庭</p>
+<p>4.まっすぐ　直接</p>
+<p>5.それ　それは　お疲れ様でした\</p>
+<p>6.お疲れ様でした「おつかれさまでした」　辛苦了，再见的时候可以用</p>
+<p>7.最終電車「さいしゅうでんしゃ」&#x2F;終電「しゅうでん」　末班车</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
-}
-</script><script>function subtitleType () {
-  if (false) {
-    typedJSFn.init(["Just a private note."])
-  } else {
-    document.getElementById("subtitle").textContent = "Just a private note."
-  }
-}
-typedJSFn.run(subtitleType)</script></div></div></body></html>
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinak0"
+      src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <p class="site-author-name" itemprop="name">hinak0</p>
+  <div class="site-description" itemprop="description">Record my notes and so on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinak0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinak0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hiak0@qq.com" title="E-Mail → mailto:hiak0@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinak0</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

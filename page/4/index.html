@@ -1,278 +1,978 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ONE NOTE - Just a private note.</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Record my notes and so on.">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="mask-icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" color="#222">
+  <link rel="manifest" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <meta name="msapplication-config" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Record my notes and so on.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ONE NOTE">
 <meta property="og:url" content="https://hinak0.github.io/page/4/index.html">
 <meta property="og:site_name" content="ONE NOTE">
 <meta property="og:description" content="Record my notes and so on.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
 <meta property="article:author" content="hinak0">
 <meta property="article:tag" content="technology">
 <meta property="article:tag" content="日本語">
 <meta property="article:tag" content="programing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="canonical" href="https://hinak0.github.io/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: 'days',
-  dateSuffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'ONE NOTE',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-06-24 10:08:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
+
+<link rel="canonical" href="https://hinak0.github.io/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ONE NOTE</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+</head>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ONE NOTE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Just a private note.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fas fa-toolbox fa-fw"></i>Tools</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/" title="UDP代理指南"><img class="post-bg" src="https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png" onerror="this.onerror=null;this.src='/null'" alt="UDP代理指南"></a></div><div class="recent-post-info"><a class="article-title" href="/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/" title="UDP代理指南">UDP代理指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-12-16T16:00:00.000Z" title="Created 2022-12-17 00:00:00">2022-12-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">为什么udp不能用Redirectredirect的原理在nat表修改数据包的目标地址,同时netfilter有 SO_ORIGINAL_DST 选项可以支持拿到原目的地址，netfilter 会将包的原目的地址放在 socket 的 SO_ORIGINAL_DST 属性里.代理客户端依次向原目标发起请求.
-为什么udp不能拿到修改前的地址udp是一种无连接协议,所以没有socket来拿到修改前的地址,改了就改了.
-udp怎样实现代理
-tproxy是在不修改数据包的前提上,将数据包转发到本地socket,但是这样不够,因为没有改数据包的目标地址,数据包就直接走forword了,所以需要增加一个路由表把所有数据转入本地:
-ip route add local 0.0.0.0/0 dev lo table 100
-然后增加一个rule,将特定的数据包转入这个路由表:
-ip rule add fwmark 1 table 100
-最后,该需要走代理的数据包加上这个标记,就可以:
-iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-por ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/" title="Ubuntu server作路由器"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="Ubuntu server作路由器"></a></div><div class="recent-post-info"><a class="article-title" href="/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/" title="Ubuntu server作路由器">Ubuntu server作路由器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-12-04T16:00:00.000Z" title="Created 2022-12-05 00:00:00">2022-12-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">路由器必须有的3个功能
-dns
-
-dhcp
-
-nat
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
-我打算这么做
-使用dnsmasq实现dhcp和dns
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-使用iptables实现nat转发
-
-使用clash+iptables实现透明代理
-
-
-dnsmasq配置首先关闭系统的dns-resolve服务
-12systemctl stop systemd-resolvedsystemctl disable systemd-resolved
-
-然后配置dnsmasq服务
-12345678910111213141516171819port=53interface=enp3s0dhcp-option=option:router,192.168.1.1dhcp-option=option:dns-server,192.168.1.1dhcp-range=192.168.1.2,192.168.1.254,255.255.255.0,24hstrict-ordercache-size=2048server=223.5.5.5no-resolvdomain=lanlocal=/lan/# log-queries# log-facility=/ ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制"><img class="post-bg" src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="python垃圾回收机制"></a></div><div class="recent-post-info"><a class="article-title" href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="python垃圾回收机制">python垃圾回收机制</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-12-03T16:00:00.000Z" title="Created 2022-12-04 00:00:00">2022-12-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a></span></div><div class="content">垃圾回收为什么要垃圾回收程序运行中,有些不再使用的对象持续占有内存,称之为内存泄漏memory leak.内存泄漏导致计算机崩溃.例如,服务程序(长期运行)中发生内存泄漏会导致内存被占满,会导致计算机崩溃.好在python作为一种易用的语言,我们不用亲自进行内存管理(反面的是c语言,程序员必须非常注意内存管理).
-python的垃圾回收机制引用计数对每一个对象进行计数,ob_refcnt记录了一个对象被引用的次数.当引用计数归零时,回收对象.(被动触发)sys.getrefcount()可以获取一个对象的ob_refcnt引用增加的情况：
-
-对象被创建，例如 a&#x3D;23
-
-对象被引用，例如 b&#x3D;a
-
-对象被作为参数，传入到一个函数中，例如get_refcnt(a)
-
-对象作为一个元素，存储在容器中，例如list1&#x3D;[a,a]\
-
-
-引用减少的情况：
-
-对象的别名被显式销毁，例如del a
-
-对象的别名被赋予新的对象，例如a&#x3D;24
-
-一个对象离开它的作用域，例如 f 函数执行完毕时，func函数中的局部变量（全局变量不会）
-
-对象所在的容器被销毁，或 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94prettier%E4%B8%8Eeslint/" title="代码格式化配置记录——prettier与eslint"><img class="post-bg" src="https://s2.loli.net/2023/04/15/YuDqOZPdHplaWbx.png" onerror="this.onerror=null;this.src='/null'" alt="代码格式化配置记录——prettier与eslint"></a></div><div class="recent-post-info"><a class="article-title" href="/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94prettier%E4%B8%8Eeslint/" title="代码格式化配置记录——prettier与eslint">代码格式化配置记录——prettier与eslint</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-10-25T16:00:00.000Z" title="Created 2022-10-26 00:00:00">2022-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/web%E6%8A%80%E6%9C%AF/">web技术</a></span></div><div class="content">两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。prettier官方文档:prettier configuration默认忽略文件配置路径：./.prettierignore配置样例.prettierrc.js
-1234567891011121314151617181920212223242526272829// https://prettier.io/docs/en/options.htmlmodule.exports = &#123;		// 末尾不需要逗号 &#x27;es5&#x27; noneF		trailingComma: &#x27;es5&#x27;,		// 大括号内的首尾需要空格		bracketSpacing: true,		// 行尾分号		semi: false,		// 使用单引号		singleQuote: true,		// 一行最多 100 字符		printWidth: 100,		// 使用缩进符		useTabs: true,		// 使用 2 个空格缩进		tabWidth: 3,		// 对象的 key 仅在 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" title="j1900软路由部署笔记"><img class="post-bg" src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="j1900软路由部署笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" title="j1900软路由部署笔记">j1900软路由部署笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-10-19T16:00:00.000Z" title="Created 2022-10-20 00:00:00">2022-10-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">安装系统环境配置sudo vim /etc/profile\
-1234# 中文export LANG=&quot;zh_CN.UTF-8&quot;# editorexport EDITOR=vim
-
-cd /etc/systemd/system/network-online.target.wants/ &amp;&amp; vi systemd-networkd-wait-online.service
-12[Service]TimeoutStartSec=8sec
-
-时区sudo tzselectsudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-配置apt镜像源sudo vim /etc/apt/sources.list
-1234567891011121314# https://mirrors.tuna.tsinghua.edu.cn/# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bioni ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" title="旁路由配置"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="旁路由配置"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" title="旁路由配置">旁路由配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-10-06T16:00:00.000Z" title="Created 2022-10-07 00:00:00">2022-10-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">什么是旁路由将传统的 终端-路由模式 改为 终端-网关-路由模式 ，数据经过网关的代理，再发送给路由器。
-我为什么使用旁路由我的软路由无法连接到宿舍的校园网，并非无法获取ip，而是爱快系统的某些配置导致即使网卡的mac已经经过了校园网的认证(通过其他设备更改mac认证实现)，仍然无法链接上网络。而虚拟机的openwrt系统就能正常上网，推测是爱快的线路检测机制（设置静态路由表也不好使）。
-也许可以让爱快使用openwrt的网络？但是这实在算不上优雅。
-现在宿舍网络采用的是小米路由器连接校园网作为主路由，软路由当作旁路网关的一个结构。
-我的旁路由如何配置首先在openwrt上只配置一个lan口，网关配置为主路由，然后ssr允许lan口连接配置。
-然后在爱快上配置dhcp服务，爱快的dhcp管理真的很好用，可以为每个设备配置单独的网关和dns。记得给openwrt分配一个固定的ip，然后给需要留学的设备设置网关为openwrt.
-最后最好关掉小米路由器的dhcp服务。
-为什么要配置防火墙在配置完成后，我发现一个问题，电脑网络一切正常，安卓机却只能留学不能访问国内网站（很慢），遂百度之，发现 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/" title="windows网络连接后面的数字怎么去掉"><img class="post-bg" src="https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png" onerror="this.onerror=null;this.src='/null'" alt="windows网络连接后面的数字怎么去掉"></a></div><div class="recent-post-info"><a class="article-title" href="/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/" title="windows网络连接后面的数字怎么去掉">windows网络连接后面的数字怎么去掉</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-09-29T16:00:00.000Z" title="Created 2022-09-30 00:00:00">2022-09-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改?
-windows所有连接过的网络都保存在这两个位置:
-12计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
-
-并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，强迫症表示强烈谴责。
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Record my notes and so on.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="工具-删除hexo中未引用的图片"/></a><div class="content"><a class="title" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片">工具-删除hexo中未引用的图片</a><time datetime="2023-06-20T01:41:57.000Z" title="Created 2023-06-20 09:41:57">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对"><img src="/images/241240.png" onerror="this.onerror=null;this.src='/null'" alt="相等行列对"/></a><div class="content"><a class="title" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对">相等行列对</a><time datetime="2023-06-06T07:17:25.000Z" title="Created 2023-06-06 15:17:25">2023-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第十弾"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾">日本語-第十弾</a><time datetime="2023-06-02T06:24:47.000Z" title="Created 2023-06-02 14:24:47">2023-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第九弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹">日本語-第九弹</a><time datetime="2023-05-22T02:13:51.000Z" title="Created 2023-05-22 10:13:51">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第八弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹">日本語-第八弹</a><time datetime="2023-04-27T07:57:26.000Z" title="Created 2023-04-27 15:57:26">2023-04-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
+          <div class="content index posts-expand">
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Others/"><span class="card-category-list-name">Others</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">web技术</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"><span class="card-category-list-name">日本語</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">26</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/"><span class="card-category-list-name">网络工程</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">运维</span><span class="card-category-list-count">3</span></a></li>
-            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">December 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">September 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: (subtitleType) => {
-    if (false) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/udp%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">UDP代理指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-17T00:00:00+08:00">2022-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="为什么udp不能用Redirect"><a href="#为什么udp不能用Redirect" class="headerlink" title="为什么udp不能用Redirect"></a>为什么udp不能用Redirect</h2><h3 id="redirect的原理"><a href="#redirect的原理" class="headerlink" title="redirect的原理"></a>redirect的原理</h3><p>在nat表修改数据包的目标地址,同时netfilter有 SO_ORIGINAL_DST 选项可以支持拿到原目的地址，netfilter 会将包的原目的地址放在 socket 的 SO_ORIGINAL_DST 属性里.代理客户端依次向原目标发起请求.</p>
+<h3 id="为什么udp不能拿到修改前的地址"><a href="#为什么udp不能拿到修改前的地址" class="headerlink" title="为什么udp不能拿到修改前的地址"></a>为什么udp不能拿到修改前的地址</h3><p>udp是一种无连接协议,所以没有socket来拿到修改前的地址,改了就改了.</p>
+<h2 id="udp怎样实现代理"><a href="#udp怎样实现代理" class="headerlink" title="udp怎样实现代理"></a>udp怎样实现代理</h2><p><img src="/images/7a4d9a.png"></p>
+<p>tproxy是在不修改数据包的前提上,将数据包转发到本地socket,但是这样不够,因为没有改数据包的目标地址,数据包就直接走forword了,所以需要增加一个路由表把所有数据转入本地:</p>
+<p><code>ip route add local 0.0.0.0/0 dev lo table 100</code></p>
+<p>然后增加一个rule,将特定的数据包转入这个路由表:</p>
+<p><code>ip rule add fwmark 1 table 100</code></p>
+<p>最后,该需要走代理的数据包加上这个标记,就可以:</p>
+<p><code>iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port $&#123;tproxy_port&#125; --tproxy-mark 1</code></p>
+<p>如果想代理本机udp,就给本地output增加mark 1:</p>
+<p><code>iptables -t mangle -I OUTPUT -p udp --dport 53 -j MARK --set-mark 1</code></p>
+<p>这样niptables会把本机数据重新路由到prerouting,可以代理本机.</p>
+<h2 id="配置规则"><a href="#配置规则" class="headerlink" title="配置规则"></a>配置规则</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># error break</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># line-number for debug</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"></span><br><span class="line">lan_ipaddr=<span class="string">&quot;192.168.1.5&quot;</span>	<span class="comment"># 局域网路由器IP地址</span></span><br><span class="line">dns_port=<span class="string">&quot;5354&quot;</span>				<span class="comment"># DNS转发服务端口</span></span><br><span class="line">redir_port=<span class="string">&quot;7892&quot;</span>				<span class="comment"># 透明代理转发端口</span></span><br><span class="line">tproxy_port=<span class="string">&quot;7893&quot;</span>			<span class="comment"># tproxy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ip rule add fwmark 1 table 100</span></span><br><span class="line"><span class="comment"># ip route add local 0.0.0.0/0 dev lo table 100</span></span><br><span class="line"><span class="function"><span class="title">clearAllRules</span></span>() &#123;</span><br><span class="line">		<span class="comment"># 这里是清除所有规则回到默认状态</span></span><br><span class="line">		iptables-save | awk <span class="string">&#x27;/^[*]/ &#123; print $1 &#125; /^:[A-Z]+ [^-]/ &#123; print $1 &quot; ACCEPT&quot; ; &#125; /COMMIT/ &#123; print $0; &#125;&#x27;</span> | iptables-restore</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">setProxy</span></span>() &#123;</span><br><span class="line">		<span class="comment"># 转发DNS请求到端口 dns_port 解析</span></span><br><span class="line">		iptables -t nat -N CLASH_DNS</span><br><span class="line">		iptables -t nat -F CLASH_DNS</span><br><span class="line">		iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports <span class="variable">$&#123;dns_port&#125;</span></span><br><span class="line">		iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS</span><br><span class="line"></span><br><span class="line">		<span class="comment"># tcp代理 redirect 实现</span></span><br><span class="line">		iptables -t nat -N CLASH_TCP</span><br><span class="line">		iptables -t nat -F CLASH_TCP</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 0.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 10.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 127.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 169.254.0.0/16 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 172.16.0.0/12 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 192.168.0.0/16 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 224.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -d 240.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports <span class="variable">$&#123;redir_port&#125;</span></span><br><span class="line">		iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP</span><br><span class="line"></span><br><span class="line">		<span class="comment"># udp代理 tproxy实现</span></span><br><span class="line">		iptables -t mangle -N CLASH_UDP</span><br><span class="line">		iptables -t mangle -F CLASH_UDP</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 0.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 10.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 127.0.0.0/8 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 169.254.0.0/16 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 172.16.0.0/12 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 192.168.0.0/16 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 224.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -d 240.0.0.0/4 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j RETURN</span><br><span class="line">		iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port <span class="variable">$&#123;tproxy_port&#125;</span> --tproxy-mark 1</span><br><span class="line">		iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP <span class="comment"># 应用规则</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">clear)</span><br><span class="line">		clearAllRules</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;delete rules successfully&quot;</span></span><br><span class="line">		;;</span><br><span class="line"><span class="built_in">set</span>)</span><br><span class="line">		clearAllRules</span><br><span class="line">		setProxy</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;set rules successfully&quot;</span></span><br><span class="line">		;;</span><br><span class="line">*)</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;usage: <span class="variable">$0</span> clear|set&quot;</span></span><br><span class="line">		<span class="built_in">exit</span> 0</span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://xtls.github.io/document/level-2/transparent_proxy/transparent_proxy.html#iptables-nftables">透明代理入门 | Project X</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5393fb5e2c87">透明代理 UDP 为什么要用 TProxy？</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.newhanly.com/2020/04/28/clash/">Clash旁路网关设置</a></p>
+<p><a target="_blank" rel="noopener" href="https://guide.v2fly.org/app/tproxy.html">透明代理(TPROXY)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ubuntu-server%E4%BD%9C%E8%B7%AF%E7%94%B1%E5%99%A8/" class="post-title-link" itemprop="url">Ubuntu server作路由器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-05T00:00:00+08:00">2022-12-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="路由器必须有的3个功能"><a href="#路由器必须有的3个功能" class="headerlink" title="路由器必须有的3个功能"></a>路由器必须有的3个功能</h2><ul>
+<li><p>dns</p>
+</li>
+<li><p>dhcp</p>
+</li>
+<li><p>nat</p>
+</li>
+</ul>
+<h2 id="我打算这么做"><a href="#我打算这么做" class="headerlink" title="我打算这么做"></a>我打算这么做</h2><ul>
+<li><p>使用<code>dnsmasq</code>实现dhcp和dns</p>
+</li>
+<li><p>使用<code>iptables</code>实现nat转发</p>
+</li>
+<li><p>使用<code>clash+iptables</code>实现透明代理</p>
+</li>
+</ul>
+<h2 id="dnsmasq配置"><a href="#dnsmasq配置" class="headerlink" title="dnsmasq配置"></a>dnsmasq配置</h2><p>首先关闭系统的dns-resolve服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop systemd-resolved</span><br><span class="line">systemctl <span class="built_in">disable</span> systemd-resolved</span><br></pre></td></tr></table></figure>
+
+<p>然后配置dnsmasq服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">port=53</span><br><span class="line">interface=enp3s0</span><br><span class="line">dhcp-option=option:router,192.168.1.1</span><br><span class="line">dhcp-option=option:dns-server,192.168.1.1</span><br><span class="line">dhcp-range=192.168.1.2,192.168.1.254,255.255.255.0,24h</span><br><span class="line">strict-order</span><br><span class="line"></span><br><span class="line">cache-size=2048</span><br><span class="line">server=223.5.5.5</span><br><span class="line">no-resolv</span><br><span class="line"></span><br><span class="line">domain=lan</span><br><span class="line">local=/lan/</span><br><span class="line"></span><br><span class="line"># log-queries</span><br><span class="line"># log-facility=/var/log/dnsmasq.log</span><br><span class="line"></span><br><span class="line">dhcp-host=&lt;mac&gt;,&lt;ip&gt;,&lt;domain name&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 实现nat</span></span><br><span class="line">iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+<p>这时候下游主机就可以正常上网了</p>
+<h2 id="clash配置"><a href="#clash配置" class="headerlink" title="clash配置"></a>clash配置</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">port:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">redir-port:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">tproxy-port:</span> <span class="string">****</span></span><br><span class="line"><span class="attr">allow-lan:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">mode:</span> <span class="string">rule</span></span><br><span class="line"><span class="attr">log-level:</span> <span class="string">error</span></span><br><span class="line"><span class="attr">ipv6:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">external-controller:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">external-ui:</span> <span class="string">/var/www/html/</span></span><br><span class="line"><span class="attr">secret:</span> <span class="string">secret</span></span><br><span class="line"><span class="attr">profile:</span></span><br><span class="line">  <span class="attr">store-selected:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">store-fake-ip:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">dns:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="string">:**</span></span><br><span class="line">  <span class="attr">ipv6:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">default-nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">  <span class="attr">enhanced-mode:</span> <span class="string">fake-ip</span></span><br><span class="line">  <span class="attr">fake-ip-range:</span> <span class="number">198.18</span><span class="number">.0</span><span class="number">.1</span><span class="string">/16</span></span><br><span class="line">  <span class="attr">use-hosts:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">fake-ip-filter:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">*.lan</span></span><br><span class="line">  <span class="attr">nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">  <span class="attr">fallback:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://doh.dns.sb/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.cloudflare.com/dns-query</span></span><br><span class="line">  <span class="attr">fallback-filter:</span></span><br><span class="line">    <span class="attr">geoip:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">geoip-code:</span> <span class="string">CN</span></span><br><span class="line">  <span class="attr">nameserver-policy:</span></span><br><span class="line">    <span class="string">+.lan:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="iptables选择性转发流量到clash"><a href="#iptables选择性转发流量到clash" class="headerlink" title="iptables选择性转发流量到clash"></a>iptables选择性转发流量到clash</h2><p>iptables配置要点：</p>
+<ul>
+<li><p>向wan的流量redir</p>
+</li>
+<li><p>向lan的流量accept</p>
+</li>
+<li><p>向server的dns redir 到　tproxy port</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">dns_port=0</span><br><span class="line">redir_port=0</span><br><span class="line">tproxy_port=0</span><br><span class="line">udp_enable=1</span><br><span class="line">config_dir=<span class="string">&quot;/var/local/clash&quot;</span></span><br><span class="line">subconverter_dir=<span class="string">&quot;/usr/local/lib/subconverter&quot;</span></span><br><span class="line">sub_link=<span class="string">&quot;http://127.0.0.1:25500/getprofile?name=profiles&quot;</span></span><br><span class="line">LEASE_FILE=<span class="string">&quot;/var/lib/misc/dnsmasq.leases&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># error break</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># line-number for debug</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"><span class="function"><span class="title">init</span></span>() &#123;</span><br><span class="line">        <span class="comment"># route rules</span></span><br><span class="line">        ip rule add fwmark 1 table 100</span><br><span class="line">        ip route add <span class="built_in">local</span> 0.0.0.0/0 dev lo table 100</span><br><span class="line"></span><br><span class="line">        <span class="comment"># not global addresses</span></span><br><span class="line">        ipset create <span class="built_in">local</span> <span class="built_in">hash</span>:net</span><br><span class="line">        ipset add <span class="built_in">local</span> 0.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 127.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 10.0.0.0/8</span><br><span class="line">        ipset add <span class="built_in">local</span> 169.254.0.0/16</span><br><span class="line">        ipset add <span class="built_in">local</span> 192.168.0.0/16</span><br><span class="line">        ipset add <span class="built_in">local</span> 224.0.0.0/4</span><br><span class="line">        ipset add <span class="built_in">local</span> 240.0.0.0/4</span><br><span class="line">        ipset add <span class="built_in">local</span> 172.16.0.0/12</span><br><span class="line">        ipset add <span class="built_in">local</span> 100.64.0.0/10</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">clearAllRules</span></span>() &#123;</span><br><span class="line">        <span class="comment"># recovery rules</span></span><br><span class="line">        iptables-save | awk <span class="string">&#x27;/^[*]/ &#123; print $1 &#125; /^:[A-Z]+ [^-]/ &#123; print $1 &quot; ACCEPT&quot; ; &#125; /COMMIT/ &#123; print $0; &#125;&#x27;</span> | iptables-restore</span><br><span class="line">        <span class="comment"># nat</span></span><br><span class="line">        iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE</span><br><span class="line">        <span class="comment"># drop initiative package from wan</span></span><br><span class="line">        iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">setProxy</span></span>() &#123;</span><br><span class="line">        clearAllRules</span><br><span class="line"></span><br><span class="line">        <span class="comment"># udp tproxy</span></span><br><span class="line">        iptables -t mangle -N CLASH_UDP</span><br><span class="line">        iptables -t mangle -F CLASH_UDP</span><br><span class="line">        iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j ACCEPT</span><br><span class="line">        iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port <span class="variable">$&#123;tproxy_port&#125;</span> --tproxy-mark 1</span><br><span class="line"></span><br><span class="line">        <span class="comment"># DNS redirect</span></span><br><span class="line">        iptables -t nat -N CLASH_DNS</span><br><span class="line">        iptables -t nat -F CLASH_DNS</span><br><span class="line">        iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports <span class="variable">$&#123;dns_port&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># tcp redirect</span></span><br><span class="line">        iptables -t nat -N CLASH_TCP</span><br><span class="line">        iptables -t nat -F CLASH_TCP</span><br><span class="line">        iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports <span class="variable">$&#123;redir_port&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># apply rules</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$udp_enable</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT</span><br><span class="line">                iptables -t mangle -A PREROUTING -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">                iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># apply rules</span></span><br><span class="line">        iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT</span><br><span class="line">        iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS</span><br><span class="line">        iptables -t nat -A PREROUTING -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">        iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">setSelf</span></span>() &#123;</span><br><span class="line">        <span class="comment">#　Not recommended</span></span><br><span class="line">        iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT</span><br><span class="line">        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports <span class="variable">$&#123;dns_port&#125;</span></span><br><span class="line">        iptables -t nat -A OUTPUT -m <span class="built_in">set</span> --match-set <span class="built_in">local</span> dst -j ACCEPT</span><br><span class="line">        iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports <span class="variable">$&#123;redir_port&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">update</span></span>() &#123;</span><br><span class="line">        <span class="comment"># extra</span></span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$subconverter_dir</span></span><br><span class="line">        ./subconverter &amp;</span><br><span class="line">        <span class="built_in">sleep</span> 3</span><br><span class="line">        <span class="built_in">cat</span> <span class="variable">$config_dir</span>/config.yaml &gt; <span class="variable">$config_dir</span>/past.yaml</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;# `date`&quot;</span> &gt; <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">        curl <span class="variable">$sub_link</span> -s --noproxy <span class="string">&#x27;*&#x27;</span> &gt;&gt; <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">        pkill subconverter</span><br><span class="line"></span><br><span class="line">        <span class="comment"># test</span></span><br><span class="line">        clash -d <span class="variable">$config_dir</span> -t</span><br><span class="line">        <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;update failed.&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;update seccussfully!&quot;</span></span><br><span class="line">                <span class="comment"># setProxy</span></span><br><span class="line">                systemctl restart clash</span><br><span class="line">                diffConfig</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">lease</span></span>()&#123;</span><br><span class="line">        <span class="built_in">set</span> +x</span><br><span class="line">        <span class="comment"># show dnsmasq lease</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">read</span> line; <span class="keyword">do</span></span><br><span class="line">                timestamp=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">                mac=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">                ip=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span>)</span><br><span class="line">                host=$(<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$line</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $4&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># Convert the timestamp to a human-readable date</span></span><br><span class="line">                <span class="built_in">date</span>=$(<span class="built_in">date</span> -d @<span class="variable">$timestamp</span> +<span class="string">&quot;%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># Output the result</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$mac</span>      <span class="variable">$date</span>   <span class="variable">$ip</span>     <span class="variable">$host</span>&quot;</span></span><br><span class="line">        <span class="keyword">done</span> &lt; <span class="string">&quot;<span class="variable">$LEASE_FILE</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">ban</span></span>()&#123;</span><br><span class="line">        <span class="comment"># temporarily disable one ip</span></span><br><span class="line">        iptables -t mangle -I PREROUTING -s <span class="variable">$1</span> -j DROP</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">diffConfig</span></span>()&#123;</span><br><span class="line">        <span class="comment"># show diff</span></span><br><span class="line">        colordiff -c <span class="variable">$config_dir</span>/past.yaml <span class="variable">$config_dir</span>/config.yaml</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        del)</span><br><span class="line">                clearAllRules</span><br><span class="line">                ;;</span><br><span class="line">        <span class="built_in">set</span>)</span><br><span class="line">                setProxy</span><br><span class="line">                ;;</span><br><span class="line">        update)</span><br><span class="line">                update</span><br><span class="line">                ;;</span><br><span class="line">        init)</span><br><span class="line">                init</span><br><span class="line">                ;;</span><br><span class="line">        self)</span><br><span class="line">                setSelf</span><br><span class="line">                ;;</span><br><span class="line">        lease)</span><br><span class="line">                lease</span><br><span class="line">                ;;</span><br><span class="line">        diff)</span><br><span class="line">                diffConfig</span><br><span class="line">                ;;</span><br><span class="line">        ban)</span><br><span class="line">                ban <span class="variable">$2</span></span><br><span class="line">                ;;</span><br><span class="line"></span><br><span class="line">        *)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;HELLO IT&#x27;S ME&quot;</span></span><br><span class="line">                <span class="built_in">exit</span> 0</span><br><span class="line">                ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><h3 id="注册clash为服务"><a href="#注册clash为服务" class="headerlink" title="注册clash为服务"></a>注册clash为服务</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/clash.service</span><br></pre></td></tr></table></figure>
+
+<p>写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=clash daemon</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=clash</span><br><span class="line">Type=simple</span><br><span class="line">CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_NET_ADMIN</span><br><span class="line">AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_NET_ADMIN</span><br><span class="line">WorkingDirectory=/var/local/clash/</span><br><span class="line">ExecStart=/usr/local/bin/clash -d /var/local/clash/</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=20s</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>开机自启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start clash.service</span><br><span class="line">systemctl <span class="built_in">enable</span> clash.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="iptables规则保存"><a href="#iptables规则保存" class="headerlink" title="iptables规则保存"></a>iptables规则保存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /etc/iptables</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/python%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">python垃圾回收机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-12-04 00:00:00" itemprop="dateCreated datePublished" datetime="2022-12-04T00:00:00+08:00">2022-12-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">后端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="为什么要垃圾回收"><a href="#为什么要垃圾回收" class="headerlink" title="为什么要垃圾回收"></a>为什么要垃圾回收</h3><p>程序运行中,有些不再使用的对象持续占有内存,称之为内存泄漏<code>memory leak</code>.内存泄漏导致计算机崩溃.<br>例如,服务程序(长期运行)中发生内存泄漏会导致内存被占满,会导致计算机崩溃.<br>好在python作为一种易用的语言,我们不用亲自进行内存管理(反面的是c语言,程序员必须非常注意内存管理).</p>
+<h3 id="python的垃圾回收机制"><a href="#python的垃圾回收机制" class="headerlink" title="python的垃圾回收机制"></a>python的垃圾回收机制</h3><h5 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h5><p>对每一个对象进行计数,<code>ob_refcnt</code>记录了一个对象被引用的次数.当引用计数归零时,回收对象.(被动触发)<br><code>sys.getrefcount()</code>可以获取一个对象的<code>ob_refcnt</code><br>引用增加的情况：</p>
+<ul>
+<li><p>对象被创建，例如 a&#x3D;23</p>
+</li>
+<li><p>对象被引用，例如 b&#x3D;a</p>
+</li>
+<li><p>对象被作为参数，传入到一个函数中，例如get_refcnt(a)</p>
+</li>
+<li><p>对象作为一个元素，存储在容器中，例如list1&#x3D;[a,a]\</p>
+</li>
+</ul>
+<p>引用减少的情况：</p>
+<ul>
+<li><p>对象的别名被显式销毁，例如del a</p>
+</li>
+<li><p>对象的别名被赋予新的对象，例如a&#x3D;24</p>
+</li>
+<li><p>一个对象离开它的作用域，例如 f 函数执行完毕时，func函数中的局部变量（全局变量不会）</p>
+</li>
+<li><p>对象所在的容器被销毁，或从容器中删除对象</p>
+</li>
+</ul>
+<p>优缺点</p>
+<ul>
+<li><p>优点：被动进行，消耗资源少</p>
+</li>
+<li><p>缺点：无法解决循环引用问题</p>
+</li>
+</ul>
+<h5 id="标记清除"><a href="#标记清除" class="headerlink" title="标记清除"></a>标记清除</h5><p>一个程序的所有引用关系构成一个有向图,标记清除法就是从顶层对象<code>Roots</code>递归所有引用关系,不可达的对象将会被删除.(主动进行)<br><img src="/images/be6457.png"></p>
+<p><img src="/images/be6457.png"></p>
+<h5 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h5><p>每当对象在某次的的垃圾回收中存活下来时，则将该对象移动至下一代.代数越多,说明这个对象越可能重要,于是减少垃圾回收频率.</p>
+<h2 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h2><p><a target="_blank" rel="noopener" href="https://binglau7.github.io/2017/01/23/Python%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Python内存管理机制——内存模型</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94prettier%E4%B8%8Eeslint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94prettier%E4%B8%8Eeslint/" class="post-title-link" itemprop="url">代码格式化配置记录——prettier与eslint</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-26T00:00:00+08:00">2022-10-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。"><a href="#两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。" class="headerlink" title="两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。"></a>两工具侧重点有区别，eslint注重代码检查，prettier更注重代码格式化。</h4><h2 id="prettier"><a href="#prettier" class="headerlink" title="prettier"></a>prettier</h2><h3 id="官方文档-prettier-configuration"><a href="#官方文档-prettier-configuration" class="headerlink" title="官方文档:prettier configuration"></a>官方文档:<a target="_blank" rel="noopener" href="https://prettier.io/docs/en/configuration.html">prettier configuration</a></h3><h3 id="默认忽略文件配置路径：-prettierignore"><a href="#默认忽略文件配置路径：-prettierignore" class="headerlink" title="默认忽略文件配置路径：./.prettierignore"></a>默认忽略文件配置路径：<code>./.prettierignore</code></h3><h3 id="配置样例"><a href="#配置样例" class="headerlink" title="配置样例"></a>配置样例</h3><p>.prettierrc.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://prettier.io/docs/en/options.html</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">		<span class="comment">// 末尾不需要逗号 &#x27;es5&#x27; noneF</span></span><br><span class="line">		<span class="attr">trailingComma</span>: <span class="string">&#x27;es5&#x27;</span>,</span><br><span class="line">		<span class="comment">// 大括号内的首尾需要空格</span></span><br><span class="line">		<span class="attr">bracketSpacing</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">// 行尾分号</span></span><br><span class="line">		<span class="attr">semi</span>: <span class="literal">false</span>,</span><br><span class="line">		<span class="comment">// 使用单引号</span></span><br><span class="line">		<span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">// 一行最多 100 字符</span></span><br><span class="line">		<span class="attr">printWidth</span>: <span class="number">100</span>,</span><br><span class="line">		<span class="comment">// 使用缩进符</span></span><br><span class="line">		<span class="attr">useTabs</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="comment">// 使用 2 个空格缩进</span></span><br><span class="line">		<span class="attr">tabWidth</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="comment">// 对象的 key 仅在必要时用引号</span></span><br><span class="line">		<span class="comment">//quoteProps: &#x27;as-needed&#x27;,</span></span><br><span class="line">		<span class="comment">// jsx 不使用单引号，而使用双引号</span></span><br><span class="line">		<span class="comment">//jsxSingleQuote: false,</span></span><br><span class="line">		<span class="comment">// jsx 标签的反尖括号需要换行</span></span><br><span class="line">		<span class="comment">//jsxBracketSameLine: false,</span></span><br><span class="line">		<span class="comment">// 箭头函数，只有一个参数的时候，也需要括号</span></span><br><span class="line">		<span class="attr">arrowParens</span>: <span class="string">&#x27;avoid&#x27;</span>,</span><br><span class="line">		<span class="comment">// 每个文件格式化的范围是文件的全部内容</span></span><br><span class="line">		<span class="attr">rangeStart</span>: <span class="number">0</span>,</span><br><span class="line">		<span class="attr">rangeEnd</span>: <span class="title class_">Infinity</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p><code>prettier --config .prettierrc.js --write ./**/**/*.&#123;js,css,vue,html,json&#125;</code></p>
+<h2 id="eslint"><a href="#eslint" class="headerlink" title="eslint"></a>eslint</h2><h3 id="配置样例-1"><a href="#配置样例-1" class="headerlink" title="配置样例"></a>配置样例</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;eslintConfig&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;ignorePatterns&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;example.js&quot;</span></span><br><span class="line">	<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;root&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;node&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;extends&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;plugin:vue/essential&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;eslint:recommended&quot;</span></span><br><span class="line">	<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;parserOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;parser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;@babel/eslint-parser&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;no-use-before-define&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;no-unused-vars&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;no-redeclare&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;indent&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;error&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;tab&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;no-undef&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;no-empty&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;vue/multi-word-component-names&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;vue/require-v-for-key&quot;</span><span class="punctuation">:</span> <span class="string">&quot;off&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;vue/html-indent&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;error&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;tab&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="punctuation">&#123;</span></span><br><span class="line">				<span class="attr">&quot;attribute&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">				<span class="attr">&quot;baseIndent&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">				<span class="attr">&quot;closeBracket&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">				<span class="attr">&quot;alignAttributesVertically&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">				<span class="attr">&quot;ignores&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">			<span class="punctuation">&#125;</span></span><br><span class="line">		<span class="punctuation">]</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="命令行：eslint-fix-ext-vue-js"><a href="#命令行：eslint-fix-ext-vue-js" class="headerlink" title="命令行：eslint --fix --ext .vue,.js ./"></a>命令行：<code>eslint --fix --ext .vue,.js ./</code></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/j1900%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">j1900软路由部署笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-20T00:00:00+08:00">2022-10-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p><code>sudo vim /etc/profile</code>\</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中文</span></span><br><span class="line"><span class="built_in">export</span> LANG=<span class="string">&quot;zh_CN.UTF-8&quot;</span></span><br><span class="line"><span class="comment"># editor</span></span><br><span class="line"><span class="built_in">export</span> EDITOR=vim</span><br></pre></td></tr></table></figure>
+
+<p><code>cd /etc/systemd/system/network-online.target.wants/ &amp;&amp; vi systemd-networkd-wait-online.service</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">TimeoutStartSec</span>=<span class="number">8</span>sec</span><br></pre></td></tr></table></figure>
+
+<h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h3><p><code>sudo tzselect</code><br><code>sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></p>
+<h3 id="配置apt镜像源"><a href="#配置apt镜像源" class="headerlink" title="配置apt镜像源"></a>配置apt镜像源</h3><p><code>sudo vim /etc/apt/sources.list</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># https://mirrors.tuna.tsinghua.edu.cn/</span><br><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<h3 id="ubuntu配置静态ip"><a href="#ubuntu配置静态ip" class="headerlink" title="ubuntu配置静态ip"></a>ubuntu配置静态ip</h3><ul>
+<li><code>vim /etc/netplan/00-netcfg.yaml</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ethernets:</span></span><br><span class="line">  <span class="attr">enp3s0:</span></span><br><span class="line">    <span class="attr">dhcp4:</span> <span class="literal">no</span></span><br><span class="line">    <span class="attr">addresses:</span> [<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span><span class="string">/24</span>]</span><br><span class="line">  <span class="attr">enp4s0:</span></span><br><span class="line">    <span class="attr">dhcp4:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>sudo netplan apply</code></li>
+</ul>
+<h2 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h2><ul>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code></li>
+<li><code>sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</code></li>
+<li><code>sudo apt-get install docker-ce docker-ce-cli containerd.io</code></li>
+</ul>
+<h2 id="docker部署openwrt"><a href="#docker部署openwrt" class="headerlink" title="docker部署openwrt"></a>docker部署openwrt</h2><h3 id="macvlan模式"><a href="#macvlan模式" class="headerlink" title="macvlan模式"></a>macvlan模式</h3><p>1.打开网卡混杂模式<br><code>sudo ip link set enp3s0 promisc on</code><br><code>sudo ip link set enp4s0 promisc on</code></p>
+<p>2.创建网络<br><code>docker network create -d macvlan -o parent=enp3s0 vlan</code><br><code>docker network create -d macvlan -o parent=enp4s0 vwan</code></p>
+<p>3.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code></p>
+<p>4.创建并启动容器<br><code>docker run --name openwrt -d --network none --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 /sbin/init</code></p>
+<p>5.连接网络<br><code>docker network connect vlan openwrt</code><br><code>docker network connect vwan openwrt</code></p>
+<p>6.进入容器并修改相关参数(修改固定ip)<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code></p>
+<p>7.重启<br><code>/etc/init.d/network restart</code></p>
+<h3 id="host模式-网络性能更好"><a href="#host模式-网络性能更好" class="headerlink" title="host模式(网络性能更好)"></a>host模式(网络性能更好)</h3><p>1.拉取镜像<br><code>docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64</code><br><a target="_blank" rel="noopener" href="https://github.com/SuLingGG/OpenWrt-Docker">OpenWrt-Docker 项目地址</a></p>
+<p>2.创建并启动容器\</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --name openwrt \</span><br><span class="line">-v /mnt/share:/mnt/share \</span><br><span class="line">-d --network host --privileged \</span><br><span class="line">registry.cn-shanghai.aliyuncs.com/suling/openwrt:x86_64 \</span><br><span class="line">/sbin/init</span><br></pre></td></tr></table></figure>
+
+<p>3.进入容器并修改相关参数<br><code>docker exec -it openwrt bash</code><br><code>vim /etc/config/network</code>\</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">config interface &#x27;loopback&#x27;</span><br><span class="line">        option ifname &#x27;lo&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ipaddr &#x27;127.0.0.1&#x27;</span><br><span class="line">        option netmask &#x27;255.0.0.0&#x27;</span><br><span class="line"></span><br><span class="line">config globals &#x27;globals&#x27;</span><br><span class="line">        option packet_steering &#x27;1&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;lan&#x27;</span><br><span class="line">        option proto &#x27;static&#x27;</span><br><span class="line">        option ifname &#x27;enp3s0&#x27;</span><br><span class="line">        option ipaddr &#x27;192.168.1.1&#x27;</span><br><span class="line">        option netmask &#x27;255.255.255.0&#x27;</span><br><span class="line"></span><br><span class="line">config interface &#x27;wan&#x27;</span><br><span class="line">        option proto &#x27;dhcp&#x27;</span><br><span class="line">        option ifname &#x27;enp4s0&#x27;</span><br><span class="line">        option hostname &#x27;openwrt</span><br></pre></td></tr></table></figure>
+
+<p>4.重启<br><code>/etc/init.d/network restart</code></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>1.修改配置前先备份原本的配置文件</p>
+<p>2.docker的openwrt尽量注意避免与主系统冲突，比如不要让主系统和openwrt同时自动挂载设备，可能产生冲突。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/ubuntu-docker-install.html">菜鸟教程</a><br><a target="_blank" rel="noopener" href="https://mlapp.cn/376.html">美丽应用</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%97%81%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">旁路由配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-10-07T00:00:00+08:00">2022-10-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="什么是旁路由"><a href="#什么是旁路由" class="headerlink" title="什么是旁路由"></a>什么是旁路由</h2><p>将传统的 终端-路由模式 改为 终端-网关-路由模式 ，数据经过网关的代理，再发送给路由器。</p>
+<h2 id="我为什么使用旁路由"><a href="#我为什么使用旁路由" class="headerlink" title="我为什么使用旁路由"></a>我为什么使用旁路由</h2><p>我的软路由无法连接到宿舍的校园网，并非无法获取ip，而是爱快系统的某些配置导致即使网卡的mac已经经过了校园网的认证(通过其他设备更改mac认证实现)，仍然无法链接上网络。而虚拟机的openwrt系统就能正常上网，推测是爱快的线路检测机制（设置静态路由表也不好使）。</p>
+<p>也许可以让爱快使用openwrt的网络？但是这实在算不上优雅。</p>
+<p>现在宿舍网络采用的是小米路由器连接校园网作为主路由，软路由当作旁路网关的一个结构。</p>
+<h2 id="我的旁路由如何配置"><a href="#我的旁路由如何配置" class="headerlink" title="我的旁路由如何配置"></a>我的旁路由如何配置</h2><p>首先在openwrt上只配置一个lan口，网关配置为主路由，然后ssr允许lan口连接配置。</p>
+<p>然后在爱快上配置dhcp服务，爱快的dhcp管理真的很好用，可以为每个设备配置单独的网关和dns。记得给openwrt分配一个固定的ip，然后给需要留学的设备设置网关为openwrt.</p>
+<p>最后最好关掉小米路由器的dhcp服务。</p>
+<h2 id="为什么要配置防火墙"><a href="#为什么要配置防火墙" class="headerlink" title="为什么要配置防火墙"></a>为什么要配置防火墙</h2><p>在配置完成后，我发现一个问题，电脑网络一切正常，安卓机却只能留学不能访问国内网站（很慢），遂百度之，发现可能是路由器或者安卓的防劫持机制。鉴于电脑正常，我估计是安卓的机制。简单来说就是安卓发送数据的网关是openwrt，却收到了主路由返回的包，认为被劫持了，就不要这个数据包。</p>
+<p>这个帖子讲的比较清楚：<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-2983767-1-1.html">关于N1做旁路由添加 iptables 自定义防火墙规则的见解</a>。</p>
+<p>也就是让旁路网关把数据包源ip改成自己的，再发送出去，这样回复包也会先给网关，再由网关返回终端设备，就不会触发防劫持，也能使去广告等插件正常工作。</p>
+<p>不过这样带来一次ip转换，性能会有微小损失，但是这不是我30m校园网该考虑的事。</p>
+<p><img src="/images/9bc343.png"></p>
+<p>增加了一个跳数</p>
+<p>下一步打算给软路由刷个linux当服务器使，爱快没有root权限实在很限制手脚。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/windows%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E5%8E%BB%E6%8E%89/" class="post-title-link" itemprop="url">windows网络连接后面的数字怎么去掉</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-09-30 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-30T00:00:00+08:00">2022-09-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21109663">win8&#x2F;win10无线网络名称后面的数字怎么删掉或修改?</a></p>
+<p>windows所有连接过的网络都保存在这两个位置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles</span><br><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged</span><br></pre></td></tr></table></figure>
+
+<p>并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，强迫症表示强烈谴责。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
-}
-</script><script>function subtitleType () {
-  if (false) {
-    typedJSFn.init(["Just a private note."])
-  } else {
-    document.getElementById("subtitle").textContent = "Just a private note."
-  }
-}
-typedJSFn.run(subtitleType)</script></div></div></body></html>
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinak0"
+      src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <p class="site-author-name" itemprop="name">hinak0</p>
+  <div class="site-description" itemprop="description">Record my notes and so on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinak0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinak0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hiak0@qq.com" title="E-Mail → mailto:hiak0@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinak0</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

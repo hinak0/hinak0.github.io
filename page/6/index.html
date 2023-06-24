@@ -1,281 +1,903 @@
-<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ONE NOTE - Just a private note.</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Record my notes and so on.">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <link rel="mask-icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" color="#222">
+  <link rel="manifest" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <meta name="msapplication-config" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Record my notes and so on.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ONE NOTE">
 <meta property="og:url" content="https://hinak0.github.io/page/6/index.html">
 <meta property="og:site_name" content="ONE NOTE">
 <meta property="og:description" content="Record my notes and so on.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
 <meta property="article:author" content="hinak0">
 <meta property="article:tag" content="technology">
 <meta property="article:tag" content="日本語">
 <meta property="article:tag" content="programing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="canonical" href="https://hinak0.github.io/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: 'days',
-  dateSuffix: {
-    just: 'Just',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'ONE NOTE',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-06-24 10:08:00'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
+
+<link rel="canonical" href="https://hinak0.github.io/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>ONE NOTE</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
   }
 
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
+</head>
 
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ONE NOTE</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Just a private note.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fas fa-toolbox fa-fw"></i>Tools</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/" title="js的闭包实现模块化"><img class="post-bg" src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="js的闭包实现模块化"></a></div><div class="recent-post-info"><a class="article-title" href="/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/" title="js的闭包实现模块化">js的闭包实现模块化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-21T16:00:00.000Z" title="Created 2022-06-22 00:00:00">2022-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/web%E6%8A%80%E6%9C%AF/">web技术</a></span></div><div class="content">js可以通过在函数内部定义函数，实现开辟新的作用域，外部无法访问，也就是实现了私有变量。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&quot;use strict&quot;;var Clock = (function () &#123;	let clock = &#123;		now: new Date(),		hr: 0,		minu: 0,		sec: 0	&#125;	// 初始化钟表对象	function init(el) &#123;		clock.canvas = document.querySelector(el)		clock.ctx = clock.canvas.getContext(&#x27;2d&#x27;)		clock.canvas.width = clock.canvas.height = 400		clock.ctx. ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/" title="随机密码生成器-代码"><img class="post-bg" src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="随机密码生成器-代码"></a></div><div class="recent-post-info"><a class="article-title" href="/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/" title="随机密码生成器-代码">随机密码生成器-代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-13T16:00:00.000Z" title="Created 2022-06-14 00:00:00">2022-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/web%E6%8A%80%E6%9C%AF/">web技术</a></span></div><div class="content">1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071&lt;div class=&quot;pwGenBox&quot;&gt;	&lt;button onclick=&quot;generate()&quot;&gt;生成密码&lt;/button&gt;	&lt;input id=&quot;hasSpec&quot; type=&quot;checkbox&quot;&gt;	&lt;p&gt;特殊字符&lt;/p&gt;	&lt;h3 class=&quot;password&quot;&gt;&lt;/h3&gt;	&lt;input class=&quot;input&quot; style=&quot;opacity:0;position:absolute;top:-999px;&quot;&gt;	&lt;button onclick=&quot;copy() ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E6%8E%92%E5%BA%8F/" title="排序"><img class="post-bg" src="https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png" onerror="this.onerror=null;this.src='/null'" alt="排序"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%8E%92%E5%BA%8F/" title="排序">排序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-11T16:00:00.000Z" title="Created 2022-06-12 00:00:00">2022-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">
-</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%95%A3%E5%88%97%E8%A1%A8/" title="散列表"><img class="post-bg" src="https://s2.loli.net/2023/04/14/EvJuXQarcNzTpAg.png" onerror="this.onerror=null;this.src='/null'" alt="散列表"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%95%A3%E5%88%97%E8%A1%A8/" title="散列表">散列表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-09T16:00:00.000Z" title="Created 2022-06-10 00:00:00">2022-06-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">散列表的优缺点
-优点是查找效率高
-缺点是空间浪费大
-
-散列表如何解决冲突问题
-开放地址法：有冲突就找空位
-线性探测法：有冲突就顺序查找下一个空位存入。
-二次探测法：有冲突就按照增量序列移动位置继续探测。
-伪随机探测法：有冲突就随机位移几位看看是否有空位
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
-链地址法：相同哈希值的记录连成一个链表
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
 
-散列表的查找依据哈希值取数，如果查到的不是目标数据，就依据事先定好的冲突方法，继续查找。
-如果目标地址为空，则停止查找，说明没有相关记录。
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B8%8E%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" title="线性表与树表"><img class="post-bg" src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="线性表与树表"></a></div><div class="recent-post-info"><a class="article-title" href="/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B8%8E%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" title="线性表与树表">线性表与树表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-05T16:00:00.000Z" title="Created 2022-06-06 00:00:00">2022-06-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">查找根据给定的值，在查找表中确定一个关键字等于给定值的数据元素。
-
-关键字：唯一标识一个记录的关键字
-次关键字：用以识别若干记录的关键字称之为次关键字。
-
-查找表可以分为两类——静态查找表和动态查找表（查不到要增加，或者查到了就删除）
-如何评价查找算法？平均查找长度：也称为平均比较次数。
-线性表的查找顺序查找也就是遍历查找
-每次循环中都要判断是不是越界了，就影响效率，优化是把关键字放在表头，到头了就得到关键字，省去了每次查找的判断越界。
-二分查找
-ALS（平均查找长度）&#x3D;log2(n)
-缺点:只适用于有序表，且为顺序存储结构。
-
-分块查找建立索引，索引指向目标附近。
-适用情况：快速查找且动态变化的表。
-
-优点：适用于链表。
-
-树表之二叉排序树。二叉排序树二叉排序树满足以下条件：其左树的子节点值均小于该节点，右树的子节点值均大于该节点。
-
-性质：中序遍历二叉排序树，得到一个递增有序的序列。
-最多比较次数为树的深度。
-ALS的长度与树形态有关，从log2(n)到o(n)不等。
-
-插入操作查找直到某个叶子节点的左子树或者右子树为空为止，然后将该节点插入为该节点的子树。
-删除操作
-若 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/" title="最短路径，拓扑排序，关键路径"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="最短路径，拓扑排序，关键路径"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/" title="最短路径，拓扑排序，关键路径">最短路径，拓扑排序，关键路径</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-28T16:00:00.000Z" title="Created 2022-05-29 00:00:00">2022-05-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">Dijkstra算法该算法核心是通过不断地将路径最短（可一步到达）的点加入到已知最短路径点的集合中。
-
-弗洛伊德算法
-拓扑排序有向无环图：无环的有向图。
-拓扑排序方法
-从起始点开始，循环删除没有前驱的点，并输出这个点。
-检验AOV点中是否存在环的方法：若网中所有点都在拓扑序列中，则网中必定不存在环。
-关键路径对于AOE网，关键路径指路径长度最长的路径。
-若网中某个时间的时间余量为0，则他就在关键路径上。
-
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="图的遍历与最小生成树"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="图的遍历与最小生成树"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" title="图的遍历与最小生成树">图的遍历与最小生成树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-26T16:00:00.000Z" title="Created 2022-05-27 00:00:00">2022-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">辅助数组记录哪些点访问过
-深度优先
-从某一起始顶点开始后，优先访问没有访问过的点
-到某一点的所有邻点都被访问后，回退，看看上一个点有没有没有访问的邻点
-进行与前述相似的访问逻辑
-
-时间效率邻接矩阵时间复杂度为O(n**2)，适合访问稠密图
-邻接表时间复杂度O(n+e)，适合访问稀疏图。
-广度优先从起始点开始，访问他的一级邻居，然后访问他的二级邻居，以此类推。
-时间效率与深度优先相同。
-最小生成树生成树：不存在回路的连通图
-无向图的生成树：遍历时通过的边组成的集合
-最小生成树：在一个网络中，在所有生成树中，使得各边权值之和最小的生成树，也叫最小代价生成树。
-MST性质
-普利姆算法构建最小生成树的方法，使用贪心算法，每次总是选择两个集合之间权值最小的边，一步步构筑最小生成树。
-时间复杂度：O(n**2)
-克鲁斯卡尔算法更直接的贪心算法
-直接叫所有顶点组成一个集合，在所有的边中从小到大添加到集合中，若形成环则跳过这个边，直到所有的顶点都联通。
-时间复杂度O(e)
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Record my notes and so on.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片"><img src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="工具-删除hexo中未引用的图片"/></a><div class="content"><a class="title" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片">工具-删除hexo中未引用的图片</a><time datetime="2023-06-20T01:41:57.000Z" title="Created 2023-06-20 09:41:57">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对"><img src="/images/241240.png" onerror="this.onerror=null;this.src='/null'" alt="相等行列对"/></a><div class="content"><a class="title" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对">相等行列对</a><time datetime="2023-06-06T07:17:25.000Z" title="Created 2023-06-06 15:17:25">2023-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第十弾"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾">日本語-第十弾</a><time datetime="2023-06-02T06:24:47.000Z" title="Created 2023-06-02 14:24:47">2023-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第九弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹">日本語-第九弹</a><time datetime="2023-05-22T02:13:51.000Z" title="Created 2023-05-22 10:13:51">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹"><img src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第八弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹">日本語-第八弹</a><time datetime="2023-04-27T07:57:26.000Z" title="Created 2023-04-27 15:57:26">2023-04-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
+          <div class="content index posts-expand">
             
-            </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Others/"><span class="card-category-list-name">Others</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">web技术</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"><span class="card-category-list-name">日本語</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">26</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/"><span class="card-category-list-name">网络工程</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">运维</span><span class="card-category-list-count">3</span></a></li>
-            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">December 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">September 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: (subtitleType) => {
-    if (false) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js%E7%9A%84%E9%97%AD%E5%8C%85%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">js的闭包实现模块化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-22T00:00:00+08:00">2022-06-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>js可以通过在函数内部定义函数，实现开辟新的作用域，外部无法访问，也就是实现了私有变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line">var Clock = (function () &#123;</span><br><span class="line">	let clock = &#123;</span><br><span class="line">		now: new Date(),</span><br><span class="line">		hr: 0,</span><br><span class="line">		minu: 0,</span><br><span class="line">		sec: 0</span><br><span class="line">	&#125;</span><br><span class="line">	// 初始化钟表对象</span><br><span class="line">	function init(el) &#123;</span><br><span class="line">		clock.canvas = document.querySelector(el)</span><br><span class="line">		clock.ctx = clock.canvas.getContext(&#x27;2d&#x27;)</span><br><span class="line">		clock.canvas.width = clock.canvas.height = 400</span><br><span class="line">		clock.ctx.translate(clock.canvas.width / 2, clock.canvas.width / 2)</span><br><span class="line">	&#125;</span><br><span class="line">	// 画指针的方法</span><br><span class="line">	function _pointer(length, width, base, num) &#123;</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.moveTo(0, 0)</span><br><span class="line">		clock.ctx.lineTo(length * Math.sin(2 * Math.PI * num / base), -length * Math.cos(2 * Math.PI * num / base))</span><br><span class="line">		clock.ctx.lineWidth = width</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line">	&#125;</span><br><span class="line">	function Hour(hr) &#123;</span><br><span class="line">		_pointer(80, 5.5, 12, hr)</span><br><span class="line">	&#125;</span><br><span class="line">	function Minu(minu) &#123;</span><br><span class="line">		_pointer(110, 2.5, 60, minu)</span><br><span class="line">	&#125;</span><br><span class="line">	function Sec(sec) &#123;</span><br><span class="line">		_pointer(150, 1.5, 60, sec)</span><br><span class="line">	&#125;</span><br><span class="line">	// 更新时间</span><br><span class="line">	function update() &#123;</span><br><span class="line">		clock.now = new Date()</span><br><span class="line">		clock.hr = clock.now.getHours()</span><br><span class="line">		clock.minu = clock.now.getMinutes()</span><br><span class="line">		clock.sec = clock.now.getSeconds()</span><br><span class="line"></span><br><span class="line">		// 中点</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.arc(0, 0, 5, 0, 2 * Math.PI)</span><br><span class="line">		clock.ctx.fill()</span><br><span class="line"></span><br><span class="line">		// 表盘</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		clock.ctx.arc(0, 0, 180, 0, 2 * Math.PI)</span><br><span class="line">		clock.ctx.lineWidth = &quot;7&quot;</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line"></span><br><span class="line">		// 画刻度</span><br><span class="line">		clock.ctx.beginPath()</span><br><span class="line">		for (let i = 0; i &lt; 12; i++) &#123;</span><br><span class="line">			let angle = Math.PI * i / 6</span><br><span class="line">			clock.ctx.moveTo(180 * Math.sin(angle), 180 * Math.cos(angle))</span><br><span class="line">			clock.ctx.lineTo(160 * Math.sin(angle), 160 * Math.cos(angle))</span><br><span class="line">		&#125;</span><br><span class="line">		clock.ctx.lineWidth = &quot;1.5&quot;</span><br><span class="line">		clock.ctx.stroke()</span><br><span class="line"></span><br><span class="line">		// 执行函数</span><br><span class="line">		Hour(clock.hr)</span><br><span class="line">		Minu(clock.minu)</span><br><span class="line">		Sec(clock.sec)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 循环动画</span><br><span class="line">	function loop() &#123;</span><br><span class="line">		clock.ctx.clearRect(-1 / 2 * clock.canvas.width, -1 / 2 * clock.canvas.height, clock.canvas.width, clock.canvas.height)</span><br><span class="line">		update()</span><br><span class="line">		window.requestAnimationFrame(loop.bind(this));</span><br><span class="line">	&#125;</span><br><span class="line">	return &#123; init, loop &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>以上实现了一个canvas绘制钟表的模块，效果可见于<a target="_blank" rel="noopener" href="https://deploy.hinak0.xyz/">deploy.hinak0.xyz</a>。</p>
+<p>此模块内所有函数变量，外部均无法访问。</p>
+<p>有以下几点注意：</p>
+<ul>
+<li>非严格模式下，在包内部使用<code>name = &quot;zhangsan&quot;</code>会使变量挂载到全局，严格模式则会报错（未定义的变量不允许使用）</li>
+<li>这种写法代码量比较大，因为使用每个属性时都要带上<code>clock.key</code>这种前缀，代码冗余很大，但是胜在全部变量在一个对象`clock`内部。</li>
+<li>可以使用严格模式+变量均在头部声明来简化代码。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E9%9A%8F%E6%9C%BA%E5%AF%86%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">随机密码生成器-代码</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-14T00:00:00+08:00">2022-06-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">web技术</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;pwGenBox&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;generate()&quot;</span>&gt;</span>生成密码<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;hasSpec&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>特殊字符<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span> <span class="attr">style</span>=<span class="string">&quot;opacity:0;position:absolute;top:-999px;&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;copy()&quot;</span>&gt;</span>点击复制<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">var</span> input</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">copy</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		input.<span class="title function_">select</span>();</span></span><br><span class="line"><span class="language-javascript">		<span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&#x27;Copy&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">generate</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">let</span> hasSpec = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#hasSpec&quot;</span>).<span class="property">checked</span></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">let</span> len = <span class="number">14</span></span></span><br><span class="line"><span class="language-javascript">		str = <span class="title function_">randomStr</span>(len, hasSpec)</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">let</span> pwd = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;h3.password&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">		input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;input.input&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">		input.<span class="property">value</span> = str</span></span><br><span class="line"><span class="language-javascript">		pwd.<span class="property">innerText</span> = str</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">randomStr</span>(<span class="params">len, hasSpec = <span class="literal">false</span></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">let</span> str = <span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">while</span> (str.<span class="property">length</span> &lt; len) &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">switch</span> (<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">4</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">				<span class="keyword">case</span> <span class="number">0</span>:</span></span><br><span class="line"><span class="language-javascript">					str += <span class="title function_">num</span>()</span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">				<span class="keyword">case</span> <span class="number">1</span>:</span></span><br><span class="line"><span class="language-javascript">					str += <span class="title function_">upper</span>()</span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">break</span></span></span><br><span class="line"><span class="language-javascript">				<span class="keyword">case</span> <span class="number">2</span>:</span></span><br><span class="line"><span class="language-javascript">					str += <span class="title function_">lower</span>()</span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">break</span></span></span><br><span class="line"><span class="language-javascript">				<span class="keyword">case</span> <span class="number">3</span>:</span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">if</span> (hasSpec) &#123;</span></span><br><span class="line"><span class="language-javascript">						str += <span class="title function_">spec</span>()</span></span><br><span class="line"><span class="language-javascript">					&#125;</span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">break</span></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">default</span>:</span></span><br><span class="line"><span class="language-javascript">					str += <span class="string">&quot;?&quot;</span></span></span><br><span class="line"><span class="language-javascript">					<span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">			&#125;</span></span><br><span class="line"><span class="language-javascript">		&#125;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> str</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">_randomASCII</span>(<span class="params">start, span</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * span + start))</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">upper</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> <span class="title function_">_randomASCII</span>(<span class="number">65</span>, <span class="number">26</span>)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">lower</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> <span class="title function_">_randomASCII</span>(<span class="number">97</span>, <span class="number">26</span>)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">num</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> <span class="title function_">_randomASCII</span>(<span class="number">48</span>, <span class="number">10</span>)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript">	<span class="keyword">function</span> <span class="title function_">spec</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">return</span> <span class="title function_">_randomASCII</span>(<span class="number">33</span>, <span class="number">14</span>)</span></span><br><span class="line"><span class="language-javascript">	&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">	<span class="selector-class">.pwGenBox</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">	&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>input框如果设置为display:none会导致无法选中，可以选择移动到屏幕外&#x2F;设置透明&#x2F;被遮盖的方法掩藏，或者写一些css让input框代替展示文本。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-12T00:00:00+08:00">2022-06-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <iframe src="//player.bilibili.com/player.html?aid=641228181&amp;bvid=BV1CY4y1t7TZ&amp;cid=588763441&amp;page=4" width="1000px" height="600px" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"></iframe>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%95%A3%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%95%A3%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">散列表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-10T00:00:00+08:00">2022-06-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="散列表的优缺点"><a href="#散列表的优缺点" class="headerlink" title="散列表的优缺点"></a>散列表的优缺点</h2><ul>
+<li>优点是查找效率高</li>
+<li>缺点是空间浪费大</li>
+</ul>
+<h2 id="散列表如何解决冲突问题"><a href="#散列表如何解决冲突问题" class="headerlink" title="散列表如何解决冲突问题"></a>散列表如何解决冲突问题</h2><ul>
+<li>开放地址法：有冲突就找空位<ul>
+<li>线性探测法：有冲突就顺序查找下一个空位存入。</li>
+<li>二次探测法：有冲突就按照增量序列移动位置继续探测。</li>
+<li>伪随机探测法：有冲突就随机位移几位看看是否有空位</li>
+</ul>
+</li>
+<li>链地址法：相同哈希值的记录连成一个链表</li>
+</ul>
+<h2 id="散列表的查找"><a href="#散列表的查找" class="headerlink" title="散列表的查找"></a>散列表的查找</h2><p>依据哈希值取数，如果查到的不是目标数据，就依据事先定好的冲突方法，继续查找。</p>
+<p>如果目标地址为空，则停止查找，说明没有相关记录。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B8%8E%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B8%8E%E6%A0%91%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">线性表与树表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-06-06 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-06T00:00:00+08:00">2022-06-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><p>根据给定的值，在查找表中确定一个关键字等于给定值的数据元素。</p>
+<ul>
+<li>关键字：唯一标识一个记录的关键字</li>
+<li>次关键字：用以识别若干记录的关键字称之为次关键字。</li>
+</ul>
+<p>查找表可以分为两类——静态查找表和动态查找表（查不到要增加，或者查到了就删除）</p>
+<h2 id="如何评价查找算法？"><a href="#如何评价查找算法？" class="headerlink" title="如何评价查找算法？"></a>如何评价查找算法？</h2><p><strong>平均查找长度</strong>：也称为平均比较次数。</p>
+<h1 id="线性表的查找"><a href="#线性表的查找" class="headerlink" title="线性表的查找"></a>线性表的查找</h1><h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><p>也就是遍历查找</p>
+<p>每次循环中都要判断是不是越界了，就影响效率，优化是<strong>把关键字放在表头，到头了就得到关键字，省去了每次查找的判断越界</strong>。</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>ALS（平均查找长度）&#x3D;log2(n)</li>
+<li>缺点:只适用于有序表，且为顺序存储结构。</li>
+</ul>
+<h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><p>建立索引，索引指向目标附近。</p>
+<p>适用情况：快速查找且动态变化的表。</p>
+<ul>
+<li>优点：适用于链表。</li>
+</ul>
+<h1 id="树表之二叉排序树。"><a href="#树表之二叉排序树。" class="headerlink" title="树表之二叉排序树。"></a>树表之二叉排序树。</h1><h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>二叉排序树满足以下条件：其左树的子节点值均小于该节点，右树的子节点值均大于该节点。</p>
+<ul>
+<li>性质：中序遍历二叉排序树，得到一个递增有序的序列。</li>
+<li>最多比较次数为树的深度。</li>
+<li>ALS的长度与树形态有关，从log2(n)到o(n)不等。</li>
+</ul>
+<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><p>查找直到某个叶子节点的左子树或者右子树为空为止，然后将该节点插入为该节点的子树。</p>
+<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><ul>
+<li>若节点为叶子节点，直接删除。</li>
+<li>若只有一个子树，将子树替换它。</li>
+<li>若有两个子树，<strong>使用左子树中最大的值(或者右子树中最小的值)替换它，</strong>然后对那个子节点执行删除操作。</li>
+</ul>
+<h2 id="失衡二叉树的调整"><a href="#失衡二叉树的调整" class="headerlink" title="失衡二叉树的调整"></a>失衡二叉树的调整</h2><p>一个平衡二叉树，在增加一个节点之后，可能发生失衡，这时候就需要调整节点关系，使二叉树保持平衡。</p>
+<p>具体操作不好文字描述，略。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">最短路径，拓扑排序，关键路径</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-29T00:00:00+08:00">2022-05-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h2><p>该算法核心是通过不断地将路径最短（可一步到达）的点加入到<strong>已知最短路径点的集合中</strong>。</p>
+<p><img src="/images/df1a6c.png"></p>
+<h2 id="弗洛伊德算法"><a href="#弗洛伊德算法" class="headerlink" title="弗洛伊德算法"></a>弗洛伊德算法</h2><p><img src="/images/0a7de6.png"></p>
+<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><p>有向无环图：无环的有向图。</p>
+<h3 id="拓扑排序方法"><a href="#拓扑排序方法" class="headerlink" title="拓扑排序方法"></a>拓扑排序方法</h3><p><img src="/images/4119d5.png"></p>
+<p>从起始点开始，循环删除没有前驱的点，并输出这个点。</p>
+<h3 id="检验AOV点中是否存在环的方法："><a href="#检验AOV点中是否存在环的方法：" class="headerlink" title="检验AOV点中是否存在环的方法："></a>检验AOV点中是否存在环的方法：</h3><p>若网中所有点都在拓扑序列中，则网中必定不存在环。</p>
+<h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><p>对于AOE网，关键路径指<strong>路径长度最长的路径</strong>。</p>
+<p>若网中某个时间的时间余量为0，则他就在关键路径上。</p>
+<p><img src="/images/27d47a.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+      <meta itemprop="name" content="hinak0">
+      <meta itemprop="description" content="Record my notes and so on.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ONE NOTE">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E4%B8%8E%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">图的遍历与最小生成树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-27T00:00:00+08:00">2022-05-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="辅助数组"><a href="#辅助数组" class="headerlink" title="辅助数组"></a>辅助数组</h3><p>记录哪些点访问过</p>
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><ol>
+<li>从某一起始顶点开始后，<strong>优先访问没有访问过的点</strong></li>
+<li>到某一点的所有邻点都被访问后，回退，看看上一个点有没有没有访问的邻点</li>
+<li>进行与前述相似的访问逻辑</li>
+</ol>
+<h3 id="时间效率"><a href="#时间效率" class="headerlink" title="时间效率"></a>时间效率</h3><p>邻接矩阵时间复杂度为O(n**2)，适合访问稠密图</p>
+<p>邻接表时间复杂度O(n+e)，适合访问稀疏图。</p>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><p>从起始点开始，访问他的一级邻居，然后访问他的二级邻居，以此类推。</p>
+<h3 id="时间效率-1"><a href="#时间效率-1" class="headerlink" title="时间效率"></a>时间效率</h3><p>与深度优先相同。</p>
+<h2 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h2><p>生成树：不存在回路的连通图</p>
+<p>无向图的生成树：遍历时<strong>通过的边</strong>组成的集合</p>
+<p>最小生成树：在一个网络中，在所有生成树中，使得各边权值之和最小的生成树，也叫<strong>最小代价生成树</strong>。</p>
+<h3 id="MST性质"><a href="#MST性质" class="headerlink" title="MST性质"></a>MST性质</h3><p><img src="/images/a32aa9.png"></p>
+<h4 id="普利姆算法"><a href="#普利姆算法" class="headerlink" title="普利姆算法"></a>普利姆算法</h4><p>构建最小生成树的方法，使用贪心算法，每次总是选择两个集合之间权值最小的边，一步步构筑最小生成树。</p>
+<p>时间复杂度：O(n**2)</p>
+<h4 id="克鲁斯卡尔算法"><a href="#克鲁斯卡尔算法" class="headerlink" title="克鲁斯卡尔算法"></a>克鲁斯卡尔算法</h4><p>更直接的贪心算法</p>
+<p>直接叫所有顶点组成一个集合，在所有的边中从小到大添加到集合中，若形成环则跳过这个边，直到所有的顶点都联通。</p>
+<p>时间复杂度O(e)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
-}
-</script><script>function subtitleType () {
-  if (false) {
-    typedJSFn.init(["Just a private note."])
-  } else {
-    document.getElementById("subtitle").textContent = "Just a private note."
-  }
-}
-typedJSFn.run(subtitleType)</script></div></div></body></html>
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hinak0"
+      src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
+  <p class="site-author-name" itemprop="name">hinak0</p>
+  <div class="site-description" itemprop="description">Record my notes and so on.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hinak0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinak0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hiak0@qq.com" title="E-Mail → mailto:hiak0@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hinak0</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
