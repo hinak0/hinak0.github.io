@@ -10,8 +10,8 @@ categories:
 windows所有连接过的网络都保存在这两个位置:
 
 ```
-计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
-计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
 ```
 
-并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，强迫症表示强烈谴责。
+并没有提供删除方式，连接到ssid相同的网络时会在后面加上数字，分别不同网络。
