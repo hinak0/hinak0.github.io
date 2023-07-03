@@ -8,9 +8,9 @@ date: 2023-06-06 15:04:29
 ### encode
 [base64](https://emn178.github.io/online-tools/base64_decode.html)	在线base64编码解码
 
-[url encode](https://www.utilities-online.info/urlencode)	在线excape编码解码
+[url encode](https://www.utilities-online.info/urlencode)	在线escape编码解码
 
-[unicode](https://c.runoob.com/front-end/3602/)	在线unicode编码
+[unicode](https://c.runoob.com/front-end/3602/)	在线unicode编码(/u字符转换)
 
 ### regular expressions
 
