@@ -1,1050 +1,428 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-  <link rel="mask-icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" color="#222">
-  <link rel="manifest" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-  <meta name="msapplication-config" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hinak0.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta name="description" content="Record my notes and so on.">
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ONE NOTE - Just a private note.</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="Record my notes and so on.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ONE NOTE">
 <meta property="og:url" content="https://hinak0.github.io/page/3/index.html">
 <meta property="og:site_name" content="ONE NOTE">
 <meta property="og:description" content="Record my notes and so on.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
 <meta property="article:author" content="hinak0">
 <meta property="article:tag" content="technology">
 <meta property="article:tag" content="日本語">
 <meta property="article:tag" content="programing">
 <meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://hinak0.github.io/page/3/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'en'
-  };
-</script>
-
-  <title>ONE NOTE</title>
-  
-
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+<meta name="twitter:image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="shortcut icon" href="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"><link rel="canonical" href="https://hinak0.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?942470ddf015bf23943bee15872e0800";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ONE NOTE',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-07-10 18:03:17'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ONE NOTE</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">Just a private note.</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-tools">
-
-    <a href="/tools/" rel="section"><i class="fas fa-toolbox fa-fw"></i>Tools</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
-            
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">sudoers文件损坏解决办法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-13 22:31:10" itemprop="dateCreated datePublished" datetime="2023-03-13T22:31:10+08:00">2023-03-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。</p>
-<p>本来打算直接su root的，可惜实在记不得密码了</p>
-<p>后来打算用pkexec,但是遇到了<code>polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.error.failed: no session for cookie</code>的错误</p>
-<p>好在下面这篇博文帮大忙了！</p>
-<p>链接<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wayneliu007/p/10321542.html">Ubuntu改坏sudoers后无法使用sudo的解决办法
-</a></p>
-<p>另外以后不能随便用vim改重要的配置文件！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%89%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%89%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第三弹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-12 08:34:43" itemprop="dateCreated datePublished" datetime="2023-03-12T08:34:43+08:00">2023-03-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="动词分类与变化"><a href="#动词分类与变化" class="headerlink" title="动词分类与变化"></a>动词分类与变化</h1><h2 id="动词特点"><a href="#动词特点" class="headerlink" title="动词特点"></a>动词特点</h2><p>日语动词都是以「う」段假名结尾的</p>
-<h2 id="动词三分类"><a href="#动词三分类" class="headerlink" title="动词三分类"></a>动词三分类</h2><ul>
-<li>不是以「る」为结尾的动词都是“一类动词（五段动词）。</li>
-<li>い段&#x2F;え段+る　是二类动词。</li>
-<li>か变，さ变，属于特殊变化。</li>
-</ul>
-<h2 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h2><p><img src="/images/451de3.png"></p>
-<h1 id="ます型的过去式与否定"><a href="#ます型的过去式与否定" class="headerlink" title="ます型的过去式与否定"></a>ます型的过去式与否定</h1><p>过去：ました<br>否定：ません<br>过去否定：ませんでした</p>
-<h2 id="名词相关语法"><a href="#名词相关语法" class="headerlink" title="名词相关语法"></a>名词相关语法</h2><p><strong>時間に	动词</strong></p>
-<p>表示事件发生的时间，有时候也不用加に</p>
-<p><strong>時間	から	時間　まで	动词</strong></p>
-<p>表示动作持续时间</p>
-<p>から：从</p>
-<p>まで：到</p>
-<p><strong>いつ　动词ますか</strong></p>
-<p>询问什么时候</p>
-<h2 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h2><p>A：毎日（まいにち）、何時（なんじ）に  寝（ね）  ますか<br>B：十一時（じゅういちじ）三十分（さんじゅぶん）寝ます</p>
-<p>A：昨日（きのう）、何時から 何時まで　働き（はたらき）ましたか<br>B：九時（くじ）から　六時（ろくじ）まで　働きました</p>
-<p>A：先週（せんしゅ） 休み（やすみ）ましたか？<br>B：いええ、休みませんでした</p>
-<p>A：試験（しけん）は　いつ　始まりますか？<br>B：来週（らいしゅ）の　木曜日（もくようび）です。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">http代理与https代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-09 22:26:38" itemprop="dateCreated datePublished" datetime="2023-03-09T22:26:38+08:00">2023-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络工程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="https代理工作流程"><a href="#https代理工作流程" class="headerlink" title="https代理工作流程"></a>https代理工作流程</h2><ul>
-<li>client发送一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT">http connect</a> 到 proxy , 告诉自己要访问的域名与端口</li>
-<li>proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功<code>Connection Established</code>，也就是隧道（tunnel）创建完成。</li>
-<li>随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。</li>
-</ul>
-<h4 id="有几个重点"><a href="#有几个重点" class="headerlink" title="有几个重点"></a>有几个重点</h4><ul>
-<li>proxy 进行dns解析</li>
-<li>连接是加密的，对于proxy server，它也没办法获取通讯内容</li>
-</ul>
-<h2 id="http代理工作流程"><a href="#http代理工作流程" class="headerlink" title="http代理工作流程"></a>http代理工作流程</h2><p>相当于将所有域名绑定到代理服务器地址，由代理获取response后返回client</p>
-<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><ul>
-<li>使用python实现一个http and https 代理。</li>
-<li>使用多线程来避免阻塞</li>
-</ul>
-<p>参考见文末</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> select</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> http.server <span class="keyword">import</span> BaseHTTPRequestHandler, HTTPServer</span><br><span class="line"><span class="keyword">from</span> socketserver <span class="keyword">import</span> ThreadingMixIn</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RequestHandler</span>(<span class="title class_ inherited__">BaseHTTPRequestHandler</span>):</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">_recv_data_from_remote</span>(<span class="params">self, sock</span>):</span><br><span class="line">		data = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">		<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">			recv_data = sock.recv(<span class="number">4096</span>)</span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> recv_data:</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			data += recv_data</span><br><span class="line">		sock.close()</span><br><span class="line">		<span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">send_data</span>(<span class="params">self, sock, data</span>):</span><br><span class="line">		<span class="comment"># print(data)</span></span><br><span class="line">		bytes_sent = <span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">			r = sock.send(data[bytes_sent:])</span><br><span class="line">			<span class="keyword">if</span> r &lt; <span class="number">0</span>:</span><br><span class="line">				<span class="keyword">return</span> r</span><br><span class="line">			bytes_sent += r</span><br><span class="line">			<span class="keyword">if</span> bytes_sent == <span class="built_in">len</span>(data):</span><br><span class="line">				<span class="keyword">return</span> bytes_sent</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">handle_tcp</span>(<span class="params">self, sock, remote</span>):</span><br><span class="line">		<span class="comment"># 处理 client socket 和 remote socket 的数据流</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			fdset = [sock, remote]</span><br><span class="line">			<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">				<span class="comment"># 用 IO 多路复用 select 监听套接字是否有数据流</span></span><br><span class="line">				r, w, e = select.select(fdset, [], [])</span><br><span class="line">				<span class="keyword">if</span> sock <span class="keyword">in</span> r:</span><br><span class="line">					<span class="keyword">try</span>:</span><br><span class="line">						data = sock.recv(<span class="number">4096</span>)</span><br><span class="line">						<span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">0</span>:</span><br><span class="line">							<span class="keyword">break</span></span><br><span class="line">						result = self.send_data(remote, data)</span><br><span class="line">						<span class="keyword">if</span> result &lt; <span class="built_in">len</span>(data):</span><br><span class="line">							<span class="keyword">raise</span> Exception(<span class="string">&#x27;failed to send all data&#x27;</span>)</span><br><span class="line">					<span class="keyword">except</span>:</span><br><span class="line">						<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> remote <span class="keyword">in</span> r:</span><br><span class="line">					<span class="keyword">try</span>:</span><br><span class="line">						data = remote.recv(<span class="number">4096</span>)</span><br><span class="line">						<span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">0</span>:</span><br><span class="line">							<span class="keyword">break</span></span><br><span class="line">						result = self.send_data(sock, data)</span><br><span class="line">						<span class="keyword">if</span> result &lt; <span class="built_in">len</span>(data):</span><br><span class="line">							<span class="keyword">raise</span> Exception(<span class="string">&#x27;failed to send all data&#x27;</span>)</span><br><span class="line">					<span class="keyword">except</span>:</span><br><span class="line">						<span class="keyword">pass</span></span><br><span class="line">		<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">			<span class="keyword">raise</span> (e)</span><br><span class="line">		<span class="keyword">finally</span>:</span><br><span class="line">			sock.close()</span><br><span class="line">			remote.close()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">do_CONNECT</span>(<span class="params">self</span>):</span><br><span class="line">		self.log_message(<span class="string">f&quot;CONNECT <span class="subst">&#123;self.path&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">		uri = self.path.split(<span class="string">&quot;:&quot;</span>)</span><br><span class="line">		host, port = uri[<span class="number">0</span>], <span class="built_in">int</span>(uri[<span class="number">1</span>])</span><br><span class="line">		host_ip = socket.gethostbyname(host)</span><br><span class="line"></span><br><span class="line">		remote_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">		remote_sock.connect((host_ip, port))</span><br><span class="line">		<span class="comment"># 告诉客户端 CONNECT 成功</span></span><br><span class="line">		self.wfile.write(</span><br><span class="line">		    <span class="string">&quot;&#123;protocol_version&#125; 200 Connection Established\r\n\r\n&quot;</span>.<span class="built_in">format</span>(protocol_version=self.protocol_version</span><br><span class="line">		                                                                   ).encode()</span><br><span class="line">		)</span><br><span class="line"></span><br><span class="line">		<span class="comment"># 转发请求</span></span><br><span class="line">		self.handle_tcp(self.connection, remote_sock)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># http proxy</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">do_http</span>(<span class="params">self, method: <span class="built_in">str</span></span>):</span><br><span class="line">		self.log_message(<span class="string">f&quot;<span class="subst">&#123;method&#125;</span> <span class="subst">&#123;self.path&#125;</span>&quot;</span>)</span><br><span class="line">		uri = urlparse(self.path)</span><br><span class="line">		host, path = uri.hostname, uri.path</span><br><span class="line">		host_ip = socket.gethostbyname(host)</span><br><span class="line">		port = uri.port <span class="keyword">or</span> <span class="number">80</span></span><br><span class="line"></span><br><span class="line">		<span class="comment"># 为了简单起见，Connection 都为 close, 也就不需要 Proxy-Connection 判断了</span></span><br><span class="line">		<span class="keyword">del</span> self.headers[<span class="string">&#x27;Proxy-Connection&#x27;</span>]</span><br><span class="line">		self.headers[<span class="string">&#x27;Connection&#x27;</span>] = <span class="string">&#x27;close&#x27;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment"># 构造新的 http 请求</span></span><br><span class="line">		send_data = <span class="string">&quot;&#123;method&#125; &#123;path&#125; &#123;protocol_version&#125;\r\n&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">		    method=method, path=path, protocol_version=self.protocol_version</span><br><span class="line">		)</span><br><span class="line">		headers = <span class="string">&#x27;&#x27;</span></span><br><span class="line">		<span class="keyword">for</span> key, value <span class="keyword">in</span> self.headers.items():</span><br><span class="line">			headers += <span class="string">&quot;&#123;key&#125;: &#123;value&#125;\r\n&quot;</span>.<span class="built_in">format</span>(key=key, value=value)</span><br><span class="line">		headers += <span class="string">&#x27;\r\n&#x27;</span></span><br><span class="line">		send_data += headers</span><br><span class="line"></span><br><span class="line">		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">		sock.connect((host_ip, port))</span><br><span class="line">		<span class="comment"># 发送请求到目标地址</span></span><br><span class="line">		sock.sendall(send_data.encode())</span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			data = self._recv_data_from_remote(sock)</span><br><span class="line">			self.wfile.write(data)</span><br><span class="line">		<span class="keyword">except</span>:</span><br><span class="line">			self.wfile.write(<span class="string">b&quot;EOF&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">do_GET</span>(<span class="params">self</span>):</span><br><span class="line">		self.do_http(<span class="string">&quot;GET&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">do_HEAD</span>(<span class="params">self</span>):</span><br><span class="line">		self.do_http(<span class="string">&quot;HEAD&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">do_POST</span>(<span class="params">self</span>):</span><br><span class="line">		self.do_http(<span class="string">&quot;POST&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ThreadedHTTPServer</span>(ThreadingMixIn, HTTPServer):</span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	server = ThreadedHTTPServer((<span class="string">&#x27;&#x27;</span>, <span class="number">8080</span>), RequestHandler)</span><br><span class="line">	server.serve_forever()</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://github.com/facert/socket-example">socket-example</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第二弹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-09 18:14:04" itemprop="dateCreated datePublished" datetime="2023-03-09T18:14:04+08:00">2023-03-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="此、彼、夫"><a href="#此、彼、夫" class="headerlink" title="此、彼、夫"></a>此、彼、夫</h2><p>これ	此，距离我比较近<br>それ	彼，距离你比较近<br>あれ	夫，都比较远<br>for example:<br>これわ地図ですか。<br>（is this map?）</p>
-<h2 id="什么人、什么东西"><a href="#什么人、什么东西" class="headerlink" title="什么人、什么东西"></a>什么人、什么东西</h2><p>誰（だれ）　who　礼貌的说法是どなた<br>それわ	what is it</p>
-<h2 id="この-その-あの-后面必须接名词"><a href="#この-その-あの-后面必须接名词" class="headerlink" title="この　その　あの　后面必须接名词"></a>この　その　あの　后面必须接名词</h2><p>この スマートフォン(smart phone)は　李さんのです。<br>（This smart phone belongs to Mr.Li）</p>
-<h2 id="どれ-どの"><a href="#どれ-どの" class="headerlink" title="どれ　どの"></a>どれ　どの</h2><p>前者后面不接名词，后者必须接名词。</p>
-<h2 id="这里、那里、那-里"><a href="#这里、那里、那-里" class="headerlink" title="这里、那里、那~里"></a>这里、那里、那~里</h2><p>ここ	这里<br>そこ	那里<br>あそこ	那~里</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>陈述句<br>名　は　名　です</p>
-<p>疑问句，某物在哪里<br>名　は	どこですか</p>
-<p>xx也xx<br>名  も　名　です</p>
-<h2 id="存在句"><a href="#存在句" class="headerlink" title="存在句"></a>存在句</h2><p>部屋に	机が	あります<br>机に	パソコン	あぃます<br>xxに	xxが	あります</p>
-<p>或者动词在前</p>
-<p>いすは	部屋に	あります<br>xxは	xxに	あります</p>
-<p><strong>あります只能用在无生命物体上，有生命用います</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/Hello-New-Blog-System/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hello-New-Blog-System/" class="post-title-link" itemprop="url">Hello New Blog System</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-07 19:17:20" itemprop="dateCreated datePublished" datetime="2023-03-07T19:17:20+08:00">2023-03-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="image-function-test"><a href="#image-function-test" class="headerlink" title="image function test"></a>image function test</h2><p><img src="/images/58ce27.png" alt="honkai impact 3 rd"><br><img src="/images/a1dbce.png" alt="under the the treeeee"></p>
-<h2 id="markdown-documents"><a href="#markdown-documents" class="headerlink" title="markdown documents"></a>markdown documents</h2><p><a target="_blank" rel="noopener" href="https://www.markdownguide.org/basic-syntax/">doc</a></p>
-<p><em>This row just used for test if i can post articals by using windows.</em></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E5%8D%9A%E5%AE%A2%E5%B7%B2%E5%BC%83%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%8D%9A%E5%AE%A2%E5%B7%B2%E5%BC%83%E7%94%A8/" class="post-title-link" itemprop="url">博客已弃用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-05T00:00:00+08:00">2023-03-05</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><del>由于买不起服务器</del>服务器打理起来太麻烦而且不方便迁移，这个博客即将遭到弃用。</p>
-<h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>当初出于联系部署服务器的打算，采用了docker+wordpress的方式部署博客，但是我逐渐发现这种方式不适合我：</p>
-<ul>
-<li><p>迁移困难：基本绑定了wordpress这一个框架，想要转移到其他博客十分麻烦</p>
-</li>
-<li><p>需要服务器：而且想要访问得顺畅，需要额外资金扩展贷款</p>
-</li>
-<li><p>不符合我的博客定位：本人的博客应该更像一个随手记的记事本，而不是一个可以交互的网站，所以静态博客框架，比如hexo更适合我使用，网站本来也没其他人看。静态页面还可以用免费托管，有利于我提到的上面一点——加快网站访问速度。</p>
-</li>
-<li><p>编辑器我更喜欢vscode,同时源文件保存为md格式更有安全感。</p>
-</li>
-</ul>
-<h2 id="打算"><a href="#打算" class="headerlink" title="打算"></a>打算</h2><p>关于博客，以下有几个选择：</p>
-<ul>
-<li><p>Hexo：<a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io/</a> 之前朋友推荐我使用的。</p>
-</li>
-<li><p>vuepress：<a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/">https://vuepress.vuejs.org/zh/</a> 非常简洁的一个网站模板，适合记事本的定位。</p>
-</li>
-</ul>
-<p>至于已有的文章如何迁移，这个倒不是当务之急。</p>
-<p>打算将文章还原为markdown，这点似乎没有找到现成的轮子，也许会自己写一个。（找到的效果不理想，不能把图片也导出来，同时格式有一些错位。）。</p>
-<p><strong>edit: 旧博客已经迁移完成，新家：<a href="https://hinak0.github.io/">https://hinak0.github.io</a></strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://hinak0.github.io/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%80%E5%BC%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-      <meta itemprop="name" content="hinak0">
-      <meta itemprop="description" content="Record my notes and so on.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ONE NOTE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%80%E5%BC%B9/" class="post-title-link" itemprop="url">日本语-第一弹</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-06T00:00:00+08:00">2023-01-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/" itemprop="url" rel="index"><span itemprop="name">日本語</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="五十音"><a href="#五十音" class="headerlink" title="五十音"></a>五十音</h2><table>
-<thead>
-<tr>
-<th>row</th>
-<th>平仮名「ひらがな」</th>
-<th>片仮名「カタカナ」</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>あいうえお</td>
-<td>アイウエオ</td>
-</tr>
-<tr>
-<td>k</td>
-<td>かきくけこ</td>
-<td>カキクケコ</td>
-</tr>
-<tr>
-<td>s</td>
-<td>さしすせそ</td>
-<td>サシスセソ</td>
-</tr>
-<tr>
-<td>t</td>
-<td>たちつてと</td>
-<td>タチツテト</td>
-</tr>
-<tr>
-<td>n</td>
-<td>なにぬねの</td>
-<td>ナニヌネノ</td>
-</tr>
-<tr>
-<td>h</td>
-<td>はひふへほ</td>
-<td>ハヒフへホ</td>
-</tr>
-<tr>
-<td>m</td>
-<td>まみむめも</td>
-<td>マミムメモ</td>
-</tr>
-<tr>
-<td>y</td>
-<td>やーゆーよ</td>
-<td>ヤーユーヨ</td>
-</tr>
-<tr>
-<td>r</td>
-<td>らりるれろ</td>
-<td>ラリルレロ</td>
-</tr>
-<tr>
-<td>w</td>
-<td>わーーーを</td>
-<td>ワーーーヲ</td>
-</tr>
-<tr>
-<td>n</td>
-<td>ん</td>
-<td>ン</td>
-</tr>
-</tbody></table>
-<h2 id="半浊音和浊音"><a href="#半浊音和浊音" class="headerlink" title="半浊音和浊音"></a>半浊音和浊音</h2><table>
-<thead>
-<tr>
-<th>row</th>
-<th>alphabet</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ｋ－ｇ</td>
-<td>がぎぐげご</td>
-</tr>
-<tr>
-<td>ｓ－ｚ</td>
-<td>ざじずぜぞ</td>
-</tr>
-<tr>
-<td>ｔ－ｄ</td>
-<td>だぢづでど</td>
-</tr>
-<tr>
-<td>ｈ－ｂ</td>
-<td>ばびぶべぼ</td>
-</tr>
-<tr>
-<td>ｈ－ｐ</td>
-<td>ぱぴぷぺぽ</td>
-</tr>
-</tbody></table>
-<h2 id="拗音"><a href="#拗音" class="headerlink" title="拗音"></a>拗音</h2><p>将i列的7个清音(不包含い)和5个浊音（じぢ同音，音鸡）共12*3个（论读音是11*3个）</p>
-<table>
-<thead>
-<tr>
-<th>row</th>
-<th>alphabet</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ki</td>
-<td>きゃ きゅ きょ</td>
-</tr>
-<tr>
-<td>shi</td>
-<td>しゃ しゅ しょ</td>
-</tr>
-<tr>
-<td>thi</td>
-<td>ちゃ ちゅ ちょ</td>
-</tr>
-<tr>
-<td>ni</td>
-<td>にゃ にゅ にょ</td>
-</tr>
-<tr>
-<td>hi</td>
-<td>ひゃ ひゅ ひょ</td>
-</tr>
-<tr>
-<td>mi</td>
-<td>みゃ みゅ みょ</td>
-</tr>
-<tr>
-<td>ri</td>
-<td>りゃ りゅ りょ</td>
-</tr>
-<tr>
-<td>gi</td>
-<td>ぎゃ ぎゅ ぎょ</td>
-</tr>
-<tr>
-<td>ji</td>
-<td>じゃ じゅ じょ</td>
-</tr>
-<tr>
-<td>bi</td>
-<td>びゃ びゅ びょ</td>
-</tr>
-<tr>
-<td>pi</td>
-<td>ぴゃ ぴゅ ぴょ</td>
-</tr>
-</tbody></table>
-<h2 id="其他发音规则"><a href="#其他发音规则" class="headerlink" title="其他发音规则"></a>其他发音规则</h2><ul>
-<li><p>促音 「っ」是用来表示停顿的符号，它比「つ」小一号，不发音，但是占一拍</p>
-</li>
-<li><p>长音</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a+a</span><br><span class="line">i+i</span><br><span class="line">u+u</span><br><span class="line">e+e</span><br><span class="line">o+o</span><br><span class="line">e+i</span><br><span class="line">o+u</span><br></pre></td></tr></table></figure>
-<h2 id="声调"><a href="#声调" class="headerlink" title="声调"></a>声调</h2><p>规律：</p>
-<ul>
-<li>第一个音和第二个调子不会相同</li>
-<li>不会出现高低高的音调</li>
-<li>第几个音降下去，就称为几型</li>
-</ul>
-<p>examples:</p>
-<ul>
-<li>0 型 庭「にわ」\ 壁 \ 国「くに」 \ 椅子「いす」</li>
-<li>1 型 猫 \ 母 \ 傘 \ 外「そと」</li>
-<li>2 型 花屋「はなや」 \ います \ 寝ます「ねます」 \ 蕎麦屋「そばや」</li>
-<li>3 型 ください \ 食べます \ 聞きます「ききます」 \ 読みます「よみます」</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('https://s2.loli.net/2023/07/10/cHCIB2ldMo9TLYQ.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="sudoers文件损坏解决办法"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="sudoers文件损坏解决办法"></a></div><div class="recent-post-info"><a class="article-title" href="/sudoers%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="sudoers文件损坏解决办法">sudoers文件损坏解决办法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-13T14:31:10.000Z" title="Created 2023-03-13 22:31:10">2023-03-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span></div><div class="content">今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。
+本来打算直接su root的，可惜实在记不得密码了
+后来打算用pkexec,但是遇到了polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.error.failed: no session for cookie的错误
+好在下面这篇博文帮大忙了！
+链接Ubuntu改坏sudoers后无法使用sudo的解决办法
+
+另外以后不能随便用vim改重要的配置文件！
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%89%E5%BC%B9/" title="日本语-第三弹"><img class="post-bg" src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本语-第三弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%89%E5%BC%B9/" title="日本语-第三弹">日本语-第三弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-12T00:34:43.000Z" title="Created 2023-03-12 08:34:43">2023-03-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">动词分类与变化动词特点日语动词都是以「う」段假名结尾的
+动词三分类
+不是以「る」为结尾的动词都是“一类动词（五段动词）。
+い段&#x2F;え段+る　是二类动词。
+か变，さ变，属于特殊变化。
+
+规律
+ます型的过去式与否定过去：ました否定：ません过去否定：ませんでした
+名词相关语法時間に	动词
+表示事件发生的时间，有时候也不用加に
+時間	から	時間　まで	动词
+表示动作持续时间
+から：从
+まで：到
+いつ　动词ますか
+询问什么时候
+examplesA：毎日（まいにち）、何時（なんじ）に  寝（ね）  ますかB：十一時（じゅういちじ）三十分（さんじゅぶん）寝ます
+A：昨日（きのう）、何時から 何時まで　働き（はたらき）ましたかB：九時（くじ）から　六時（ろくじ）まで　働きました
+A：先週（せんしゅ） 休み（やすみ）ましたか？B：いええ、休みませんでした
+A：試験（しけん）は　いつ　始まりますか？B：来週（らいしゅ）の　木曜日（もくようび）です。
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/" title="http代理与https代理"><img class="post-bg" src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="http代理与https代理"></a></div><div class="recent-post-info"><a class="article-title" href="/http%E4%BB%A3%E7%90%86%E4%B8%8Ehttps%E4%BB%A3%E7%90%86/" title="http代理与https代理">http代理与https代理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-09T14:26:38.000Z" title="Created 2023-03-09 22:26:38">2023-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/">网络工程</a></span></div><div class="content">https代理工作流程
+client发送一个http connect 到 proxy , 告诉自己要访问的域名与端口
+proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功Connection Established，也就是隧道（tunnel）创建完成。
+随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。
+
+有几个重点
+proxy 进行dns解析
+连接是加密的，对于proxy server，它也没办法获取通讯内容
+
+http代理工作流程相当于将所有域名绑定到代理服务器地址，由代理获取response后返回client
+代码示例
+使用python实现一个http and https 代理。
+使用多线程来避免阻塞
+
+参考见文末
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/" title="日本语-第二弹"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第二弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%BA%8C%E5%BC%B9/" title="日本语-第二弹">日本语-第二弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-09T10:14:04.000Z" title="Created 2023-03-09 18:14:04">2023-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">此、彼、夫これ	此，距离我比较近それ	彼，距离你比较近あれ	夫，都比较远for example:これわ地図ですか。（is this map?）
+什么人、什么东西誰（だれ）　who　礼貌的说法是どなたそれわ	what is it
+この　その　あの　后面必须接名词この スマートフォン(smart phone)は　李さんのです。（This smart phone belongs to Mr.Li）
+どれ　どの前者后面不接名词，后者必须接名词。
+这里、那里、那~里ここ	这里そこ	那里あそこ	那~里
+语法陈述句名　は　名　です
+疑问句，某物在哪里名　は	どこですか
+xx也xx名  も　名　です
+存在句部屋に	机が	あります机に	パソコン	あぃますxxに	xxが	あります
+或者动词在前
+いすは	部屋に	ありますxxは	xxに	あります
+あります只能用在无生命物体上，有生命用います
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/Hello-New-Blog-System/" title="Hello New Blog System"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="Hello New Blog System"></a></div><div class="recent-post-info"><a class="article-title" href="/Hello-New-Blog-System/" title="Hello New Blog System">Hello New Blog System</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-07T11:17:20.000Z" title="Created 2023-03-07 19:17:20">2023-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span></div><div class="content">image function test
+markdown documentsdoc
+This row just used for test if i can post articals by using windows.
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/%E5%8D%9A%E5%AE%A2%E5%B7%B2%E5%BC%83%E7%94%A8/" title="博客已弃用"><img class="post-bg" src="https://s2.loli.net/2023/04/14/bH9XpYystSFGAia.png" onerror="this.onerror=null;this.src='/null'" alt="博客已弃用"></a></div><div class="recent-post-info"><a class="article-title" href="/%E5%8D%9A%E5%AE%A2%E5%B7%B2%E5%BC%83%E7%94%A8/" title="博客已弃用">博客已弃用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-04T16:00:00.000Z" title="Created 2023-03-05 00:00:00">2023-03-05</time></span></div><div class="content">由于买不起服务器服务器打理起来太麻烦而且不方便迁移，这个博客即将遭到弃用。
+由来当初出于联系部署服务器的打算，采用了docker+wordpress的方式部署博客，但是我逐渐发现这种方式不适合我：
+
+迁移困难：基本绑定了wordpress这一个框架，想要转移到其他博客十分麻烦
+
+需要服务器：而且想要访问得顺畅，需要额外资金扩展贷款
+
+不符合我的博客定位：本人的博客应该更像一个随手记的记事本，而不是一个可以交互的网站，所以静态博客框架，比如hexo更适合我使用，网站本来也没其他人看。静态页面还可以用免费托管，有利于我提到的上面一点——加快网站访问速度。
+
+编辑器我更喜欢vscode,同时源文件保存为md格式更有安全感。
+
+
+打算关于博客，以下有几个选择：
+
+Hexo：https://hexo.io/ 之前朋友推荐我使用的。
+
+vuepress：https://vuepress.vuejs.org/zh/ 非常简洁的一个网站模板，适合记事本的定位。
+
+
+至于已有的文章如何迁移，这个倒不是当务之急。
+打算将文章还原为markdown，这点似乎没有找到现成的轮子，也许会自己写一个。（找到的效果 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%80%E5%BC%B9/" title="日本语-第一弹"><img class="post-bg" src="https://s2.loli.net/2023/04/15/NgMGVwT3LhjUleK.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本语-第一弹"></a></div><div class="recent-post-info"><a class="article-title" href="/%E6%97%A5%E6%9C%AC%E8%AF%AD-%E7%AC%AC%E4%B8%80%E5%BC%B9/" title="日本语-第一弹">日本语-第一弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-01-05T16:00:00.000Z" title="Created 2023-01-06 00:00:00">2023-01-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/">日本語</a></span></div><div class="content">五十音
+
+
+row
+平仮名「ひらがな」
+片仮名「カタカナ」
+
+
+
+a
+あいうえお
+アイウエオ
+
+
+k
+かきくけこ
+カキクケコ
+
+
+s
+さしすせそ
+サシスセソ
+
+
+t
+たちつてと
+タチツテト
+
+
+n
+なにぬねの
+ナニヌネノ
+
+
+h
+はひふへほ
+ハヒフへホ
+
+
+m
+まみむめも
+マミムメモ
+
+
+y
+やーゆーよ
+ヤーユーヨ
+
+
+r
+らりるれろ
+ラリルレロ
+
+
+w
+わーーーを
+ワーーーヲ
+
+
+n
+ん
+ン
+
+
+半浊音和浊音
+
+
+row
+alphabet
+
+
+
+ｋ－ｇ
+がぎぐげご
+
+
+ｓ－ｚ
+ざじずぜぞ
+
+
+ｔ－ｄ
+だぢづでど
+
+
+ｈ－ｂ
+ばびぶべぼ
+
+
+ｈ－ｐ
+ぱぴぷぺぽ
+
+
+拗音将i列的7个清音(不包含い)和5个浊音（じぢ同音，音鸡）共12*3个（论读音是11*3个）
+
+
+
+row
+alphabet
+
+
+
+ki
+きゃ きゅ きょ
+
+
+shi
+しゃ しゅ しょ
+
+
+thi
+ちゃ ちゅ ちょ
+
+
+ni
+にゃ にゅ にょ
+
+
+hi
+ひゃ ひゅ ひょ
+
+
+mi
+みゃ みゅ みょ
+
+
+ri
+りゃ りゅ りょ
+
+
+gi
+ぎゃ ぎゅ ぎょ
+
+
+ji
+じゃ じゅ じょ
+
+
+bi
+びゃ びゅ びょ
+
+
+pi
+ぴゃ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Record my notes and so on.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">62</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片"><img src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="工具-删除hexo中未引用的图片"/></a><div class="content"><a class="title" href="/%E5%B7%A5%E5%85%B7-%E5%88%A0%E9%99%A4hexo%E4%B8%AD%E6%9C%AA%E5%BC%95%E7%94%A8%E7%9A%84%E5%9B%BE%E7%89%87/" title="工具-删除hexo中未引用的图片">工具-删除hexo中未引用的图片</a><time datetime="2023-06-20T01:41:57.000Z" title="Created 2023-06-20 09:41:57">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对"><img src="/images/241240.png" onerror="this.onerror=null;this.src='/null'" alt="相等行列对"/></a><div class="content"><a class="title" href="/%E7%9B%B8%E7%AD%89%E8%A1%8C%E5%88%97%E5%AF%B9/" title="相等行列对">相等行列对</a><time datetime="2023-06-06T07:17:25.000Z" title="Created 2023-06-06 15:17:25">2023-06-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾"><img src="/images/20230710-163413.png" onerror="this.onerror=null;this.src='/null'" alt="日本語-第十弾"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%8D%81%E5%BC%BE/" title="日本語-第十弾">日本語-第十弾</a><time datetime="2023-06-02T06:24:47.000Z" title="Created 2023-06-02 14:24:47">2023-06-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹"><img src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第九弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E4%B9%9D%E5%BC%B9/" title="日本語-第九弹">日本語-第九弹</a><time datetime="2023-05-22T02:13:51.000Z" title="Created 2023-05-22 10:13:51">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹"><img src="https://s2.loli.net/2023/04/15/lSyf1ZHscT3QdUq.jpg" onerror="this.onerror=null;this.src='/null'" alt="日本語-第八弹"/></a><div class="content"><a class="title" href="/%E6%97%A5%E6%9C%AC%E8%AA%9E-%E7%AC%AC%E5%85%AB%E5%BC%B9/" title="日本語-第八弹">日本語-第八弹</a><time datetime="2023-04-27T07:57:26.000Z" title="Created 2023-04-27 15:57:26">2023-04-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Others/"><span class="card-category-list-name">Others</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/web%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">web技术</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/"><span class="card-category-list-name">后端</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"><span class="card-category-list-name">日本語</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">26</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/"><span class="card-category-list-name">网络工程</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">运维</span><span class="card-category-list-count">3</span></a></li>
+            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">December 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/10/"><span class="card-archive-list-date">October 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">September 2022</span><span class="card-archive-list-count">4</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
   }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="hinak0"
-      src="https://www.gravatar.com/avatar/15870bf19a761bf047b31e783fe19b82">
-  <p class="site-author-name" itemprop="name">hinak0</p>
-  <div class="site-description" itemprop="description">Record my notes and so on.</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">62</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/hinak0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hinak0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:hiak0@qq.com" title="E-Mail → mailto:hiak0@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">hinak0</span>
-</div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+}
+</script><script>function subtitleType () {
+  if (false) {
+    typedJSFn.init(["Just a private note."])
+  } else {
+    document.getElementById("subtitle").textContent = "Just a private note."
+  }
+}
+typedJSFn.run(subtitleType)</script></div></div></body></html>
