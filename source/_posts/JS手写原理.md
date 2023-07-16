@@ -30,7 +30,7 @@ myFn()
 ```
 
 ## sleep()
-sleep() can only use in an async function , and　the sleep() mast marked with `await`
+sleep() can only use in an async function , and the sleep() mast marked with `await`
 ```js
 async function sleep(delay) {
 	return new Promise(resolve => {

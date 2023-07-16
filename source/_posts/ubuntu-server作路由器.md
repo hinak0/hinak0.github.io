@@ -110,7 +110,7 @@ iptables配置要点：
 
 - 向lan的流量accept
 
-- 向server的dns redir 到　tproxy port
+- 向server的dns redir 到 tproxy port
 
 ```bash
 #!/bin/bash
@@ -186,7 +186,7 @@ setProxy() {
         iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP
 }
 setSelf() {
-        #　Not recommended
+        # Not recommended
         iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
         iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
         iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
