@@ -129,145 +129,145 @@ set -e
 # line-number for debug
 set -x
 init() {
-        # route rules
-        ip rule add fwmark 1 table 100
-        ip route add local 0.0.0.0/0 dev lo table 100
+	# route rules
+	ip rule add fwmark 1 table 100
+	ip route add local 0.0.0.0/0 dev lo table 100
 
-        # not global addresses
-        ipset create local hash:net
-        ipset add local 0.0.0.0/8
-        ipset add local 127.0.0.0/8
-        ipset add local 10.0.0.0/8
-        ipset add local 169.254.0.0/16
-        ipset add local 192.168.0.0/16
-        ipset add local 224.0.0.0/4
-        ipset add local 240.0.0.0/4
-        ipset add local 172.16.0.0/12
-        ipset add local 100.64.0.0/10
+	# not global addresses
+	ipset create local hash:net
+	ipset add local 0.0.0.0/8
+	ipset add local 127.0.0.0/8
+	ipset add local 10.0.0.0/8
+	ipset add local 169.254.0.0/16
+	ipset add local 192.168.0.0/16
+	ipset add local 224.0.0.0/4
+	ipset add local 240.0.0.0/4
+	ipset add local 172.16.0.0/12
+	ipset add local 100.64.0.0/10
 }
 clearAllRules() {
-        # recovery rules
-        iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
-        # nat
-        iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
-        # drop initiative package from wan
-        iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP
+	# recovery rules
+	iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
+	# nat
+	iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
+	# drop initiative package from wan
+	iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP
 }
 setProxy() {
-        clearAllRules
+	clearAllRules
 
-        # udp tproxy
-        iptables -t mangle -N CLASH_UDP
-        iptables -t mangle -F CLASH_UDP
-        iptables -t mangle -A CLASH_UDP -p udp --dport 53 -j ACCEPT
-        iptables -t mangle -A CLASH_UDP -p udp -j TPROXY --on-port ${tproxy_port} --tproxy-mark 1
+	# udp tproxy
+	iptables -t mangle -N PROXY_UDP
+	iptables -t mangle -F PROXY_UDP
+	iptables -t mangle -A PROXY_UDP -p udp --dport 53 -j ACCEPT
+	iptables -t mangle -A PROXY_UDP -p udp -j TPROXY --on-port ${tproxy_port} --tproxy-mark 1
 
-        # DNS redirect
-        iptables -t nat -N CLASH_DNS
-        iptables -t nat -F CLASH_DNS
-        iptables -t nat -A CLASH_DNS -p udp -j REDIRECT --to-ports ${dns_port}
+	# DNS redirect
+	iptables -t nat -N PROXY_DNS
+	iptables -t nat -F PROXY_DNS
+	iptables -t nat -A PROXY_DNS -p udp -j REDIRECT --to-ports ${dns_port}
 
-        # tcp redirect
-        iptables -t nat -N CLASH_TCP
-        iptables -t nat -F CLASH_TCP
-        iptables -t nat -A CLASH_TCP -p tcp -j REDIRECT --to-ports ${redir_port}
+	# tcp redirect
+	iptables -t nat -N PROXY_TCP
+	iptables -t nat -F PROXY_TCP
+	iptables -t nat -A PROXY_TCP -p tcp -j REDIRECT --to-ports ${redir_port}
 
-        # apply rules
-        if [ $udp_enable -eq 1 ]; then
-                iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
-                iptables -t mangle -A PREROUTING -m set --match-set local dst -j ACCEPT
-                iptables -t mangle -A PREROUTING -p udp -j CLASH_UDP
-        fi
+	# apply rules
+	if [ $udp_enable -eq 1 ]; then
+		iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+		iptables -t mangle -A PREROUTING -m set --match-set local dst -j ACCEPT
+		iptables -t mangle -A PREROUTING -p udp -j PROXY_UDP
+	fi
 
-        # apply rules
-        iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
-        iptables -t nat -A PREROUTING -p udp --dport 53 -j CLASH_DNS
-        iptables -t nat -A PREROUTING -m set --match-set local dst -j ACCEPT
-        iptables -t nat -A PREROUTING -p tcp -j CLASH_TCP
+	# apply rules
+	iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+	iptables -t nat -A PREROUTING -p udp --dport 53 -j PROXY_DNS
+	iptables -t nat -A PREROUTING -m set --match-set local dst -j ACCEPT
+	iptables -t nat -A PREROUTING -p tcp -j PROXY_TCP
 }
 setSelf() {
-        # Not recommended
-        iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
-        iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
-        iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
-        iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports ${redir_port}
+	# Not recommended
+	iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
+	iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
+	iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
+	iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports ${redir_port}
 }
 update() {
-        # extra
-        cd $subconverter_dir
-        ./subconverter &
-        sleep 3
-        cat $config_dir/config.yaml > $config_dir/past.yaml
-        echo "# `date`" > $config_dir/config.yaml
-        curl $sub_link -s --noproxy '*' >> $config_dir/config.yaml
-        pkill subconverter
+	# extra
+	cd $subconverter_dir
+	./subconverter &
+	sleep 3
+	cat $config_dir/config.yaml >$config_dir/past.yaml
+	echo "# $(date)" >$config_dir/config.yaml
+	curl $sub_link -s --noproxy '*' >>$config_dir/config.yaml
+	pkill subconverter
 
-        # test
-        clash -d $config_dir -t
-        if [ $? -ne 0 ]; then
-                echo "update failed."
-        else
-                echo "update seccussfully!"
-                # setProxy
-                systemctl restart clash
-                diffConfig
-        fi
+	# test
+	clash -d $config_dir -t
+	if [ $? -ne 0 ]; then
+		echo "update failed."
+	else
+		echo "update seccussfully!"
+		# setProxy
+		systemctl restart clash
+		diffConfig
+	fi
 }
-lease(){
-        set +x
-        # show dnsmasq lease
-        while read line; do
-                timestamp=$(echo "$line" | awk '{print $1}')
-                mac=$(echo "$line" | awk '{print $2}')
-                ip=$(echo "$line" | awk '{print $3}')
-                host=$(echo "$line" | awk '{print $4}')
+lease() {
+	set +x
+	# show dnsmasq lease
+	while read line; do
+		timestamp=$(echo "$line" | awk '{print $1}')
+		mac=$(echo "$line" | awk '{print $2}')
+		ip=$(echo "$line" | awk '{print $3}')
+		host=$(echo "$line" | awk '{print $4}')
 
-                # Convert the timestamp to a human-readable date
-                date=$(date -d @$timestamp +"%m-%d %H:%M:%S")
+		# Convert the timestamp to a human-readable date
+		date=$(date -d @$timestamp +"%m-%d %H:%M:%S")
 
-                # Output the result
-                echo "$mac      $date   $ip     $host"
-        done < "$LEASE_FILE"
+		# Output the result
+		echo "$mac      $date   $ip     $host"
+	done <"$LEASE_FILE"
 }
 
-ban(){
-        # temporarily disable one ip
-        iptables -t mangle -I PREROUTING -s $1 -j DROP
+ban() {
+	# temporarily disable one ip
+	iptables -t mangle -I PREROUTING -s $1 -j DROP
 }
-diffConfig(){
-        # show diff
-        colordiff -c $config_dir/past.yaml $config_dir/config.yaml
+diffConfig() {
+	# show diff
+	colordiff -c $config_dir/past.yaml $config_dir/config.yaml
 }
 case "$1" in
-        del)
-                clearAllRules
-                ;;
-        set)
-                setProxy
-                ;;
-        update)
-                update
-                ;;
-        init)
-                init
-                ;;
-        self)
-                setSelf
-                ;;
-        lease)
-                lease
-                ;;
-        diff)
-                diffConfig
-                ;;
-        ban)
-                ban $2
-                ;;
+del)
+	clearAllRules
+	;;
+set)
+	setProxy
+	;;
+update)
+	update
+	;;
+init)
+	init
+	;;
+self)
+	setSelf
+	;;
+lease)
+	lease
+	;;
+diff)
+	diffConfig
+	;;
+ban)
+	ban $2
+	;;
 
-        *)
-                echo "HELLO IT'S ME"
-                exit 0
-                ;;
+*)
+	echo "HELLO IT'S ME"
+	exit 0
+	;;
 esac
 exit
 ```
