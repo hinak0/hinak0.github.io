@@ -9,122 +9,131 @@ tags:
 Some boilerplate of javascript.
 
 ## debounce()
+
 ```js
 function debounce(fn, wait) {
-	let timer = null
+	let timer = null;
 	return function (...args) {
-		if (timer) clearTimeout(timer)
+		if (timer) clearTimeout(timer);
 		timer = setTimeout(() => {
-			fn()
-		}, wait)
-	}
+			fn();
+		}, wait);
+	};
 }
 function test() {
-	console.log('hello')
+	console.log('hello');
 }
-let myFn = debounce(test, 1000)
-myFn()
-myFn()
-myFn()
-myFn()
+let myFn = debounce(test, 1000);
+myFn();
+myFn();
+myFn();
+myFn();
 ```
 
 ## sleep()
+
 sleep() can only use in an async function , and the sleep() mast marked with `await`
+
 ```js
 async function sleep(delay) {
-	return new Promise(resolve => {
+	return new Promise((resolve) => {
 		setTimeout(() => {
-			resolve()
-		}, delay)
-	})
+			resolve();
+		}, delay);
+	});
 }
 
 // how to use it
 async function test() {
-	console.log('start')
-	await sleep(3000)
-	console.log('execute')
+	console.log('start');
+	await sleep(3000);
+	console.log('execute');
 }
 
-test()
+test();
 ```
 
 ## A simple Pubsub
+
 ```js
 class PubSub {
 	constructor() {
-		this.topics = {}
+		this.topics = {};
 	}
 	sub(topic, callBack) {
 		if (!this.topics[topic]) {
-			this.topics[topic] = [callBack]
+			this.topics[topic] = [callBack];
 		} else {
-			this.topics[topic].push(callBack)
+			this.topics[topic].push(callBack);
 		}
 	}
 	unsub(topic, callBack) {
-		if (!this.topics[topic]) return
-		this.topics[topic] = this.topics[topic].filter(item => {
-			return item !== callBack
-		})
+		if (!this.topics[topic]) return;
+		this.topics[topic] = this.topics[topic].filter((item) => {
+			return item !== callBack;
+		});
 	}
 	subOnce(topic, callBack) {
 		function fn() {
-			callBack()
-			this.off(topic, fn)
+			callBack();
+			this.off(topic, fn);
 		}
-		this.sub(topic, fn)
+		this.sub(topic, fn);
 	}
 	pub(topic, ...params) {
-		this.topics[topic] && this.topics[topic].forEach(fn => fn.apply(this, params))
+		this.topics[topic] &&
+			this.topics[topic].forEach((fn) => fn.apply(this, params));
 	}
 }
 ```
 
 ## Implement a keyword function `new`
+
 [面向对象编程-javascript](https://www.liaoxuefeng.com/wiki/1022910821149312/1023022126220448)
+
 ```js
 function myNew(fn, ...args) {
-	let obj = Object.create(fn.prototype)
-	let res = fn.call(obj, ...args)
+	let obj = Object.create(fn.prototype);
+	let res = fn.call(obj, ...args);
 	if (res && (typeof res === 'object' || typeof res === 'function')) {
-		return res
+		return res;
 	}
-	return obj
+	return obj;
 }
 
 function Man(age, name) {
-	console.log(this)
-	this.age = age
-	this.name = name
+	console.log(this);
+	this.age = age;
+	this.name = name;
 }
 
-const obj = myNew(Man, 18, 'イフ')
-console.log(obj.__proto__)
+const obj = myNew(Man, 18, 'イフ');
+console.log(obj.__proto__);
 ```
 
 ## SetInterval
+
 ```js
 function mySetInterval(fn, time = 1000) {
 	let timer = null,
-		isClear = false
+		isClear = false;
 	function interval() {
 		if (isClear) {
-			isClear = false
-			clearTimeout(timer)
-			return
+			isClear = false;
+			clearTimeout(timer);
+			return;
 		}
-		fn()
-		timer = setTimeout(interval, time)
+		fn();
+		timer = setTimeout(interval, time);
 	}
-	timer = setTimeout(interval, time)
+	timer = setTimeout(interval, time);
 	// to convenient, use a fallback instead of intervalId
 	return () => {
-		isClear = true
-	}
+		isClear = true;
+	};
 }
 ```
 
 ## reference
+
 [zhihu](https://zhuanlan.zhihu.com/p/462393494)

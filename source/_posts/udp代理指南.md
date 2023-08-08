@@ -9,7 +9,7 @@ categories:
 
 ### redirect的原理
 
-在nat表修改数据包的目标地址,同时netfilter有 SO\_ORIGINAL\_DST 选项可以支持拿到原目的地址，netfilter 会将包的原目的地址放在 socket 的 SO\_ORIGINAL\_DST 属性里.代理客户端依次向原目标发起请求.
+在nat表修改数据包的目标地址,同时netfilter有 SO_ORIGINAL_DST 选项可以支持拿到原目的地址，netfilter 会将包的原目的地址放在 socket 的 SO_ORIGINAL_DST 属性里.代理客户端依次向原目标发起请求.
 
 ### 为什么udp不能拿到修改前的地址
 

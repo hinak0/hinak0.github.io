@@ -31,7 +31,7 @@ event.simulated = true;
 // hack React16 内部定义了descriptor拦截value，此处重置状态
 let tracker = input._valueTracker;
 if (tracker) {
-  tracker.setValue(lastValue);
+	tracker.setValue(lastValue);
 }
 input.dispatchEvent(event);
 ```
@@ -39,4 +39,3 @@ input.dispatchEvent(event);
 ## 参考
 
 [js如何在外部改变react受控组件的状态量？](https://github.com/ILovePing/ILovePing.github.io/issues/22)
-

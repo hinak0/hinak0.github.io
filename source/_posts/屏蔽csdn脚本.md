@@ -19,13 +19,13 @@ categories:
 
 (function () {
 	'use strict';
-	const resultList = document.querySelectorAll("main ol#b_results li.b_algo")
-	resultList.forEach(item => {
-		let url = item.querySelector("cite").innerHTML
+	const resultList = document.querySelectorAll('main ol#b_results li.b_algo');
+	resultList.forEach((item) => {
+		let url = item.querySelector('cite').innerHTML;
 
-		if (url.indexOf("csdn") !== -1) {
-			item.innerHTML = "<strong>已屏蔽csdn</strong>"
+		if (url.indexOf('csdn') !== -1) {
+			item.innerHTML = '<strong>已屏蔽csdn</strong>';
 		}
-	})
+	});
 })();
 ```

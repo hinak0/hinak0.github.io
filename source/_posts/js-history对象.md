@@ -22,11 +22,11 @@ categories:
 ```js
 history.pushState(null, null, document.URL);
 // 每当触发后退事件时，就再加一个当前页面的记录
-window.addEventListener("popstate", e => {
-	alert("popstate")
+window.addEventListener('popstate', (e) => {
+	alert('popstate');
 	history.pushState(null, null, document.URL);
 	console.log("you can't go back");
-})
+});
 ```
 
 或者做绝一点，像这样：

@@ -12,6 +12,7 @@ cover:
 博客由wordpress迁移而来，有很多不是用的图片资源，现在来删除一下．
 
 ## 删除没有引用的文件&&统一文件名
+
 ```py
 import os
 import re

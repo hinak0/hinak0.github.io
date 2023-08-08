@@ -7,13 +7,18 @@ tags:
 ---
 
 ## https代理工作流程
+
 - client发送一个[http connect](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT) 到 proxy , 告诉自己要访问的域名与端口
 - proxy server 进行dns解析，创建与目标的通道，随后告诉client连接成功`Connection Established`，也就是隧道（tunnel）创建完成。
 - 随后客户端通过这个隧道进行与目标的tls握手，进行加密通讯。
+
 #### 有几个重点
+
 - proxy 进行dns解析
 - 连接是加密的，对于proxy server，它也没办法获取通讯内容
+
 ## http代理工作流程
+
 相当于将所有域名绑定到代理服务器地址，由代理获取response后返回client
 
 ## 代码示例
@@ -22,6 +27,7 @@ tags:
 - 使用多线程来避免阻塞
 
 参考见文末
+
 ```python
 import select
 import socket
@@ -158,4 +164,5 @@ if __name__ == '__main__':
 ```
 
 ## 参考
+
 [socket-example](https://github.com/facert/socket-example)
