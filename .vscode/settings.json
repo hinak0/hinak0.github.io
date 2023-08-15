@@ -1,5 +1,16 @@
 {
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.unicodeHighlight.ambiguousCharacters": false,
+		"editor.unicodeHighlight.invisibleCharacters": true,
+		"editor.wordWrap": "on"
+	},
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": true,
+	"editor.tabSize": 2,
 	"pasteImage.defaultName": "YYYYMMDD-HHmmss",
 	"pasteImage.path": "../images/",
-	"python.analysis.typeCheckingMode": "basic"
+	"prettier.singleQuote": true,
+	"prettier.tabWidth": 2,
+	"prettier.useTabs": true
 }
