@@ -19,7 +19,7 @@ date: 2023-06-06 15:04:29
 
 ### fake id
 
-[ID generate](http://www.chineseidcard.com/) 在线生成中国身份证号码
+[ID generate](https://www.dute.org/fake-id-card-number) 在线生成中国身份证号码
 
 [random username](https://www.lastpass.com/features/username-generator) 随机用户名生成
 
