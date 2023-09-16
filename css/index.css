@@ -2295,15 +2295,6 @@ figure.highlight pre .javascript .function {
   transition: all 0.2s ease-in-out;
   -webkit-line-clamp: 2;
 }
-#recent-posts > .recent-post-item >.recent-post-info > .article-title .sticky {
-  margin-right: 10px;
-  color: #ff7242;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 @media screen and (max-width: 768px) {
   #recent-posts > .recent-post-item >.recent-post-info > .article-title {
     font-size: 1.43em;
@@ -2319,6 +2310,9 @@ figure.highlight pre .javascript .function {
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
   cursor: default;
+}
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .sticky {
+  color: #ff7242;
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap i {
   margin: 0 4px 0 0;
@@ -3138,6 +3132,13 @@ h1.page-title + .tag-cloud-list {
   -ms-transition: all 0.5s;
   transition: all 0.5s;
 }
+#page-header:not(.not-top-img):before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mark-bg);
+  content: '';
+}
 #page-header.full_page {
   height: 100vh;
   background-attachment: fixed;
@@ -3224,15 +3225,6 @@ h1.page-title + .tag-cloud-list {
 }
 #page-header.post-bg {
   height: 400px;
-}
-#page-header.post-bg::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.3);
 }
 @media screen and (max-width: 768px) {
   #page-header.post-bg {
@@ -3943,9 +3935,6 @@ h1.page-title + .tag-cloud-list {
   background: var(--btn-bg);
   color: var(--btn-color);
   cursor: pointer;
-}
-.post-reward .reward-button i {
-  margin-right: 5px;
 }
 .post-reward:hover .reward-button {
   background: var(--btn-hover-color);
@@ -5072,9 +5061,9 @@ blockquote.pullquote.right {
   animation: tabshow 0.5s;
 }
 #article-container .tabs .tab-to-top {
-  position: absolute;
-  right: 15px;
+  position: relative;
   display: block;
+  margin: 0 0 0 auto;
   color: #99a9bf;
 }
 @-moz-keyframes tabshow {
