@@ -12,17 +12,17 @@
 <meta property="article:tag" content="programing">
 <meta property="article:tag" content="japanese">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hinak0.site/covers/avatar.png"><link rel="shortcut icon" href="/covers/avatar.png"><link rel="canonical" href="https://hinak0.site/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="https://hinak0.site/covers/avatar.png"><link rel="shortcut icon" href="/covers/avatar.png"><link rel="canonical" href="https://hinak0.site/page/6/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: undefined,
   translate: undefined,
-  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  noticeOutdate: {"limitDay":30,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
   },
   relativeDate: {
     homepage: false,
@@ -30,7 +30,7 @@
   },
   runtime: 'days',
   dateSuffix: {
-    just: 'Just',
+    just: 'Just now',
     min: 'minutes ago',
     hour: 'hours ago',
     day: 'days ago',
@@ -39,15 +39,13 @@
   copyright: undefined,
   lightbox: 'fancybox',
   Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.css'
-    }
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
   },
-  isPhotoFigcaption: false,
+  isPhotoFigcaption: true,
   islazyload: false,
-  isAnchor: false,
+  isAnchor: true,
   percent: {
     toc: true,
     rightside: false,
@@ -59,85 +57,78 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-10-15 16:14:45'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-10-15 18:06:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
         }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
         }
-        return item.value
-      }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-      win.activateDarkMode = function () {
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-      win.activateLightMode = function () {
+      win.activateLightMode = () => {
         document.documentElement.setAttribute('data-theme', 'light')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
           document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
@@ -145,9 +136,9 @@
       }
       const t = saveToLocal.get('theme')
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
-        
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -157,20 +148,20 @@
         }
       }
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/covers/avatar.png" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('/covers/index.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="/covers/avatar.png"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/ddb2a92b9b09/" title="sudoers文件损坏解决办法"><img class="post-bg" src="/covers/cover3.png" onerror="this.onerror=null;this.src='/null'" alt="sudoers文件损坏解决办法"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/ddb2a92b9b09/" title="sudoers文件损坏解决办法">sudoers文件损坏解决办法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-13T14:31:10.000Z" title="Created 2023-03-13 22:31:10">2023-03-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a></span></div><div class="content">今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/covers/avatar.png" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/covers/index.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="/covers/avatar.png"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">ONE NOTE</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/ddb2a92b9b09/" title="sudoers文件损坏解决办法"><img class="post-bg" src="/covers/cover5.png" onerror="this.onerror=null;this.src='/null'" alt="sudoers文件损坏解决办法"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/ddb2a92b9b09/" title="sudoers文件损坏解决办法">sudoers文件损坏解决办法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-13T14:31:10.000Z" title="Created 2023-03-13 22:31:10">2023-03-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a></span></div><div class="content">今天修改sudoers文件的时候，由于没有用visudo导致文件损坏（血的教训），没法sudo了，折腾了一番。
 本来打算直接su root的，可惜实在记不得密码了
 后来打算用pkexec,但是遇到了polkit-agent-helper-1: error response to policykit daemon: gdbus.error:org.freedesktop.policykit1.error.failed: no session for cookie的错误
 好在下面这篇博文帮大忙了！
 链接Ubuntu改坏sudoers后无法使用sudo的解决办法
 
 另外以后不能随便用vim改重要的配置文件！
-</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/19ff490c52d7/" title="日本语-第三弹"><img class="post-bg" src="/covers/cover2.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第三弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/19ff490c52d7/" title="日本语-第三弹">日本语-第三弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-12T00:34:43.000Z" title="Created 2023-03-12 08:34:43">2023-03-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">动词分类与变化动词特点日语动词都是以「う」段假名结尾的
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/19ff490c52d7/" title="日本语-第三弹"><img class="post-bg" src="/covers/cover1.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第三弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/19ff490c52d7/" title="日本语-第三弹">日本语-第三弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-12T00:34:43.000Z" title="Created 2023-03-12 08:34:43">2023-03-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">动词分类与变化动词特点日语动词都是以「う」段假名结尾的
 动词三分类
 不是以「る」为结尾的动词都是“一类动词（五段动词）。
 い段&#x2F;え段+る 是二类动词。
@@ -205,7 +196,7 @@ http代理工作流程相当于将所有域名绑定到代理服务器地址，�
 使用多线程来避免阻塞
 
 参考见文末
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/cb6c0777d7a3/" title="日本语-第二弹"><img class="post-bg" src="/covers/cover5.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第二弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/cb6c0777d7a3/" title="日本语-第二弹">日本语-第二弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-09T10:14:04.000Z" title="Created 2023-03-09 18:14:04">2023-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">此、彼、夫これ 此，距离我比较近それ 彼，距离你比较近あれ 夫，都比较远for example:これわ地図ですか。（is this map?）
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/cb6c0777d7a3/" title="日本语-第二弹"><img class="post-bg" src="/covers/cover4.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第二弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/cb6c0777d7a3/" title="日本语-第二弹">日本语-第二弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-09T10:14:04.000Z" title="Created 2023-03-09 18:14:04">2023-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">此、彼、夫これ 此，距离我比较近それ 彼，距离你比较近あれ 夫，都比较远for example:これわ地図ですか。（is this map?）
 什么人、什么东西誰（だれ） who 礼貌的说法是どなたそれわ what is it
 この その あの 后面必须接名词この スマートフォン(smart phone)は 李さんのです。（This smart phone belongs to Mr.Li）
 どれ どの前者后面不接名词，后者必须接名词。
@@ -217,12 +208,12 @@ xx也xx名 も 名 です
 或者动词在前
 いすは 部屋に ありますxxは xxに あります
 あります只能用在无生命物体上，有生命用います
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/719c5b570e78/" title="Hello New Blog System"><img class="post-bg" src="/covers/cover2.png" onerror="this.onerror=null;this.src='/null'" alt="Hello New Blog System"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/719c5b570e78/" title="Hello New Blog System">Hello New Blog System</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-07T11:17:20.000Z" title="Created 2023-03-07 19:17:20">2023-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a></span></div><div class="content">Now a simpler blog !
+</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/03/719c5b570e78/" title="Hello New Blog System"><img class="post-bg" src="/covers/cover3.png" onerror="this.onerror=null;this.src='/null'" alt="Hello New Blog System"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/719c5b570e78/" title="Hello New Blog System">Hello New Blog System</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-07T11:17:20.000Z" title="Created 2023-03-07 19:17:20">2023-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux%E8%BF%90%E7%BB%B4/">Linux运维</a></span></div><div class="content">Now a simpler blog !
 Architecture: hexo and githubpage and coludfare cdn
 image function test
 markdown documentsdoc
 This row just used for test if i can post articals by using windows.
-</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/c8e0fa723fe8/" title="博客已弃用"><img class="post-bg" src="/covers/cover3.png" onerror="this.onerror=null;this.src='/null'" alt="博客已弃用"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/c8e0fa723fe8/" title="博客已弃用">博客已弃用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-04T16:00:00.000Z" title="Created 2023-03-05 00:00:00">2023-03-05</time></span></div><div class="content">由于买不起服务器服务器打理起来太麻烦而且不方便迁移，这个博客即将遭到弃用。
+</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/03/c8e0fa723fe8/" title="博客已弃用"><img class="post-bg" src="/covers/cover4.png" onerror="this.onerror=null;this.src='/null'" alt="博客已弃用"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/03/c8e0fa723fe8/" title="博客已弃用">博客已弃用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-04T16:00:00.000Z" title="Created 2023-03-05 00:00:00">2023-03-05</time></span></div><div class="content">由于买不起服务器服务器打理起来太麻烦而且不方便迁移，这个博客即将遭到弃用。
 由来当初出于联系部署服务器的打算，采用了docker+wordpress的方式部署博客，但是我逐渐发现这种方式不适合我：
 
 迁移困难：基本绑定了wordpress这一个框架，想要转移到其他博客十分麻烦
@@ -242,7 +233,7 @@ vuepress：https://vuepress.vuejs.org/zh/ 非常简洁的一个网站模板，�
 
 
 至于已有的文章如何迁移，这个倒不是当务之急。
-打算将文章还原为markdown，这点似乎没有找到现成的轮子，也许会自己写一个。（找到的效果 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/01/df9320771031/" title="日本语-第一弹"><img class="post-bg" src="/covers/cover1.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第一弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/01/df9320771031/" title="日本语-第一弹">日本语-第一弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-01-05T16:00:00.000Z" title="Created 2023-01-06 00:00:00">2023-01-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">五十音
+打算将文章还原为markdown，这点似乎没有找到现成的轮子，也许会自己写一个。（找到的效果 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/01/df9320771031/" title="日本语-第一弹"><img class="post-bg" src="/covers/cover4.png" onerror="this.onerror=null;this.src='/null'" alt="日本语-第一弹"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/01/df9320771031/" title="日本语-第一弹">日本语-第一弹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-01-05T16:00:00.000Z" title="Created 2023-01-06 00:00:00">2023-01-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/">日本語が習っている</a></span></div><div class="content">五十音
 
 
 row
@@ -384,15 +375,15 @@ bi
 
 
 pi
-ぴゃ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/covers/avatar.png" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Recording my study notes, covering various aspects.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/044c419237c6/" title="网易笔试题"><img src="/covers/cover5.png" onerror="this.onerror=null;this.src='/null'" alt="网易笔试题"/></a><div class="content"><a class="title" href="/2023/10/044c419237c6/" title="网易笔试题">网易笔试题</a><time datetime="2023-10-15T07:59:37.000Z" title="Created 2023-10-15 15:59:37">2023-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/5e16acc68bc5/" title="小米前端笔试算法题"><img src="/covers/cover2.png" onerror="this.onerror=null;this.src='/null'" alt="小米前端笔试算法题"/></a><div class="content"><a class="title" href="/2023/10/5e16acc68bc5/" title="小米前端笔试算法题">小米前端笔试算法题</a><time datetime="2023-10-15T00:17:46.000Z" title="Created 2023-10-15 08:17:46">2023-10-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/76238fa7e4f9/" title="ssl证书申请与使用-acme.sh"><img src="/covers/cover4.png" onerror="this.onerror=null;this.src='/null'" alt="ssl证书申请与使用-acme.sh"/></a><div class="content"><a class="title" href="/2023/10/76238fa7e4f9/" title="ssl证书申请与使用-acme.sh">ssl证书申请与使用-acme.sh</a><time datetime="2023-10-10T13:01:21.000Z" title="Created 2023-10-10 21:01:21">2023-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/f5554e83b615/" title="hexo主题开发中的洗牌算法"><img src="/covers/cover3.png" onerror="this.onerror=null;this.src='/null'" alt="hexo主题开发中的洗牌算法"/></a><div class="content"><a class="title" href="/2023/10/f5554e83b615/" title="hexo主题开发中的洗牌算法">hexo主题开发中的洗牌算法</a><time datetime="2023-10-08T14:38:30.000Z" title="Created 2023-10-08 22:38:30">2023-10-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/8061c53174e7/" title="每日一题-股票价格跨度"><img src="/covers/cover5.png" onerror="this.onerror=null;this.src='/null'" alt="每日一题-股票价格跨度"/></a><div class="content"><a class="title" href="/2023/10/8061c53174e7/" title="每日一题-股票价格跨度">每日一题-股票价格跨度</a><time datetime="2023-10-07T06:44:12.000Z" title="Created 2023-10-07 14:44:12">2023-10-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+ぴゃ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/covers/avatar.png" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Recording my study notes, covering various aspects.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Code-Program/"><span class="card-category-list-name">Code & Program</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux%E8%BF%90%E7%BB%B4/"><span class="card-category-list-name">Linux运维</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%90%9E%E6%9C%BA/"><span class="card-category-list-name">搞机</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">数据结构与算法</span><span class="card-category-list-count">20</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%8C%E7%BF%92%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B/"><span class="card-category-list-name">日本語が習っている</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83/"><span class="card-category-list-name">算法题每日一练</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E9%80%9A%E4%BF%A1%E7%B6%B2/"><span class="card-category-list-name">通信網</span><span class="card-category-list-count">7</span></a></li>
-            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">July 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+            </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">July 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">June 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">10</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">83</div></div><div class="webinfo-item"><div class="item-name">Runtime :</div><div class="item-count" id="runtimeshow" data-publishDate="2022-03-11T00:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-10-15T10:06:06.448Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://unpkg.com/hexo-theme-butterfly/source/js/utils.js"></script><script src="https://unpkg.com/hexo-theme-butterfly/source/js/main.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: (str) => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,
@@ -403,11 +394,11 @@ pi
     }, null))
   },
   run: (subtitleType) => {
-    if (false) {
+    if (true) {
       if (typeof Typed === 'function') {
         subtitleType()
       } else {
-        getScript('/pluginsSrc/typed.js/dist/typed.umd.js').then(subtitleType)
+        getScript('https://unpkg.com/typed.js/dist/typed.umd.js').then(subtitleType)
       }
     } else {
       subtitleType()
@@ -415,7 +406,7 @@ pi
   }
 }
 </script><script>function subtitleType () {
-  if (false) {
+  if (true) {
     typedJSFn.init(["Just a private note."])
   } else {
     document.getElementById("subtitle").textContent = "Just a private note."
