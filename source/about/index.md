@@ -23,7 +23,7 @@ date: 2023-03-08 23:39:38
 | QQ       | 2782772457    |
 
 个人主页：[https://github.com/hinak0](https://github.com/hinak0),[https://gitee.com/Hinak0](https://gitee.com/Hinak0)
-个人博客：[https://hinak0.site/](https://hinak0.site/),[https://cdn.hinak0.site/](https://cdn.hinak0.site/)
+个人博客：[https://hinak0.site/](https://hinak0.site/),[https://hinak0.site/](https://hinak0.site/)
 
 ## 求职方向
 
@@ -123,7 +123,7 @@ date: 2023-03-08 23:39:38
 > 技术栈：dns解析，ssl证书，nginx与网站防护与备份等建站技术，docker容器操作，linux操作系统
 >
 > 博客历经多次迭代，至今使用的是hexo + github pages的方案。
-> [https://cdn.hinak0.site/](https://cdn.hinak0.site/)
+> [https://hinak0.site/](https://hinak0.site/)
 >
 > 第一次迭代：
 > 作为建站小白，采用wordpress + docker容器的方式，部署在阿里云服务器。
@@ -136,18 +136,24 @@ date: 2023-03-08 23:39:38
 >
 > 成果：系统稳定运行两年。
 
-#### [clock.js](https://clock.hinak0.site/)
+#### clock.js
 
+> [clock.js](https://clock.hinak0.site/)
+>
 > 一个使用canvas绘制时钟的页面
 >
 > 涉及技术：js面向对象风格，请求动画帧
 
-#### [css仿站作品](https://atri.hinak0.site/)
+#### css仿站作品
 
+> [css仿站作品](https://atri.hinak0.site/)
+>
 > 源站：https://atri-mdm.com/
 
 #### Boss-Timer(一个简单的全栈项目)(https://boss.hinak0.site/)
 
+> [Boss-Timer](https://boss.hinak0.site/)
+>
 > 个人兼职项目，是一个工具类全栈项目，全部由我一人完成。
 > 前端技术栈：vue, element-ui, axios, perttier
 > 后端技术栈：springboot, mybatis, mysql, maven, lombok
