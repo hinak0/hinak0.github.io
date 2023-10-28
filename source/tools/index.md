@@ -27,6 +27,10 @@ date: 2023-06-06 15:04:29
 
 [fake name](https://www.fakenamegenerator.com/) 随机身份信息
 
+### pdf tools
+
+[smallpdf](https://smallpdf.com/) ppt,pdf整合工具
+
 ### recourses
 
 [讲算法的，常见算法框架都有](https://labuladong.github.io/algo/di-ling-zh-bfe1b/hui-su-sua-56e11/)
