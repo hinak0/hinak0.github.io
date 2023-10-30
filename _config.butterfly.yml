@@ -93,6 +93,7 @@ cover:
     - covers/cover3.png
     - covers/cover4.png
     - covers/cover5.png
+    - covers/cover6.png
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
