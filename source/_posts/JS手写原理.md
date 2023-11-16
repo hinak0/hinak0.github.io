@@ -21,7 +21,7 @@ function debounce(fn, wait) {
 	};
 }
 function test() {
-	console.log('hello');
+	console.log("hello");
 }
 let myFn = debounce(test, 1000);
 myFn();
@@ -45,9 +45,9 @@ async function sleep(delay) {
 
 // how to use it
 async function test() {
-	console.log('start');
+	console.log("start");
 	await sleep(3000);
-	console.log('execute');
+	console.log("execute");
 }
 
 test();
@@ -81,8 +81,7 @@ class PubSub {
 		this.sub(topic, fn);
 	}
 	pub(topic, ...params) {
-		this.topics[topic] &&
-			this.topics[topic].forEach((fn) => fn.apply(this, params));
+		this.topics[topic] && this.topics[topic].forEach((fn) => fn.apply(this, params));
 	}
 }
 ```
@@ -95,7 +94,7 @@ class PubSub {
 function myNew(fn, ...args) {
 	let obj = Object.create(fn.prototype);
 	let res = fn.call(obj, ...args);
-	if (res && (typeof res === 'object' || typeof res === 'function')) {
+	if (res && (typeof res === "object" || typeof res === "function")) {
 		return res;
 	}
 	return obj;
@@ -107,7 +106,7 @@ function Man(age, name) {
 	this.name = name;
 }
 
-const obj = myNew(Man, 18, 'イフ');
+const obj = myNew(Man, 18, "イフ");
 console.log(obj.__proto__);
 ```
 

@@ -38,12 +38,19 @@ cover: images/20230812-211529.png
 ### Android分区
 
 > bootloader：设备启动后，会先进入bootloader程序，这里会通过判断开机时的按键组合（也会有一些其他判断条件，暂不赘述）选择启动到哪种模式，这里主要有> Android系统、recovery模式、fastboot模式等。
+>
 > boot：包含有Android系统的kernel和ramdisk。如果bootloader选择启动Android系统，则会引导启动此分区的kernel并加载ramdisk，完成内核启动。
+>
 > system：包含有Android系统的可执行程序、库、系统服务和app等。内核启动后，会运行第一个用户态进程init，其会依据init.rc文件中的规则启动Android系统组件，> 这些系统组件就在system分区中。将Android系统组件启动完成后，最后会启动系统app —— launcher桌面，至此完成Android系统启动。
+>
 > vendor：包含有厂商私有的可执行程序、库、系统服务和app等。可以将此分区看做是system分区的补充，厂商定制ROM的一些功能都可以放在此分区。
+>
 > userdata：用户存储空间。一般新买来的手机此分区几乎是空的，用户安装的app以及用户数据都是存放在此分区中。用户通过系统文件管理器访问到的手机存储（sdcard）即此分区的一部分，是通过fuse或sdcardfs这类用户态文件系统实现的一块特殊存储空间。
+>
 > recovery：包含recovery系统的kernel和ramdisk。如果bootloader选择启动recovery模式，则会引导启动此分区的kernel并加载ramdisk，并启动其中的init继而启> 动recovery程序，至此可以操作recovery模式功能（主要包括OTA升级、双清等）。
+>
 > cache：主要用于缓存系统升级OTA包等。双清就是指对userdata分区和cache分区的清理。
+>
 > misc：主要用于Android系统和bootloader通信，使Android系统能够重启进入recovery系统并执行相应操作。
 
 ### 线刷？卡刷？
@@ -88,6 +95,7 @@ fastboot flash boot <修补过的boot.img路径>
 ```
 
 2. 在rec里执行清除数据&格式化Data分区操作，这里用的rec是TWRP,也可以选择其他Rec.然后重启到Rec(格式化后重启才能挂载Data)
+
    ![TWRP](images/20230812-211529.png)
 
 3. 连接电脑，将刷机包放入手机里，然后Rec选中刷机包，执行刷入工作（一般几分钟就好）。
@@ -111,10 +119,15 @@ rom包适配问题，依次尝试以下方案：卡刷回官方包->线刷回官
 ## 资源&引用
 
 [无惧黑砖--小米联发科手动救黑砖教程［新手向］！](https://zhuanlan.zhihu.com/p/367773904) 深刷教程，希望你不会用到。
+
 [个人安卓刷机经验（附小米6刷机指南）](https://www.bilibili.com/read/cv14189488/)
+
 [一镜到底刷入rec，刷入类原生，海量rec及各种安卓刷机包 小米红米刷机](https://hao.0660hf.com/27792.html)
 
 [TWRP Download](https://twrp.me/Devices/)
+
 [无心的下载站](https://wxdowmloads.cn/) 大杂烩，又多又全（针对Note8Pro）
+
 [MIUI Official ROMS](https://roms.miuier.com/en-us/devices/begonia/)
+
 [Magisk](https://github.com/topjohnwu/Magisk)

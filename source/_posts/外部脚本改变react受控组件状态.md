@@ -24,8 +24,8 @@ cover:
 ```js
 let input = someInput;
 let lastValue = input.value;
-input.value = 'new value';
-let event = new Event('input', { bubbles: true });
+input.value = "new value";
+let event = new Event("input", { bubbles: true });
 // hack React15
 event.simulated = true;
 // hack React16 内部定义了descriptor拦截value，此处重置状态

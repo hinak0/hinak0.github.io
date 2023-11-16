@@ -12,5 +12,5 @@ categories:
 ![测试图片](images/6cedb5.png)
 
 ```js
-console.log('Hello World');
+console.log("Hello World");
 ```

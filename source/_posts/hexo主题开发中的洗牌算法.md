@@ -34,7 +34,7 @@ const randomCoverFn = () => {
 这是想到的最简单的一个办法，写法也简单：
 
 ```js
-const defaultCover = ['1', '2', '3', '4', '5'];
+const defaultCover = ["1", "2", "3", "4", "5"];
 
 const randomCoverFn = (() => {
 	if (!defaultCover) return false;
@@ -65,7 +65,7 @@ let last = null;
 for (let i = 0; i < 1000; i++) {
 	let s = randomCoverFn();
 	if (last === s) {
-		console.log('error !');
+		console.log("error !");
 	}
 	last = s;
 }
@@ -79,7 +79,7 @@ for (let i = 0; i < 1000; i++) {
 于是优化版本:
 
 ```js
-const defaultCover = ['1', '2', '3', '4', '5'];
+const defaultCover = ["1", "2", "3", "4", "5"];
 
 const randomCoverFn = (() => {
 	if (!defaultCover) return false;
@@ -101,7 +101,7 @@ let last = null;
 for (let i = 0; i < 1000; i++) {
 	let s = randomCoverFn();
 	if (last === s) {
-		console.log('error !');
+		console.log("error !");
 	}
 	last = s;
 }
@@ -116,7 +116,7 @@ for (let i = 0; i < 1000; i++) {
 ## Fisher–Yates shuffle
 
 ```js
-'use strict';
+"use strict";
 
 var randomCoverFn;
 
@@ -146,9 +146,7 @@ const createShuffleClosure = (arr) => {
 			do {
 				currentShuffleList.splice(0);
 				currentShuffleList.push(...shuffle());
-			} while (
-				currentShuffleList[currentShuffleList.length - 1] === lastChioce
-			);
+			} while (currentShuffleList[currentShuffleList.length - 1] === lastChioce);
 		}
 
 		return currentShuffleList.pop();
@@ -157,7 +155,7 @@ const createShuffleClosure = (arr) => {
 	return getOneFromShuffled;
 };
 
-hexo.on('generateBefore', () => {
+hexo.on("generateBefore", () => {
 	const {
 		cover: { default_cover: defaultCover },
 	} = hexo.theme.config;

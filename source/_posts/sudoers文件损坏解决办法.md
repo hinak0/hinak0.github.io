@@ -14,7 +14,6 @@ tags:
 
 好在下面这篇博文帮大忙了！
 
-链接[Ubuntu改坏sudoers后无法使用sudo的解决办法
-](https://www.cnblogs.com/wayneliu007/p/10321542.html)
+链接[Ubuntu改坏sudoers后无法使用sudo的解决办法](https://www.cnblogs.com/wayneliu007/p/10321542.html)
 
 另外以后不能随便用vim改重要的配置文件！
