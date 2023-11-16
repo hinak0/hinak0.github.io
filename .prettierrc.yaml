@@ -3,8 +3,12 @@ useTabs: true
 # 每个缩进空格数
 tabWidth: 2
 # 一行最大长度
-printWidth: 9999
+printWidth: 100
 # xml末尾">"不单独一行
 bracketSameLine: true
 # markdown一个段落一行
 proseWrap: never
+# overrides:
+#   - files: "*.md"
+#     options:
+#       printWidth: 9999
