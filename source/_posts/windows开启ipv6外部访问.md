@@ -1,5 +1,5 @@
 ---
-title: windows ipv6外部访问
+title: windows开启ipv6外部访问
 date: 2022-09-07
 categories:
   - 通信網
@@ -56,7 +56,7 @@ Server: bfe/1.0.8.18
 Date: Wed, 07 Sep 2022 09:04:11 GMT
 Content-Type: text/html
 Connection: close
-Location: https://deploy.hinak0.xyz""".encode("utf-8"))
+Location: https://baidu.com""".encode("utf-8"))
 	client.close()
 ```
 
