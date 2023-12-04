@@ -28,23 +28,21 @@ date: 2023-03-08 23:39:38
 | 电子邮件 | hinak0@qq.com |
 | QQ       | 2782772457    |
 
-个人主页：[https://github.com/hinak0](https://github.com/hinak0),[https://gitee.com/Hinak0](https://gitee.com/Hinak0)
+个人主页：https://github.com/hinak0, https://gitee.com/hinak0
 
-个人博客：[https://hinak0.site/](https://hinak0.site/),[https://hinak0.site/](https://hinak0.site/)
+个人博客：https://hinak0.site, https://cdn.hinak0.site
 
 ## 求职方向
 
-前端/后端（也考虑非技术方向）
+前端/后端
 
 工作地点: **全球任意**
-
-到岗时间：大四在读，次月到岗
 
 ## 个人能力
 
 ### 编程能力
 
-> 熟练Flex布局，预处理器Sass，熟悉ElementUI、BootStrap等常用前端UI框架。了解Less、Styled-Components。
+> 熟练Flex布局，预处理器Sass，熟悉ElementUI、BootStrap等常用前端UI框架。了解Less，Stylus等预处理器。
 >
 > 熟悉JavaScript、ES6、预编译TypeScript、jQuery类库，原生BOM、DOM对象。熟练运用Ajax、Json进行数据交互，常用Axios。
 >
@@ -72,13 +70,15 @@ date: 2023-03-08 23:39:38
 
 ### 其他能力
 
+> 懂得新媒体运营，进行过网络直播的策划与执行
+>
+> 熟悉linux系统，网络工具与代理的配置
+>
+> 熟悉pc，android的重装系统与刷机
+>
 > 熟练使用word, excel等办公软件
 >
 > 熟练使用ps, pr等多媒体制作软件
->
-> 熟悉重装系统，刷机等技术
->
-> 懂得新媒体运营，进行过网络直播的策划与执行
 
 ## 教育背景
 
@@ -116,7 +116,7 @@ date: 2023-03-08 23:39:38
 >
 > Github 地址：https://github.com/light0926/bk-c-course
 >
-> 体验链接：https://ce.bktencent.com/ （目前已关闭）
+> 由于平台原因，暂时不提供预览
 
 #### 夕阳红·健康卫士健康监测系统(2022.9~2022.12)
 
