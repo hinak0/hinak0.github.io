@@ -12,4 +12,4 @@ date: 2023-03-08 23:39:38
 
 ## Online Resume
 
-[my online resume](/about/resume)
+[my online resume](/about/resume.html)
