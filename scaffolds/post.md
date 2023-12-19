@@ -2,7 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-  - 杂项
+  - uncategorized
 tags:
 cover:
 ---
