@@ -1,5 +1,5 @@
 ---
-title: Clash被铁拳后何去何从
+title: Clash定制化内核
 categories:
   - 通信網
 date: 2023-11-05 15:04:14
@@ -104,4 +104,44 @@ clash项目的源代码结构还是比较清晰的，做一些二次开发也比
 
 下一步打算做的：
 
-- `udp: false`配置项不知道在哪个版本开始无效了，udp全走规则了。下一步打算修一下这个bug
+- ~~`udp: false`配置项不知道在哪个版本开始无效了，udp全走规则了。下一步打算修一下这个bug~~[已解决]
+
+#### udp配置项无效
+
+翻一翻源代码，可以在`match()`中找到：
+
+```golang
+func match(metadata *C.Metadata) (C.Proxy, C.Rule, error) {
+
+	// ....
+
+	if rule.Match(metadata) {
+		adapter, ok := proxies[rule.Adapter()]
+		if !ok {
+			continue
+		}
+		if metadata.NetWork == C.UDP && !adapter.SupportUDP() && UDPFallbackMatch.Load() {
+			log.Debugln("[Matcher] %s UDP is not supported, skip match", adapter.Name())
+			continue
+		}
+		return adapter, rule, nil
+	}
+
+	return proxies["DIRECT"], nil, nil
+}
+```
+
+可以看到，adapter不支持udp的情况下还需要开启`UDPFallbackMatch`这个配置项，具体配置文件是这样的：
+
+```yaml
+experimental:
+  udp-fallback-match: true
+```
+
+离谱的是，没有任何文档中有对这个配置项的描述，即使相关文档的最后编辑日期要后于`udp-fallback-match`的加入日期。
+
+文档中的实验性功能一节，介绍了一个已经弃用的`sniff-tls-sni`。
+
+但是这个功能的加入对整个项目的用户影响还是蛮大的（比如我就希望udp直连），但是除非去慢慢翻源代码，你不可能知道还有个配置项可以把这个关了。
+
+有点坑。
