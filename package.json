@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"b": "hexo generate",
-		"c": "hexo clean",
+		"build": "hexo generate",
+		"clean": "hexo clean",
 		"s": "hexo server",
 		"f": "prettier --write ."
 	},
