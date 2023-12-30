@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Clash内核开发进度 | ONE NOTE</title><meta name="author" content="hinak0"><meta name="copyright" content="hinak0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="这个周基本没干别的，全在clash的定制化上花时间了，下面总结一下进度。 ClashConfigConverter一个轻量化的基于 Golang 的 Clash 订阅链接转换器。支持以下功能：  精确到单个订阅链接的 udp 控制与请求头自定义 读取自定义的本地规则列表 预加载节点 正则排除节点  目前只能算一个半成品，没有做太多测试，也没有写readme，项目已经开源： https:&#x2F;&#x2F;gith">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clash内核开发进度">
+<meta property="og:url" content="https://hinak0.site/2023/12/bdd3c4f8d378/index.html">
+<meta property="og:site_name" content="ONE NOTE">
+<meta property="og:description" content="这个周基本没干别的，全在clash的定制化上花时间了，下面总结一下进度。 ClashConfigConverter一个轻量化的基于 Golang 的 Clash 订阅链接转换器。支持以下功能：  精确到单个订阅链接的 udp 控制与请求头自定义 读取自定义的本地规则列表 预加载节点 正则排除节点  目前只能算一个半成品，没有做太多测试，也没有写readme，项目已经开源： https:&#x2F;&#x2F;gith">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hinak0.site/covers/cover1.png">
+<meta property="article:published_time" content="2023-12-30T08:00:04.000Z">
+<meta property="article:modified_time" content="2023-12-30T08:47:12.068Z">
+<meta property="article:author" content="hinak0">
+<meta property="article:tag" content="technology">
+<meta property="article:tag" content="language">
+<meta property="article:tag" content="programing">
+<meta property="article:tag" content="japanese">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hinak0.site/covers/cover1.png"><link rel="shortcut icon" href="/covers/avatar.png"><link rel="canonical" href="https://hinak0.site/2023/12/bdd3c4f8d378/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":30,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Clash内核开发进度',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-30 16:47:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/covers/avatar.png" onerror="onerror=null;src='null'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/covers/cover1.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ONE NOTE"><img class="site-icon" src="/covers/avatar.png"/><span class="site-name">ONE NOTE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fas fa-toolbox"></i><span> Tools</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Clash内核开发进度</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2023-12-30T08:00:04.000Z" title="Created 2023-12-30 16:00:04">2023-12-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%80%9A%E4%BF%A1%E7%B6%B2/">通信網</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>这个周基本没干别的，全在clash的定制化上花时间了，下面总结一下进度。</p>
+<h2 id="ClashConfigConverter"><a href="#ClashConfigConverter" class="headerlink" title="ClashConfigConverter"></a>ClashConfigConverter</h2><p>一个轻量化的基于 Golang 的 Clash 订阅链接转换器。支持以下功能：</p>
+<ul>
+<li>精确到单个订阅链接的 udp 控制与请求头自定义</li>
+<li>读取自定义的本地规则列表</li>
+<li>预加载节点</li>
+<li>正则排除节点</li>
+</ul>
+<p>目前只能算一个半成品，没有做太多测试，也没有写readme，项目已经开源：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hinak0/ClashConfigConverter">https://github.com/hinak0/ClashConfigConverter</a></p>
+<p>有时间打磨一下。</p>
+<h2 id="Clash"><a href="#Clash" class="headerlink" title="Clash"></a>Clash</h2><p>对开源clash内核的二次开发。</p>
+<p>开发遵循以下几个原则：</p>
+<ul>
+<li>兼容现有的配置文件格式</li>
+<li>沿袭现有的项目结构，只做加减法。</li>
+<li>代码可读性与性能同样重要</li>
+</ul>
+<p>clash采用总线模式组织代码，各个模块相对独立，总线也就是hub模块。</p>
+<ol>
+<li>总线负责解析配置文件，触发全局热更新</li>
+<li>总线向各个子模块传递参数，一般只包括基本类型，constant类型，以及配置文件。</li>
+<li>各个子模块之间不相互引用，需要的数据类型定义在constant模块里。</li>
+</ol>
+<h3 id="远端解析功能"><a href="#远端解析功能" class="headerlink" title="远端解析功能"></a>远端解析功能</h3><p>之前就发现clash所有的dns解析都是直接解析，如果配置了境外的dns，解析速度就要打折扣，更多时候境外dns根本不通，必须等到5秒超时时间。（尤其是配置了fallback,而且fallback全是境外dns的时候）。</p>
+<p>于是开发一个dns自定义传输层（也就是远端解析）的功能，就军训上面的原则，开发有以下几个步骤：</p>
+<ol>
+<li>不能直接引用tunnel中的函数（模块之间要相互独立），而是由总线传入一个ConnContext的通道，传输层使用这个通道</li>
+<li>需要的ConnContext由总线传入dns模块。</li>
+<li>在inbound模块新建一个newINVODKE方法，用于创建invoke的net.conn对象</li>
+<li>最后将创建好的net.conn用在需要的传输层自定义方法。</li>
+</ol>
+<p>相对于之前的直接走本机监听地址，有以下几点优点：</p>
+<ol>
+<li>使用net.Pipe()，在内存中进行数据交换，减少了系统调用，优化了性能。</li>
+<li>避免了硬编码，或者跨层读取配置文件来获得代理地址。</li>
+<li>新增的invoke调用或许可以用于后面的其他模块。</li>
+</ol>
+<p>这个功能目前运行良好，体感上响应速度快了不少，但是存在以下几个问题。</p>
+<ol>
+<li>outbound的dns解析也要依赖resolver来进行，但是resolver解析需要outbound就循环了。[解决办法是至少配置一个境内dns，直接命中direct]</li>
+</ol>
+<h3 id="优化日志表现"><a href="#优化日志表现" class="headerlink" title="优化日志表现"></a>优化日志表现</h3><p>考虑到clash本身有完善的控制面板api，本着”没有日志就是运行正常”的理念，去除了大部分无用的正常日志输出，加强了各种错误日志输出，更有利于掌握运行状态。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/covers/cover1.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/772ae2455233/" title="新标日43&amp;44"><img class="cover" src="/covers/cover6.png" onerror="onerror=null;src='/null'" alt="cover of next post"><div class="pagination-info"><div class="label">Next</div><div class="next_info">新标日43&amp;44</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/covers/avatar.png" onerror="this.onerror=null;this.src='/null'" alt="avatar"/></div><div class="author-info__name">hinak0</div><div class="author-info__description">Recording personal notes, covering various aspects.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hinak0"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hinak0" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hinak0@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ClashConfigConverter"><span class="toc-number">1.</span> <span class="toc-text">ClashConfigConverter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clash"><span class="toc-number">2.</span> <span class="toc-text">Clash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%AB%AF%E8%A7%A3%E6%9E%90%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.</span> <span class="toc-text">远端解析功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97%E8%A1%A8%E7%8E%B0"><span class="toc-number">2.2.</span> <span class="toc-text">优化日志表现</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By hinak0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://unpkg.com/hexo-theme-butterfly/source/js/utils.js"></script><script src="https://unpkg.com/hexo-theme-butterfly/source/js/main.js"></script><script src="https://unpkg.com/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><div class="js-pjax"></div></div></body></html>
