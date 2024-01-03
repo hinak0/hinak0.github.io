@@ -60,7 +60,42 @@ clash采用总线模式组织代码，各个模块相对独立，总线也就是
 这个功能目前运行良好，体感上响应速度快了不少，但是存在以下几个问题。
 
 1. outbound的dns解析也要依赖resolver来进行，但是resolver解析需要outbound就循环了。[解决办法是至少配置一个境内dns，直接命中direct]
+2. 如果outbound的延迟太高，仍然要等5秒超时时间。[这个也不是代码可以解决的问题]
+
+~~下一步打算优化：命中代理的域名直接使用fallback，不使用mainserver。~~[已实现]
 
 ### 优化日志表现
 
 考虑到clash本身有完善的控制面板api，本着"没有日志就是运行正常"的理念，去除了大部分无用的正常日志输出，加强了各种错误日志输出，更有利于掌握运行状态。
+
+### 重构resolver模块(2024/01/03更新)
+
+针对resolver模块，进行了代码重构，对resolver增加参数`ResolvePolicy`，可以指定解析策略。
+
+- Unspecified 未指定，遵循以前的policy服务器->main&fallback服务器流程。
+- DefaultOnly 只使用默认服务器（不加密的直连境内dns）
+- MainOnly 只使用主要服务器（境内加密dns）
+- FallbackOnly 只使用fallback服务器（境外加密dns）
+- 后面有需要可以加入其他的策略，如Mainfirst等。
+
+同时现在由于远端解析功能+可以指定解析策略，整个boot的解析链是这样的：
+
+1. default必须是dns协议的直连服务器
+2. main与fallback交给default解析
+3. 其他的outbound交给main解析
+4. 入站流量根据规则匹配情况，交给main或者fallback解析
+
+之前提到的*命中代理的域名直接使用fallback*已经实现了，但是有一定的限制：由于match中部分rule(比如IP-CIDR,GEOIP等)需要解析ip才可以进行匹配，这时候只能使用`Unspecified Policy`进行解析。
+
+不过好在IP-CIDR一般有no-resolve配置项，GEOIP一般在规则集末尾位置，这个倒不怎么影响指定策略解析。
+
+现在境内流量解析只走境内，境外流量解析只走境外，有这么几个好处：
+
+1. 降低系统负载，需要发送的解析减少
+2. 可以享受dns加速，优化流量路径。
+3. 减少隐私泄露，现在解析过程，default只解析几个加密dns地址，main只解析境内地址，fallback只解析境外地址，可以说是最小化了dns解析导致的数据泄露。
+
+现在已知有几个issue，但是对于我个人使用没有影响，没有动力去完善了：
+
+1. tls协议没有实现远端解析
+2. GLOBAL模式和DIRECT模式不可用(由于dns解析功能的限制，global模式和direct模式破坏了解析链。其实已经有几个解决方案了[比如invoke指定SpecialProxy，或者创建新的tunnel队列]，但是不够优雅，暂时就不去完善了。)
