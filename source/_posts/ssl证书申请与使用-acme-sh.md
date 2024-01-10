@@ -82,3 +82,12 @@ server {
   return 301 https://hinak0.site;
 }
 ```
+
+### update cert
+
+```bash
+# 记得保持80端口空闲，关掉nginx的80端口301重定向
+acme.sh --renew -d hinak0.site -d "*.hinak0.site" --force
+
+acme.sh --installcert -d hinak0.site -d "*.hinak0.site" --fullchain-file /usr/local/ssl/hinak0.site.cer --key-file /usr/local/ssl/hinak0.site.key
+```
