@@ -98,5 +98,15 @@ clash采用总线模式组织代码，各个模块相对独立，总线也就是
 现在已知有几个issue，但是对于我个人使用没有影响，没有动力去完善了：
 
 1. tls协议没有实现远端解析
-2. GLOBAL模式和DIRECT模式不可用(由于dns解析功能的限制，global模式和direct模式破坏了解析链。其实已经有几个解决方案了[比如invoke指定SpecialProxy，或者创建新的tunnel队列]，但是不够优雅，暂时就不去完善了。)
-3. 具体的outbound实现，有可能直接把host给proxy（比如ss协议），算是一种性能损失（解析两遍）；还会泄露隐私；还有爱国节点屏蔽。
+2. GLOBAL模式和DIRECT模式不可用(由于dns解析功能的限制，global模式和direct模式破坏了解析链。其实已经有几个解决方案了[比如invoke指定SpecialProxy，或者创建新的tunnel队列]，~~但是不够优雅，暂时就不去完善了~~[已完成]。)
+3. ~~具体的outbound实现，有可能直接把host给proxy（比如ss协议），算是一种性能损失（解析两遍）；还会泄露隐私；还有爱国节点屏蔽~~[已解决]。
+
+### 细节完善（2024/1/12更新）
+
+上面提到的一些问题，已经解决了：
+
+- 关于global模式与direct模式，最总采用了dns指定specialProxy的方式实现，最终还是改变了配置文件格式。
+- outbould主要通过metadata.AddrType()辨别通过ip还是域名，通过修改这个函数实现ip优先。
+- outbound实现一个新的钩子函数用来解析host，除了direct外全部使用fallback解析。
+
+完善版本已经使用接近一个周了，没发现什么问题。
