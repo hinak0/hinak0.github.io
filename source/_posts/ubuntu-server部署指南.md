@@ -1,5 +1,5 @@
 ---
-title: Ubuntu server作路由器
+title: Ubuntu server部署指南
 date: 2022-12-05
 categories:
   - 通信網
@@ -13,7 +13,7 @@ categories:
 
 - nat
 
-## 我打算这么做
+## 怎么做
 
 - 使用`dnsmasq`实现dhcp和dns
 
@@ -28,6 +28,7 @@ categories:
 ```bash
 systemctl stop systemd-resolved
 systemctl disable systemd-resolved
+systemctl mask systemd-resolved
 ```
 
 然后配置dnsmasq服务
@@ -35,22 +36,26 @@ systemctl disable systemd-resolved
 ```conf
 port=53
 interface=enp3s0
+
 dhcp-option=option:router,192.168.1.1
 dhcp-option=option:dns-server,192.168.1.1
-dhcp-range=192.168.1.2,192.168.1.254,255.255.255.0,24h
-strict-order
+dhcp-range=192.168.1.129,192.168.1.192,255.255.255.0,24h
 
-cache-size=2048
+dhcp-option=tag:proxy,option:dns-server,192.168.1.2
+dhcp-option=tag:proxy,option:router,192.168.1.2
+dhcp-range=tag:proxy,192.168.1.65,192.168.1.127,255.255.255.0,24h
+
 server=223.5.5.5
-no-resolv
+server=119.29.29.29
 
+no-resolv
 domain=lan
 local=/lan/
 
 # log-queries
 # log-facility=/var/log/dnsmasq.log
 
-dhcp-host=<mac>,<ip>,<domain name>
+dhcp-host=<mac>,<ip>,<domain name>,<tag>
 ...
 ```
 
@@ -114,20 +119,27 @@ iptables配置要点：
 
 ```bash
 #!/bin/bash
+#!/bin/bash
 
 dns_port=0
 redir_port=0
 tproxy_port=0
+
 udp_enable=1
+nat_enable=0
+slient_wan=0
+
+inbound=enp3s0
+outbound=enp4s0
+
 config_dir="/var/local/clash"
-subconverter_dir="/usr/local/lib/subconverter"
-sub_link="http://127.0.0.1:25500/getprofile?name=profiles"
+converter_dir="/home/chlen/converter"
 LEASE_FILE="/var/lib/misc/dnsmasq.leases"
 
 # error break
-set -e
+# set -e
 # line-number for debug
-set -x
+# set -x
 init() {
 	# route rules
 	ip rule add fwmark 1 table 100
@@ -136,24 +148,34 @@ init() {
 	# not global addresses
 	ipset create local hash:net
 	ipset add local 0.0.0.0/8
-	ipset add local 127.0.0.0/8
 	ipset add local 10.0.0.0/8
+	ipset add local 100.64.0.0/10
+	ipset add local 127.0.0.0/8
 	ipset add local 169.254.0.0/16
+	ipset add local 172.16.0.0/12
 	ipset add local 192.168.0.0/16
 	ipset add local 224.0.0.0/4
 	ipset add local 240.0.0.0/4
-	ipset add local 172.16.0.0/12
-	ipset add local 100.64.0.0/10
+
+	setRules
 }
+
 clearAllRules() {
 	# recovery rules
 	iptables-save | awk '/^[*]/ { print $1 } /^:[A-Z]+ [^-]/ { print $1 " ACCEPT" ; } /COMMIT/ { print $0; }' | iptables-restore
+
 	# nat
-	iptables -t nat -A POSTROUTING -o enp4s0 -j MASQUERADE
+	if [ $nat_enable -eq 1 ]; then
+		iptables -t nat -A POSTROUTING -o $outbound -j MASQUERADE
+	fi
+
 	# drop initiative package from wan
-	iptables -A INPUT -i enp4s0 -m state --state NEW -j DROP
+	if [ $slient_wan -eq 1 ]; then
+		iptables -A INPUT -i $outbound -m state --state NEW -j DROP
+	fi
 }
-setProxy() {
+
+setRules() {
 	clearAllRules
 
 	# udp tproxy
@@ -174,47 +196,45 @@ setProxy() {
 
 	# apply rules
 	if [ $udp_enable -eq 1 ]; then
-		iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+		if [ $nat_enable -eq 1 ]; then
+			iptables -t mangle -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+		fi
 		iptables -t mangle -A PREROUTING -m set --match-set local dst -j ACCEPT
 		iptables -t mangle -A PREROUTING -p udp -j PROXY_UDP
 	fi
 
 	# apply rules
-	iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+	if [ $nat_enable -eq 1 ]; then
+		iptables -t nat -A PREROUTING -s 192.168.1.128/25 -j ACCEPT
+	fi
 	iptables -t nat -A PREROUTING -p udp --dport 53 -j PROXY_DNS
 	iptables -t nat -A PREROUTING -m set --match-set local dst -j ACCEPT
 	iptables -t nat -A PREROUTING -p tcp -j PROXY_TCP
 }
+
 setSelf() {
-	# Not recommended
 	iptables -t nat -A OUTPUT -m mark --mark 6666 -j ACCEPT
 	iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports ${dns_port}
 	iptables -t nat -A OUTPUT -m set --match-set local dst -j ACCEPT
 	iptables -t nat -A OUTPUT -p tcp -j REDIRECT --to-ports ${redir_port}
 }
-update() {
-	# extra
-	cd $subconverter_dir
-	./subconverter &
-	sleep 3
-	cat $config_dir/config.yaml >$config_dir/past.yaml
-	echo "# $(date)" >$config_dir/config.yaml
-	curl $sub_link -s --noproxy '*' >>$config_dir/config.yaml
-	pkill subconverter
 
-	# test
-	clash -d $config_dir -t
-	if [ $? -ne 0 ]; then
-		echo "update failed."
-	else
-		echo "update seccussfully!"
-		# setProxy
-		systemctl restart clash
-		diffConfig
-	fi
+update() {
+	cd $converter_dir
+	cat $config_dir/config.yaml >$config_dir/past.yaml
+
+	./converter
+
+	diffConfig
+
+	read -p "Press Enter to continue..."
+
+	cat $config_dir/target.yaml >$config_dir/config.yaml
+	# setRules
+	systemctl restart clash
 }
+
 lease() {
-	set +x
 	# show dnsmasq lease
 	while read line; do
 		timestamp=$(echo "$line" | awk '{print $1}')
@@ -226,36 +246,46 @@ lease() {
 		date=$(date -d @$timestamp +"%m-%d %H:%M:%S")
 
 		# Output the result
-		echo "$mac      $date   $ip     $host"
+		echo "$mac	$date	$ip	$host"
 	done <"$LEASE_FILE"
 }
 
 ban() {
-	# temporarily disable one ip
 	iptables -t mangle -I PREROUTING -s $1 -j DROP
+	# iptables -A INPUT -s $1 -j DROP
+	# iptables -I FORWARD -s $1 -j DROP
+	# iptables -I FORWARD -s $1 -p tcp --dport 443 -j ACCEPT
+	# iptables -I FORWARD -s $1 -p tcp --dport 80 -j ACCEPT
 }
+
 diffConfig() {
-	# show diff
-	colordiff -c $config_dir/past.yaml $config_dir/config.yaml
+	# diff $config_dir/config.yaml $config_dir/target.yaml -C 3 --color | less
+	diff $config_dir/config.yaml $config_dir/target.yaml -C 3 --color
 }
+
+recovery() {
+	cat $config_dir/past.yaml >$config_dir/config.yaml
+	systemctl restart clash
+}
+
 case "$1" in
-del)
-	clearAllRules
+init)
+	init
 	;;
 set)
-	setProxy
+	setRules
+	;;
+del)
+	clearAllRules
 	;;
 update)
 	update
 	;;
-init)
-	init
-	;;
-self)
-	setSelf
-	;;
 lease)
 	lease
+	;;
+recovery)
+	recovery
 	;;
 diff)
 	diffConfig
@@ -263,7 +293,6 @@ diff)
 ban)
 	ban $2
 	;;
-
 *)
 	echo "HELLO IT'S ME"
 	exit 0
@@ -274,17 +303,24 @@ exit
 
 ## 持久化
 
+### 注册账户
+
+```bash
+sudo useradd -d /var/local/clash -r clash
+```
+
 ### 注册clash为服务
 
-```cmd
+```bash
 vim /etc/systemd/system/clash.service
 ```
 
 写入
 
-```service
+```ini
 [Unit]
 Description=clash daemon
+After=network.target
 
 [Service]
 User=clash
@@ -294,7 +330,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_NET_ADMIN
 WorkingDirectory=/var/local/clash/
 ExecStart=/usr/local/bin/clash -d /var/local/clash/
 Restart=on-failure
-RestartSec=20s
+RestartSec=600s
 
 [Install]
 WantedBy=multi-user.target
@@ -307,7 +343,7 @@ systemctl start clash.service
 systemctl enable clash.service
 ```
 
-### iptables规则保存
+### iptables规则保存[可选]
 
 ```bash
 iptables-save > /etc/iptables

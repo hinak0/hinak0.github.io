@@ -1,5 +1,5 @@
 ---
-title: j1900软路由部署笔记
+title: j1900+Docker+Openwrt部署指南
 date: 2022-10-20
 categories:
   - 通信網
@@ -12,17 +12,13 @@ categories:
 `sudo vim /etc/profile`\\
 
 ```bash
-# 中文
-export LANG="zh_CN.UTF-8"
-# editor
-export EDITOR=vim
-```
+sudo vim /etc/environment
 
-`cd /etc/systemd/system/network-online.target.wants/ && vi systemd-networkd-wait-online.service`
+EDITOR="vim"
 
-```ini
-[Service]
-TimeoutStartSec=8sec
+http_proxy=""
+https_proxy=""
+no_proxy="192.168.1.1/24,10.92.128.1/18,.lan"
 ```
 
 ### 时区
@@ -31,7 +27,7 @@ TimeoutStartSec=8sec
 
 `sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
 
-### 配置apt镜像源
+### 配置apt镜像源[可选]
 
 `sudo vim /etc/apt/sources.list`
 
@@ -57,13 +53,29 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 - `vim /etc/netplan/00-netcfg.yaml`
 
 ```yaml
-ethernets:
-  enp3s0:
-    dhcp4: no
-    addresses: [192.168.1.1/24]
-  enp4s0:
-    dhcp4: true
-version: 2
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      dhcp4: false
+      dhcp6: false
+      accept-ra: false
+      addresses:
+        - 192.168.1.2/24
+      link-local: []
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses:
+          - 127.0.0.1
+        search:
+          - ".lan"
+    enp4s0:
+      optional: true
+      dhcp4: true
+      dhcp6: true
 ```
 
 - `sudo netplan apply`
