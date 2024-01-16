@@ -171,12 +171,12 @@ reward:
   enable: false
   text:
   QR_code:
-  # - img: /img/wechat.jpg
-  #   link:
-  #   text: wechat
-  # - img: /img/alipay.jpg
-  #   link:
-  #   text: alipay
+    # - img: /img/wechat.jpg
+    #   link:
+    #   text: wechat
+    # - img: /img/alipay.jpg
+    #   link:
+    #   text: alipay
 
 # Post edit
 # Easily browse and edit blog source code online.
@@ -272,6 +272,7 @@ aside:
     sort_order: # Don't modify the setting unless you know how it works
   card_post_series:
     enable: false
+    series_title: false # The title shows the series name
     orderBy: "date" # Order by title or date
     order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
 
@@ -599,10 +600,10 @@ google_adsense:
 # --------------------------------------
 
 site_verification:
-# - name: google-site-verification
-#   content: xxxxxx
-# - name: baidu-site-verification
-#   content: xxxxxxx
+  # - name: google-site-verification
+  #   content: xxxxxx
+  # - name: baidu-site-verification
+  #   content: xxxxxxx
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
@@ -711,12 +712,12 @@ click_heart:
   mobile: false
 
 # Mouse click effects: words (鼠標點擊效果: 文字)
-ClickShowText:
+clickShowText:
   enable: false
   text:
-  # - I
-  # - LOVE
-  # - YOU
+    # - I
+    # - LOVE
+    # - YOU
   fontSize: 15px
   random: false
   mobile: false
@@ -848,8 +849,8 @@ note:
 pjax:
   enable: false
   exclude:
-  # - xxxx
-  # - xxxx
+    # - xxxx
+    # - xxxx
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
@@ -900,13 +901,13 @@ lazyload:
 Open_Graph_meta:
   enable: true
   option:
-  # twitter_card:
-  # twitter_image:
-  # twitter_id:
-  # twitter_site:
-  # google_plus:
-  # fb_admins:
-  # fb_app_id:
+    # twitter_card:
+    # twitter_image:
+    # twitter_id:
+    # twitter_site:
+    # google_plus:
+    # fb_admins:
+    # fb_app_id:
 
 # Add the vendor prefixes to ensure compatibility
 css_prefix: true
@@ -916,9 +917,9 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-  # - <link rel="stylesheet" href="/xxx.css">
+    # - <link rel="stylesheet" href="/xxx.css">
   bottom:
-  # - <script src="xxxx"></script>
+    # - <script src="xxxx"></script>
 
 # CDN
 # Don't modify the following settings unless you know how they work
@@ -927,7 +928,7 @@ CDN:
   # The CDN provider of internal scripts (主題內部 js 的 cdn 配置)
   # option: local/jsdelivr/unpkg/cdnjs/custom
   # Dev version can only choose. ( dev版的主題只能設置為 local )
-  internal_provider: jsdelivr
+  internal_provider: local
 
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
   # option: local/jsdelivr/unpkg/cdnjs/custom
@@ -935,65 +936,65 @@ CDN:
   third_party_provider: jsdelivr
 
   # Add version number to url, true or false
-  version: false
+  version: true
 
   # Custom format
   # For example: https://cdn.staticfile.org/${cdnjs_name}/${version}/${min_cdnjs_file}
   custom_format:
 
   option:
-# abcjs_basic_js:
-# activate_power_mode:
-# algolia_js:
-# algolia_search:
-# aplayer_css:
-# aplayer_js:
-# artalk_css:
-# artalk_js:
-# blueimp_md5:
-# busuanzi:
-# canvas_fluttering_ribbon:
-# canvas_nest:
-# canvas_ribbon:
-# click_heart:
-# clickShowText:
-# disqusjs:
-# disqusjs_css:
-# docsearch_css:
-# docsearch_js:
-# egjs_infinitegrid:
-# fancybox:
-# fancybox_css:
-# fireworks:
-# fontawesome:
-# gitalk:
-# gitalk_css:
-# giscus:
-# instantpage:
-# instantsearch:
-# katex:
-# katex_copytex:
-# lazyload:
-# local_search:
-# main:
-# main_css:
-# mathjax:
-# medium_zoom:
-# mermaid:
-# meting_js:
-# pangu:
-# prismjs_autoloader:
-# prismjs_js:
-# prismjs_lineNumber_js:
-# pjax:
-# sharejs:
-# sharejs_css:
-# snackbar:
-# snackbar_css:
-# translate:
-# twikoo:
-# typed:
-# utils:
-# valine:
-# waline_css:
-# waline_js:
+    # abcjs_basic_js:
+    # activate_power_mode:
+    # algolia_js:
+    # algolia_search:
+    # aplayer_css:
+    # aplayer_js:
+    # artalk_css:
+    # artalk_js:
+    # blueimp_md5:
+    # busuanzi:
+    # canvas_fluttering_ribbon:
+    # canvas_nest:
+    # canvas_ribbon:
+    # click_heart:
+    # clickShowText:
+    # disqusjs:
+    # disqusjs_css:
+    # docsearch_css:
+    # docsearch_js:
+    # egjs_infinitegrid:
+    # fancybox:
+    # fancybox_css:
+    # fireworks:
+    # fontawesome:
+    # gitalk:
+    # gitalk_css:
+    # giscus:
+    # instantpage:
+    # instantsearch:
+    # katex:
+    # katex_copytex:
+    # lazyload:
+    # local_search:
+    # main:
+    # main_css:
+    # mathjax:
+    # medium_zoom:
+    # mermaid:
+    # meting_js:
+    # pangu:
+    # prismjs_autoloader:
+    # prismjs_js:
+    # prismjs_lineNumber_js:
+    # pjax:
+    # sharejs:
+    # sharejs_css:
+    # snackbar:
+    # snackbar_css:
+    # translate:
+    # twikoo:
+    # typed:
+    # utils:
+    # valine:
+    # waline_css:
+    # waline_js:
