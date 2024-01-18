@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "hexo generate",
 		"c": "hexo clean",
-		"s": "hexo server",
+		"s": "hexo clean && hexo server",
 		"f": "prettier --write ."
 	},
 	"hexo": {
@@ -21,10 +21,9 @@
 		"hexo-renderer-marked": "^6.2.0",
 		"hexo-renderer-pug": "^3.0.0",
 		"hexo-renderer-stylus": "^3.0.1",
-		"hexo-server": "^3.0.0",
-		"hexo-theme-butterfly": "^4.12.0"
+		"hexo-server": "^3.0.0"
 	},
 	"devDependencies": {
-		"prettier": "^3.2.2"
+		"prettier": "^3.2.4"
 	}
 }

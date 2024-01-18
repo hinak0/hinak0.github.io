@@ -97,8 +97,8 @@ cover:
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
-  flink:
-  post_page:
+  flink: /img/friend_404.gif
+  post_page: /img/404.jpg
 
 # A simple 404 page
 error_404:
