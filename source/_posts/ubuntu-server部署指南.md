@@ -2,7 +2,7 @@
 title: Ubuntu server部署指南
 date: 2022-12-05
 categories:
-  - 通信網
+  - 搞机
 ---
 
 ## 路由器必须有的3个功能

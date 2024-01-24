@@ -1,7 +1,7 @@
 ---
 title: ArchLinux安装与配置
 categories:
-  - uncategorized
+  - 搞机
 date: 2024-01-23 15:31:09
 tags:
 cover: images/20240123-153638.png
@@ -26,12 +26,15 @@ wget https://geo.mirror.pkgbuild.com/iso/2024.01.01/b2sums.txt
 # check
 b2sum -c b2sums.txt
 
+# write in udisk
 cat path/to/archlinux-version-x86_64.iso > /dev/disk/by-id/usb-My_flash_drive
 ```
 
 然后插上U盘，切换到主板的引导界面
 
 ### 启动盘系统的配置
+
+从u盘启动后会进入一个shell，这是启动盘的系统，运行在ram，所作的配置重启后会消失。
 
 ```bash
 timedatectl set-ntp true
@@ -43,14 +46,13 @@ pacman -Sy pacman-mirrorlist
 
 ### 硬盘分区&挂载
 
-从u盘启动后会进入一个shell，这是启动盘的系统，运行在ram，所作的配置重启后会消失。
-
 ```bash
 lsblk -l
+
+# 使用cfdisk进行分区，考虑到设备硬盘本身太过老旧，不设置swap分区
 cfdisk /dev/sda
 
-# 考虑到设备硬盘本身太过老旧，不设置swap分区
-
+# 格式化分区
 # EFI分区
 mkfs.fat -F32 /dev/sda1
 # root分区
@@ -66,7 +68,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ### 系统预设
 
 ```bash
-
 # 安装内核与基本软件
 pacstrap -K /mnt base linux linux-firmware
 
@@ -102,7 +103,7 @@ reboot
 1. 退出u盘系统后发现启动失败不要慌，插上u盘后重新挂载硬盘，进入启动盘系统操作。
 2. networkmanager需要提前装好，不然装好的系统没法联网
 
-## 安装桌面
+## 安装桌面（可选）
 
 ```bash
 pacman -S xorg xorg-xinit gnome

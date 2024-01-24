@@ -2,7 +2,7 @@
 title: windows开启ipv6外部访问
 date: 2022-09-07
 categories:
-  - 通信網
+  - 搞机
 ---
 
 ## ipv6特点
