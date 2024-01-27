@@ -306,7 +306,7 @@ exit
 ### 注册账户
 
 ```bash
-sudo useradd -d /var/local/clash -r clash
+sudo useradd -d /var/local/clash -s /usr/bin/nologin -r clash
 ```
 
 ### 注册clash为服务

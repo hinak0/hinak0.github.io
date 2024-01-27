@@ -61,6 +61,9 @@ mkfs.ext4 /dev/sda2
 mount /dev/sda2 /mnt
 mount --mkdir /dev/sda1 /mnt/boot
 
+# 安装内核与基本软件
+pacstrap -K /mnt base linux linux-firmware
+
 # 生成分区表
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
@@ -68,9 +71,6 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ### 系统预设
 
 ```bash
-# 安装内核与基本软件
-pacstrap -K /mnt base linux linux-firmware
-
 # 切换到真正的系统
 arch-chroot /mnt
 
@@ -80,14 +80,27 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 # 硬件时间
 hwclock --systohc
 
-# 安装软件
-pacman -S vim grub efibootmgr intel-ucode networkmanager
+# 安装自定义软件
+pacman -S vim grub efibootmgr intel-ucode networkmanager openssh zsh git
 
+# 语言
 vim /etc/locale.gen
 locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+# 主机名与密码
+echo "j1900" > /etc/hostname
+passwd
+```
+
+### 安装引导(GRUB)
+
+```bash
 
 # 写入grub
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=ARCH
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+# 部分主板：https://wiki.archlinuxcn.org/wiki/GRUB#缺省/后备启动路径
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
 
 # 配置&生成grub.cfg
 vim /etc/default/grub
@@ -96,6 +109,33 @@ grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount -R /mnt
 reboot
+```
+
+### 配置zsh(可选)
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# 写入.zshrc
+plugins=(
+    # other plugins...
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+```
+
+### 配置ssh
+
+```bash
+# 生成密钥
+ssh-keygen
+
+# 加入公钥
+cat key.pub > ~/.ssh/authorized_keys
 ```
 
 ## 注意
