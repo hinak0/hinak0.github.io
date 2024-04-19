@@ -1,0 +1,6 @@
+services:
+  one_note:
+    image: hinak0/one_note
+    ports:
+      - "80:80"
+    restart: always
