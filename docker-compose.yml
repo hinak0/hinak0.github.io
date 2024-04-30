@@ -1,6 +1,10 @@
 services:
   one_note:
-    image: hinak0/one_note
+    image: hinak0/pages:latest
+    environment:
+      REPOSITORY: https://github.com/hinak0/hinak0.github.io.git
+      BRANCH: gh-pages
+      INTERVAL: 300
     ports:
       - "80:80"
     restart: always
