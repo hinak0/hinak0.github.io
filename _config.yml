@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: ONE NOTE
-subtitle: "Rage, rage against the dying of the light."
-description: "Recording personal notes, covering various aspects."
-keywords: ["technology", "program", "japanese", "network"]
-author: hinak0
+title: My Blog
+subtitle: "A personal blog."
+description: "Recording personal notes."
+keywords: ["technology", "program"]
+author: author
 language: en
 timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://hinak0.github.io/
+url: https://example.github.io/
 permalink: :year/:month/:title/
 permalink_defaults:
 pretty_urls:

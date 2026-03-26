@@ -3,12 +3,9 @@ title: About Me
 date: 2023-03-08 23:39:38
 ---
 
-## Contact Me
+## About This Blog
 
-| -              | -             |
-| -------------- | ------------- |
-| Phone & Wechat | 13177460215   |
-| Email          | hinak0@qq.com |
+This is a personal blog built with Hexo and Butterfly theme.
 
 <!-- ## Online Resume
 
