@@ -22,10 +22,10 @@
 		"hexo-renderer-pug": "^3.0.0",
 		"hexo-renderer-stylus": "^3.0.1",
 		"hexo-server": "^3.0.0",
-		"hexo-theme-butterfly": "^5.5.2",
-		"hexo-theme-next": "^8.26.0",
+		"hexo-theme-butterfly": "^5.5.4",
+		"hexo-theme-next": "^8.27.0",
 		"hexo-uglify": "^2.0.0",
-		"prettier": "^3.6.2"
+		"prettier": "^3.8.1"
 	},
 	"hexo": {
 		"version": "8.1.1"
