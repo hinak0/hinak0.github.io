@@ -21,3 +21,17 @@ cover:
 
 黑暗中，没有 bug，只有还没被发现的 bug。
 
+---
+
+## English Version
+
+Someone asked a programmer: "Why do you love dark mode so much?"
+
+The programmer replied without looking up: "Because light attracts bugs."
+
+---
+
+Dark mode is more than eye protection — it's a philosophy.
+
+In the darkness, there are no bugs. Only bugs that haven't been found yet.
+
