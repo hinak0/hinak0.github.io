@@ -45,8 +45,6 @@ relative_link: false
 future: true
 syntax_highlighter: highlight.js
 highlight:
-  # To address the issue of syntax highlighting not working for the next theme.
-  enable: true
   auto_detect: false
   line_number: true
   line_threshold: 0
